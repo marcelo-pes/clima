@@ -145,12 +145,14 @@ function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
   return target;
 }
 
-async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>) {
+async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>, source: "auto" | "database" | "api" | "refresh" = "auto") {
   // A day/range/callback combination has a stable key across visitors. Recent
   // ranges refresh after five minutes; closed historical ranges remain cached.
   const key = [mac, range.cycle, callbacks, utcDate(start).slice(0, 10), utcDate(end).slice(0, 10)].join("|");
-  const stored = await readWeatherHistory(key);
+  const recent = end.getTime() >= Date.now() - 2 * 86400000;
+  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, source === "database" || !recent ? Infinity : 300000);
   if (stored) return stored;
+  if (source === "database") throw new Error("Histórico ainda não importado para o banco");
   // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
   // week, 4-hour queries to a month, and daily queries to a year.
   const chunkMs = range.days === 365 ? 365 * 86400000 : range.days === 30 ? 7 * 86400000 : range.days === 7 ? 2 * 86400000 : 86400000;
@@ -178,17 +180,61 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
   }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
   const incomplete = results.some((result) => result.status === "rejected");
-  if (!incomplete && results.length && Object.keys(data).length) {
+  if (source !== "api" && !incomplete && results.length && Object.keys(data).length) {
     const closed = end.getTime() < Date.now() - 2 * 86400000;
-    await saveWeatherHistory(key, data, Date.now() + (closed ? 10 * 365 : 5 / 1440) * 86400000);
+    await saveWeatherHistory(key, data, Date.now() + (closed || source === "refresh" ? 10 * 365 : 5 / 1440) * 86400000);
   }
-  return { data, incomplete };
+  return { data, incomplete, updatedAt: Date.now(), origin: "api" as const };
 }
 
 function numericMetric(item: EcowittMetric | null) {
   const reading = cleanMetric(item);
   const number = Number(reading?.value);
   return Number.isFinite(number) ? number : null;
+}
+
+export async function archiveWeather() {
+  const applicationKey = env.ECOWITT_APPLICATION_KEY;
+  const apiKey = env.ECOWITT_API_KEY;
+  if (!applicationKey || !apiKey) throw new Error("Credenciais Ecowitt ausentes");
+  const auth = { application_key: applicationKey, api_key: apiKey };
+  let mac = env.ECOWITT_MAC;
+  if (!mac) {
+    const devices = findDevices((await ecowitt("/device/list", auth)).data);
+    const selected = devices.find((device) => String(device.id) === String(env.ECOWITT_DEVICE_ID ?? "251816")) ?? devices[0];
+    mac = typeof selected?.mac === "string" ? selected.mac : undefined;
+  }
+  if (!mac) throw new Error("Estação Ecowitt ausente");
+  const units = { temp_unitid: "1", pressure_unitid: "3", wind_speed_unitid: "7", rainfall_unitid: "12", solar_irradiance_unitid: "16" };
+  const callbacks = "outdoor,indoor,pressure,wind,solar_and_uvi,rainfall,rainfall_piezo,lightning,battery";
+  const end = new Date();
+  const day = end.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+  const midnight = new Date(`${day}T00:00:00-03:00`);
+  const imported: string[] = [];
+  let incomplete = false;
+  for (const rangeKey of ["24h", "7d", "30d", "1y"] as RangeKey[]) {
+    const range = RANGES[rangeKey];
+    const start = new Date(midnight.getTime() - (range.days - 1) * 86400000);
+    try {
+      const result = await fetchHistory(auth, mac, start, end, range, callbacks, units, "refresh");
+      if (result.incomplete || !Object.keys(result.data).length) incomplete = true;
+      else imported.push(rangeKey);
+    } catch { incomplete = true; }
+  }
+  // Calendar-year snapshots preserve older daily records that the rolling
+  // one-year graph no longer includes. Stop once Ecowitt has no older records.
+  for (let year = Number(day.slice(0, 4)) - 1; year >= Number(day.slice(0, 4)) - 20; year--) {
+    const start = new Date(`${year}-01-01T00:00:00-03:00`);
+    const finish = new Date(`${year + 1}-01-01T00:00:00-03:00`);
+    try {
+      const result = await fetchHistory(auth, mac, start, finish, RANGES["1y"], callbacks, units);
+      if (result.incomplete) { incomplete = true; break; }
+      const hasReadings = Object.values(asObject(result.data)).some((group) => Object.values(asObject(group)).some((sensor) => Object.keys(asObject(asObject(sensor).list)).length > 0));
+      if (!hasReadings) break;
+      imported.push(String(year));
+    } catch { incomplete = true; break; }
+  }
+  return { date: day, imported, incomplete };
 }
 
 function localWeatherInsight(data: unknown, rain: (name: string) => string[][]): WeatherInsight {
@@ -321,6 +367,8 @@ export async function GET(request: Request) {
     const solarOnly = requestUrl.searchParams.get("view") === "solar";
     const rangeKey: RangeKey = requestedRange && requestedRange in RANGES ? requestedRange : "24h";
     const range = RANGES[rangeKey];
+    const requestedSource = requestUrl.searchParams.get("source");
+    const historySource = requestedSource === "database" || requestedSource === "api" ? requestedSource : "auto";
     const applicationKey = env.ECOWITT_APPLICATION_KEY;
     const apiKey = env.ECOWITT_API_KEY;
     if (!applicationKey || !apiKey) throw new Error("Credenciais ausentes");
@@ -352,7 +400,7 @@ export async function GET(request: Request) {
     // The generation dashboard needs only raw irradiance. Keep this lean path
     // independent from the station's live readings, forecasts and lightning.
     if (solarOnly) {
-      const history = await fetchHistory(auth, mac, start, now, range, "solar_and_uvi", units);
+      const history = await fetchHistory(auth, mac, start, now, range, "solar_and_uvi", units, historySource);
       return Response.json({ history: { solar: series(history.data, [["solar_and_uvi", "solar"]], range.maxPoints) }, historyIncomplete: history.incomplete }, { headers: { "Cache-Control": "private, max-age=300" } });
     }
     const callbacks = "outdoor,indoor,pressure,wind,solar_and_uvi,rainfall,rainfall_piezo,lightning,battery";
@@ -360,7 +408,7 @@ export async function GET(request: Request) {
       extrasOnly
         ? ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }).catch(() => ({ data: {}, time: undefined }))
         : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
-      summaryOnly ? Promise.resolve({ data: {}, incomplete: false }) : fetchHistory(auth, mac, start, now, range, callbacks, units),
+      summaryOnly ? Promise.resolve({ data: {}, incomplete: false, updatedAt: 0, origin: "api" as const }) : fetchHistory(auth, mac, start, now, range, callbacks, units, historySource),
     ]);
 
     const data = live.data;
@@ -432,6 +480,8 @@ export async function GET(request: Request) {
       updatedAt: temperature?.time ? temperature.time * 1000 : Number(live.time) * 1000 || Date.now(),
       range: rangeKey,
       historyIncomplete: history.incomplete,
+      historySource: history.origin,
+      historyStoredAt: history.updatedAt,
       metrics: {
         temperature,
         feelsLike: cleanMetric(metric(data, [["outdoor", "feels_like"], ["outdoor", "app_temp"]])),

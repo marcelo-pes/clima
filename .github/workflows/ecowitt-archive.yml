@@ -1,0 +1,30 @@
+name: Arquivo Ecowitt
+
+on:
+  schedule:
+    # 02:59 UTC = 23:59 em Bauru (UTC-3).
+    - cron: "59 2 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/ecowitt-archive.yml"]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Atualizar arquivo meteorológico
+        shell: bash
+        run: |
+          set -euo pipefail
+          token=$(curl --fail --silent --show-error \
+            -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https%3A%2F%2Fclima.antaisolar.com.br%2Fapi%2Fweather%2Farchive" | jq -er '.value')
+          curl --fail --silent --show-error --retry 2 --retry-all-errors --max-time 240 \
+            -X POST -H "Authorization: Bearer ${token}" \
+            "https://clima.antaisolar.com.br/api/weather/archive"

@@ -38,7 +38,7 @@ type Reading = { value: number | string; unit: string; time: number | null } | n
 type Point = { time: number; value: number };
 type Series = { unit: string; points: Point[] };
 type LightningTotal = { value: number | null; start: string; end: string; recordedDays: number; expectedDays: number };
-type WeatherData = {
+export type WeatherData = {
   station: { name: string; location: string; deviceId: string; gateway: string; latitude: number; longitude: number };
   forecast?: { temperature: number; apparentTemperature: number; weatherCode: number; sunrise: string; sunset: string; source?: string } | null;
   insight?: { condition: { key: string; label: string; confidence: number | null }; alert: { key: "normal" | "attention" | "alert"; label: string; confidence: number | null }; source: "Jev" | "Regras locais"; evaluatedAt: number } | null;
@@ -47,6 +47,8 @@ type WeatherData = {
   updatedAt: number;
   range: RangeKey;
   historyIncomplete?: boolean;
+  historySource?: "database" | "api";
+  historyStoredAt?: number;
   metrics: Record<string, Reading>;
   history: Record<string, Series>;
 };
@@ -69,7 +71,7 @@ function WeatherStationMark() {
 }
 const CARDINAL = ["N", "NE", "L", "SE", "S", "SO", "O", "NO"];
 const CARDINAL_16 = ["N", "NNE", "NE", "ENE", "L", "ESE", "SE", "SSE", "S", "SSO", "SO", "OSO", "O", "ONO", "NO", "NNO"];
-const GROUPS: Record<GroupKey, { label: string; lines: { key: string; label: string; color: string; digits?: number }[] }> = {
+export const GROUPS: Record<GroupKey, { label: string; lines: { key: string; label: string; color: string; digits?: number }[] }> = {
   outdoor: { label: "Ambiente externo", lines: [{ key: "temperature", label: "Temperatura", color: "#fbbf24", digits: 1 }, { key: "feelsLike", label: "Sensação", color: "#38bdf8", digits: 1 }, { key: "dewPoint", label: "Ponto de orvalho", color: "#84cc16", digits: 1 }, { key: "humidity", label: "Umidade", color: "#c4e67a" }, { key: "vpd", label: "VPD", color: "#fb873e", digits: 3 }] },
   indoor: { label: "Ambiente interno", lines: [{ key: "indoorTemperature", label: "Temperatura", color: "#fbbf24", digits: 1 }, { key: "indoorFeelsLike", label: "Sensação", color: "#38bdf8", digits: 1 }, { key: "indoorDewPoint", label: "Ponto de orvalho", color: "#84cc16", digits: 1 }, { key: "indoorHumidity", label: "Umidade", color: "#c4e67a" }] },
   solar: { label: "Solar e UV", lines: [{ key: "solar", label: "Radiação solar", color: "#f59e0b", digits: 1 }, { key: "uv", label: "Índice UV", color: "#8ee56b" }] },
@@ -321,7 +323,7 @@ function HistoryChart({ title, subtitle, history, range, lines, variant = "line"
   </article>;
 }
 
-function LightningChart({ history, range }: { history: Record<string, Series>; range: RangeKey }) {
+export function LightningChart({ history, range }: { history: Record<string, Series>; range: RangeKey }) {
   const chartData = useMemo(() => {
     const rows = buildChartData(history, ["lightning", "lightningCount"]);
     let previousCount: number | null = null;
@@ -344,7 +346,7 @@ function ExtremumPin({ cx = 0, cy = 0, value, color }: { cx?: number; cy?: numbe
   return <g transform={`translate(${cx} ${cy})`} className="extremum-pin"><path d="M0 0 L-6 -8 C-14 -18 -8 -32 0 -32 C8 -32 14 -18 6 -8 Z" fill={color} /><text x="0" y="-17" textAnchor="middle" dominantBaseline="middle" fill="#fff" fontSize="9" fontWeight="700">{label}</text></g>;
 }
 
-function EcowittSeriesChart({ title, history, lines, areaKey, range }: { title: string; history: Record<string, Series>; lines: { key: string; label: string; color: string }[]; areaKey?: string; range: RangeKey }) {
+export function EcowittSeriesChart({ title, history, lines, areaKey, range }: { title: string; history: Record<string, Series>; lines: { key: string; label: string; color: string }[]; areaKey?: string; range: RangeKey }) {
   const chartData = useMemo(() => buildChartData(history, lines.map((line) => line.key)), [history, lines]);
   const extrema = lines.filter((line) => line.key !== "windDirection" && !line.key.startsWith("rain")).map((line) => { const points = history[line.key]?.points ?? []; if (!points.length) return null; const minimum = points.reduce((best, point) => point.value < best.value ? point : best); const maximum = points.reduce((best, point) => point.value > best.value ? point : best); return { ...line, minimum, maximum, average: seriesAverage(points), unit: history[line.key]?.unit || "" }; }).filter(Boolean) as { key: string; label: string; color: string; minimum: Point; maximum: Point; average: number | null; unit: string }[];
   const axisUnits = [...new Set(lines.map((line) => history[line.key]?.unit || line.key))];

@@ -214,3 +214,8 @@ button,a { font:inherit; }
 .sun-event-icon { display:inline-block; flex:none; width:13px; height:7px; }
 .sun-event-icon.sunrise { border-radius:10px 10px 0 0; background:#ff883c; }
 .sun-event-icon.sunset { border-radius:0 0 10px 10px; background:#d96755; }
+.confere-shell { min-height:100vh; padding:24px; color:#eaf2f5; background:#0d1a22; }
+.confere-header { margin-bottom:20px; }.confere-header a { color:#63d7e8; }.confere-header h1 { margin:16px 0 4px; }.confere-header p { color:#a9bec8; }
+.confere-controls { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; }.confere-controls label { display:grid; gap:6px; color:#bfd0d8; }.confere-controls select,.confere-controls input { min-height:40px; padding:7px 12px; border:1px solid #4e6571; border-radius:4px; color:#fff; background:#182c37; }
+.confere-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }.confere-column { min-width:0; display:grid; align-content:start; gap:14px; }.confere-column h2 { margin:0; padding:14px; border:1px solid #385161; background:#17303d; }.confere-column>p { margin:0; color:#a9bec8; }.confere-alert { padding:15px; border:1px solid #8c4750; border-radius:4px; color:#f4c8c9!important; background:#2b2029; }
+@media(max-width:950px) { .confere-grid { grid-template-columns:1fr; }.confere-shell { padding:12px; } }

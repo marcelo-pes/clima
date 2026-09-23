@@ -1,16 +1,16 @@
 import { env } from "cloudflare:workers";
 
-type StoredHistory = { data: Record<string, unknown>; incomplete: boolean };
+type StoredHistory = { data: Record<string, unknown>; incomplete: boolean; updatedAt: number; origin: "database" };
 
-export async function readWeatherHistory(key: string): Promise<StoredHistory | null> {
+export async function readWeatherHistory(key: string, maxAgeMs = Infinity): Promise<StoredHistory | null> {
   try {
     const db = env.DB;
     if (!db) return null;
-    const row = await db.prepare("SELECT payload FROM weather_history WHERE key = ? AND expires_at > ?")
-      .bind(key, Date.now()).first<{ payload: string }>();
-    if (!row) return null;
+    const row = await db.prepare("SELECT payload, updated_at FROM weather_history WHERE key = ? AND expires_at > ?")
+      .bind(key, Date.now()).first<{ payload: string; updated_at: number }>();
+    if (!row || Date.now() - row.updated_at > maxAgeMs) return null;
     const data = JSON.parse(row.payload) as Record<string, unknown>;
-    return { data, incomplete: false };
+    return { data, incomplete: false, updatedAt: row.updated_at, origin: "database" };
   } catch (error) {
     console.error("Falha ao ler o histórico armazenado", error);
     return null;
