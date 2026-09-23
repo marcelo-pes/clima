@@ -262,7 +262,8 @@ export async function GET(request: Request) {
     const requestedRange = requestUrl.searchParams.get("range") as RangeKey | null;
     const requestedDate = requestUrl.searchParams.get("date");
     const view = requestUrl.searchParams.get("view");
-    const summaryOnly = view === "summary";
+    const extrasOnly = view === "extras";
+    const summaryOnly = view === "summary" || extrasOnly;
     const historyOnly = view === "history";
     const fullDashboard = !summaryOnly && !historyOnly;
     const solarOnly = requestUrl.searchParams.get("view") === "solar";
@@ -327,7 +328,7 @@ export async function GET(request: Request) {
     // melhora a precisão e adiciona uma dependência externa à tela inicial.
     const stationLatitude = -22.39547;
     const stationLongitude = -49.07818;
-    const climatempoForecastPromise = summaryOnly ? fetch("https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/406/bauru-sp", { headers: { Accept: "text/html", "User-Agent": "Mozilla/5.0" }, signal: AbortSignal.timeout(2500) })
+    const climatempoForecastPromise = extrasOnly ? fetch("https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/406/bauru-sp", { headers: { Accept: "text/html", "User-Agent": "Mozilla/5.0" }, signal: AbortSignal.timeout(2500) })
       .then(async (response) => {
         if (!response.ok) return null;
         const html = await response.text();
@@ -339,7 +340,7 @@ export async function GET(request: Request) {
         const today = new Date().toISOString().slice(0, 10);
         return { temperature: Number(current[1]), apparentTemperature: Number(current[4]), weatherCode, sunrise: sun ? `${today}T${sun[1]}:00-03:00` : "", sunset: sun ? `${today}T${sun[2]}:00-03:00` : "", source: "Climatempo" };
       }).catch(() => null) : Promise.resolve(null);
-    const openMeteoForecastPromise = summaryOnly ? fetch(`https://api.open-meteo.com/v1/forecast?latitude=${stationLatitude}&longitude=${stationLongitude}&current=temperature_2m,apparent_temperature,weather_code&daily=sunrise,sunset&timezone=America%2FSao_Paulo&forecast_days=1`, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(4000) })
+    const openMeteoForecastPromise = extrasOnly ? fetch(`https://api.open-meteo.com/v1/forecast?latitude=${stationLatitude}&longitude=${stationLongitude}&current=temperature_2m,apparent_temperature,weather_code&daily=sunrise,sunset&timezone=America%2FSao_Paulo&forecast_days=1`, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(4000) })
       .then(async (response) => {
         if (!response.ok) return null;
         const payload = await response.json() as { current?: Record<string, number>; daily?: Record<string, string[]> };
@@ -367,7 +368,10 @@ export async function GET(request: Request) {
     const lightningBatteryPaths = [...battery("wh57"), ...battery("wh57_battery"), ...battery("lightning"), ...battery("lightning_sensor"), ...battery("lightning_sensor_battery"), ...battery("lightning_battery")];
     // A decisão é independente da série dos gráficos e fica em cache por cinco
     // minutos. Caso a IA não responda, a estação continua normal com regras locais.
-    const insight = isCurrentObservation ? await weatherInsight(data, rain) : null;
+    const insight = extrasOnly && isCurrentObservation ? await weatherInsight(data, rain) : null;
+    if (extrasOnly) {
+      return Response.json({ forecast, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
+    }
 
     const response = Response.json({
       station: {
