@@ -16,9 +16,9 @@ type WeatherInsight = {
 const API_BASE = "https://api.ecowitt.net/api/v3";
 const RANGES: Record<RangeKey, { days: number; cycle: string; maxPoints: number }> = {
   "24h": { days: 1, cycle: "5min", maxPoints: 288 },
-  "7d": { days: 7, cycle: "5min", maxPoints: 2016 },
-  "30d": { days: 30, cycle: "5min", maxPoints: 8640 },
-  "1y": { days: 365, cycle: "4hour", maxPoints: 365 },
+  "7d": { days: 7, cycle: "30min", maxPoints: 336 },
+  "30d": { days: 30, cycle: "4hour", maxPoints: 180 },
+  "1y": { days: 365, cycle: "1day", maxPoints: 370 },
 };
 let weatherInsightCache: { expires: number; insight: WeatherInsight } | null = null;
 
@@ -133,6 +133,36 @@ function utcDate(date: Date) {
   return date.toISOString().slice(0, 19).replace("T", " ");
 }
 
+function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
+  for (const [key, value] of Object.entries(source)) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      target[key] = mergeHistory(asObject(target[key]), value as JsonObject);
+    } else {
+      target[key] = value;
+    }
+  }
+  return target;
+}
+
+async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>) {
+  // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
+  // week, 4-hour queries to a month, and daily queries to a year.
+  const chunkMs = range.days === 365 ? 365 * 86400000 : range.days === 30 ? 7 * 86400000 : range.days === 7 ? 2 * 86400000 : 86400000;
+  const windows: { start: Date; end: Date }[] = [];
+  for (let cursor = start.getTime(); cursor < end.getTime(); cursor += chunkMs) {
+    windows.push({ start: new Date(cursor), end: new Date(Math.min(cursor + chunkMs, end.getTime())) });
+  }
+  const results: PromiseSettledResult<JsonObject>[] = [];
+  for (let index = 0; index < windows.length; index += 3) {
+    results.push(...await Promise.allSettled(windows.slice(index, index + 3).map((window) => ecowitt("/device/history", {
+      ...auth, mac, start_date: utcDate(window.start), end_date: utcDate(window.end),
+      cycle_type: range.cycle, call_back: callbacks, ...units,
+    }))));
+  }
+  const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
+  return { data, incomplete: results.some((result) => result.status === "rejected") };
+}
+
 function numericMetric(item: EcowittMetric | null) {
   const reading = cleanMetric(item);
   const number = Number(reading?.value);
@@ -209,7 +239,7 @@ async function weatherInsight(data: unknown, rain: (name: string) => string[][])
     const alertKey = payload.answers?.alert?.choice;
     const conditionLabels = { stable: "Condições estáveis", rain: "Chuva em curso", strong_wind: "Vento forte", high_uv: "UV elevado", lightning: "Atividade elétrica próxima", mixed: "Condições combinadas" } as const;
     const alertLabels = { normal: "Normal", attention: "Atenção", alert: "Alerta" } as const;
-    if (!(conditionKey in conditionLabels) || !(alertKey in alertLabels)) return fallback;
+    if (!conditionKey || !alertKey || !(conditionKey in conditionLabels) || !(alertKey in alertLabels)) return fallback;
     const insight: WeatherInsight = {
       condition: { key: conditionKey as WeatherInsight["condition"]["key"], label: conditionLabels[conditionKey as keyof typeof conditionLabels], confidence: payload.answers?.condition?.confidence ?? null },
       alert: { key: alertKey as WeatherInsight["alert"]["key"], label: alertLabels[alertKey as keyof typeof alertLabels], confidence: payload.answers?.alert?.confidence ?? null },
@@ -300,24 +330,15 @@ export async function GET(request: Request) {
     // The generation dashboard needs only raw irradiance. Keep this lean path
     // independent from the station's live readings, forecasts and lightning.
     if (solarOnly) {
-      const history = await ecowitt("/device/history", {
-        ...auth, mac, start_date: utcDate(start), end_date: utcDate(now), cycle_type: range.cycle,
-        call_back: "solar_and_uvi", ...units,
-      });
-      return Response.json({ history: { solar: series(history.data, [["solar_and_uvi", "solar"]], range.maxPoints) } }, { headers: { "Cache-Control": "private, max-age=300" } });
+      const history = await fetchHistory(auth, mac, start, now, range, "solar_and_uvi", units);
+      return Response.json({ history: { solar: series(history.data, [["solar_and_uvi", "solar"]], range.maxPoints) }, historyIncomplete: history.incomplete }, { headers: { "Cache-Control": "private, max-age=300" } });
     }
     const callbacks = "outdoor,indoor,pressure,wind,solar_and_uvi,rainfall,rainfall_piezo,lightning,battery";
     const [live, history] = await Promise.all([
-      ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
-      summaryOnly ? Promise.resolve({ data: {} }) : ecowitt("/device/history", {
-        ...auth,
-        mac,
-        start_date: utcDate(start),
-        end_date: utcDate(now),
-        cycle_type: range.cycle,
-        call_back: callbacks,
-        ...units,
-      }).catch(() => ({ data: {} })),
+      extrasOnly
+        ? ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }).catch(() => ({ data: {}, time: undefined }))
+        : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
+      summaryOnly ? Promise.resolve({ data: {}, incomplete: false }) : fetchHistory(auth, mac, start, now, range, callbacks, units),
     ]);
 
     const data = live.data;
@@ -368,7 +389,7 @@ export async function GET(request: Request) {
     const lightningBatteryPaths = [...battery("wh57"), ...battery("wh57_battery"), ...battery("lightning"), ...battery("lightning_sensor"), ...battery("lightning_sensor_battery"), ...battery("lightning_battery")];
     // A decisão é independente da série dos gráficos e fica em cache por cinco
     // minutos. Caso a IA não responda, a estação continua normal com regras locais.
-    const insight = extrasOnly && isCurrentObservation ? await weatherInsight(data, rain) : null;
+    const insight = extrasOnly && isCurrentObservation && Object.keys(asObject(data)).length ? await weatherInsight(data, rain) : null;
     if (extrasOnly) {
       return Response.json({ forecast, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
     }
@@ -388,6 +409,7 @@ export async function GET(request: Request) {
       uvMaxima: { daily: uvMaximum(uvWindows[0].data), monthly: uvMaximum(uvWindows[1].data), annual: uvMaximum(uvWindows[2].data) },
       updatedAt: temperature?.time ? temperature.time * 1000 : Number(live.time) * 1000 || Date.now(),
       range: rangeKey,
+      historyIncomplete: history.incomplete,
       metrics: {
         temperature,
         feelsLike: cleanMetric(metric(data, [["outdoor", "feels_like"], ["outdoor", "app_temp"]])),

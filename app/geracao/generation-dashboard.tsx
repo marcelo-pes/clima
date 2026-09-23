@@ -2,7 +2,7 @@
 
 import { ArrowLeft, BarChart3, CloudSun, Download, History, LoaderCircle, LogOut, PlugZap, RefreshCw, Table2, Upload } from "lucide-react";
 import { Area, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type RangeKey = "24h" | "7d" | "30d" | "1y";
 type Point = { time: number; value: number };
@@ -20,7 +20,7 @@ const total = (points?: Point[]) => points?.reduce((sum, point) => sum + point.v
 const dateKey = (time: number, range: RangeKey) => new Intl.DateTimeFormat("en-CA", { ...zone, year: "numeric", month: "2-digit", ...(range === "1y" ? {} : { day: "2-digit" }) }).format(new Date(time));
 const startOfBucket = (key: string) => Date.parse(`${key}${key.length === 7 ? "-01" : ""}T00:00:00-03:00`);
 
-function axisTick({ x = 0, y = 0, payload, range }: { x?: number; y?: number; payload?: { value: number }; range: RangeKey }) {
+function axisTick({ x = 0, y = 0, payload, range }: { x?: number | string; y?: number | string; payload?: { value: number }; range: RangeKey }) {
   const date = new Date(Number(payload?.value));
   if (!Number.isFinite(date.getTime())) return null;
   const label = range === "24h" ? date.toLocaleTimeString("pt-BR", { ...zone, hour: "2-digit", minute: "2-digit" }) : range === "1y" ? date.toLocaleDateString("pt-BR", { ...zone, month: "short" }) : date.toLocaleDateString("pt-BR", { ...zone, day: "2-digit", month: "2-digit" });
@@ -35,7 +35,26 @@ export default function GenerationDashboard({ userName }: { userName: string }) 
   const [generation, setGeneration] = useState<GenerationResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const load = useCallback(async (quiet = false) => { if (quiet) setRefreshing(true); else setLoading(true); try { const [weatherResult, generationResult] = await Promise.all([fetch(`/api/weather?range=${range}&view=solar`), fetch(`/api/generation?range=${range}`)]); if (weatherResult.ok) setWeather(await weatherResult.json() as WeatherResponse); const generationBody = await generationResult.json() as GenerationResponse; setGeneration(generationResult.ok ? generationBody : { connected: false, message: generationBody.message ?? "Não foi possível carregar os dados da APsystems." }); } finally { setLoading(false); setRefreshing(false); } }, [range]);
+  const requestId = useRef(0);
+  const load = useCallback(async (quiet = false) => {
+    const id = ++requestId.current;
+    if (quiet) setRefreshing(true); else setLoading(true);
+    try {
+      const [weatherResult, generationResult] = await Promise.all([fetch(`/api/weather?range=${range}&view=solar`), fetch(`/api/generation?range=${range}`)]);
+      const weatherBody = weatherResult.ok ? await weatherResult.json() as WeatherResponse : null;
+      const generationBody = await generationResult.json() as GenerationResponse;
+      if (id !== requestId.current) return;
+      setWeather(weatherBody);
+      setGeneration(generationResult.ok ? generationBody : { connected: false, message: generationBody.message ?? "Não foi possível carregar os dados da APsystems." });
+    } catch {
+      if (id === requestId.current) {
+        setWeather(null);
+        setGeneration({ connected: false, message: "Não foi possível consultar os dados de energia. Tente atualizar novamente." });
+      }
+    } finally {
+      if (id === requestId.current) { setLoading(false); setRefreshing(false); }
+    }
+  }, [range]);
   useEffect(() => { load(); }, [load]);
   const rows = useMemo(() => { const map = new Map<number, Record<string, number>>(); const add = (key: string, points: Point[] | undefined) => points?.forEach((point) => { const row = map.get(point.time) ?? { time: point.time }; row[key] = point.value; map.set(point.time, row); }); radiationBuckets(weather?.history.solar?.points).forEach((point) => { const row = map.get(point.time) ?? { time: point.time }; row.radiation = point.radiation; map.set(point.time, row); }); add("generation", generation?.history?.generation.points); add("consumption", generation?.history?.consumption.points); add("gridImport", generation?.history?.gridImport.points); add("gridExport", generation?.history?.gridExport.points); return [...map.values()].sort((a, b) => a.time - b.time); }, [weather, generation]);
   const energy = generation?.history;

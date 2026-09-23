@@ -54,8 +54,12 @@ function ecuGenerationPoints(result: EnergyData, day: string) {
   return powerPoints(result.time, power, day);
 }
 function responseFor(range: RangeKey, result: EnergyData, date: string) {
-  const source = range === "24h" ? asMap(result.power) : result;
-  const make = range === "24h" ? (key: string): Point[] => powerPoints(result.time, source[key], date) : (key: string): Point[] => calendarPoints(result.time, source[key], range === "1y" ? date.slice(0, 4) : date.slice(0, 7));
+  const source = asMap(result.power);
+  const make = (key: string): Point[] => {
+    if (range === "24h") return powerPoints(result.time, source[key], date);
+    const values = result[key as keyof EnergyData];
+    return calendarPoints(result.time, Array.isArray(values) ? values : undefined, range === "1y" ? date.slice(0, 4) : date.slice(0, 7));
+  };
   const lastWeek = (points: Point[]) => range === "7d" ? points.filter((point) => point.time >= Date.now() - 7 * 86400000) : points;
   const generation = lastWeek(make("produced"));
   const consumption = lastWeek(make("consumed"));
@@ -65,7 +69,7 @@ function responseFor(range: RangeKey, result: EnergyData, date: string) {
   // so neither import nor export disappears from the chart.
   const gridImport = lastWeek(make("imported").length ? make("imported") : netGrid.map((point) => ({ ...point, value: Math.max(0, point.value) })));
   const gridExport = lastWeek(make("exported").length ? make("exported") : netGrid.map((point) => ({ ...point, value: Math.max(0, -point.value) })));
-  return { connected: true, updatedAt: Date.now(), metrics: { generationPower: range === "24h" ? generation.at(-1)?.value : undefined, consumptionPower: range === "24h" ? consumption.at(-1)?.value : undefined, importPower: range === "24h" ? gridImport.at(-1)?.value : undefined, generationToday: Number(result.today?.produced ?? generation.reduce((total, point) => total + point.value, 0)) }, history: { generation: { unit: range === "24h" ? "W" : "kWh", points: generation }, consumption: { unit: range === "24h" ? "W" : "kWh", points: consumption }, gridImport: { unit: range === "24h" ? "W" : "kWh", points: gridImport }, gridExport: { unit: range === "24h" ? "W" : "kWh", points: gridExport } } };
+  return { connected: true, updatedAt: Date.now(), metrics: { generationPower: range === "24h" ? generation.at(-1)?.value : undefined, consumptionPower: range === "24h" ? consumption.at(-1)?.value : undefined, importPower: range === "24h" ? gridImport.at(-1)?.value : undefined, generationToday: Number((typeof result.today === "object" ? result.today?.produced : undefined) ?? generation.reduce((total, point) => total + point.value, 0)) }, history: { generation: { unit: range === "24h" ? "W" : "kWh", points: generation }, consumption: { unit: range === "24h" ? "W" : "kWh", points: consumption }, gridImport: { unit: range === "24h" ? "W" : "kWh", points: gridImport }, gridExport: { unit: range === "24h" ? "W" : "kWh", points: gridExport } } };
 }
 async function collect(range: RangeKey) {
   const systems = await ema<{ systems?: { sid?: string }[] }>("/installer/api/v2/systems", "POST", { page: 1, size: 10 });
