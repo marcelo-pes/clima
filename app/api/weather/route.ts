@@ -1,5 +1,6 @@
 import { env } from "cloudflare:workers";
 import { lightningTotals } from "@/lib/lightning-totals";
+import { readWeatherHistory, saveWeatherHistory } from "@/lib/weather-history-store";
 
 export const dynamic = "force-dynamic";
 
@@ -145,6 +146,11 @@ function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
 }
 
 async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>) {
+  // A day/range/callback combination has a stable key across visitors. Recent
+  // ranges refresh after five minutes; closed historical ranges remain cached.
+  const key = [mac, range.cycle, callbacks, utcDate(start).slice(0, 10), utcDate(end).slice(0, 10)].join("|");
+  const stored = await readWeatherHistory(key);
+  if (stored) return stored;
   // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
   // week, 4-hour queries to a month, and daily queries to a year.
   const chunkMs = range.days === 365 ? 365 * 86400000 : range.days === 30 ? 7 * 86400000 : range.days === 7 ? 2 * 86400000 : 86400000;
@@ -160,7 +166,12 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
     }))));
   }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
-  return { data, incomplete: results.some((result) => result.status === "rejected") };
+  const incomplete = results.some((result) => result.status === "rejected");
+  if (!incomplete && results.length && Object.keys(data).length) {
+    const closed = end.getTime() < Date.now() - 2 * 86400000;
+    await saveWeatherHistory(key, data, Date.now() + (closed ? 90 : 5 / 1440) * 86400000);
+  }
+  return { data, incomplete };
 }
 
 function numericMetric(item: EcowittMetric | null) {
