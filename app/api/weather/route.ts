@@ -165,6 +165,17 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
       cycle_type: range.cycle, call_back: callbacks, ...units,
     }))));
   }
+  // A failed window should not leave a hole when a second attempt succeeds.
+  for (const [index, result] of results.entries()) {
+    if (result.status === "fulfilled") continue;
+    const window = windows[index];
+    try {
+      results[index] = { status: "fulfilled", value: await ecowitt("/device/history", {
+        ...auth, mac, start_date: utcDate(window.start), end_date: utcDate(window.end),
+        cycle_type: range.cycle, call_back: callbacks, ...units,
+      }) };
+    } catch { /* Keep the partial-history warning if the retry also fails. */ }
+  }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
   const incomplete = results.some((result) => result.status === "rejected");
   if (!incomplete && results.length && Object.keys(data).length) {
