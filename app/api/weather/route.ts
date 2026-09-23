@@ -169,7 +169,7 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
   const incomplete = results.some((result) => result.status === "rejected");
   if (!incomplete && results.length && Object.keys(data).length) {
     const closed = end.getTime() < Date.now() - 2 * 86400000;
-    await saveWeatherHistory(key, data, Date.now() + (closed ? 90 : 5 / 1440) * 86400000);
+    await saveWeatherHistory(key, data, Date.now() + (closed ? 10 * 365 : 5 / 1440) * 86400000);
   }
   return { data, incomplete };
 }
