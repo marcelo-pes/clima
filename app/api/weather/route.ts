@@ -123,9 +123,9 @@ async function ecowitt(path: string, params: Record<string, string>) {
   // A Ecowitt pode ocasionalmente manter uma conexão aberta por muito tempo.
   // Um limite explícito evita que uma única consulta bloqueie toda a página.
   const response = await fetch(url, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(8_000) });
-  if (!response.ok) throw new Error("Ecowitt indisponível");
+  if (!response.ok) throw new Error(`Ecowitt HTTP ${response.status}`);
   const payload = (await response.json()) as JsonObject;
-  if (Number(payload.code) !== 0) throw new Error("Consulta recusada");
+  if (Number(payload.code) !== 0) throw new Error(`Ecowitt código ${String(payload.code)}`);
   return payload;
 }
 
@@ -175,7 +175,9 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
         ...auth, mac, start_date: utcDate(window.start), end_date: utcDate(window.end),
         cycle_type: range.cycle, call_back: callbacks, ...units,
       }) };
-    } catch { /* Keep the partial-history warning if the retry also fails. */ }
+    } catch (error) {
+      console.warn("Janela de histórico indisponível", range.cycle, utcDate(window.start), error instanceof Error ? error.message : "erro");
+    }
   }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
   const incomplete = results.some((result) => result.status === "rejected");
@@ -217,7 +219,10 @@ export async function archiveWeather() {
     const start = new Date(midnight.getTime() - (range.days - 1) * 86400000);
     try {
       const result = await fetchHistory(auth, mac, start, end, range, callbacks, units, "refresh");
-      if (result.incomplete || !Object.keys(result.data).length) incomplete = true;
+      if (result.incomplete || !Object.keys(result.data).length) {
+        console.warn("Arquivo recente incompleto", rangeKey, result.incomplete ? "janela ausente" : "sem dados");
+        incomplete = true;
+      }
       else imported.push(rangeKey);
     } catch (error) { console.warn("Falha ao arquivar período", rangeKey, error instanceof Error ? error.message : "erro"); incomplete = true; }
   }
