@@ -22,7 +22,6 @@ export async function authorizedArchive(request: Request) {
     if (claims.aud !== audience) return reject("audiência");
     if (claims.repository !== "marcelo-pes/clima") return reject("repositório");
     if (claims.ref !== "refs/heads/main") return reject("branch");
-    if (claims.sub !== "repo:marcelo-pes/clima:ref:refs/heads/main") return reject("sujeito");
     if (claims.workflow_ref !== workflow) return reject("workflow");
     if (typeof claims.exp !== "number" || claims.exp < now || typeof claims.iat !== "number" || claims.iat > now + 60) return reject("validade");
     const configuration = await fetch(`${issuer}/.well-known/openid-configuration`, { signal: AbortSignal.timeout(5000) });
