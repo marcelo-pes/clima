@@ -1,4 +1,5 @@
 name: Arquivo Ecowitt
+# Execução de verificação após a atualização das credenciais e do diagnóstico OIDC.
 
 on:
   schedule:
