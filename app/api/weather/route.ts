@@ -21,7 +21,6 @@ const RANGES: Record<RangeKey, { days: number; cycle: string; maxPoints: number 
   "30d": { days: 30, cycle: "4hour", maxPoints: 180 },
   "1y": { days: 365, cycle: "1day", maxPoints: 370 },
 };
-let weatherInsightCache: { expires: number; insight: WeatherInsight } | null = null;
 
 function asObject(value: unknown): JsonObject {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonObject) : {};
@@ -212,6 +211,7 @@ export async function archiveWeather() {
   const midnight = new Date(`${day}T00:00:00-03:00`);
   const imported: string[] = [];
   let incomplete = false;
+  let historicalLimit: number | null = null;
   for (const rangeKey of ["24h", "7d", "30d", "1y"] as RangeKey[]) {
     const range = RANGES[rangeKey];
     const start = new Date(midnight.getTime() - (range.days - 1) * 86400000);
@@ -219,7 +219,7 @@ export async function archiveWeather() {
       const result = await fetchHistory(auth, mac, start, end, range, callbacks, units, "refresh");
       if (result.incomplete || !Object.keys(result.data).length) incomplete = true;
       else imported.push(rangeKey);
-    } catch { incomplete = true; }
+    } catch (error) { console.warn("Falha ao arquivar período", rangeKey, error instanceof Error ? error.message : "erro"); incomplete = true; }
   }
   // Calendar-year snapshots preserve older daily records that the rolling
   // one-year graph no longer includes. Stop once Ecowitt has no older records.
@@ -228,13 +228,17 @@ export async function archiveWeather() {
     const finish = new Date(`${year + 1}-01-01T00:00:00-03:00`);
     try {
       const result = await fetchHistory(auth, mac, start, finish, RANGES["1y"], callbacks, units);
-      if (result.incomplete) { incomplete = true; break; }
+      if (result.incomplete) { historicalLimit = year; break; }
       const hasReadings = Object.values(asObject(result.data)).some((group) => Object.values(asObject(group)).some((sensor) => Object.keys(asObject(asObject(sensor).list)).length > 0));
       if (!hasReadings) break;
       imported.push(String(year));
-    } catch { incomplete = true; break; }
+    } catch (error) {
+      console.warn("Consulta de ano anterior indisponível", year, error instanceof Error ? error.message : "erro");
+      historicalLimit = year;
+      break;
+    }
   }
-  return { date: day, imported, incomplete };
+  return { date: day, imported, incomplete, historicalLimit };
 }
 
 function localWeatherInsight(data: unknown, rain: (name: string) => string[][]): WeatherInsight {
@@ -252,73 +256,6 @@ function localWeatherInsight(data: unknown, rain: (name: string) => string[][]):
     : lightningDistance !== null && lightningDistance <= 20 || rainRate > 0 || Math.max(wind, gust) >= 45 || uv >= 8 ? ["attention", "Atenção"] as const
       : ["normal", "Normal"] as const;
   return { condition: { key: condition[0], label: condition[1], confidence: null }, alert: { key: alert[0], label: alert[1], confidence: null }, source: "Regras locais", evaluatedAt: Date.now() };
-}
-
-async function weatherInsight(data: unknown, rain: (name: string) => string[][]): Promise<WeatherInsight> {
-  if (weatherInsightCache && weatherInsightCache.expires > Date.now()) return weatherInsightCache.insight;
-  const fallback = localWeatherInsight(data, rain);
-  const apiKey = (env as unknown as Record<string, string | undefined>).TYPESAFE_API_KEY;
-  if (!apiKey) return fallback;
-  const state = {
-    temperature_c: numericMetric(metric(data, [["outdoor", "temperature"]])),
-    humidity_percent: numericMetric(metric(data, [["outdoor", "humidity"]])),
-    wind_kmh: numericMetric(metric(data, [["wind", "wind_speed"]])),
-    gust_kmh: numericMetric(metric(data, [["wind", "wind_gust"]])),
-    rain_rate_mmh: numericMetric(metric(data, rain("rain_rate"))),
-    uv_index: numericMetric(metric(data, [["solar_and_uvi", "uvi"]])),
-    lightning_distance_km: numericMetric(metric(data, [["lightning", "distance"]])),
-  };
-  try {
-    const response = await fetch("https://api.typesafe.ai/v1/systemone", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      signal: AbortSignal.timeout(900),
-      body: JSON.stringify({
-        model: "jev-latest",
-        state,
-        questions: {
-          condition: {
-            type: "choice",
-            instructions: "Qual condição meteorológica predomina agora com base somente nas leituras fornecidas?",
-            criteria: {
-              stable: "Sem chuva, sem atividade elétrica próxima, vento comum e UV abaixo de 8.",
-              rain: "Há chuva em curso indicada por taxa de chuva positiva.",
-              strong_wind: "Vento sustentado ou rajada é a condição mais relevante.",
-              high_uv: "Índice UV de 8 ou mais é a condição mais relevante.",
-              lightning: "Atividade elétrica está a 20 km ou menos e é a condição mais relevante.",
-              mixed: "Duas ou mais condições relevantes ocorrem ao mesmo tempo, sem uma claramente dominante.",
-            },
-          },
-          alert: {
-            type: "choice",
-            instructions: "Qual nível de alerta é adequado apenas para exibição informativa, sem acionar ações?",
-            criteria: {
-              normal: "Sem chuva em curso, atividade elétrica próxima, vento forte ou UV elevado.",
-              attention: "Chuva em curso, UV elevado, vento forte ou atividade elétrica entre 10 e 20 km.",
-              alert: "Atividade elétrica a até 10 km ou vento/rajada muito forte, a partir de 60 km/h.",
-            },
-          },
-        },
-      }),
-    });
-    if (!response.ok) return fallback;
-    const payload = await response.json() as { answers?: Record<string, { choice?: string; confidence?: number }> };
-    const conditionKey = payload.answers?.condition?.choice;
-    const alertKey = payload.answers?.alert?.choice;
-    const conditionLabels = { stable: "Condições estáveis", rain: "Chuva em curso", strong_wind: "Vento forte", high_uv: "UV elevado", lightning: "Atividade elétrica próxima", mixed: "Condições combinadas" } as const;
-    const alertLabels = { normal: "Normal", attention: "Atenção", alert: "Alerta" } as const;
-    if (!conditionKey || !alertKey || !(conditionKey in conditionLabels) || !(alertKey in alertLabels)) return fallback;
-    const insight: WeatherInsight = {
-      condition: { key: conditionKey as WeatherInsight["condition"]["key"], label: conditionLabels[conditionKey as keyof typeof conditionLabels], confidence: payload.answers?.condition?.confidence ?? null },
-      alert: { key: alertKey as WeatherInsight["alert"]["key"], label: alertLabels[alertKey as keyof typeof alertLabels], confidence: payload.answers?.alert?.confidence ?? null },
-      source: "Jev",
-      evaluatedAt: Date.now(),
-    };
-    weatherInsightCache = { insight, expires: Date.now() + 5 * 60_000 };
-    return insight;
-  } catch {
-    return fallback;
-  }
 }
 
 type LightningPoint = { time: number; value: number };
@@ -459,7 +396,7 @@ export async function GET(request: Request) {
     const lightningBatteryPaths = [...battery("wh57"), ...battery("wh57_battery"), ...battery("lightning"), ...battery("lightning_sensor"), ...battery("lightning_sensor_battery"), ...battery("lightning_battery")];
     // A decisão é independente da série dos gráficos e fica em cache por cinco
     // minutos. Caso a IA não responda, a estação continua normal com regras locais.
-    const insight = extrasOnly && isCurrentObservation && Object.keys(asObject(data)).length ? await weatherInsight(data, rain) : null;
+    const insight = extrasOnly && isCurrentObservation && Object.keys(asObject(data)).length ? localWeatherInsight(data, rain) : null;
     if (extrasOnly) {
       return Response.json({ forecast, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
     }

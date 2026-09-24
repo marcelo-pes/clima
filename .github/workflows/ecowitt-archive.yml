@@ -1,5 +1,5 @@
 name: Arquivo Ecowitt
-# Execução de verificação após a correção da validação OIDC.
+# Execução de verificação da coleta e do limite histórico da Ecowitt.
 
 on:
   schedule:
