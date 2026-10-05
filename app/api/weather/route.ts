@@ -1,6 +1,9 @@
+import { sqliteStatistics } from "@/lib/weather-statistics";
+import { recentLightning } from "@/lib/weather-rules";
 import { env } from "cloudflare:workers";
 import { lightningTotals } from "@/lib/lightning-totals";
-import { readWeatherHistory, saveWeatherHistory } from "@/lib/weather-history-store";
+import { hasHistoryCoverageGaps, readWeatherHistory, saveWeatherHistory, trimWeatherHistory } from "@/lib/weather-history-store";
+import { completedSevenDayWindow, historyCacheKey, saoPauloMidnight, shiftCalendarDate } from "@/lib/weather-history-window";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +25,13 @@ const RANGES: Record<RangeKey, { days: number; cycle: string; maxPoints: number 
   "1y": { days: 365, cycle: "1day", maxPoints: 370 },
 };
 
+class HistoryNotImportedError extends Error {
+  constructor() {
+    super("Histórico ainda não importado para o banco");
+    this.name = "HistoryNotImportedError";
+  }
+}
+
 function asObject(value: unknown): JsonObject {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonObject) : {};
 }
@@ -39,7 +49,7 @@ function metric(root: unknown, choices: string[][]): EcowittMetric | null {
 }
 
 function cleanMetric(item: EcowittMetric | null) {
-  if (!item || item.value === undefined || item.value === "-") return null;
+  if (!item || item.value === undefined || item.value === "-" || String(item.value).trim() === "") return null;
   const numeric = Number(item.value);
   return {
     value: Number.isFinite(numeric) ? numeric : item.value,
@@ -60,13 +70,15 @@ function series(root: unknown, choices: string[][], maxPoints: number) {
     const candidate = at(root, ...path) as EcowittMetric | undefined;
     if (candidate?.list) {
       const entries = Object.entries(candidate.list)
+        .filter(([,value]) => value !== null && String(value).trim() !== "")
         .map(([timestamp, value]) => ({ time: Number(timestamp) * 1000, value: Number(value) }))
         .filter((point) => Number.isFinite(point.time) && Number.isFinite(point.value))
         .sort((a, b) => a.time - b.time);
       const stride = Math.max(1, Math.ceil(entries.length / maxPoints));
+      const minimum = Math.min(...entries.map(p => p.value)), maximum = Math.max(...entries.map(p => p.value));
       return {
         unit: candidate.unit ?? "",
-        points: entries.filter((_, index) => index % stride === 0 || index === entries.length - 1),
+        points: entries.filter((point, index) => index % stride === 0 || index === entries.length - 1 || point.value === minimum || point.value === maximum),
       };
     }
   }
@@ -81,11 +93,14 @@ function vpdSeries(root: unknown, maxPoints: number) {
 
 function accumulatedLastHour(root: unknown, choices: string[][]) {
   const result = series(root, choices, 2000);
-  if (!result.points.length) return { value: 0, unit: result.unit || "mm", time: Math.floor(Date.now() / 1000) };
+  if (!result.points.length) return null;
   const last = result.points.at(-1)!;
   const recent = result.points.filter((point) => point.time >= last.time - 60 * 60 * 1000);
   let total = 0;
-  for (let index = 1; index < recent.length; index++) total += Math.max(0, recent[index].value - recent[index - 1].value);
+  for (let index = 1; index < recent.length; index++) {
+    const delta = recent[index].value - recent[index - 1].value;
+    total += delta >= 0 ? delta : Math.max(0,recent[index].value);
+  }
   return { value: total, unit: result.unit || "mm", time: Math.floor(last.time / 1000) };
 }
 
@@ -129,8 +144,10 @@ async function ecowitt(path: string, params: Record<string, string>) {
   return payload;
 }
 
-function utcDate(date: Date) {
-  return date.toISOString().slice(0, 19).replace("T", " ");
+function ecowittLocalDate(date: Date) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" }).formatToParts(date);
+  const p = Object.fromEntries(parts.map(p => [p.type, p.value]));
+  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}`;
 }
 
 function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
@@ -147,11 +164,11 @@ function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
 async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>, source: "auto" | "database" | "api" | "refresh" = "auto") {
   // A day/range/callback combination has a stable key across visitors. Recent
   // ranges refresh after five minutes; closed historical ranges remain cached.
-  const key = [mac, range.cycle, callbacks, utcDate(start).slice(0, 10), utcDate(end).slice(0, 10)].join("|");
+  const key = historyCacheKey(mac, range.cycle, callbacks, start, end);
   const recent = end.getTime() >= Date.now() - 2 * 86400000;
-  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, source === "database" || !recent ? Infinity : 300000);
+  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, start, end, source === "database" || !recent ? Infinity : 300000, source === "database");
   if (stored) return stored;
-  if (source === "database") throw new Error("Histórico ainda não importado para o banco");
+  if (source === "database") return {data: {}, incomplete: true, updatedAt: 0, origin: "database" as const};
   // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
   // week, 4-hour queries to a month, and daily queries to a year.
   const chunkMs = range.days === 365 ? 365 * 86400000 : range.days === 30 ? 7 * 86400000 : range.days === 7 ? 2 * 86400000 : 86400000;
@@ -162,7 +179,7 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
   const results: PromiseSettledResult<JsonObject>[] = [];
   for (let index = 0; index < windows.length; index += 3) {
     results.push(...await Promise.allSettled(windows.slice(index, index + 3).map((window) => ecowitt("/device/history", {
-      ...auth, mac, start_date: utcDate(window.start), end_date: utcDate(window.end),
+      ...auth, mac, start_date: ecowittLocalDate(window.start), end_date: ecowittLocalDate(window.end),
       cycle_type: range.cycle, call_back: callbacks, ...units,
     }))));
   }
@@ -172,15 +189,18 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
     const window = windows[index];
     try {
       results[index] = { status: "fulfilled", value: await ecowitt("/device/history", {
-        ...auth, mac, start_date: utcDate(window.start), end_date: utcDate(window.end),
+        ...auth, mac, start_date: ecowittLocalDate(window.start), end_date: ecowittLocalDate(window.end),
         cycle_type: range.cycle, call_back: callbacks, ...units,
       }) };
     } catch (error) {
-      console.warn("Janela de histórico indisponível", range.cycle, utcDate(window.start), error instanceof Error ? error.message : "erro");
+      console.warn("Janela de histórico indisponível", range.cycle, ecowittLocalDate(window.start), error instanceof Error ? error.message : "erro");
     }
   }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
-  const incomplete = results.some((result) => result.status === "rejected");
+  // Ecowitt may include observations just beyond end_date. Clip every series
+  // to the same exact interval used by the SQLite lookup and its cache key.
+  trimWeatherHistory(data, start, end);
+  const incomplete = results.some((result) => result.status === "rejected") || hasHistoryCoverageGaps(data,range.cycle,Math.floor(start.getTime()/1000),Math.floor(end.getTime()/1000));
   if (source !== "api" && !incomplete && results.length && Object.keys(data).length) {
     const closed = end.getTime() < Date.now() - 2 * 86400000;
     await saveWeatherHistory(key, data, Date.now() + (closed || source === "refresh" ? 10 * 365 : 5 / 1440) * 86400000);
@@ -252,48 +272,34 @@ function localWeatherInsight(data: unknown, rain: (name: string) => string[][]):
   const gust = numericMetric(metric(data, [["wind", "wind_gust"]])) ?? 0;
   const uv = numericMetric(metric(data, [["solar_and_uvi", "uvi"]])) ?? 0;
   const lightningDistance = numericMetric(metric(data, [["lightning", "distance"]]));
-  const condition = lightningDistance !== null && lightningDistance <= 20 ? ["lightning", "Atividade elétrica próxima"] as const
+  const lightningTime = Number(metric(data, [["lightning", "distance"]])?.time) || null;
+  const lightningActive = recentLightning(lightningDistance, lightningTime);
+  const condition = lightningActive ? ["lightning", "Atividade elétrica próxima"] as const
     : rainRate > 0 ? ["rain", "Chuva em curso"] as const
       : Math.max(wind, gust) >= 45 ? ["strong_wind", "Vento forte"] as const
         : uv >= 8 ? ["high_uv", "UV elevado"] as const
           : ["stable", "Condições estáveis"] as const;
-  const alert = lightningDistance !== null && lightningDistance <= 10 || Math.max(wind, gust) >= 60 ? ["alert", "Alerta"] as const
-    : lightningDistance !== null && lightningDistance <= 20 || rainRate > 0 || Math.max(wind, gust) >= 45 || uv >= 8 ? ["attention", "Atenção"] as const
+  const alert = lightningActive && lightningDistance! <= 10 || Math.max(wind, gust) >= 60 ? ["alert", "Alerta"] as const
+    : lightningActive || rainRate > 0 || Math.max(wind, gust) >= 45 || uv >= 8 ? ["attention", "Atenção"] as const
       : ["normal", "Normal"] as const;
   return { condition: { key: condition[0], label: condition[1], confidence: null }, alert: { key: alert[0], label: alert[1], confidence: null }, source: "Regras locais", evaluatedAt: Date.now() };
 }
 
 type LightningPoint = { time: number; value: number };
 let lightningCache: { mac: string; day: string; expires: number; points: LightningPoint[] } | null = null;
-let lightningPending: { key: string; promise: Promise<LightningPoint[]> } | null = null;
-async function annualLightningHistory(auth: Record<string, string>, mac: string, now: Date): Promise<LightningPoint[]> {
+async function annualLightningHistory(mac: string, now: Date): Promise<LightningPoint[]> {
   const day = now.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
   if (lightningCache?.mac === mac && lightningCache.day === day && lightningCache.expires > Date.now()) return lightningCache.points;
-  const midnight = new Date(`${day}T00:00:00-03:00`);
-  const periodStart = new Date(midnight.getTime() - 364 * 86400000);
-  const key = `${mac}:${day}`;
-  if (lightningPending?.key === key) return lightningPending.promise;
-  const promise = (async () => {
-    for (let attempt = 0; attempt < 3; attempt++) {
-      // Ecowitt limits request frequency. Query after the other history calls,
-      // with a pause and retries instead of converting an API rejection to {}.
-      await new Promise((resolve) => setTimeout(resolve, (attempt + 1) * 1200));
-      try {
-        const result = await ecowitt("/device/history", { ...auth, mac, start_date: `${new Date(periodStart.getTime() - 86400000).toISOString().slice(0, 10)} 00:00:00`, end_date: `${day} 00:00:00`, cycle_type: "1day", call_back: "lightning" });
-        // Ecowitt's daily buckets use UTC midnight as a date label, not
-        // the time of a strike. Preserve that calendar date in Bauru.
-        const points = series(result.data, [["lightning", "count"]], Infinity).points.map((point) => ({
-          ...point, time: Date.parse(`${new Date(point.time).toISOString().slice(0, 10)}T00:00:00-03:00`),
-        }));
-        if (!points.length) throw new Error("Histórico anual de raios indisponível");
-        lightningCache = { mac, day, expires: Date.now() + 300000, points };
-        return points;
-      } catch { /* Retry the same complete history, never substitute a shorter period. */ }
-    }
-    throw new Error("Histórico anual de raios indisponível");
-  })();
-  lightningPending = { key, promise };
-  try { return await promise; } finally { if (lightningPending?.promise === promise) lightningPending = null; }
+  const start = new Date(saoPauloMidnight(day).getTime() - 365 * 86400000);
+  const key = historyCacheKey(mac, "1day", "lightning", start, now);
+  const stored = await readWeatherHistory(key, start, now);
+  if (!stored) throw new HistoryNotImportedError();
+  const points = series(stored.data, [["lightning", "count"]], Infinity).points.map((point) => ({
+    ...point, time: Date.parse(`${new Date(point.time).toISOString().slice(0, 10)}T00:00:00-03:00`),
+  }));
+  if (!points.length) throw new HistoryNotImportedError();
+  lightningCache = { mac, day, expires: Date.now() + 300000, points };
+  return points;
 }
 
 export async function GET(request: Request) {
@@ -304,20 +310,31 @@ export async function GET(request: Request) {
     const view = requestUrl.searchParams.get("view");
     const extrasOnly = view === "extras";
     const summaryOnly = view === "summary" || extrasOnly;
-    const historyOnly = view === "history";
-    const fullDashboard = !summaryOnly && !historyOnly;
+
     const solarOnly = requestUrl.searchParams.get("view") === "solar";
     const rangeKey: RangeKey = requestedRange && requestedRange in RANGES ? requestedRange : "24h";
     const range = RANGES[rangeKey];
     const requestedSource = requestUrl.searchParams.get("source");
-    const historySource = requestedSource === "database" || requestedSource === "api" ? requestedSource : "auto";
+    const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+    // Only an explicit comparison request may query the API for archived periods.
+    const archivedPeriod = rangeKey !== "24h" || Boolean(requestedDate && requestedDate < today);
+    const databaseOnly = requestedSource === "database" || (archivedPeriod && requestedSource !== "api");
+    const historySource = databaseOnly ? "database" : requestedSource === "api" ? "api" : "auto";
+    const historyOnly = view === "history" || databaseOnly;
+    const fullDashboard = !summaryOnly && !historyOnly;
     const applicationKey = env.ECOWITT_APPLICATION_KEY;
     const apiKey = env.ECOWITT_API_KEY;
-    if (!applicationKey || !apiKey) throw new Error("Credenciais ausentes");
+    if (!databaseOnly && (!applicationKey || !apiKey)) throw new Error("Credenciais ausentes");
 
-    const auth = { application_key: applicationKey, api_key: apiKey };
+    const auth = { application_key: applicationKey ?? "", api_key: apiKey ?? "" };
     let mac = env.ECOWITT_MAC;
-    if (!mac) {
+    if (!mac && env.DB) {
+      // The sole production station is resolved locally for both live and archived reads.
+      const rows = await env.DB?.prepare("SELECT key FROM weather_history").all<{ key: string }>();
+      const stations = [...new Set((rows?.results ?? []).map((row) => row.key.split("|")[0]))];
+      if (stations.length === 1) mac = stations[0];
+    }
+    if (!mac && !databaseOnly) {
       const deviceList = await ecowitt("/device/list", auth);
       const devices = findDevices(deviceList.data);
       const selected = devices.find((device) => String(device.id) === String(env.ECOWITT_DEVICE_ID ?? "251816")) ?? devices[0];
@@ -333,12 +350,20 @@ export async function GET(request: Request) {
       solar_irradiance_unitid: "16",
     };
     const actualNow = new Date();
-    const selectedStart = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? new Date(`${requestedDate}T00:00:00-03:00`) : null;
+    const validRequestedDate = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? requestedDate : null;
+    const referenceDate = validRequestedDate ?? actualNow.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+    const selectedStart = validRequestedDate ? saoPauloMidnight(validRequestedDate) : null;
     const isCurrentObservation = !requestedDate || requestedDate === actualNow.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
-    const now = selectedStart ? new Date(Math.min(selectedStart.getTime() + 24 * 60 * 60 * 1000 - 1000, actualNow.getTime())) : actualNow;
-    const start = selectedStart
+    const weeklyWindow = rangeKey === "7d" ? completedSevenDayWindow(referenceDate) : null;
+    const now = weeklyWindow?.end ?? (selectedStart ? new Date(Math.min(saoPauloMidnight(shiftCalendarDate(validRequestedDate!, 1)).getTime() - 1000, actualNow.getTime())) : actualNow);
+    const start = weeklyWindow?.start ?? (selectedStart
       ? new Date(selectedStart.getTime() - (range.days - 1) * 24 * 60 * 60 * 1000)
-      : new Date(now.getTime() - range.days * 24 * 60 * 60 * 1000);
+      : new Date(now.getTime() - range.days * 24 * 60 * 60 * 1000));
+    if (view === "statistics") {
+      const digest = await crypto.subtle.digest("SHA-256",new TextEncoder().encode(mac));
+      const key = Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,"0")).join("");
+      return Response.json({statistics:await sqliteStatistics(key,Math.floor(start.getTime()/1000),Math.floor(now.getTime()/1000))});
+    }
     // The generation dashboard needs only raw irradiance. Keep this lean path
     // independent from the station's live readings, forecasts and lightning.
     if (solarOnly) {
@@ -347,13 +372,29 @@ export async function GET(request: Request) {
     }
     const callbacks = "outdoor,indoor,pressure,wind,solar_and_uvi,rainfall,rainfall_piezo,lightning,battery";
     const [live, history] = await Promise.all([
-      extrasOnly
+      databaseOnly ? Promise.resolve({data:{},time:undefined}) : extrasOnly
         ? ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }).catch(() => ({ data: {}, time: undefined }))
-        : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
+        : historyOnly
+          ? Promise.resolve({ data: {}, time: undefined })
+          : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
       summaryOnly ? Promise.resolve({ data: {}, incomplete: false, updatedAt: 0, origin: "api" as const }) : fetchHistory(auth, mac, start, now, range, callbacks, units, historySource),
     ]);
 
-    const data = live.data;
+    let data = live.data;
+    let stationKey: string | null = null;
+    if (databaseOnly && env.DB) {
+      const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(mac));
+      stationKey = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
+      const snapshot: JsonObject = {};
+      const paths = ["outdoor/temperature","outdoor/humidity","outdoor/feels_like","outdoor/dew_point","outdoor/vpd","indoor/temperature","indoor/humidity","indoor/feels_like","indoor/dew_point","pressure/relative","pressure/absolute","wind/wind_speed","wind/wind_gust","wind/wind_direction","wind/10_minute_average_wind_direction","solar_and_uvi/solar","solar_and_uvi/uvi","rainfall_piezo/rain_rate","rainfall_piezo/daily","rainfall_piezo/weekly","rainfall_piezo/monthly","rainfall_piezo/yearly","rainfall_piezo/1_hour","rainfall_piezo/24_hours","rainfall_piezo/event","lightning/count","lightning/distance","battery/haptic_array_battery","battery/haptic_array_capacitor"];
+      for (const path of paths) {
+        const row = await env.DB.prepare("SELECT value,unit,observed_at FROM ecowitt_history_points WHERE device_key=? AND metric_path=? AND value != '-' ORDER BY observed_at DESC LIMIT 1").bind(stationKey,path).first<{value:string;unit:string;observed_at:number}>();
+        if (!row) continue;
+        const [group,key] = path.split("/");
+        (snapshot[group] ??= {} as JsonObject); (snapshot[group] as JsonObject)[key] = {value:row.value,unit:row.unit,time:String(row.observed_at)};
+      }
+      data = snapshot;
+    }
     const rain = (name: string) => [["rainfall_piezo", name], ["rainfall", name]];
     const battery = (name: string) => [["battery", name]];
     const temperature = cleanMetric(metric(data, [["outdoor", "temperature"]]));
@@ -379,13 +420,19 @@ export async function GET(request: Request) {
         const payload = await response.json() as { current?: Record<string, number>; daily?: Record<string, string[]> };
         return { temperature: Number(payload.current?.temperature_2m), apparentTemperature: Number(payload.current?.apparent_temperature), weatherCode: Number(payload.current?.weather_code), sunrise: payload.daily?.sunrise?.[0] ?? "", sunset: payload.daily?.sunset?.[0] ?? "", source: "Open-Meteo" };
       }).catch(() => null) : Promise.resolve(null);
-    const uvWindowsPromise = fullDashboard ? Promise.all([{ days: 1, cycle: "5min" }, { days: 30, cycle: "30min" }, { days: 365, cycle: "4hour" }].map((window) =>
-      ecowitt("/device/history", { ...auth, mac, start_date: utcDate(new Date(now.getTime() - window.days * 86400000)), end_date: utcDate(now), cycle_type: window.cycle, call_back: "solar_and_uvi", ...units }).catch(() => ({ data: {} })),
-    )) : Promise.resolve([{ data: {} }, { data: {} }, { data: {} }]);
+    // The current cards use archived aggregates without opening extra API windows.
+    const uvWindowsPromise = fullDashboard ? Promise.all([
+      Promise.resolve({ data: history.data }),
+      ...[{ days: 30, cycle: "30min" }, { days: 365, cycle: "4hour" }].map(async (window) => {
+        const start = new Date(now.getTime() - window.days * 86400000);
+        const stored = await readWeatherHistory(historyCacheKey(mac!, window.cycle, "solar_and_uvi", start, now), start, now);
+        return { data: stored?.data ?? {} };
+      }),
+    ]) : Promise.resolve([{ data: {} }, { data: {} }, { data: {} }]);
     const [climatempoForecast, openMeteoForecast, uvWindows] = await Promise.all([climatempoForecastPromise, openMeteoForecastPromise, uvWindowsPromise]);
     // A failed annual query must never silently fall back to a single day/month.
     // Keep the full annual series separate from the optional UV/chart requests.
-    const lightningHistory = fullDashboard ? await annualLightningHistory(auth, mac, actualNow).catch(() => null) : null;
+    const lightningHistory = fullDashboard ? await annualLightningHistory(mac, actualNow).catch(() => null) : null;
     const lightningCounts = lightningHistory
       ? lightningTotals(lightningHistory, cleanMetric(metric(data, [["lightning", "count"]])), actualNow)
       : null;
@@ -396,17 +443,19 @@ export async function GET(request: Request) {
       return points.reduce((maximum, point) => point.value > maximum.value ? point : maximum);
     };
 
-    const hourlyLive = cleanMetric(metric(data, [...rain("hourly"), ...rain("rain_hourly"), ...rain("rainfall_hourly")]));
+    const hourlyLive = cleanMetric(metric(data, [...rain("1_hour"), ...rain("hourly"), ...rain("rain_hourly"), ...rain("rainfall_hourly")]));
     const hourlyReading = hourlyLive ?? (summaryOnly ? null : accumulatedLastHour(history.data, rain("daily")));
     const lightningBatteryPaths = [...battery("wh57"), ...battery("wh57_battery"), ...battery("lightning"), ...battery("lightning_sensor"), ...battery("lightning_sensor_battery"), ...battery("lightning_battery")];
     // A decisão é independente da série dos gráficos e fica em cache por cinco
     // minutos. Caso a IA não responda, a estação continua normal com regras locais.
-    const insight = extrasOnly && isCurrentObservation && Object.keys(asObject(data)).length ? localWeatherInsight(data, rain) : null;
+    const insight = !historyOnly && isCurrentObservation && Object.keys(asObject(data)).length ? localWeatherInsight(data, rain) : null;
     if (extrasOnly) {
       return Response.json({ forecast, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
     }
 
+    const statistics = null;
     const response = Response.json({
+      statistics,
       station: {
         name: "Estação Meteorológica Bauru",
         location: "Bauru–SP",
@@ -424,6 +473,8 @@ export async function GET(request: Request) {
       historyIncomplete: history.incomplete,
       historySource: history.origin,
       historyStoredAt: history.updatedAt,
+      observationSource: databaseOnly ? "database" : "api",
+      historyWindow: { start: start.toISOString(), end: now.toISOString(), timeZone: "America/Sao_Paulo", resolution: range.cycle, aggregation: range.cycle === "1day" ? "Agregação diária da origem; extremos do gráfico não equivalem a extremos observados" : "Valores na resolução da origem" },
       metrics: {
         temperature,
         feelsLike: cleanMetric(metric(data, [["outdoor", "feels_like"], ["outdoor", "app_temp"]])),
@@ -437,6 +488,7 @@ export async function GET(request: Request) {
         windSpeed: cleanMetric(metric(data, [["wind", "wind_speed"]])),
         windGust: cleanMetric(metric(data, [["wind", "wind_gust"]])),
         windDirection: cleanMetric(metric(data, [["wind", "wind_direction"]])),
+        windAverageDirection: cleanMetric(metric(data, [["wind", "10_minute_average_wind_direction"]])),
         pressureRelative: cleanMetric(metric(data, [["pressure", "relative"]])),
         pressureAbsolute: cleanMetric(metric(data, [["pressure", "absolute"]])),
         rainRate: cleanMetric(metric(data, rain("rain_rate"))),
@@ -457,6 +509,8 @@ export async function GET(request: Request) {
       },
       history: {
         temperature: series(history.data, [["outdoor", "temperature"]], range.maxPoints),
+        temperatureHigh: series(history.data, [["outdoor", "temperature_high"]], Infinity),
+        temperatureLow: series(history.data, [["outdoor", "temperature_low"]], Infinity),
         feelsLike: series(history.data, [["outdoor", "feels_like"], ["outdoor", "app_temp"]], range.maxPoints),
         dewPoint: series(history.data, [["outdoor", "dew_point"]], range.maxPoints),
         humidity: series(history.data, [["outdoor", "humidity"]], range.maxPoints),
@@ -472,7 +526,7 @@ export async function GET(request: Request) {
         windDirection: series(history.data, [["wind", "wind_direction"]], Infinity),
         rainRate: series(history.data, rain("rain_rate"), range.maxPoints),
         rainEvent: series(history.data, rain("event"), range.maxPoints),
-        rainHourly: series(history.data, [...rain("hourly"), ...rain("rain_hourly"), ...rain("rainfall_hourly")], range.maxPoints),
+        rainHourly: series(history.data, [...rain("1_hour"), ...rain("hourly"), ...rain("rain_hourly"), ...rain("rainfall_hourly")], range.maxPoints),
         rain24h: series(history.data, [...rain("rain_24h"), ...rain("24_hours")], range.maxPoints),
         rainDaily: series(history.data, rain("daily"), range.maxPoints),
         rainWeekly: series(history.data, rain("weekly"), range.maxPoints),
@@ -495,7 +549,17 @@ export async function GET(request: Request) {
       },
     });
     return response;
-  } catch {
+  } catch (error) {
+    if (error instanceof HistoryNotImportedError) {
+      return Response.json({ code: "HISTORY_NOT_IMPORTED", error: error.message }, { status: 404, headers: { "Cache-Control": "no-store" } });
+    }
+    const requestUrl = new URL(request.url);
+    console.error("Falha em /api/weather", {
+      range: requestUrl.searchParams.get("range"),
+      source: requestUrl.searchParams.get("source"),
+      errorName: error instanceof Error ? error.name : "UnknownError",
+      message: error instanceof Error ? error.message : String(error),
+    });
     return Response.json({ error: "Os dados da estação estão temporariamente indisponíveis." }, { status: 503, headers: { "Cache-Control": "no-store" } });
   }
 }

@@ -219,3 +219,11 @@ button,a { font:inherit; }
 .confere-controls { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; }.confere-controls label { display:grid; gap:6px; color:#bfd0d8; }.confere-controls select,.confere-controls input { min-height:40px; padding:7px 12px; border:1px solid #4e6571; border-radius:4px; color:#fff; background:#182c37; }
 .confere-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }.confere-column { min-width:0; display:grid; align-content:start; gap:14px; }.confere-column h2 { margin:0; padding:14px; border:1px solid #385161; background:#17303d; }.confere-column>p { margin:0; color:#a9bec8; }.confere-alert { padding:15px; border:1px solid #8c4750; border-radius:4px; color:#f4c8c9!important; background:#2b2029; }
 @media(max-width:950px) { .confere-grid { grid-template-columns:1fr; }.confere-shell { padding:12px; } }
+
+/* Keep long date labels and extrema inside the chart at every period. */
+.ecowitt-series, .confere-column, .chart-card { min-width:0; }
+.ecowitt-series-plot, .lightning-plot, .chart-wrap { min-width:0; }
+.section-loading,.history-window { margin:10px 0; padding:9px 12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
+.observed-statistics { margin:12px 0; padding:12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
+.observed-statistics summary { cursor:pointer; color:#dce8ed; }.observed-statistics table { width:100%; border-collapse:collapse; }.observed-statistics th,.observed-statistics td { padding:8px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }.map-badge a { color:#7ed9ed; font-size:.75rem; }.wind-facts { grid-template-columns:1fr 1fr!important; }
+@media(max-width:600px) { .wind-rose { margin-inline:auto; max-width:340px; }.wind-facts { gap:10px; }.wind-facts strong { font-size:.8rem; }.observed-statistics .history-table { overflow-x:auto; } }

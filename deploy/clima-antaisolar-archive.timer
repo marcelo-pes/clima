@@ -1,0 +1,11 @@
+[Unit]
+Description=Run local Ecowitt archive daily at 23:59 in Bauru
+
+[Timer]
+OnCalendar=*-*-* 23:59:00 America/Sao_Paulo
+Persistent=true
+AccuracySec=1min
+Unit=clima-antaisolar-archive.service
+
+[Install]
+WantedBy=timers.target

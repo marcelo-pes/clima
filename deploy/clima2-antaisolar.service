@@ -1,0 +1,26 @@
+[Unit]
+Description=Clima2 AntaiSolar frontend and read-only SQLite backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=clima2
+Group=clima2
+WorkingDirectory=/opt/clima2-antaisolar/app
+Environment=NODE_ENV=production
+Environment=PORT=8788
+Environment=CLIMA_SQLITE_PATH=/opt/clima-antaisolar/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite
+Environment=CLIMA_SECRETS_FILE=/opt/clima2-antaisolar/app/.runtime.vars
+ExecStart=/opt/clima-antaisolar/runtime/node-v22/bin/node --max-old-space-size=160 --import ./runtime/register-loader.mjs ./runtime/server.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadOnlyPaths=/opt/clima-antaisolar/database
+
+[Install]
+WantedBy=multi-user.target

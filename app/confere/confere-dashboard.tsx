@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { EcowittSeriesChart, LightningChart, GROUPS, type WeatherData } from "../weather-dashboard";
+import { confereHttpError, shouldQueryConfereDatabase, weeklyWindowLabelDates } from "@/lib/confere-response";
 
 type RangeKey = "24h" | "7d" | "30d" | "1y";
 const periods: { value: RangeKey; label: string }[] = [
-  { value: "24h", label: "24 horas" }, { value: "7d", label: "Semanal" },
+  { value: "24h", label: "Dia civil" }, { value: "7d", label: "Semanal" },
   { value: "30d", label: "Mensal" }, { value: "1y", label: "Anual" },
 ];
 const chartGroups = [
@@ -26,32 +27,46 @@ export default function ConfereDashboard() {
   const [date, setDate] = useState(() => new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" }));
   const [results, setResults] = useState<{ database: WeatherData | null; api: WeatherData | null }>({ database: null, api: null });
   const [errors, setErrors] = useState<{ database?: string; api?: string }>({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState({ database: false, api: true });
+  const currentDay = new Date().toLocaleDateString("en-CA",{timeZone:"America/Sao_Paulo"});
+  const queryDatabase = shouldQueryConfereDatabase(range) || date < currentDay;
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
-    setResults({ database: null, api: null });
+    setLoading({ database: queryDatabase, api: true });
+    // Preserve each panel until its replacement arrives.
     setErrors({});
     const query = (source: "database" | "api") => fetch(`/api/weather?view=history&range=${range}&date=${date}&source=${source}`, { signal: controller.signal })
-      .then(async (response) => response.ok ? await response.json() as WeatherData : Promise.reject(new Error(source === "database" ? "Este período ainda não foi importado para o banco." : "A Ecowitt não respondeu à consulta.")));
-    void Promise.allSettled([query("database"), query("api")]).then(([stored, live]) => {
-      if (controller.signal.aborted) return;
-      setResults({ database: stored.status === "fulfilled" ? stored.value : null, api: live.status === "fulfilled" ? live.value : null });
-      setErrors({ database: stored.status === "rejected" ? stored.reason.message : undefined, api: live.status === "rejected" ? live.reason.message : undefined });
-      setLoading(false);
-    });
+      .then(async (response) => {
+        if (response.ok) return await response.json() as WeatherData;
+        let body: { code?: string } = {};
+        try { body = await response.json() as { code?: string }; } catch { /* A resposta pode não ser JSON. */ }
+        throw new Error(confereHttpError(response.status, body.code, source));
+      });
+    for (const source of ["database", "api"] as const) {
+      if (source === "database" && !queryDatabase) continue;
+      void query(source).then((data) => {
+        if (!controller.signal.aborted) setResults((previous) => ({ ...previous, [source]: data }));
+      }).catch((error: Error) => {
+        if (!controller.signal.aborted) setErrors((previous) => ({ ...previous, [source]: error.message }));
+      }).finally(() => {
+        if (!controller.signal.aborted) setLoading((previous) => ({ ...previous, [source]: false }));
+      });
+    }
     return () => controller.abort();
-  }, [range, date]);
+  }, [range, date, queryDatabase]);
 
   const panel = (source: "database" | "api") => {
     const data = results[source];
     return <section className="confere-column" aria-label={source === "database" ? "Dados do SQLite" : "Dados da Ecowitt"}>
       <h2>{source === "database" ? "SQLite" : "API Ecowitt"}</h2>
+      {source === "database" && !queryDatabase ? <p role="status">Para o dia civil de hoje, esta comparação usa a API Ecowitt. Dias encerrados também podem ser consultados no SQLite.</p> : null}
       {data?.historyStoredAt && <p>Consulta: {new Date(data.historyStoredAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>}
-      {data?.historyIncomplete && <p className="confere-alert">A API devolveu apenas parte do período.</p>}
-      {loading ? <p>Consultando…</p> : errors[source] ? <p className="confere-alert">{errors[source]}</p> : data ? chartGroups.map((group) => group.title === "Raios" ? <LightningChart key={group.title} history={data.history} range={range} /> : <EcowittSeriesChart key={group.title} title={group.title} history={data.history} lines={group.lines} areaKey={group.title === "Ventos" ? "windGust" : undefined} range={range} />) : null}
+      {data?.historyIncomplete && <p className="confere-alert">A fonte contém apenas parte do período.</p>}
+      {data && !Object.values(data.history).some((series) => series.points.length > 0) && <p role="status">Consulta concluída sem pontos para este período.</p>}
+      {loading[source] && <p role="status">Consultando esta fonte…</p>}{errors[source] && <p className="confere-alert">{errors[source]}</p>}{data ? chartGroups.map((group) => group.title === "Raios" ? <LightningChart key={group.title} history={data.history} range={range} /> : <EcowittSeriesChart key={group.title} title={group.title} history={data.history} lines={group.lines} areaKey={group.title === "Ventos" ? "windGust" : undefined} range={data.range} />) : null}
     </section>;
   };
 
-  return <main className="confere-shell"><header className="confere-header"><a href="/">← Estação Bauru Sul</a><h1>Confere</h1><p>Comparação dos mesmos sensores e do mesmo período nas duas fontes.</p><div className="confere-controls"><label>Período <select value={range} onChange={(event) => setRange(event.target.value as RangeKey)}>{periods.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label><label>Data final <input type="date" value={date} max={new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" })} onChange={(event) => setDate(event.target.value)} /></label></div></header><div className="confere-grid">{panel("database")}{panel("api")}</div></main>;
+  const weeklyDates = weeklyWindowLabelDates(date);
+  return <main className="confere-shell"><header className="confere-header"><a href="/">← Estação Bauru Sul</a><h1>Confere</h1><p>Comparação dos mesmos sensores e do mesmo período nas duas fontes.</p><div className="confere-controls"><label>Período <select value={range} onChange={(event) => setRange(event.target.value as RangeKey)}>{periods.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label><label>{range === "7d" ? "Data de referência" : "Data final"} <input type="date" value={date} max={new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" })} onChange={(event) => setDate(event.target.value)} /></label>{range === "7d" && <p role="status">Janela semanal: {new Date(`${weeklyDates.startDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} a {new Date(`${weeklyDates.endDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} (America/Sao_Paulo)</p>}</div></header><div className="confere-grid">{panel("database")}{panel("api")}</div></main>;
 }
