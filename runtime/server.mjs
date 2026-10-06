@@ -52,7 +52,7 @@ const server = http.createServer(async (incoming, outgoing) => {
     const scope = { ecowittRequests:0, sqliteOnly:url.pathname === '/api/weather' && url.searchParams.get('source') !== 'api' && (range !== '24h' || Boolean(date && date < today)) };
     const started = performance.now();
     const response = await requestScope.run(scope, () => worker.fetch(request, { ASSETS }, { waitUntil(promise) { promise.catch(error => console.error('Background task failed',error.name)); } }));
-    if (url.pathname === '/api/weather') console.log(JSON.stringify({ range, view:url.searchParams.get("view"), durationMs:Math.round((performance.now()-started)*10)/10, status:response.status, sqliteOnly:scope.sqliteOnly, ecowittRequests:scope.ecowittRequests }));
+    if (url.pathname === '/api/weather') console.log(JSON.stringify({ range, date, source:url.searchParams.get("source"), view:url.searchParams.get("view"), durationMs:Math.round((performance.now()-started)*10)/10, status:response.status, sqliteOnly:scope.sqliteOnly, ecowittRequests:scope.ecowittRequests }));
     outgoing.statusCode=response.status;
     for (const [name,value] of response.headers) if (name.toLowerCase()!=='set-cookie') outgoing.setHeader(name,value);
     const cookies=response.headers.getSetCookie();if(cookies.length)outgoing.setHeader('Set-Cookie',cookies);

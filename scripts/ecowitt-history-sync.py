@@ -51,15 +51,40 @@ def merge_point(c, device, cycle, metric, timestamp, value, unit):
       (device, metric, timestamp, value, unit, cycle, m.PRIORITY[cycle]))
 
 
+def retry_key(device, cycle, start, end):
+    return f'retry-window:{device}:{cycle}:{start}:{end}'
+
+
+def remember_window(c, device, cycle, start, end):
+    key = retry_key(device, cycle, start, end)
+    with c:
+        c.execute('INSERT INTO ecowitt_history_import_meta(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value',
+          (key, json.dumps({'cycle': cycle, 'start': start, 'end': end})))
+    return key
+
+
+def pending_windows(c, device):
+    for key, raw in c.execute('SELECT key,value FROM ecowitt_history_import_meta WHERE key LIKE ? ORDER BY key', (f'retry-window:{device}:%',)).fetchall():
+        item = json.loads(raw)
+        yield item['cycle'], item['start'], item['end']
+
+
 def main():
     lock = open(ROOT / 'backups/history-import.lock', 'a')
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
         raise RuntimeError('IMPORT_ALREADY_RUNNING')
+    try:
+        return sync_locked()
+    finally:
+        lock.close()
+
+
+def sync_locked():
     c = sqlite3.connect(m.selected_db(), timeout=60)
     c.execute('PRAGMA busy_timeout=60000')
-    stamp = dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    stamp = dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     temporary = ROOT / 'backups' / ('daily-history-' + stamp + '.tmp.sqlite')
     if shutil.disk_usage(ROOT).free < Path(m.selected_db()).stat().st_size * 2:
         raise RuntimeError('INSUFFICIENT_BACKUP_SPACE')
@@ -98,9 +123,16 @@ def main():
     end_ts = int(time.time())
     failure = False
     statistics_since = end_ts-7*86400
+    attempted = {}
 
     def fetch_window(cycle, start, end, previous=None):
         nonlocal failure, statistics_since
+        identity = (cycle, start, end)
+        if identity in attempted:
+            return attempted[identity]
+        attempted[identity] = False
+        # Persist BEFORE the network call: an interrupted process must not lose its retry.
+        key = remember_window(c, device, cycle, start, end)
         try:
             data = m.request_api('/device/history', {**auth, 'mac': mac,
               'start_date': dt.datetime.fromtimestamp(start, m.BAURU).strftime('%Y-%m-%d %H:%M:%S'),
@@ -116,6 +148,8 @@ def main():
                   ON CONFLICT(device_key,cycle_type,start_ts,end_ts) DO UPDATE SET
                   status=excluded.status,api_points=excluded.api_points,payload=excluded.payload''',
                   (device, cycle, start, end, ('complete' if coverage(points,cycle,start,end)['complete'] else 'partial') if points else 'empty', len(points), json.dumps(combined, separators=(',', ':'))))
+                c.execute('DELETE FROM ecowitt_history_import_meta WHERE key=?', (key,))
+            attempted[identity] = True
             log({'cycle': cycle, 'start': m.iso(start), 'end': m.iso(end), 'status': ('complete' if coverage(points,cycle,start,end)['complete'] else 'partial') if points else 'empty', 'points': len(points)})
             time.sleep(3.1)
             return True
@@ -126,10 +160,13 @@ def main():
               'reason': reason if reason.startswith(('API_CODE_', 'HTTP_', 'NETWORK_')) else type(error).__name__})
             return False
 
+    for cycle, start, end in pending_windows(c, device):
+        prior = c.execute('SELECT payload FROM ecowitt_history_import_chunks WHERE device_key=? AND cycle_type=? AND start_ts=? AND end_ts=?', (device,cycle,start,end)).fetchone()
+        fetch_window(cycle, start, end, prior[0] if prior else None)
     for cycle in m.CYCLES:
         for start,end,payload in c.execute('SELECT start_ts,end_ts,payload FROM ecowitt_history_import_chunks WHERE device_key=? AND cycle_type=? AND end_ts>=? ORDER BY start_ts', (device,cycle,end_ts-86400)).fetchall():
             fetch_window(cycle,start,end,payload)
-    for cycle, start, end, payload in c.execute("SELECT cycle_type,start_ts,end_ts,payload FROM ecowitt_history_import_chunks WHERE status='empty' AND end_ts < ? ORDER BY start_ts", (end_ts - 3600,)).fetchall():
+    for cycle, start, end, payload in c.execute("SELECT cycle_type,start_ts,end_ts,payload FROM ecowitt_history_import_chunks WHERE status IN ('empty','error') AND device_key=? AND end_ts < ? ORDER BY start_ts", (device, end_ts - 3600,)).fetchall():
         fetch_window(cycle, start, end, payload)
     for cycle, span in m.CYCLES.items():
         cursor = c.execute('SELECT MAX(end_ts)+1 FROM ecowitt_history_import_chunks WHERE device_key=? AND cycle_type=?', (device, cycle)).fetchone()[0]
@@ -139,6 +176,17 @@ def main():
             if not fetch_window(cycle, cursor, end):
                 break
             cursor = end + 1
+    repair_plan = os.environ.get('CLIMA_REPAIR_PLAN')
+    if repair_plan:
+        from history_gap_repair import run_repair
+        result = run_repair(c, m, device, auth, mac, Path(repair_plan), ROOT / 'backups', log)
+        failure = failure or result['failed']
+        if result['earliest_changed'] is not None:
+            statistics_since = min(statistics_since, result['earliest_changed'])
+    baseline = os.environ.get('CLIMA_REPAIR_BASELINE')
+    if baseline:
+        from history_gap_repair import restore_checkpoint_provenance
+        log({'checkpoint_provenance_restored': restore_checkpoint_provenance(c,m,Path(baseline))})
     from history_statistics import build_statistics
     build_statistics(c, None if '--apply-tested-recovery' in sys.argv else statistics_since)
     check = c.execute('PRAGMA quick_check').fetchone()[0]

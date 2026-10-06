@@ -227,3 +227,12 @@ button,a { font:inherit; }
 .observed-statistics { margin:12px 0; padding:12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
 .observed-statistics summary { cursor:pointer; color:#dce8ed; }.observed-statistics table { width:100%; border-collapse:collapse; }.observed-statistics th,.observed-statistics td { padding:8px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }.map-badge a { color:#7ed9ed; font-size:.75rem; }.wind-facts { grid-template-columns:1fr 1fr!important; }
 @media(max-width:600px) { .wind-rose { margin-inline:auto; max-width:340px; }.wind-facts { gap:10px; }.wind-facts strong { font-size:.8rem; }.observed-statistics .history-table { overflow-x:auto; } }
+
+.battery-unavailable { display:block; margin-top:6px; color:#8297a3; font-size:.65rem; line-height:1.4; }
+.battery-icon i { overflow:hidden; }
+.battery-icon i>span { display:block; height:100%; background:#55cfa5; box-shadow:0 0 4px rgba(85,207,165,.45); }
+
+.extrema-strip .extrema-min { color:#22a9d6; }
+.extrema-strip .extrema-max { color:#ff6842; }
+.extremum-pin { outline:none; }
+.extremum-pin:focus-visible { filter:drop-shadow(0 0 3px white); }

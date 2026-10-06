@@ -61,9 +61,10 @@ export default function ConfereDashboard() {
       <h2>{source === "database" ? "SQLite" : "API Ecowitt"}</h2>
       {source === "database" && !queryDatabase ? <p role="status">Para o dia civil de hoje, esta comparação usa a API Ecowitt. Dias encerrados também podem ser consultados no SQLite.</p> : null}
       {data?.historyStoredAt && <p>Consulta: {new Date(data.historyStoredAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>}
+      {data?.historyWindow && <p>{new Date(data.historyWindow.start).toLocaleString("pt-BR", {timeZone:"America/Sao_Paulo"})} a {new Date(data.historyWindow.end).toLocaleString("pt-BR", {timeZone:"America/Sao_Paulo"})} · America/Sao_Paulo · resolução {({"5min":"5 minutos","30min":"30 minutos","4hour":"4 horas","1day":"diária"} as Record<string,string>)[data.historyWindow.resolution] ?? data.historyWindow.resolution}. Extremos na resolução selecionada.</p>}
       {data?.historyIncomplete && <p className="confere-alert">A fonte contém apenas parte do período.</p>}
       {data && !Object.values(data.history).some((series) => series.points.length > 0) && <p role="status">Consulta concluída sem pontos para este período.</p>}
-      {loading[source] && <p role="status">Consultando esta fonte…</p>}{errors[source] && <p className="confere-alert">{errors[source]}</p>}{data ? chartGroups.map((group) => group.title === "Raios" ? <LightningChart key={group.title} history={data.history} range={range} /> : <EcowittSeriesChart key={group.title} title={group.title} history={data.history} lines={group.lines} areaKey={group.title === "Ventos" ? "windGust" : undefined} range={data.range} />) : null}
+      {loading[source] && <p role="status">Consultando esta fonte…</p>}{errors[source] && <p className="confere-alert">{errors[source]}</p>}{data ? chartGroups.map((group) => group.title === "Raios" ? <LightningChart key={group.title} history={data.history} periodExtrema={loading[source] ? {} : (data.comparisonExtrema ?? data.chartExtrema)} range={data.range} /> : <EcowittSeriesChart key={group.title} title={group.title} history={data.history} periodExtrema={loading[source] ? {} : (data.comparisonExtrema ?? data.chartExtrema)} lines={group.lines} areaKey={group.title === "Ventos" ? "windGust" : undefined} range={data.range} />) : null}
     </section>;
   };
 

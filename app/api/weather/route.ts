@@ -1,3 +1,5 @@
+import { sqliteChartExtrema } from "@/lib/weather-chart-extrema";
+import { payloadChartExtrema } from "@/lib/chart-extrema";
 import { sqliteStatistics } from "@/lib/weather-statistics";
 import { recentLightning } from "@/lib/weather-rules";
 import { env } from "cloudflare:workers";
@@ -386,7 +388,7 @@ export async function GET(request: Request) {
       const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(mac));
       stationKey = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
       const snapshot: JsonObject = {};
-      const paths = ["outdoor/temperature","outdoor/humidity","outdoor/feels_like","outdoor/dew_point","outdoor/vpd","indoor/temperature","indoor/humidity","indoor/feels_like","indoor/dew_point","pressure/relative","pressure/absolute","wind/wind_speed","wind/wind_gust","wind/wind_direction","wind/10_minute_average_wind_direction","solar_and_uvi/solar","solar_and_uvi/uvi","rainfall_piezo/rain_rate","rainfall_piezo/daily","rainfall_piezo/weekly","rainfall_piezo/monthly","rainfall_piezo/yearly","rainfall_piezo/1_hour","rainfall_piezo/24_hours","rainfall_piezo/event","lightning/count","lightning/distance","battery/haptic_array_battery","battery/haptic_array_capacitor"];
+      const paths = ["outdoor/temperature","outdoor/humidity","outdoor/feels_like","outdoor/dew_point","outdoor/vpd","indoor/temperature","indoor/humidity","indoor/feels_like","indoor/dew_point","pressure/relative","pressure/absolute","wind/wind_speed","wind/wind_gust","wind/wind_direction","wind/10_minute_average_wind_direction","solar_and_uvi/solar","solar_and_uvi/uvi","rainfall_piezo/rain_rate","rainfall_piezo/daily","rainfall_piezo/weekly","rainfall_piezo/monthly","rainfall_piezo/yearly","rainfall_piezo/1_hour","rainfall_piezo/24_hours","rainfall_piezo/event","lightning/count","lightning/distance","battery/haptic_array_battery","battery/haptic_array_capacitor","battery/lightning_sensor","battery/wh57","battery/wh57_battery","battery/lightning","battery/lightning_sensor_battery","battery/lightning_battery"];
       for (const path of paths) {
         const row = await env.DB.prepare("SELECT value,unit,observed_at FROM ecowitt_history_points WHERE device_key=? AND metric_path=? AND value != '-' ORDER BY observed_at DESC LIMIT 1").bind(stationKey,path).first<{value:string;unit:string;observed_at:number}>();
         if (!row) continue;
@@ -454,8 +456,16 @@ export async function GET(request: Request) {
     }
 
     const statistics = null;
+    // Extrema come from every valid stored observation, independent of drawing decimation.
+    // Explicit API comparisons use their complete source payload, including high/low fields.
+    const comparisonExtrema = payloadChartExtrema(history.data,Math.floor(start.getTime()/1000),Math.floor(now.getTime()/1000));
+    const chartExtrema = databaseOnly && stationKey
+      ? await sqliteChartExtrema(stationKey,Math.floor(start.getTime()/1000),Math.floor(now.getTime()/1000))
+      : comparisonExtrema;
     const response = Response.json({
       statistics,
+      chartExtrema,
+      comparisonExtrema,
       station: {
         name: "Estação Meteorológica Bauru",
         location: "Bauru–SP",

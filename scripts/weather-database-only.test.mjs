@@ -14,6 +14,8 @@ try {
     'rules.mjs': 'lib/weather-rules.ts',
     'statistics.mjs': 'lib/weather-statistics.ts',
     'lightning.mjs': 'lib/lightning-totals.ts',
+    'chart-extrema.mjs':'lib/chart-extrema.ts',
+    'weather-chart-extrema.mjs':'lib/weather-chart-extrema.ts',
   };
   for (const [name, path] of Object.entries(files)) {
     let source = await readFile(new URL(path, root), 'utf8');
@@ -22,7 +24,11 @@ try {
       .replaceAll('"@/lib/weather-history-window"', '"./window.mjs"')
       .replaceAll('"@/lib/weather-rules"', '"./rules.mjs"')
       .replaceAll('"@/lib/weather-statistics"', '"./statistics.mjs"')
-      .replaceAll('"@/lib/lightning-totals"', '"./lightning.mjs"');
+      .replaceAll('"@/lib/lightning-totals"', '"./lightning.mjs"')
+      .replaceAll('"@/lib/weather-chart-extrema"', '"./weather-chart-extrema.mjs"')
+      .replaceAll('"@/lib/chart-extrema"', '"./chart-extrema.mjs"')
+      .replaceAll("'./chart-extrema'", "'./chart-extrema.mjs'")
+      .replaceAll("'cloudflare:workers'", "'./env.mjs'");
     await writeFile(join(dir, name), ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText);
   }
   const { env } = await import(join(dir, 'env.mjs'));
