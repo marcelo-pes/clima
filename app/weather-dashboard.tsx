@@ -555,9 +555,24 @@ function ProfilePanel({ data }: { data: WeatherData }) {
 function SatellitePanel() {
   const layers = [{ label: "Satélite", path: "satelite" }, { label: "Chuva", path: "chuva" }, { label: "Infravermelho", path: "satelite/infravermelha" }, { label: "Visível", path: "satelite/visivel" }, { label: "Vapor d’água", path: "satelite/vapor-dagua" }];
   const [layer, setLayer] = useState("satelite/infravermelha");
+  const frameElement = useRef<HTMLDivElement>(null);
+  const [frameSize, setFrameSize] = useState({ width: 346, height: 620 });
+  useEffect(() => {
+    const element = frameElement.current;
+    if (!element) return;
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      if (width > 0 && height > 0) setFrameSize({ width, height });
+    });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  // Keep the provider's compact controls intact below its narrow-layout breakpoint.
+  // Scaling the complete embed equally on both axes preserves the map's projection.
+  const embedScale = Math.min(1, frameSize.width / 346);
   const climatempoUrl = `https://www.climatempo.com.br/mapas/${layer}`;
   const selected = layers.find((item) => item.path === layer)?.label ?? "Satélite";
-  return <section className="satellite-panel"><header><div><span>{selected} · Brasil</span><h2>Satélite meteorológico</h2><p>A data e o horário aparecem na barra de reprodução do mapa.</p></div><div className="satellite-actions"><a href={climatempoUrl} target="_blank" rel="noreferrer">Abrir no Climatempo ↗</a></div></header><div className="satellite-frame satellite-crop"><iframe key={layer} title={`${selected} do Climatempo`} src={climatempoUrl} loading="lazy" allow="fullscreen" referrerPolicy="strict-origin-when-cross-origin" /><div className="satellite-menu-mask" aria-hidden="true" /><div className="satellite-layer-switch" aria-label="Camadas do mapa">{layers.map((item) => <button key={item.path} className={layer === item.path ? "active" : ""} onClick={() => setLayer(item.path)} aria-pressed={layer === item.path}>{item.label}</button>)}</div></div><div className="satellite-credit"><strong>Fonte: Climatempo</strong><span>Imagem e evolução recente observada.</span></div><p className="satellite-fallback">Se o provedor bloquear a visualização incorporada no seu navegador, use <a href={climatempoUrl} target="_blank" rel="noreferrer">Abrir no Climatempo</a>.</p></section>;
+  return <section className="satellite-panel"><header><div><span>{selected} · Brasil</span><h2>Satélite meteorológico</h2><p>A data e o horário aparecem na barra de reprodução do mapa.</p></div><div className="satellite-actions"><a href={climatempoUrl} target="_blank" rel="noreferrer">Abrir no Climatempo ↗</a></div></header><div ref={frameElement} className="satellite-frame satellite-crop"><iframe style={{ width: frameSize.width / embedScale, height: frameSize.height / embedScale + 176, top: -176 * embedScale, transform: `scale(${embedScale})`, transformOrigin: "top left" }} key={layer} title={`${selected} do Climatempo`} src={climatempoUrl} loading="lazy" allow="fullscreen" referrerPolicy="strict-origin-when-cross-origin" /><div className="satellite-menu-mask" style={{ top: 71 * embedScale, height: 92 * embedScale }} aria-hidden="true" /><div className="satellite-layer-switch" style={{ top: 86 * embedScale }} aria-label="Camadas do mapa">{layers.map((item) => <button key={item.path} className={layer === item.path ? "active" : ""} onClick={() => setLayer(item.path)} aria-pressed={layer === item.path}>{item.label}</button>)}</div></div><div className="satellite-credit"><strong>Fonte: Climatempo</strong><span>Imagem e evolução recente observada.</span></div><p className="satellite-fallback">Se o provedor bloquear a visualização incorporada no seu navegador, use <a href={climatempoUrl} target="_blank" rel="noreferrer">Abrir no Climatempo</a>.</p></section>;
 }
 
 function LoadingDashboard() {
