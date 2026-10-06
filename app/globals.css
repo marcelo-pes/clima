@@ -269,3 +269,15 @@ button,a { font:inherit; }
   .ecowitt-history-menu { grid-template-columns:auto minmax(0,1fr); }
   .ecowitt-export { grid-column:1 / -1; grid-row:4; justify-self:end; }
 }
+
+/* Match the original satellite column without changing other dashboard tabs. */
+.dashboard-content.satellite-content { max-width:calc(522px + clamp(14px,2.3vw,36px) + clamp(14px,2.3vw,36px)); }
+.satellite-content .satellite-frame { height:720px; min-height:0; }
+.satellite-content .satellite-crop iframe { height:calc(100% + 176px); min-height:0; }
+.satellite-content .satellite-credit { position:static; margin:0 18px 16px; max-width:none; box-shadow:none; }
+@media(max-width:1020px) { .satellite-content .satellite-frame { height:620px; } }
+@media(max-width:720px) {
+  .dashboard-content.satellite-content { max-width:542px; }
+  .satellite-content .satellite-frame { height:620px; }
+  .satellite-content .satellite-credit { margin-inline:10px; }
+}
