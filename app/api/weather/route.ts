@@ -484,7 +484,7 @@ export async function GET(request: Request) {
       historySource: history.origin,
       historyStoredAt: history.updatedAt,
       observationSource: databaseOnly ? "database" : "api",
-      historyWindow: { start: start.toISOString(), end: now.toISOString(), timeZone: "America/Sao_Paulo", resolution: range.cycle, aggregation: range.cycle === "1day" ? "Agregação diária da origem; extremos do gráfico não equivalem a extremos observados" : "Valores na resolução da origem" },
+      historyWindow: { start: start.toISOString(), end: now.toISOString(), timeZone: "America/Sao_Paulo", resolution: range.cycle, aggregation: range.cycle === "1day" ? "Agregação diária da origem" : "Valores na resolução da origem" },
       metrics: {
         temperature,
         feelsLike: cleanMetric(metric(data, [["outdoor", "feels_like"], ["outdoor", "app_temp"]])),
