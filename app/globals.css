@@ -281,3 +281,7 @@ button,a { font:inherit; }
   .satellite-content .satellite-frame { height:620px; }
   .satellite-content .satellite-credit { margin-inline:10px; }
 }
+
+.satellite-content .satellite-actions { flex-shrink:0; }
+.satellite-content .satellite-actions a { white-space:nowrap; }
+.satellite-content .satellite-panel>header>div:first-child { min-width:0; }
