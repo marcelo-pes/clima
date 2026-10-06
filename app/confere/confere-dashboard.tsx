@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { EcowittSeriesChart, LightningChart, GROUPS, type WeatherData } from "../weather-dashboard";
+import { EcowittSeriesChart, LightningChart, ObservedStatistics, GROUPS, type WeatherData } from "../weather-dashboard";
 import { confereHttpError, shouldQueryConfereDatabase, weeklyWindowLabelDates } from "@/lib/confere-response";
 
 type RangeKey = "24h" | "7d" | "30d" | "1y";
@@ -64,6 +64,8 @@ export default function ConfereDashboard() {
       {data?.historyStoredAt && <p>Consulta: {new Date(data.historyStoredAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })}</p>}
       {data?.historyWindow && <p>{new Date(data.historyWindow.start).toLocaleString("pt-BR", {timeZone:"America/Sao_Paulo"})} a {new Date(data.historyWindow.end).toLocaleString("pt-BR", {timeZone:"America/Sao_Paulo"})} · America/Sao_Paulo · resolução {({"5min":"5 minutos","30min":"30 minutos","4hour":"4 horas","1day":"diária"} as Record<string,string>)[data.historyWindow.resolution] ?? data.historyWindow.resolution}. Extremos na resolução selecionada.</p>}
       {data?.historyIncomplete && <p className="confere-alert">A fonte contém apenas parte do período.</p>}
+      {source === "database" && queryDatabase && data && <ObservedStatistics data={data} />}
+      {source === "database" && queryDatabase && data?.historyIncomplete && <p className="confere-alert">Cobertura parcial. Ausências não equivalem a zero; a sincronização é independente desta consulta.</p>}
       {data && !Object.values(data.history).some((series) => series.points.length > 0) && <p role="status">Consulta concluída sem pontos para este período.</p>}
       {loading[source] && <p role="status">Consultando esta fonte…</p>}{errors[source] && <p className="confere-alert">{errors[source]}</p>}{data ? chartGroups.map((group) => group.title === "Raios" ? <LightningChart key={group.title} history={data.history} periodExtrema={loading[source] ? {} : (data.comparisonExtrema ?? data.chartExtrema)} range={data.range} /> : <EcowittSeriesChart key={group.title} title={group.title} history={data.history} periodExtrema={loading[source] ? {} : (data.comparisonExtrema ?? data.chartExtrema)} lines={group.lines} areaKey={group.title === "Ventos" ? "windGust" : undefined} range={data.range} />) : null}
     </section>;
