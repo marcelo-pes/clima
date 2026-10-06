@@ -260,7 +260,7 @@ button,a { font:inherit; }
   .wind-module.compact .wind-side small { font-size:.68rem; }
 }
 .dashboard-tabs,.dashboard-content,.nav-wrap { min-width:0; max-width:100%; }
-.dashboard-content { width:100%; }
+.dashboard-content { width:100%; max-width:min(100%,1600px); }
 .observed-statistics summary { overflow-wrap:anywhere; }
 .dashboard-content [data-slot="tabs-content"] { min-width:0; }
 .ecowitt-menu-title { min-width:0; overflow-wrap:anywhere; }
