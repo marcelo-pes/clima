@@ -43,7 +43,7 @@ const server = http.createServer(async (incoming, outgoing) => {
     const url = new URL(incoming.url, `${scheme}://${host}`);
     if (url.pathname === '/healthz') { outgoing.writeHead(200,{'Content-Type':'application/json'});outgoing.end('{"status":"ok"}');return; }
     if (url.pathname === '/api/weather/archive') { outgoing.writeHead(403);outgoing.end('Archive disabled on clima2');return; }
-    const cameraResponse = cameraService.handle(url.pathname, new Request(url, { method:incoming.method, headers }));
+    const cameraResponse = await cameraService.handle(url.pathname, new Request(url, { method:incoming.method, headers }));
     if (cameraResponse) {
       outgoing.statusCode=cameraResponse.status;
       for (const [name,value] of cameraResponse.headers) outgoing.setHeader(name,value);

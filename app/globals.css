@@ -294,3 +294,22 @@ button,a { font:inherit; }
 .camera-observation .camera-analysis-pending { color:#e8cf9a; }
 .camera-observation-status { padding:10px 14px; border-top:1px solid var(--line); color:#b9c9d0; font-size:.72rem; line-height:1.4; }
 @media (max-width:470px) { .camera-observation { padding:9px; }.camera-observation img { max-height:none; }.camera-observation figcaption { font-size:.68rem; } }
+
+.camera-timelapse { min-width:0; }
+.camera-timelapse-screen { display:grid; min-height:170px; place-items:center; overflow:hidden; background:#05090b; }
+.camera-timelapse-screen img { display:block; width:100%; height:auto; max-height:340px; object-fit:contain; animation:hp10-frame-in 180ms ease-out both; }
+.camera-timelapse-empty { display:grid; min-height:170px; padding:20px; place-items:center; color:#c4d0d6; text-align:center; font-size:.82rem; }
+.camera-timelapse-details { display:grid; gap:10px; padding-top:10px; }
+.camera-timelapse-times { display:grid; gap:7px; color:#c4d0d6; font-size:.7rem; line-height:1.4; }
+.camera-timelapse-times span { display:grid; gap:2px; overflow-wrap:anywhere; }
+.camera-timelapse-times strong { color:#fff; font-size:.68rem; }
+.camera-timelapse-status { color:#9caeb7; font-size:.67rem; line-height:1.45; }
+.camera-timelapse-controls { display:flex; flex-wrap:wrap; gap:8px; }
+.camera-timelapse-controls button { display:inline-flex; min-height:36px; align-items:center; justify-content:center; gap:7px; padding:7px 11px; border:1px solid rgba(190,215,226,.2); border-radius:5px; color:#e8f2f5; background:#15242b; font:inherit; font-size:.7rem; cursor:pointer; }
+.camera-timelapse-controls button:hover:not(:disabled) { border-color:#55c7dd; background:#1a303a; }
+.camera-timelapse-controls button:focus-visible { outline:2px solid #55c7dd; outline-offset:2px; }
+.camera-timelapse-controls button:disabled { opacity:.5; cursor:not-allowed; }
+@keyframes hp10-frame-in { from { opacity:.72; } to { opacity:1; } }
+@media (max-width:1020px) { .camera-timelapse-screen img { max-height:430px; } }
+@media (max-width:470px) { .camera-timelapse-screen { min-height:130px; }.camera-timelapse-screen img { max-height:none; }.camera-timelapse-controls button { min-height:40px; } }
+@media (prefers-reduced-motion:reduce) { .camera-timelapse-screen img { animation:none; } }

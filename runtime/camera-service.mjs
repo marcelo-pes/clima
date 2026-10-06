@@ -5,6 +5,7 @@ const API = "https://api.ecowitt.net/api/v3";
 const POLL_MS = 5 * 60_000; // Match the HP10 cloud capture cadence.
 const PHOTO_MAX_AGE_MS = 20 * 60_000; // Four server polling intervals.
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+const MAX_HISTORY_IMAGES = 12;
 const ALLOWED_IMAGE_HOSTS = new Set(["osswww.ecowitt.net", "oss.ecowitt.net"]);
 
 function findObjects(value, predicate, found = []) {
@@ -22,6 +23,10 @@ function numberOrNull(value) {
   return Number.isFinite(parsed) ? parsed : null;
 }
 
+function isJpeg(bytes) {
+  return bytes.length >= 4 && bytes.length <= MAX_IMAGE_BYTES && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+}
+
 function currentImageUrl(photo) {
   try {
     const url = new URL(photo?.url);
@@ -35,24 +40,49 @@ function currentImageUrl(photo) {
 export function createCameraService({ env, fetchImpl = fetch, now = () => Date.now(), setIntervalImpl = setInterval, logger = () => {}, cacheDirectory = process.env.CLIMA_CAMERA_CACHE_DIR }) {
   let snapshot = null;
   let image = null;
+  let history = [];
   let macs = null;
   let inFlight = null;
   let timer = null;
   let startPromise = null;
 
+  function orderedHistory() {
+    return [...history].sort((left, right) => left.capturedAt - right.capturedAt);
+  }
+
+  async function rememberImage(capturedAt, bytes) {
+    if (history.some((entry) => entry.capturedAt === capturedAt)) return;
+    const imageName = `hp10-${capturedAt}.jpg`;
+    if (cacheDirectory) {
+      await mkdir(cacheDirectory, { recursive: true, mode: 0o700 });
+      let existing = false;
+      try { existing = isJpeg(new Uint8Array(await readFile(join(cacheDirectory, imageName)))); } catch { /* First write. */ }
+      if (!existing) {
+        const imageTemporary = join(cacheDirectory, `${imageName}.tmp`);
+        await writeFile(imageTemporary, bytes, { mode: 0o600 });
+        await rename(imageTemporary, join(cacheDirectory, imageName));
+      }
+      const files = await readdir(cacheDirectory);
+      const cached = files.map((name) => {
+        const match = /^hp10-(\d+)\.jpg$/.exec(name);
+        return match ? { capturedAt: Number(match[1]), imageName: name } : null;
+      }).filter(Boolean).sort((left, right) => right.capturedAt - left.capturedAt);
+      const keep = new Set(cached.slice(0, MAX_HISTORY_IMAGES).map((entry) => entry.capturedAt));
+      await Promise.all(cached.filter((entry) => !keep.has(entry.capturedAt)).map((entry) => rm(join(cacheDirectory, entry.imageName), { force: true })));
+      history = cached.filter((entry) => keep.has(entry.capturedAt)).sort((left, right) => left.capturedAt - right.capturedAt);
+      return;
+    }
+    history.push({ capturedAt, bytes });
+    history = history.sort((left, right) => left.capturedAt - right.capturedAt).slice(-MAX_HISTORY_IMAGES);
+  }
+
   async function persistCache() {
     if (!cacheDirectory || !snapshot || !image) return;
-    await mkdir(cacheDirectory, { recursive: true, mode: 0o700 });
     const imageName = `hp10-${image.capturedAt}.jpg`;
-    const imageTemporary = join(cacheDirectory, `${imageName}.tmp`);
-    await writeFile(imageTemporary, image.bytes, { mode: 0o600 });
-    await rename(imageTemporary, join(cacheDirectory, imageName));
     const metadata = { ...snapshot, cachedImageName: imageName };
     const metadataTemporary = join(cacheDirectory, "hp10-current.json.tmp");
     await writeFile(metadataTemporary, JSON.stringify(metadata), { mode: 0o600 });
     await rename(metadataTemporary, join(cacheDirectory, "hp10-current.json"));
-    const files = await readdir(cacheDirectory);
-    await Promise.all(files.filter((name) => /^hp10-\d+\.jpg$/.test(name) && name !== imageName).map((name) => rm(join(cacheDirectory, name), { force: true })));
   }
 
   async function restoreCache() {
@@ -60,15 +90,31 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     try {
       const metadata = JSON.parse(await readFile(join(cacheDirectory, "hp10-current.json"), "utf8"));
       const capturedAt = numberOrNull(metadata.capturedAt);
-      if (!capturedAt || metadata.cachedImageName !== `hp10-${capturedAt}.jpg`) return;
-      const bytes = new Uint8Array(await readFile(join(cacheDirectory, metadata.cachedImageName)));
-      if (bytes.length > MAX_IMAGE_BYTES || bytes.length < 4 || bytes[0] !== 0xff || bytes[1] !== 0xd8 || bytes[2] !== 0xff) return;
-      const restored = { ...metadata };
-      delete restored.cachedImageName;
-      snapshot = { ...restored, restoredFromCache: true };
-      image = { capturedAt, bytes };
+      if (capturedAt && metadata.cachedImageName === `hp10-${capturedAt}.jpg`) {
+        const bytes = new Uint8Array(await readFile(join(cacheDirectory, metadata.cachedImageName)));
+        if (isJpeg(bytes)) {
+          const restored = { ...metadata };
+          delete restored.cachedImageName;
+          snapshot = { ...restored, restoredFromCache: true };
+          image = { capturedAt, bytes };
+        }
+      }
     } catch {
-      // Empty/partial cache is normal on first run; the scheduled poll will fill it.
+      // Empty/partial metadata is normal on first run; the scheduled poll will fill it.
+    }
+    try {
+      const files = await readdir(cacheDirectory);
+      const cached = files.map((name) => {
+        const match = /^hp10-(\d+)\.jpg$/.exec(name);
+        return match ? { capturedAt: Number(match[1]), imageName: name } : null;
+      }).filter(Boolean).sort((left, right) => right.capturedAt - left.capturedAt).slice(0, MAX_HISTORY_IMAGES);
+      for (const entry of cached) {
+        const bytes = new Uint8Array(await readFile(join(cacheDirectory, entry.imageName)));
+        if (isJpeg(bytes)) history.push(entry);
+      }
+      history.sort((left, right) => left.capturedAt - right.capturedAt);
+    } catch {
+      // Missing history files are normal before the first successful camera poll.
     }
   }
 
@@ -131,21 +177,28 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
         const sensorFresh = sensorTime !== null && now() - sensorTime * 1000 >= -60_000 && now() - sensorTime * 1000 <= 3 * 60_000;
         const checkedAt = now();
 
-        const isNewCapture = !snapshot || snapshot.capturedAt !== capturedAt;
+        if (snapshot && capturedAt < snapshot.capturedAt) throw new Error("camera_capture_time_regressed");
+        const isNewCapture = !snapshot || capturedAt > snapshot.capturedAt;
         if (isNewCapture) {
           const downloaded = await loadImage(sourceUrl);
+          await rememberImage(capturedAt, downloaded);
           image = { capturedAt, bytes: downloaded };
           // No computer-vision model is configured in the existing project/runtime.
           // Keep the result explicitly indeterminate; never infer sky state from darkness.
           snapshot = { capturedAt, checkedAt, sensorTime, sensorFresh, rainRate: rate, rainUnit: rateUnit, rainConfirmed: sensorFresh && rate !== null && rate > 0, visualCondition: null, analysisStatus: "classifier_not_configured" };
         } else {
-          snapshot = { ...snapshot, checkedAt, sensorTime, sensorFresh, rainRate: rate, rainUnit: rateUnit, rainConfirmed: sensorFresh && rate !== null && rate > 0 };
+          const retained = { ...snapshot };
+          delete retained.refreshFailed;
+          snapshot = { ...retained, checkedAt, sensorTime, sensorFresh, rainRate: rate, rainUnit: rateUnit, rainConfirmed: sensorFresh && rate !== null && rate > 0 };
         }
         await persistCache();
         logger({ event: "camera_refresh_ok", capturedAt, newCapture: isNewCapture, imageBytes: image?.bytes.length ?? 0 });
       } catch (error) {
         logger({ event: "camera_refresh_failed", reason: error instanceof Error ? error.message.replace(/https?:\/\/\S+/g, "[url]") : "unknown" });
-        if (snapshot) snapshot = { ...snapshot, checkedAt: now(), refreshFailed: true };
+        if (snapshot) {
+          snapshot = { ...snapshot, checkedAt: now(), refreshFailed: true };
+          try { await persistCache(); } catch { logger({ event: "camera_cache_write_failed" }); }
+        }
       }
     })().finally(() => { inFlight = null; });
     return inFlight;
@@ -158,10 +211,43 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     return { ...snapshot, status: fresh ? "fresh" : "stale", ageMs: Math.max(0, ageMs), imageUrl: fresh ? "/api/camera/image" : null };
   }
 
-  function handle(path, request) {
+  function sequence() {
+    const frames = orderedHistory();
+    const first = frames[0] ?? null;
+    const last = frames.at(-1) ?? null;
+    const ageMs = last ? now() - last.capturedAt * 1000 : null;
+    return {
+      status: !last ? "unavailable" : ageMs >= -60_000 && ageMs <= PHOTO_MAX_AGE_MS ? "fresh" : "stale",
+      count: frames.length,
+      limit: MAX_HISTORY_IMAGES,
+      capturedAt: last?.capturedAt ?? null,
+      oldestCapturedAt: first?.capturedAt ?? null,
+      intervalMs: first && last ? (last.capturedAt - first.capturedAt) * 1000 : 0,
+      checkedAt: snapshot?.checkedAt ? Math.floor(snapshot.checkedAt / 1000) : null,
+      refreshFailed: Boolean(snapshot?.refreshFailed),
+      images: frames.map((entry) => ({ capturedAt: entry.capturedAt, imageUrl: `/api/camera/sequence/${entry.capturedAt}`, ageMs: Math.max(0, now() - entry.capturedAt * 1000) })),
+    };
+  }
+
+  async function handle(path, request) {
     if (path === "/api/camera") {
       const metadata = current();
       return Response.json(metadata, { headers: { "Cache-Control": "no-store" } });
+    }
+    if (path === "/api/camera/sequence") {
+      return Response.json(sequence(), { headers: { "Cache-Control": "no-store" } });
+    }
+    const historicalImage = /^\/api\/camera\/sequence\/(\d+)$/.exec(path);
+    if (historicalImage) {
+      const capturedAt = Number(historicalImage[1]);
+      const entry = history.find((item) => item.capturedAt === capturedAt);
+      if (!entry) return new Response("Camera capture not found", { status: 404, headers: { "Cache-Control": "no-store" } });
+      let bytes;
+      try { bytes = entry.bytes ?? new Uint8Array(await readFile(join(cacheDirectory, entry.imageName))); }
+      catch { return new Response("Camera capture unavailable", { status: 503, headers: { "Cache-Control": "no-store" } }); }
+      const etag = `"hp10-${capturedAt}"`;
+      if (request.headers.get("if-none-match") === etag) return new Response(null, { status: 304, headers: { ETag: etag, "Cache-Control": "public, max-age=300, immutable" } });
+      return new Response(bytes, { headers: { "Content-Type": "image/jpeg", "Content-Length": String(bytes.length), "Cache-Control": "public, max-age=300, immutable", ETag: etag, "X-Capture-Time": String(capturedAt) } });
     }
     if (path === "/api/camera/image") {
       const metadata = current();
