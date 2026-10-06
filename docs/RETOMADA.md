@@ -5,12 +5,16 @@ Este é o estado final após a continuidade e publicação explicitamente autori
 ## Efetivamente publicado
 
 - URL: https://clima2.antaisolar.com.br.
-- Commit de código: **16296906fb33bf0b46508603ac77ae564e99eab6** (`1629690`). Publicado em **06/10/2026 13:50:40 UTC / 10:50:40 America/Sao_Paulo**.
-- Artefato SHA256: `e103c27f716da6fa61e4b23a4477481a013baf50b5e2fb5a7406d9b7f875961b`.
+- Commit de código: **a2892eb1af408fe28c280ea7c50e95a0ffc08059** (`a2892eb`). Publicado em **06/10/2026 14:24:52 UTC / 11:24:52 America/Sao_Paulo**.
+- Artefato SHA256: `c15ed98e7733685b85599b4d93e8aeb46b7299fdbaa5a029f7e0413f2b87cda6`.
 - Registro verificável: `/opt/clima2-antaisolar/review-deployment.json`. Aplicação `/opt/clima2-antaisolar/app`, `clima2-antaisolar.service`, Node 22.23.3, loopback 8788. Active, NRestarts=0, healthz e HTTPS públicos verificados.
 - Inclui bateria correta, pinos de mínimo/máximo, tooltips do /confere, atualização ao vivo e todos os ajustes de largura/cards. Não há ajuste de largura pendente. Limite original de 1600 px mantido; telas de 320 a 1920 px testadas.
 - Publicação final conferida em Chrome 1440×1000 e 390×844: 64 combinações de grupo/período, seis abas, CSV/tabela, período vazio, bateria e cards. Zero erros/warnings, cortes de pinos ou overflow nos elementos examinados.
 - Original `/opt/clima-antaisolar/app`, serviço loopback 8787, não publicado/reiniciado nesta execução; ativo desde 05/10 17:17:36 UTC. Clima original público/DNS/Sites/visibilidade preservados. Banco compartilhado recebeu apenas a recuperação/importação autorizada, preservando os registros anteriores.
+
+## Ajuste da aba Satélite às 11:24:52
+
+Coluna centralizada de 522 px seguindo o original, painel de condições alinhado e iframe compacto sem painéis laterais indevidos. Reprodução/data/horário, cinco camadas, proporção nativa, animação e link externo preservados; crédito fora da imagem. Em celular muito estreito, redução uniforme do iframe evita o layout quebrado do provedor. Testes locais e públicos em 1440/900/600/390/320 px; animação real verificada em 1440 e 320. Outras abas mantêm a largura anterior. Backup/reversão `/opt/clima2-antaisolar/backups/satellite-layout-20261006T142449Z/`. Captura pública do computador em `/Users/pes/clima2-qa-20261005/audit-20261006/satellite-public-1440.png`. Ver [satelite-2026-10-06.md](satelite-2026-10-06.md).
 
 ## Ajuste visual posterior às 10:50:40
 
@@ -52,7 +56,7 @@ Backup/reversão `/opt/clima2-antaisolar/backups/audit-20261006T113100Z/`: produ
 
 ## Git e locais
 
-Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado 1629690; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
+Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado a2892eb; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
 
 - Fonte principal `/Users/pes/clima2-20261005` (snapshot sem Git).
 - Git local `/Users/pes/clima2-git-20261006`; VPS `/opt/clima2-antaisolar/repository`.

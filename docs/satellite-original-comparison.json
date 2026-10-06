@@ -1,0 +1,1484 @@
+[
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 1440,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 425.921875,
+          "y": 130,
+          "width": 588.15625,
+          "height": 1036.015625,
+          "top": 130,
+          "right": 1014.078125,
+          "bottom": 1166.015625,
+          "left": 425.921875
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 459.03125,
+          "y": 152,
+          "width": 521.9375,
+          "height": 67.953125,
+          "top": 152,
+          "right": 980.96875,
+          "bottom": 219.953125,
+          "left": 459.03125
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 459.03125,
+          "y": 235.953125,
+          "width": 521.9375,
+          "height": 894.0625,
+          "top": 235.953125,
+          "right": 980.96875,
+          "bottom": 1130.015625,
+          "left": 459.03125
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 478.03125,
+          "y": 358.21875,
+          "width": 483.9375,
+          "height": 720,
+          "top": 358.21875,
+          "right": 961.96875,
+          "bottom": 1078.21875,
+          "left": 478.03125
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 493.4921875,
+          "y": 445.21875,
+          "width": 453.015625,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 946.5078125,
+          "bottom": 493.53125,
+          "left": 493.4921875
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\n\nVocê não tem nenhuma busca recente.\n\nUsar minha localização atual\nMapa de Satélite Infravermelho\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nTer, 06/10/2026 | 11:00\nSatélite\nChuva\nInfravermelha\nVisível\nVapor d'água",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 48,
+              "height": 48,
+              "top": 16,
+              "right": 64,
+              "bottom": 64,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 385,
+              "y": 20,
+              "width": 40,
+              "height": 40,
+              "top": 20,
+              "right": 425,
+              "bottom": 60,
+              "left": 385
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 43.375,
+              "y": -260,
+              "width": 390.625,
+              "height": 34,
+              "top": -260,
+              "right": 434,
+              "bottom": -226,
+              "left": 43.375
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 16,
+              "y": -169,
+              "width": 450,
+              "height": 44,
+              "top": -169,
+              "right": 466,
+              "bottom": -125,
+              "left": 16
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 450,
+              "y": 723,
+              "width": 32,
+              "height": 32,
+              "top": 723,
+              "right": 482,
+              "bottom": 755,
+              "left": 450
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 80,
+              "width": 482,
+              "height": 43.609375,
+              "top": 80,
+              "right": 482,
+              "bottom": 123.609375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 16,
+              "y": 191.609375,
+              "width": 40,
+              "height": 40,
+              "top": 191.609375,
+              "right": 56,
+              "bottom": 231.609375,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 220.0625,
+              "y": 195.59375,
+              "width": 245.9375,
+              "height": 32,
+              "top": 195.59375,
+              "right": 466,
+              "bottom": 227.59375,
+              "left": 220.0625
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 900,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 168.34375,
+          "y": 130,
+          "width": 563.3125,
+          "height": 936.015625,
+          "top": 130,
+          "right": 731.65625,
+          "bottom": 1066.015625,
+          "left": 168.34375
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 189.03125,
+          "y": 152,
+          "width": 521.9375,
+          "height": 67.953125,
+          "top": 152,
+          "right": 710.96875,
+          "bottom": 219.953125,
+          "left": 189.03125
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 189.03125,
+          "y": 235.953125,
+          "width": 521.9375,
+          "height": 794.0625,
+          "top": 235.953125,
+          "right": 710.96875,
+          "bottom": 1030.015625,
+          "left": 189.03125
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 208.03125,
+          "y": 358.21875,
+          "width": 483.9375,
+          "height": 620,
+          "top": 358.21875,
+          "right": 691.96875,
+          "bottom": 978.21875,
+          "left": 208.03125
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 223.4921875,
+          "y": 445.21875,
+          "width": 453.015625,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 676.5078125,
+          "bottom": 493.53125,
+          "left": 223.4921875
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\n\nVocê não tem nenhuma busca recente.\n\nUsar minha localização atual\nMapa de Satélite Infravermelho\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nTer, 06/10/2026 | 11:00\nSatélite\nChuva\nInfravermelha\nVisível\nVapor d'água",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 48,
+              "height": 48,
+              "top": 16,
+              "right": 64,
+              "bottom": 64,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 385,
+              "y": 20,
+              "width": 40,
+              "height": 40,
+              "top": 20,
+              "right": 425,
+              "bottom": 60,
+              "left": 385
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 43.375,
+              "y": -260,
+              "width": 390.625,
+              "height": 34,
+              "top": -260,
+              "right": 434,
+              "bottom": -226,
+              "left": 43.375
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 16,
+              "y": -169,
+              "width": 450,
+              "height": 44,
+              "top": -169,
+              "right": 466,
+              "bottom": -125,
+              "left": 16
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 450,
+              "y": 447,
+              "width": 32,
+              "height": 32,
+              "top": 447,
+              "right": 482,
+              "bottom": 479,
+              "left": 450
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 80,
+              "width": 482,
+              "height": 43.609375,
+              "top": 80,
+              "right": 482,
+              "bottom": 123.609375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 16,
+              "y": 191.609375,
+              "width": 40,
+              "height": 40,
+              "top": 191.609375,
+              "right": 56,
+              "bottom": 231.609375,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 220.0625,
+              "y": 195.59375,
+              "width": 245.9375,
+              "height": 32,
+              "top": 195.59375,
+              "right": 466,
+              "bottom": 227.59375,
+              "left": 220.0625
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 390,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 0,
+          "y": 136.21875,
+          "width": 390,
+          "height": 964.03125,
+          "top": 136.21875,
+          "right": 390,
+          "bottom": 1100.25,
+          "left": 0
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 10,
+          "y": 150.21875,
+          "width": 370,
+          "height": 115.90625,
+          "top": 150.21875,
+          "right": 380,
+          "bottom": 266.125,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 10,
+          "y": 282.125,
+          "width": 370,
+          "height": 790.125,
+          "top": 282.125,
+          "right": 380,
+          "bottom": 1072.25,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 21,
+          "y": 451.65625,
+          "width": 348,
+          "height": 560,
+          "top": 451.65625,
+          "right": 369,
+          "bottom": 1011.65625,
+          "left": 21
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 28.921875,
+          "y": 538.65625,
+          "width": 332.15625,
+          "height": 37.921875,
+          "top": 538.65625,
+          "right": 361.078125,
+          "bottom": 576.578125,
+          "left": 28.921875
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\n\nVocê não tem nenhuma busca recente.\n\nUsar minha localização atual\nMapa de Satélite Infravermelho\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nTer, 06/10/2026 | 11:00\nSatélite\nChuva\nInfravermelha\nVisível\nVapor d'água",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 48,
+              "height": 48,
+              "top": 16,
+              "right": 64,
+              "bottom": 64,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 249,
+              "y": 20,
+              "width": 40,
+              "height": 40,
+              "top": 20,
+              "right": 289,
+              "bottom": 60,
+              "left": 249
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 43.046875,
+              "y": -260,
+              "width": 254.953125,
+              "height": 34,
+              "top": -260,
+              "right": 298,
+              "bottom": -226,
+              "left": 43.046875
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 16,
+              "y": -169,
+              "width": 314,
+              "height": 44,
+              "top": -169,
+              "right": 330,
+              "bottom": -125,
+              "left": 16
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 314,
+              "y": 563,
+              "width": 32,
+              "height": 32,
+              "top": 563,
+              "right": 346,
+              "bottom": 595,
+              "left": 314
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 80,
+              "width": 346,
+              "height": 43.609375,
+              "top": 80,
+              "right": 346,
+              "bottom": 123.609375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 16,
+              "y": 191.609375,
+              "width": 40,
+              "height": 40,
+              "top": 191.609375,
+              "right": 56,
+              "bottom": 231.609375,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 216.0625,
+              "y": 195.59375,
+              "width": 113.9375,
+              "height": 32,
+              "top": 195.59375,
+              "right": 330,
+              "bottom": 227.59375,
+              "left": 216.0625
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 1440,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 0,
+          "y": 130,
+          "width": 1440,
+          "height": 1036.015625,
+          "top": 130,
+          "right": 1440,
+          "bottom": 1166.015625,
+          "left": 0
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 33.109375,
+          "y": 152,
+          "width": 1373.78125,
+          "height": 67.953125,
+          "top": 152,
+          "right": 1406.890625,
+          "bottom": 219.953125,
+          "left": 33.109375
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 33.109375,
+          "y": 235.953125,
+          "width": 1373.78125,
+          "height": 894.0625,
+          "top": 235.953125,
+          "right": 1406.890625,
+          "bottom": 1130.015625,
+          "left": 33.109375
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 52.109375,
+          "y": 358.21875,
+          "width": 1335.78125,
+          "height": 720,
+          "top": 358.21875,
+          "right": 1387.890625,
+          "bottom": 1078.21875,
+          "left": 52.109375
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 415,
+          "y": 445.21875,
+          "width": 610,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 1025,
+          "bottom": 493.53125,
+          "left": 415
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\nMapa de Satélite Infravermelho\nMapas de previsão do tempo\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nInformação sobre a imagem\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\nTer, 06/10/2026 | 11:00\nSatélite\nInfravermelha\nVisível\nVapor d'água\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 121,
+              "y": 18,
+              "width": 48,
+              "height": 48,
+              "top": 18,
+              "right": 169,
+              "bottom": 66,
+              "left": 121
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 463.53125,
+              "y": 33.625,
+              "width": 502,
+              "height": 18.75,
+              "top": 33.625,
+              "right": 965.53125,
+              "bottom": 52.375,
+              "left": 463.53125
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 640,
+              "y": 811,
+              "width": 40,
+              "height": 40,
+              "top": 811,
+              "right": 680,
+              "bottom": 851,
+              "left": 640
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 844.0625,
+              "y": 814.984375,
+              "width": 229.9375,
+              "height": 32,
+              "top": 814.984375,
+              "right": 1074,
+              "bottom": 846.984375,
+              "left": 844.0625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 900,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 0,
+          "y": 130,
+          "width": 900,
+          "height": 936.015625,
+          "top": 130,
+          "right": 900,
+          "bottom": 1066.015625,
+          "left": 0
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 20.6875,
+          "y": 152,
+          "width": 858.625,
+          "height": 67.953125,
+          "top": 152,
+          "right": 879.3125,
+          "bottom": 219.953125,
+          "left": 20.6875
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 20.6875,
+          "y": 235.953125,
+          "width": 858.625,
+          "height": 794.0625,
+          "top": 235.953125,
+          "right": 879.3125,
+          "bottom": 1030.015625,
+          "left": 20.6875
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 39.6875,
+          "y": 358.21875,
+          "width": 820.625,
+          "height": 620,
+          "top": 358.21875,
+          "right": 860.3125,
+          "bottom": 978.21875,
+          "left": 39.6875
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 145,
+          "y": 445.21875,
+          "width": 610,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 755,
+          "bottom": 493.53125,
+          "left": 145
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\n\nVocê não tem nenhuma busca recente.\n\nUsar minha localização atual\nMapa de Satélite Infravermelho\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nTer, 06/10/2026 | 11:00\nSatélite\nChuva\nInfravermelha\nVisível\nVapor d'água",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 48,
+              "height": 48,
+              "top": 16,
+              "right": 64,
+              "bottom": 64,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 722,
+              "y": 20,
+              "width": 40,
+              "height": 40,
+              "top": 20,
+              "right": 762,
+              "bottom": 60,
+              "left": 722
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 43.65625,
+              "y": -261.5,
+              "width": 727.34375,
+              "height": 37,
+              "top": -261.5,
+              "right": 771,
+              "bottom": -224.5,
+              "left": 43.65625
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 16,
+              "y": -169,
+              "width": 787,
+              "height": 44,
+              "top": -169,
+              "right": 803,
+              "bottom": -125,
+              "left": 16
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 787,
+              "y": 447,
+              "width": 32,
+              "height": 32,
+              "top": 447,
+              "right": 819,
+              "bottom": 479,
+              "left": 787
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 80,
+              "width": 819,
+              "height": 43.609375,
+              "top": 80,
+              "right": 819,
+              "bottom": 123.609375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 16,
+              "y": 191.609375,
+              "width": 40,
+              "height": 40,
+              "top": 191.609375,
+              "right": 56,
+              "bottom": 231.609375,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 220.0625,
+              "y": 195.59375,
+              "width": 582.9375,
+              "height": 32,
+              "top": 195.59375,
+              "right": 803,
+              "bottom": 227.59375,
+              "left": 220.0625
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 390,
+    "boxes": [
+      {
+        "class": "dashboard-content",
+        "rect": {
+          "x": 0,
+          "y": 136.21875,
+          "width": 390,
+          "height": 1006.09375,
+          "top": 136.21875,
+          "right": 390,
+          "bottom": 1142.3125,
+          "left": 0
+        }
+      },
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 10,
+          "y": 150.21875,
+          "width": 370,
+          "height": 140.703125,
+          "top": 150.21875,
+          "right": 380,
+          "bottom": 290.921875,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 10,
+          "y": 306.921875,
+          "width": 370,
+          "height": 807.390625,
+          "top": 306.921875,
+          "right": 380,
+          "bottom": 1114.3125,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 21,
+          "y": 493.71875,
+          "width": 348,
+          "height": 560,
+          "top": 493.71875,
+          "right": 369,
+          "bottom": 1053.71875,
+          "left": 21
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 28.921875,
+          "y": 580.71875,
+          "width": 332.15625,
+          "height": 37.921875,
+          "top": 580.71875,
+          "right": 361.078125,
+          "bottom": 618.640625,
+          "left": 28.921875
+        }
+      }
+    ],
+    "frames": [
+      {
+        "url": "https://www.climatempo.com.br/mapas/satelite/infravermelha",
+        "text": "Seja Premium\nFaça seu login\n\nVocê não tem nenhuma busca recente.\n\nUsar minha localização atual\nMapa de Satélite Infravermelho\n\nAs imagens de satélite nos mostram fenômenos meteorológicos em tempo real. Na imagem acima, mostra-se a radiação infravermelha de onda curta (canal 13 GOES16) atualizada nos últimos horários. Este canal é útil para para observar a temperatura da superfície terrestre e identificar características como nuvens, gelo e neve. Desta forma, contribui para monitorar o desenvolvimento de sistemas climáticos, como tempestades, frentes meteorológicas e ciclones tropicais.\n\n173.15\n194.6471428571\n216.1442857143\n237.6414285714\n259.1385714286\n280.6357142857\n302.1328571429\n323.63\nTerça, 06/10/2026\nTempo Agora\nPrevisão do Tempo\nTer, 06/10/2026 | 11:00\nSatélite\nChuva\nInfravermelha\nVisível\nVapor d'água",
+        "boxes": [
+          {
+            "tag": "BUTTON",
+            "text": "Ícone menu hamburguer branco",
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 48,
+              "height": 48,
+              "top": 16,
+              "right": 64,
+              "bottom": 64,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone busca neutroÍcone fechar branco",
+            "rect": {
+              "x": 249,
+              "y": 20,
+              "width": 40,
+              "height": 40,
+              "top": 20,
+              "right": 289,
+              "bottom": 60,
+              "left": 249
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 43.046875,
+              "y": -260,
+              "width": 254.953125,
+              "height": 34,
+              "top": -260,
+              "right": 298,
+              "bottom": -226,
+              "left": 43.046875
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Usar minha localização atual",
+            "rect": {
+              "x": 16,
+              "y": -169,
+              "width": 314,
+              "height": 44,
+              "top": -169,
+              "right": 330,
+              "bottom": -125,
+              "left": 16
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 314,
+              "y": 563,
+              "width": 32,
+              "height": 32,
+              "top": 563,
+              "right": 346,
+              "bottom": 595,
+              "left": 314
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Terça, 06/10/2026Ícone seta cima",
+            "rect": {
+              "x": 0,
+              "y": 80,
+              "width": 346,
+              "height": 43.609375,
+              "top": 80,
+              "right": 346,
+              "bottom": 123.609375,
+              "left": 0
+            }
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Ícone tocar",
+            "rect": {
+              "x": 16,
+              "y": 191.609375,
+              "width": 40,
+              "height": 40,
+              "top": 191.609375,
+              "right": 56,
+              "bottom": 231.609375,
+              "left": 16
+            }
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "rect": {
+              "x": 216.0625,
+              "y": 195.59375,
+              "width": 113.9375,
+              "height": 32,
+              "top": 195.59375,
+              "right": 330,
+              "bottom": 227.59375,
+              "left": 216.0625
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

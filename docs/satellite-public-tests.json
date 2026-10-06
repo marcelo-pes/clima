@@ -1,0 +1,664 @@
+[
+  {
+    "width": 1440,
+    "errors": [],
+    "providerErrors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ],
+    "boxes": [
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 458.984375,
+          "y": 152,
+          "width": 522.015625,
+          "height": 67.953125,
+          "top": 152,
+          "right": 981,
+          "bottom": 219.953125,
+          "left": 458.984375
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 458.984375,
+          "y": 235.953125,
+          "width": 522.015625,
+          "height": 967.9375,
+          "top": 235.953125,
+          "right": 981,
+          "bottom": 1203.890625,
+          "left": 458.984375
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 477.984375,
+          "y": 358.21875,
+          "width": 484.015625,
+          "height": 720,
+          "top": 358.21875,
+          "right": 962,
+          "bottom": 1078.21875,
+          "left": 477.984375
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 493.4375,
+          "y": 445.21875,
+          "width": 453.09375,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 946.53125,
+          "bottom": 493.53125,
+          "left": 493.4375
+        }
+      },
+      {
+        "class": "satellite-credit",
+        "rect": {
+          "x": 477.984375,
+          "y": 1096.21875,
+          "width": 484.015625,
+          "height": 57.875,
+          "top": 1096.21875,
+          "right": 962,
+          "bottom": 1154.09375,
+          "left": 477.984375
+        }
+      }
+    ],
+    "iframe": {
+      "width": 482,
+      "height": 894,
+      "top": -176,
+      "scale": 1,
+      "scaleY": 1
+    },
+    "map": {
+      "rect": {
+        "x": -7,
+        "y": 184,
+        "width": 497,
+        "height": 606,
+        "top": 184,
+        "right": 490,
+        "bottom": 790,
+        "left": -7
+      },
+      "naturalWidth": 1073,
+      "naturalHeight": 1239
+    },
+    "playback": {
+      "value": "12",
+      "rect": {
+        "x": 220.0625,
+        "y": 195.59375,
+        "width": 245.9375,
+        "height": 32,
+        "top": 195.59375,
+        "right": 466,
+        "bottom": 227.59375,
+        "left": 220.0625
+      }
+    },
+    "animationAdvanced": true,
+    "layerLinks": [
+      {
+        "label": "Chuva",
+        "path": "chuva"
+      },
+      {
+        "label": "Vis\u00edvel",
+        "path": "satelite/visivel"
+      },
+      {
+        "label": "Vapor d\u2019\u00e1gua",
+        "path": "satelite/vapor-dagua"
+      },
+      {
+        "label": "Sat\u00e9lite",
+        "path": "satelite"
+      },
+      {
+        "label": "Infravermelho",
+        "path": "satelite/infravermelha"
+      }
+    ],
+    "otherContentWidth": 1440
+  },
+  {
+    "width": 900,
+    "errors": [],
+    "providerErrors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ],
+    "boxes": [
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 188.984375,
+          "y": 152,
+          "width": 522.015625,
+          "height": 67.953125,
+          "top": 152,
+          "right": 711,
+          "bottom": 219.953125,
+          "left": 188.984375
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 188.984375,
+          "y": 235.953125,
+          "width": 522.015625,
+          "height": 867.9375,
+          "top": 235.953125,
+          "right": 711,
+          "bottom": 1103.890625,
+          "left": 188.984375
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 207.984375,
+          "y": 358.21875,
+          "width": 484.015625,
+          "height": 620,
+          "top": 358.21875,
+          "right": 692,
+          "bottom": 978.21875,
+          "left": 207.984375
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 223.4375,
+          "y": 445.21875,
+          "width": 453.09375,
+          "height": 48.3125,
+          "top": 445.21875,
+          "right": 676.53125,
+          "bottom": 493.53125,
+          "left": 223.4375
+        }
+      },
+      {
+        "class": "satellite-credit",
+        "rect": {
+          "x": 207.984375,
+          "y": 996.21875,
+          "width": 484.015625,
+          "height": 57.875,
+          "top": 996.21875,
+          "right": 692,
+          "bottom": 1054.09375,
+          "left": 207.984375
+        }
+      }
+    ],
+    "iframe": {
+      "width": 482,
+      "height": 794,
+      "top": -176,
+      "scale": 1,
+      "scaleY": 1
+    },
+    "map": {
+      "rect": {
+        "x": -7,
+        "y": 134,
+        "width": 497,
+        "height": 606,
+        "top": 134,
+        "right": 490,
+        "bottom": 740,
+        "left": -7
+      },
+      "naturalWidth": 1073,
+      "naturalHeight": 1239
+    },
+    "playback": {
+      "value": "12",
+      "rect": {
+        "x": 220.0625,
+        "y": 195.59375,
+        "width": 245.9375,
+        "height": 32,
+        "top": 195.59375,
+        "right": 466,
+        "bottom": 227.59375,
+        "left": 220.0625
+      }
+    },
+    "layerLinks": [
+      {
+        "label": "Chuva",
+        "path": "chuva"
+      },
+      {
+        "label": "Vis\u00edvel",
+        "path": "satelite/visivel"
+      },
+      {
+        "label": "Vapor d\u2019\u00e1gua",
+        "path": "satelite/vapor-dagua"
+      },
+      {
+        "label": "Sat\u00e9lite",
+        "path": "satelite"
+      },
+      {
+        "label": "Infravermelho",
+        "path": "satelite/infravermelha"
+      }
+    ],
+    "otherContentWidth": 900
+  },
+  {
+    "width": 600,
+    "errors": [],
+    "providerErrors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ],
+    "boxes": [
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 39,
+          "y": 134,
+          "width": 522,
+          "height": 140.703125,
+          "top": 134,
+          "right": 561,
+          "bottom": 274.703125,
+          "left": 39
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 39,
+          "y": 290.703125,
+          "width": 522,
+          "height": 907.203125,
+          "top": 290.703125,
+          "right": 561,
+          "bottom": 1197.90625,
+          "left": 39
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 50,
+          "y": 460.234375,
+          "width": 500,
+          "height": 620,
+          "top": 460.234375,
+          "right": 550,
+          "bottom": 1080.234375,
+          "left": 50
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 65.9453125,
+          "y": 547.234375,
+          "width": 468.109375,
+          "height": 48.3125,
+          "top": 547.234375,
+          "right": 534.0546875,
+          "bottom": 595.546875,
+          "left": 65.9453125
+        }
+      },
+      {
+        "class": "satellite-credit",
+        "rect": {
+          "x": 50,
+          "y": 1090.234375,
+          "width": 500,
+          "height": 57.875,
+          "top": 1090.234375,
+          "right": 550,
+          "bottom": 1148.109375,
+          "left": 50
+        }
+      }
+    ],
+    "iframe": {
+      "width": 498,
+      "height": 794,
+      "top": -176,
+      "scale": 1,
+      "scaleY": 1
+    },
+    "map": {
+      "rect": {
+        "x": 1,
+        "y": 134,
+        "width": 497,
+        "height": 606,
+        "top": 134,
+        "right": 498,
+        "bottom": 740,
+        "left": 1
+      },
+      "naturalWidth": 1073,
+      "naturalHeight": 1239
+    },
+    "playback": {
+      "value": "12",
+      "rect": {
+        "x": 220.0625,
+        "y": 195.59375,
+        "width": 261.9375,
+        "height": 32,
+        "top": 195.59375,
+        "right": 482,
+        "bottom": 227.59375,
+        "left": 220.0625
+      }
+    },
+    "layerLinks": [
+      {
+        "label": "Chuva",
+        "path": "chuva"
+      },
+      {
+        "label": "Vis\u00edvel",
+        "path": "satelite/visivel"
+      },
+      {
+        "label": "Vapor d\u2019\u00e1gua",
+        "path": "satelite/vapor-dagua"
+      },
+      {
+        "label": "Sat\u00e9lite",
+        "path": "satelite"
+      },
+      {
+        "label": "Infravermelho",
+        "path": "satelite/infravermelha"
+      }
+    ],
+    "otherContentWidth": 600
+  },
+  {
+    "width": 390,
+    "errors": [],
+    "providerErrors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ],
+    "boxes": [
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 10,
+          "y": 150.21875,
+          "width": 370,
+          "height": 140.703125,
+          "top": 150.21875,
+          "right": 380,
+          "bottom": 290.921875,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 10,
+          "y": 306.921875,
+          "width": 370,
+          "height": 924,
+          "top": 306.921875,
+          "right": 380,
+          "bottom": 1230.921875,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 21,
+          "y": 476.453125,
+          "width": 348,
+          "height": 620,
+          "top": 476.453125,
+          "right": 369,
+          "bottom": 1096.453125,
+          "left": 21
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 28.921875,
+          "y": 563.453125,
+          "width": 332.15625,
+          "height": 37.921875,
+          "top": 563.453125,
+          "right": 361.078125,
+          "bottom": 601.375,
+          "left": 28.921875
+        }
+      },
+      {
+        "class": "satellite-credit",
+        "rect": {
+          "x": 21,
+          "y": 1106.453125,
+          "width": 348,
+          "height": 57.875,
+          "top": 1106.453125,
+          "right": 369,
+          "bottom": 1164.328125,
+          "left": 21
+        }
+      }
+    ],
+    "iframe": {
+      "width": 346,
+      "height": 794,
+      "top": -176,
+      "scale": 1,
+      "scaleY": 1
+    },
+    "map": {
+      "rect": {
+        "x": -75,
+        "y": 134,
+        "width": 497,
+        "height": 606,
+        "top": 134,
+        "right": 422,
+        "bottom": 740,
+        "left": -75
+      },
+      "naturalWidth": 1073,
+      "naturalHeight": 1239
+    },
+    "playback": {
+      "value": "12",
+      "rect": {
+        "x": 216.0625,
+        "y": 195.59375,
+        "width": 113.9375,
+        "height": 32,
+        "top": 195.59375,
+        "right": 330,
+        "bottom": 227.59375,
+        "left": 216.0625
+      }
+    },
+    "layerLinks": [
+      {
+        "label": "Chuva",
+        "path": "chuva"
+      },
+      {
+        "label": "Vis\u00edvel",
+        "path": "satelite/visivel"
+      },
+      {
+        "label": "Vapor d\u2019\u00e1gua",
+        "path": "satelite/vapor-dagua"
+      },
+      {
+        "label": "Sat\u00e9lite",
+        "path": "satelite"
+      },
+      {
+        "label": "Infravermelho",
+        "path": "satelite/infravermelha"
+      }
+    ],
+    "otherContentWidth": 390
+  },
+  {
+    "width": 320,
+    "errors": [],
+    "providerErrors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.",
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ],
+    "boxes": [
+      {
+        "class": "contextual-notice normal",
+        "rect": {
+          "x": 10,
+          "y": 189.828125,
+          "width": 300,
+          "height": 140.703125,
+          "top": 189.828125,
+          "right": 310,
+          "bottom": 330.53125,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-panel",
+        "rect": {
+          "x": 10,
+          "y": 346.53125,
+          "width": 300,
+          "height": 941.265625,
+          "top": 346.53125,
+          "right": 310,
+          "bottom": 1287.796875,
+          "left": 10
+        }
+      },
+      {
+        "class": "satellite-frame satellite-crop",
+        "rect": {
+          "x": 21,
+          "y": 533.328125,
+          "width": 278,
+          "height": 620,
+          "top": 533.328125,
+          "right": 299,
+          "bottom": 1153.328125,
+          "left": 21
+        }
+      },
+      {
+        "class": "satellite-layer-switch",
+        "rect": {
+          "x": 27.5234375,
+          "y": 602.921875,
+          "width": 264.953125,
+          "height": 37.921875,
+          "top": 602.921875,
+          "right": 292.4765625,
+          "bottom": 640.84375,
+          "left": 27.5234375
+        }
+      },
+      {
+        "class": "satellite-credit",
+        "rect": {
+          "x": 21,
+          "y": 1163.328125,
+          "width": 278,
+          "height": 57.875,
+          "top": 1163.328125,
+          "right": 299,
+          "bottom": 1221.203125,
+          "left": 21
+        }
+      }
+    ],
+    "iframe": {
+      "width": 346,
+      "height": 951,
+      "top": -140.393,
+      "scale": 0.797688,
+      "scaleY": 0.797688
+    },
+    "map": {
+      "rect": {
+        "x": -75,
+        "y": 212,
+        "width": 497,
+        "height": 606,
+        "top": 212,
+        "right": 422,
+        "bottom": 818,
+        "left": -75
+      },
+      "naturalWidth": 1073,
+      "naturalHeight": 1239
+    },
+    "playback": {
+      "value": "12",
+      "rect": {
+        "x": 216.0625,
+        "y": 195.59375,
+        "width": 113.9375,
+        "height": 32,
+        "top": 195.59375,
+        "right": 330,
+        "bottom": 227.59375,
+        "left": 216.0625
+      }
+    },
+    "animationAdvanced": true,
+    "layerLinks": [
+      {
+        "label": "Chuva",
+        "path": "chuva"
+      },
+      {
+        "label": "Vis\u00edvel",
+        "path": "satelite/visivel"
+      },
+      {
+        "label": "Vapor d\u2019\u00e1gua",
+        "path": "satelite/vapor-dagua"
+      },
+      {
+        "label": "Sat\u00e9lite",
+        "path": "satelite"
+      },
+      {
+        "label": "Infravermelho",
+        "path": "satelite/infravermelha"
+      }
+    ],
+    "otherContentWidth": 320
+  }
+]
