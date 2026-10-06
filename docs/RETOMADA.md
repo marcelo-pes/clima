@@ -5,12 +5,16 @@ Este é o estado final após a continuidade e publicação explicitamente autori
 ## Efetivamente publicado
 
 - URL: https://clima2.antaisolar.com.br.
-- Commit de código: **442fc504254b2fef194d39f85a271c2a92a98088** (`442fc50`). Publicado em **06/10/2026 13:33:22 UTC / 10:33:22 America/Sao_Paulo**.
-- Artefato SHA256: `32437b1d533b8ab375d0525009fb547be620a9e1c7971c4caffb40bf39422096`.
+- Commit de código: **16296906fb33bf0b46508603ac77ae564e99eab6** (`1629690`). Publicado em **06/10/2026 13:50:40 UTC / 10:50:40 America/Sao_Paulo**.
+- Artefato SHA256: `e103c27f716da6fa61e4b23a4477481a013baf50b5e2fb5a7406d9b7f875961b`.
 - Registro verificável: `/opt/clima2-antaisolar/review-deployment.json`. Aplicação `/opt/clima2-antaisolar/app`, `clima2-antaisolar.service`, Node 22.23.3, loopback 8788. Active, NRestarts=0, healthz e HTTPS públicos verificados.
 - Inclui bateria correta, pinos de mínimo/máximo, tooltips do /confere, atualização ao vivo e todos os ajustes de largura/cards. Não há ajuste de largura pendente. Limite original de 1600 px mantido; telas de 320 a 1920 px testadas.
 - Publicação final conferida em Chrome 1440×1000 e 390×844: 64 combinações de grupo/período, seis abas, CSV/tabela, período vazio, bateria e cards. Zero erros/warnings, cortes de pinos ou overflow nos elementos examinados.
 - Original `/opt/clima-antaisolar/app`, serviço loopback 8787, não publicado/reiniciado nesta execução; ativo desde 05/10 17:17:36 UTC. Clima original público/DNS/Sites/visibilidade preservados. Banco compartilhado recebeu apenas a recuperação/importação autorizada, preservando os registros anteriores.
+
+## Ajuste visual posterior às 10:50:40
+
+Os dois blocos técnicos e o aviso equivalente da sequência de gráficos foram removidos do painel público, sem espaços residuais. Estatísticas e diagnóstico de cobertura continuam no /confere. Apenas dois componentes de renderização alterados; cálculos, indicadores, consultas e sincronização preservados. Backup imediato da versão 442fc50 e reversão em `/opt/clima2-antaisolar/backups/visual-diagnostics-20261006T135037Z/`. Ver [visual-diagnostics-2026-10-06.md](visual-diagnostics-2026-10-06.md). As medições/auditoria histórica abaixo são da correção anterior e continuam válidas; não se repetiu a recuperação.
 
 ## Correções e regras
 
@@ -48,7 +52,7 @@ Backup/reversão `/opt/clima2-antaisolar/backups/audit-20261006T113100Z/`: produ
 
 ## Git e locais
 
-Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado 442fc50; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
+Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado 1629690; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
 
 - Fonte principal `/Users/pes/clima2-20261005` (snapshot sem Git).
 - Git local `/Users/pes/clima2-git-20261006`; VPS `/opt/clima2-antaisolar/repository`.

@@ -1,0 +1,108 @@
+[
+  {
+    "width": 1440,
+    "cases": [
+      {
+        "tab": "Dados Atuais",
+        "period": "Mensal",
+        "pins": 34
+      },
+      {
+        "tab": "Dados Atuais",
+        "period": "Anual",
+        "pins": 34
+      },
+      {
+        "tab": "Dados Atuais",
+        "period": "Semanal",
+        "pins": 34
+      },
+      {
+        "tab": "Histórico",
+        "period": "Mensal",
+        "pins": 10
+      },
+      {
+        "tab": "Histórico",
+        "period": "Anual",
+        "pins": 10
+      },
+      {
+        "tab": "Histórico",
+        "period": "Semanal",
+        "pins": 10
+      },
+      {
+        "tab": "Ventos",
+        "period": "Mensal",
+        "pins": 4
+      },
+      {
+        "tab": "Ventos",
+        "period": "Anual",
+        "pins": 4
+      },
+      {
+        "tab": "Ventos",
+        "period": "Semanal",
+        "pins": 4
+      }
+    ],
+    "confereCharts": 20,
+    "diagnosticsInConfere": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "cases": [
+      {
+        "tab": "Dados Atuais",
+        "period": "Mensal",
+        "pins": 34
+      },
+      {
+        "tab": "Dados Atuais",
+        "period": "Anual",
+        "pins": 34
+      },
+      {
+        "tab": "Dados Atuais",
+        "period": "Semanal",
+        "pins": 34
+      },
+      {
+        "tab": "Histórico",
+        "period": "Mensal",
+        "pins": 10
+      },
+      {
+        "tab": "Histórico",
+        "period": "Anual",
+        "pins": 10
+      },
+      {
+        "tab": "Histórico",
+        "period": "Semanal",
+        "pins": 10
+      },
+      {
+        "tab": "Ventos",
+        "period": "Mensal",
+        "pins": 4
+      },
+      {
+        "tab": "Ventos",
+        "period": "Anual",
+        "pins": 4
+      },
+      {
+        "tab": "Ventos",
+        "period": "Semanal",
+        "pins": 4
+      }
+    ],
+    "confereCharts": 20,
+    "diagnosticsInConfere": true,
+    "errors": []
+  }
+]
