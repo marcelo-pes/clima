@@ -262,3 +262,10 @@ button,a { font:inherit; }
 .dashboard-tabs,.dashboard-content,.nav-wrap { min-width:0; max-width:100%; }
 .dashboard-content { width:100%; }
 .observed-statistics summary { overflow-wrap:anywhere; }
+.dashboard-content [data-slot="tabs-content"] { min-width:0; }
+.ecowitt-menu-title { min-width:0; overflow-wrap:anywhere; }
+.extrema-strip span { flex-wrap:wrap; min-width:0; }
+@media(max-width:360px) {
+  .ecowitt-history-menu { grid-template-columns:auto minmax(0,1fr); }
+  .ecowitt-export { grid-column:1 / -1; grid-row:4; justify-self:end; }
+}
