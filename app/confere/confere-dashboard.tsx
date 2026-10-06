@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { EcowittSeriesChart, LightningChart, GROUPS, type WeatherData } from "../weather-dashboard";
 import { confereHttpError, shouldQueryConfereDatabase, weeklyWindowLabelDates } from "@/lib/confere-response";
 
@@ -69,5 +70,5 @@ export default function ConfereDashboard() {
   };
 
   const weeklyDates = weeklyWindowLabelDates(date);
-  return <main className="confere-shell"><header className="confere-header"><a href="/">← Estação Bauru Sul</a><h1>Confere</h1><p>Comparação dos mesmos sensores e do mesmo período nas duas fontes.</p><div className="confere-controls"><label>Período <select value={range} onChange={(event) => setRange(event.target.value as RangeKey)}>{periods.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label><label>{range === "7d" ? "Data de referência" : "Data final"} <input type="date" value={date} max={new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" })} onChange={(event) => setDate(event.target.value)} /></label>{range === "7d" && <p role="status">Janela semanal: {new Date(`${weeklyDates.startDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} a {new Date(`${weeklyDates.endDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} (America/Sao_Paulo)</p>}</div></header><div className="confere-grid">{panel("database")}{panel("api")}</div></main>;
+  return <TooltipProvider><main className="confere-shell"><header className="confere-header"><a href="/">← Estação Bauru Sul</a><h1>Confere</h1><p>Comparação dos mesmos sensores e do mesmo período nas duas fontes.</p><div className="confere-controls"><label>Período <select value={range} onChange={(event) => setRange(event.target.value as RangeKey)}>{periods.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label><label>{range === "7d" ? "Data de referência" : "Data final"} <input type="date" value={date} max={new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" })} onChange={(event) => setDate(event.target.value)} /></label>{range === "7d" && <p role="status">Janela semanal: {new Date(`${weeklyDates.startDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} a {new Date(`${weeklyDates.endDate}T00:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })} (America/Sao_Paulo)</p>}</div></header><div className="confere-grid">{panel("database")}{panel("api")}</div></main></TooltipProvider>;
 }
