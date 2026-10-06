@@ -1,3 +1,4 @@
+import { fetchClimatempoCurrent } from "@/lib/climatempo-current";
 import { sqliteChartExtrema } from "@/lib/weather-chart-extrema";
 import { payloadChartExtrema } from "@/lib/chart-extrema";
 import { sqliteStatistics } from "@/lib/weather-statistics";
@@ -321,6 +322,10 @@ export async function GET(request: Request) {
     // Only an explicit comparison request may query the API for archived periods.
     const archivedPeriod = rangeKey !== "24h" || Boolean(requestedDate && requestedDate < today);
     const databaseOnly = requestedSource === "database" || (archivedPeriod && requestedSource !== "api");
+    if (extrasOnly && !databaseOnly) {
+      const currentWeather = await fetchClimatempoCurrent();
+      return Response.json({currentWeather,insight:null},{headers:{"Cache-Control":"private, no-store"}});
+    }
     const historySource = databaseOnly ? "database" : requestedSource === "api" ? "api" : "auto";
     const historyOnly = view === "history" || databaseOnly;
     const fullDashboard = !summaryOnly && !historyOnly;
@@ -404,24 +409,6 @@ export async function GET(request: Request) {
     // melhora a precisão e adiciona uma dependência externa à tela inicial.
     const stationLatitude = -22.39547;
     const stationLongitude = -49.07818;
-    const climatempoForecastPromise = extrasOnly ? fetch("https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/406/bauru-sp", { headers: { Accept: "text/html", "User-Agent": "Mozilla/5.0" }, signal: AbortSignal.timeout(2500) })
-      .then(async (response) => {
-        if (!response.ok) return null;
-        const html = await response.text();
-        const current = html.match(/"temperature":(\d+(?:\.\d+)?),"windDirection":"[^"]*","windVelocity":\d+(?:\.\d+)?,"windDirectionDegrees":\d+(?:\.\d+)?,"humidity":\d+(?:\.\d+)?,"condition":"([^"]+)","pressure":\d+(?:\.\d+)?,"icon":"([^"]+)",(?:"iconClass":(?:\[[^\]]*\]|\{[^}]*\}),)?"sensation":(\d+(?:\.\d+)?)/);
-        const sun = html.match(/(\d{2}:\d{2})h às (\d{2}:\d{2})h/);
-        if (!current) return null;
-        const condition = current[2].toLowerCase();
-        const weatherCode = /trovo|tempest/.test(condition) ? 95 : /chuva|chuv|pancada/.test(condition) ? 61 : /nuv/.test(condition) ? 3 : 0;
-        const today = new Date().toISOString().slice(0, 10);
-        return { temperature: Number(current[1]), apparentTemperature: Number(current[4]), weatherCode, sunrise: sun ? `${today}T${sun[1]}:00-03:00` : "", sunset: sun ? `${today}T${sun[2]}:00-03:00` : "", source: "Climatempo" };
-      }).catch(() => null) : Promise.resolve(null);
-    const openMeteoForecastPromise = extrasOnly ? fetch(`https://api.open-meteo.com/v1/forecast?latitude=${stationLatitude}&longitude=${stationLongitude}&current=temperature_2m,apparent_temperature,weather_code&daily=sunrise,sunset&timezone=America%2FSao_Paulo&forecast_days=1`, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(4000) })
-      .then(async (response) => {
-        if (!response.ok) return null;
-        const payload = await response.json() as { current?: Record<string, number>; daily?: Record<string, string[]> };
-        return { temperature: Number(payload.current?.temperature_2m), apparentTemperature: Number(payload.current?.apparent_temperature), weatherCode: Number(payload.current?.weather_code), sunrise: payload.daily?.sunrise?.[0] ?? "", sunset: payload.daily?.sunset?.[0] ?? "", source: "Open-Meteo" };
-      }).catch(() => null) : Promise.resolve(null);
     // The current cards use archived aggregates without opening extra API windows.
     const uvWindowsPromise = fullDashboard ? Promise.all([
       Promise.resolve({ data: history.data }),
@@ -431,14 +418,14 @@ export async function GET(request: Request) {
         return { data: stored?.data ?? {} };
       }),
     ]) : Promise.resolve([{ data: {} }, { data: {} }, { data: {} }]);
-    const [climatempoForecast, openMeteoForecast, uvWindows] = await Promise.all([climatempoForecastPromise, openMeteoForecastPromise, uvWindowsPromise]);
+    const uvWindows = await uvWindowsPromise;
     // A failed annual query must never silently fall back to a single day/month.
     // Keep the full annual series separate from the optional UV/chart requests.
     const lightningHistory = fullDashboard ? await annualLightningHistory(mac, actualNow).catch(() => null) : null;
     const lightningCounts = lightningHistory
       ? lightningTotals(lightningHistory, cleanMetric(metric(data, [["lightning", "count"]])), actualNow)
       : null;
-    const forecast = climatempoForecast ?? openMeteoForecast;
+    const currentWeather = null;
     const uvMaximum = (source: unknown) => {
       const points = series(source, [["solar_and_uvi", "uvi"]], 20000).points;
       if (!points.length) return null;
@@ -452,7 +439,7 @@ export async function GET(request: Request) {
     // minutos. Caso a IA não responda, a estação continua normal com regras locais.
     const insight = !historyOnly && isCurrentObservation && Object.keys(asObject(data)).length ? localWeatherInsight(data, rain) : null;
     if (extrasOnly) {
-      return Response.json({ forecast, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
+      return Response.json({ currentWeather, insight }, { headers: { "Cache-Control": "private, max-age=60" } });
     }
 
     const statistics = null;
@@ -474,7 +461,7 @@ export async function GET(request: Request) {
         latitude: stationLatitude,
         longitude: stationLongitude,
       },
-      forecast,
+      currentWeather,
       insight,
       lightningCounts,
       uvMaxima: { daily: uvMaximum(uvWindows[0].data), monthly: uvMaximum(uvWindows[1].data), annual: uvMaximum(uvWindows[2].data) },

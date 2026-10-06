@@ -113,9 +113,6 @@ button,a { font:inherit; }
 .map-forecast { padding:18px 22px 0; background:linear-gradient(145deg,#6549ad,#704ad0); }
 .map-forecast { position:relative; isolation:isolate; min-height:180px; background-position:center; background-size:cover; text-shadow:0 1px 4px rgba(0,0,0,.8); }
 .map-forecast::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,rgba(3,15,22,.52),rgba(3,15,22,.2),rgba(3,15,22,.48)); }
-.map-forecast.weather-sunny { background-image:url('/weather-sunny.png'); }.map-forecast.weather-cloudy { background-image:url('/weather-cloudy.png'); }.map-forecast.weather-rainy { background-image:url('/weather-rainy.png'); }.map-forecast.weather-night { background-image:url('/weather-night.png'); }
-.map-forecast.weather-night-cloudy { background-image:url('/weather-cloudy.png'); }.map-forecast.weather-night-rainy { background-image:url('/weather-rainy.png'); }
-.map-forecast.weather-night-cloudy::before,.map-forecast.weather-night-rainy::before { background:linear-gradient(90deg,rgba(2,8,20,.82),rgba(4,15,32,.68),rgba(2,8,20,.82)); }
 .map-forecast .forecast-astro { background:rgba(3,15,22,.42); backdrop-filter:blur(5px); }
 .forecast-main { justify-content:space-around; gap:18px; margin:0; }
 .forecast-condition,.forecast-temperature { flex:1; text-align:center; }
@@ -285,3 +282,15 @@ button,a { font:inherit; }
 .satellite-content .satellite-actions { flex-shrink:0; }
 .satellite-content .satellite-actions a { white-space:nowrap; }
 .satellite-content .satellite-panel>header>div:first-child { min-width:0; }
+
+.map-forecast { background-color:#142b39; }
+.map-forecast::before { background:linear-gradient(90deg,rgba(3,15,22,.72),rgba(3,15,22,.58),rgba(3,15,22,.72)); }
+.current-condition-time { margin-top:12px; color:#edf3f7; font-size:.68rem; line-height:1.5; text-align:center; }
+.forecast-condition small { line-height:1.35; }
+.map-forecast[data-status="stale"] .current-condition-time { color:#ffe29a; font-weight:700; }
+.camera-observation { margin:0; padding:12px; border-top:1px solid var(--line); background:#0c151a; }
+.camera-observation img { display:block; width:100%; height:auto; max-height:300px; object-fit:contain; background:#05090b; }
+.camera-observation figcaption { display:grid; gap:5px; margin-top:9px; color:#b9c9d0; font-size:.69rem; line-height:1.4; }
+.camera-observation .camera-analysis-pending { color:#e8cf9a; }
+.camera-observation-status { padding:10px 14px; border-top:1px solid var(--line); color:#b9c9d0; font-size:.72rem; line-height:1.4; }
+@media (max-width:470px) { .camera-observation { padding:9px; }.camera-observation img { max-height:none; }.camera-observation figcaption { font-size:.68rem; } }

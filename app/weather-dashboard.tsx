@@ -1,5 +1,9 @@
-import { extremaOfPoints, type ChartExtrema } from "@/lib/chart-extrema";
 "use client";
+
+import { sunTime } from "@/lib/sun-time";
+import { currentConditionPresentation, type ClimatempoCurrent } from "@/lib/weather-condition";
+import { CloudSun, CloudMoon, CloudLightning, CloudFog, Moon, CircleHelp } from "lucide-react";
+import { extremaOfPoints, type ChartExtrema } from "@/lib/chart-extrema";
 
 import { batteryDisplay, batterySegments } from "@/lib/battery-display";
 import { recentLightning, circularDirection, compassSector, COMPASS_NAMES } from "@/lib/weather-rules";
@@ -41,9 +45,10 @@ type Reading = { value: number | string; unit: string; time: number | null } | n
 type Point = { time: number; value: number };
 type Series = { unit: string; points: Point[] };
 type LightningTotal = { value: number | null; start: string; end: string; recordedDays: number; expectedDays: number };
+type CameraStatus = { status: "fresh" | "stale" | "unavailable"; capturedAt: number | null; sensorTime: number | null; sensorFresh: boolean; rainRate: number | null; rainUnit: string; rainConfirmed: boolean; visualCondition: string | null; analysisStatus: string; imageUrl: string | null };
 export type WeatherData = {
   station: { name: string; location: string; deviceId: string; gateway: string; latitude: number; longitude: number };
-  forecast?: { temperature: number; apparentTemperature: number; weatherCode: number; sunrise: string; sunset: string; source?: string } | null;
+  currentWeather?: ClimatempoCurrent | null;
   insight?: { condition: { key: string; label: string; confidence: number | null }; alert: { key: "normal" | "attention" | "alert"; label: string; confidence: number | null }; source: "Jev" | "Regras locais"; evaluatedAt: number } | null;
   lightningCounts?: { weekly: LightningTotal; monthly: LightningTotal; annual: LightningTotal };
   uvMaxima?: { daily: Point | null; monthly: Point | null; annual: Point | null };
@@ -177,19 +182,6 @@ function seriesAverage(points: Point[]) {
   return points.length ? points.reduce((sum, point) => sum + point.value, 0) / points.length : null;
 }
 
-function forecastLabel(code: number) {
-  if (code === 0) return "Céu limpo";
-  if (code <= 3) return code === 1 ? "Pouco nublado" : "Nublado";
-  if (code <= 48) return "Neblina";
-  if (code <= 67) return "Chuva";
-  if (code <= 77) return "Granizo ou neve";
-  if (code <= 82) return "Pancadas de chuva";
-  return "Trovoadas";
-}
-
-function forecastTime(time: string) {
-  return time ? new Date(time).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "—";
-}
 
 function SectionCard({ title, icon: Icon, group, onGraph, className = "", children }: { title: React.ReactNode; icon: typeof Thermometer; group?: GroupKey; onGraph?: (group: GroupKey) => void; className?: string; children: React.ReactNode }) {
   return <article className={`sensor-card ${className}`}><header className="sensor-card-header"><div><Icon size={17} /><h2>{title}</h2></div>{group && onGraph ? <UiTooltip><TooltipTrigger asChild><button className="graph-link" onClick={() => onGraph(group)} aria-label={`Abrir histórico de ${GROUPS[group].label}`}><Activity size={18} /></button></TooltipTrigger><TooltipContent side="left">Ver histórico</TooltipContent></UiTooltip> : <Activity size={16} className="pulse-icon" />}</header>{children}</article>;
@@ -279,19 +271,6 @@ function MoonPhaseIcon({ age, illumination }: { age: number; illumination: numbe
 function MoonHelp() {
   const phases = [["🌑", "Lua nova", "0%"], ["🌒", "Lua crescente", "1–49%"], ["🌓", "Quarto crescente", "50%"], ["🌔", "Gibosa crescente", "51–99%"], ["🌕", "Lua cheia", "100%"], ["🌖", "Gibosa minguante", "99–51%"], ["🌗", "Quarto minguante", "50%"], ["🌘", "Lua minguante", "49–1%"]];
   return <Dialog><DialogTrigger asChild><button className="moon-info" aria-label="Entender as fases da Lua"><Info size={13} /></button></DialogTrigger><DialogContent className="wind-dialog"><DialogHeader><DialogTitle>Fases da Lua</DialogTitle><DialogDescription>A iluminação cresce da Lua nova até a Lua cheia e diminui durante a fase minguante.</DialogDescription></DialogHeader><div className="moon-phases">{phases.map(([icon, name, percent]) => <div key={name}><span>{icon}</span><strong>{name}</strong><small>{percent} iluminada</small></div>)}</div></DialogContent></Dialog>;
-}
-function sunTime(date: Date, latitude: number, longitude: number, sunrise: boolean) {
-  const [civilYear,civilMonth,civilDay] = date.toLocaleDateString("en-CA", {timeZone:"America/Sao_Paulo"}).split("-").map(Number);
-  date = new Date(Date.UTC(civilYear,civilMonth-1,civilDay,12));
-  const yearStart = Date.UTC(date.getUTCFullYear(), 0, 0); const day = Math.floor((date.getTime() - yearStart) / 86400000); const lngHour = longitude / 15;
-  const t = day + ((sunrise ? 6 : 18) - lngHour) / 24; const m = .9856 * t - 3.289;
-  let longitudeSun = m + 1.916 * Math.sin(m * Math.PI / 180) + .02 * Math.sin(2 * m * Math.PI / 180) + 282.634; longitudeSun = (longitudeSun + 360) % 360;
-  let ascension = Math.atan(.91764 * Math.tan(longitudeSun * Math.PI / 180)) * 180 / Math.PI; ascension = (ascension + 360) % 360; ascension += Math.floor(longitudeSun / 90) * 90 - Math.floor(ascension / 90) * 90; ascension /= 15;
-  const sinDeclination = .39782 * Math.sin(longitudeSun * Math.PI / 180); const cosDeclination = Math.cos(Math.asin(sinDeclination));
-  const cosHour = (Math.cos(90.833 * Math.PI / 180) - sinDeclination * Math.sin(latitude * Math.PI / 180)) / (cosDeclination * Math.cos(latitude * Math.PI / 180)); if (cosHour > 1 || cosHour < -1) return "—";
-  let hour = sunrise ? 360 - Math.acos(cosHour) * 180 / Math.PI : Math.acos(cosHour) * 180 / Math.PI; hour /= 15;
-  let utcHour = hour + ascension - .06571 * t - 6.622 - lngHour; utcHour = (utcHour + 24) % 24;
-  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, Math.round(utcHour * 60))).toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit" });
 }
 
 function LightningTotalRow({ label, total }: { label: string; total?: LightningTotal }) {
@@ -523,28 +502,37 @@ function WindPanel({ data, range, setRange }: { data: WeatherData; range: RangeK
   return <div><div className="section-toolbar"><div><span className="section-eyebrow">Anemometria</span><h2>Ventos em Bauru</h2></div><RangeSelect range={range} setRange={setRange} /></div><div className="wind-analysis"><article className="wind-focus-card"><WindCompass direction={m.windDirection} average={windAverage} speed={m.windSpeed} gust={m.windGust} /><div className="wind-facts"><div><span>Direção em tempo real</span><strong>{fullCardinal(m.windDirection)} · {value(m.windDirection)}°</strong></div><div><span>Média de 10 minutos</span><strong>{windAverage === null ? "—" : `${CARDINAL_16[compassSector(windAverage)]} · ${Math.round(windAverage)}°`}</strong></div></div></article><article className="rose-card"><div className="chart-heading"><div><span>Distribuição direcional</span><h3>Rosa dos ventos</h3></div></div><WindRose direction={data.history.windDirection} speed={data.history.windSpeed} /></article></div><div className="wind-chart-full"><HistoryChart title="Velocidade, rajadas e direção" subtitle={RANGE_LABELS[range]} history={data.history} periodExtrema={data.chartExtrema} range={range} lines={windLines} /></div></div>;
 }
 
-function ForecastGlyph({ code }: { code: number }) {
-  if (code === 0) return <Sun size={62} />;
-  if (code >= 51 && code <= 82) return <CloudRain size={62} />;
-  return <Cloud size={62} />;
+function CurrentConditionGlyph({ icon }: { icon: string }) {
+  const icons = { sun:Sun, moon:Moon, "cloud-sun":CloudSun, "cloud-moon":CloudMoon, cloud:Cloud, rain:CloudRain, storm:CloudLightning, fog:CloudFog, unknown:CircleHelp } as const;
+  const Icon = icons[icon as keyof typeof icons] ?? CircleHelp;
+  return <Icon size={62} aria-hidden="true" />;
 }
 
 function MapReading({ icon: Icon, label, reading, digits = 0, suffix }: { icon: typeof Wind; label: string; reading: Reading; digits?: number; suffix?: string }) {
   return <div className="map-reading-row"><Icon size={16} /><span>{label}</span><UiTooltip><TooltipTrigger asChild><strong className="timed-value">{value(reading, digits)} {unit(reading)}{suffix}</strong></TooltipTrigger><TooltipContent>Leitura de {readingTime(reading)}</TooltipContent></UiTooltip></div>;
 }
 
-function MapPanel({ data, forecastPending }: { data: WeatherData; forecastPending: boolean }) {
+const CAMERA_CONDITIONS: Record<string, { label: string; icon: string }> = {
+  clear_sky: { label: "Céu limpo", icon: "sun" }, clear_night: { label: "Céu limpo à noite", icon: "moon" },
+  partly_cloudy: { label: "Parcialmente nublado", icon: "cloud-sun" }, partly_cloudy_night: { label: "Parcialmente nublado à noite", icon: "cloud-moon" },
+  cloudy: { label: "Nublado", icon: "cloud" }, overcast: { label: "Céu encoberto", icon: "cloud" },
+  rain: { label: "Chuva confirmada pelos sensores", icon: "rain" }, storm: { label: "Tempestade", icon: "storm" }, fog: { label: "Neblina", icon: "fog" },
+};
+
+function MapPanel({ data, conditionPending, camera }: { data: WeatherData; conditionPending: boolean; camera: CameraStatus | null }) {
   const m = data.metrics;
   const lat = data.station.latitude; const lon = data.station.longitude;
   const map = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(`${lon - .08},${lat - .06},${lon + .08},${lat + .06}`)}&layer=mapnik&marker=${lat}%2C${lon}`;
-  const forecast = data.forecast;
+  const presentation = currentConditionPresentation(data.currentWeather, Date.now(), lat, lon);
   const moon = moonData(new Date());
-  const bauruHour = Number(new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", hour12: false }).format(new Date()));
-  const isNight = bauruHour >= 18 || bauruHour < 6;
-  const isRainy = Boolean(forecast && forecast.weatherCode >= 51);
-  const isCloudy = Boolean(forecast && forecast.weatherCode > 0);
-  const forecastTheme = isNight ? isRainy ? "night-rainy" : isCloudy ? "night-cloudy" : "night" : isRainy ? "rainy" : isCloudy ? "cloudy" : "sunny";
-  return <div><div className="section-toolbar"><div><span className="section-eyebrow">Previsão e condições locais</span><h2>Estação Bauru Sul</h2></div></div><div className="map-layout"><aside className="map-summary"><div className={`map-forecast weather-${forecastTheme}`}><div className="forecast-main"><div className="forecast-condition">{forecast ? <><ForecastGlyph code={forecast.weatherCode} /><small>{forecastLabel(forecast.weatherCode)} · previsão {forecast.source ?? "do provedor"}</small></> : <small>{forecastPending ? "Carregando previsão…" : "Condição indisponível"}</small>}</div><div className="forecast-temperature"><strong>{value(m.temperature)}<sup>°C</sup></strong><small>Sensação {value(m.feelsLike)}°</small></div></div>{forecast && <div className="forecast-astro"><span>☼ {sunTime(new Date(), lat, lon, true)}</span><span>☀ {sunTime(new Date(), lat, lon, false)}</span><span>◐ {moon.name}</span></div>}</div><div className="map-readings"><MapReading icon={Wind} label="Vento" reading={m.windSpeed} digits={1} suffix={` / ${cardinal(m.windDirection)}`} /><MapReading icon={Thermometer} label="Temperatura" reading={m.temperature} digits={1} /><MapReading icon={Droplets} label="Umidade" reading={m.humidity} /><MapReading icon={Gauge} label="Pressão atmosférica" reading={m.pressureRelative} digits={1} /><MapReading icon={CloudRain} label="Chuva" reading={m.rainDaily} digits={1} /><MapReading icon={Droplets} label="Intensidade de chuva" reading={m.rainRate} digits={1} /><MapReading icon={Sun} label="Radiação solar" reading={m.solar} digits={1} /><MapReading icon={Sun} label="Índice UV" reading={m.uv} digits={1} /></div></aside><article className="map-card"><iframe title="Mapa da estação em Bauru" src={map} loading="lazy" /><div className="map-badge"><span><i /> Localização da estação</span><strong>{lat.toFixed(5)}, {lon.toFixed(5)}</strong><small>Se o mapa não aparecer, use o link externo. A falha do mapa não interfere nas leituras.</small><a href={`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=13/${lat}/${lon}`} target="_blank" rel="noreferrer">Abrir mapa externo ↗</a></div></article></div></div>;
+  const cameraCandidate = camera?.status === "fresh" && camera.analysisStatus === "classified" && camera.visualCondition ? CAMERA_CONDITIONS[camera.visualCondition] : null;
+  const cameraCondition = cameraCandidate?.icon === "rain" && !camera?.rainConfirmed ? CAMERA_CONDITIONS.overcast : cameraCandidate;
+  const useCameraBackground = Boolean(cameraCondition && camera?.imageUrl);
+  const updateLabel = presentation.observedAt
+    ? `${presentation.status === "stale" ? "Última leitura desatualizada" : "Atualização da fonte"}: ${new Date(presentation.observedAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" })}`
+    : "Horário da condição indisponível";
+  const sensorLabel = camera?.sensorFresh && camera.sensorTime ? new Date(camera.sensorTime * 1000).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" }) : null;
+  return <div><div className="section-toolbar"><div><span className="section-eyebrow">Condição observada e previsão local</span><h2>Estação Bauru Sul</h2></div></div><div className="map-layout"><aside className="map-summary"><div className="map-forecast" data-condition={presentation.key} data-period={presentation.period} data-status={presentation.status} data-camera-background={useCameraBackground ? "true" : "false"} style={{backgroundImage:useCameraBackground ? `url("${camera!.imageUrl}")` : presentation.photo ? `url("${presentation.photo}")` : "none"}}><div className="forecast-main"><div className="forecast-condition"><CurrentConditionGlyph icon={cameraCondition?.icon ?? presentation.icon} /><small>{cameraCondition?.label ?? (conditionPending && !data.currentWeather ? "Carregando condições atuais…" : presentation.label)}</small><small>{cameraCondition ? "HP10 + sensores Ecowitt · condição observada" : "Condição atual · Climatempo"}</small></div><div className="forecast-temperature"><strong>{value(m.temperature)}<sup>°C</sup></strong><small>Sensação {value(m.feelsLike)}° · estação</small></div></div><div className="current-condition-time" role="status">{updateLabel}</div><div className="forecast-astro"><span>☼ {sunTime(new Date(), lat, lon, true)}</span><span>☀ {sunTime(new Date(), lat, lon, false)}</span><span>◐ {moon.name}</span></div></div>{camera?.status === "fresh" && camera.imageUrl && !useCameraBackground ? <figure className="camera-observation"><img src={camera.imageUrl} alt="Imagem recente da câmera Ecowitt HP10." loading="lazy" /><figcaption><span>{sensorLabel ? `Sensores de chuva lidos ${sensorLabel} · ${camera.rainRate === null ? "sem taxa disponível" : `${camera.rainRate.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} ${camera.rainUnit}`}${camera.rainConfirmed ? " · chuva confirmada pelos sensores" : ""}` : "Leitura atual dos sensores de chuva indisponível"}</span></figcaption></figure> : camera?.status === "fresh" && useCameraBackground ? <div className="camera-observation-status">Sensores lidos {sensorLabel ?? "indisponível"}{camera.rainConfirmed ? " · chuva confirmada" : ""}</div> : <div className="camera-observation-status" role="status">{camera?.status === "stale" ? "HP10: captura antiga; exibindo o fundo meteorológico atual." : camera?.status === "unavailable" ? "HP10 indisponível; exibindo o fundo meteorológico atual." : "Carregando captura da HP10…"}</div>}<div className="map-readings"><MapReading icon={Wind} label="Vento" reading={m.windSpeed} digits={1} suffix={` / ${cardinal(m.windDirection)}`} /><MapReading icon={Thermometer} label="Temperatura" reading={m.temperature} digits={1} /><MapReading icon={Droplets} label="Umidade" reading={m.humidity} /><MapReading icon={Gauge} label="Pressão atmosférica" reading={m.pressureRelative} digits={1} /><MapReading icon={CloudRain} label="Chuva" reading={m.rainDaily} digits={1} /><MapReading icon={Droplets} label="Intensidade de chuva" reading={m.rainRate} digits={1} /><MapReading icon={Sun} label="Radiação solar" reading={m.solar} digits={1} /><MapReading icon={Sun} label="Índice UV" reading={m.uv} /></div></aside><article className="map-card"><iframe title="Mapa da estação em Bauru" src={map} loading="lazy" /><div className="map-badge"><span><i /> Localização da estação</span><strong>{lat.toFixed(5)}, {lon.toFixed(5)}</strong><small>Se o mapa não aparecer, use o link externo. A falha do mapa não interfere nas leituras.</small><a href={`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=13/${lat}/${lon}`} target="_blank" rel="noreferrer">Abrir mapa externo ↗</a></div></article></div></div>;
 }
 
 function ProfilePanel({ data }: { data: WeatherData }) {
@@ -591,16 +579,17 @@ export default function WeatherDashboard() {
   const [storedData, setData] = useState<WeatherData | null>(null);
   const [loadedKey, setLoadedKey] = useState("");
   const [error, setError] = useState(false);
-  const [forecastPending, setForecastPending] = useState(true);
+  const [conditionPending, setConditionPending] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [range, setRange] = useState<RangeKey>("24h");
   const [selectedDate, setSelectedDate] = useState(() => new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" }));
   const [tab, setTab] = useState<TabKey>("map");
   const [historyGroup, setHistoryGroup] = useState<GroupKey>("outdoor");
+  const [cameraReading, setCameraReading] = useState<CameraStatus | null>(null);
 
   const requestId = useRef(0);
   const responseCache = useRef(new Map<string, { data: WeatherData; receivedAt: number }>());
-  const extrasCache = useRef<Pick<WeatherData, "forecast" | "insight"> | null>(null);
+  const extrasCache = useRef<Pick<WeatherData, "currentWeather" | "insight"> | null>(null);
   const needsHistory = tab === "current" || tab === "evolution" || tab === "wind";
   const requestView = needsHistory ? (tab === "current" && range === "24h" ? "current" : "history") : "summary";
   const todayKey = new Date().toLocaleDateString("en-CA",{timeZone:"America/Sao_Paulo"});
@@ -609,7 +598,7 @@ export default function WeatherDashboard() {
   const historyActive = needsHistory;
   const base = historyActive ? storedData : (liveData ?? storedData);
   const current = liveData ?? base;
-  const data = base ? { ...base, ...(extrasCache.current ?? {}), forecast: extrasCache.current?.forecast ?? base.forecast, insight: current?.insight ?? extrasCache.current?.insight, metrics: current?.metrics ?? base.metrics, updatedAt: current?.updatedAt ?? base.updatedAt, observationSource: current?.observationSource, liveDirectionPoints: liveData?.history.windDirection?.points } : null;
+  const data = base ? { ...base, ...(extrasCache.current ?? {}), currentWeather: extrasCache.current ? extrasCache.current.currentWeather : base.currentWeather, insight: current?.insight ?? extrasCache.current?.insight, metrics: current?.metrics ?? base.metrics, updatedAt: current?.updatedAt ?? base.updatedAt, observationSource: current?.observationSource, liveDirectionPoints: liveData?.history.windDirection?.points } : null;
   const plotData = data ? {...data,chartExtrema:loadedKey===requestKey ? data.chartExtrema : {}} : null;
   const sectionLoading = loadedKey !== requestKey || refreshing;
   const load = useCallback(async (selectedRange: RangeKey, selectedDay: string, quiet = false, signal?: AbortSignal, force = false) => {
@@ -660,19 +649,43 @@ export default function WeatherDashboard() {
     const controller = new AbortController();
     const loadExtras = async () => {
       try {
-        const response = await fetch("/api/weather?view=extras", { signal: controller.signal });
+        const response = await fetch("/api/weather?view=extras", { signal: controller.signal, cache:"no-store" });
         if (!response.ok) throw new Error("unavailable");
-        const extras = await response.json() as Pick<WeatherData, "forecast" | "insight">;
+        const extras = await response.json() as Pick<WeatherData, "currentWeather" | "insight">;
         if (controller.signal.aborted) return;
         extrasCache.current = extras;
         setData((current) => current ? { ...current, ...extras } : current);
-      } catch { /* The live readings remain available if a forecast source fails. */ }
-      finally { if (!controller.signal.aborted) setForecastPending(false); }
+      } catch {
+        if (!controller.signal.aborted) {
+          const retained = extrasCache.current?.currentWeather ?? null;
+          const stale = retained ? { ...retained, refreshFailed: true } : null;
+          extrasCache.current = {currentWeather:stale,insight:extrasCache.current?.insight ?? null};
+          setData(previous => previous ? {...previous,currentWeather:stale} : previous);
+        }
+      }
+      finally { if (!controller.signal.aborted) setConditionPending(false); }
     };
     void loadExtras();
-    const timer = window.setInterval(() => void loadExtras(), 300_000);
+    const timer = window.setInterval(() => void loadExtras(), 60_000);
     return () => { controller.abort(); window.clearInterval(timer); };
   }, [tab, loadedKey, requestKey]);
+  useEffect(() => {
+    if (tab !== "map") return;
+    const controller = new AbortController();
+    const loadCamera = async () => {
+      try {
+        const response = await fetch("/api/camera", { signal: controller.signal, cache: "no-store" });
+        if (!response.ok) throw new Error("camera unavailable");
+        const result = await response.json() as CameraStatus;
+        if (!controller.signal.aborted) setCameraReading(result);
+      } catch {
+        if (!controller.signal.aborted) setCameraReading({ status: "unavailable", capturedAt: null, sensorTime: null, sensorFresh: false, rainRate: null, rainUnit: "mm/hr", rainConfirmed: false, visualCondition: null, analysisStatus: "unavailable", imageUrl: null });
+      }
+    };
+    void loadCamera();
+    const timer = window.setInterval(() => void loadCamera(), 60_000);
+    return () => { controller.abort(); window.clearInterval(timer); };
+  }, [tab]);
 
   const handleTab = (next: string) => { const selected = next as TabKey; setTab(selected); window.history.replaceState(null, "", `#${selected}`); };
   const openHistory = (group: GroupKey) => { setHistoryGroup(group); setTab("evolution"); window.history.replaceState(null, "", "#evolution"); window.scrollTo({ top: 0, behavior: "smooth" }); };
@@ -681,7 +694,7 @@ export default function WeatherDashboard() {
   return <TooltipProvider><main className="dashboard-shell"><header className="topbar"><a className="brand" href="#map" onClick={() => handleTab("map")}><span className="brand-mark"><WeatherStationMark /></span><span><strong>Estação Meteorológica Bauru Sul</strong><small>{data ? `Bauru–SP · ${data.station.latitude.toFixed(4)}, ${data.station.longitude.toFixed(4)}` : "Bauru–SP"}</small></span></a><div className="header-status"><div className="reported"><span>{condition}</span><small>{data ? `Atualizado ${new Date(data.updatedAt).toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit" })}` : "Conectando…"}</small></div><span className={`live-pill ${!data ? "offline" : ""}`}><i />{data?.observationSource === "database" ? "Última leitura salva" : data ? "Ao vivo" : "Aguardando estação"}</span><button className="refresh-button" onClick={() => load(range, selectedDate, false, undefined, true)} disabled={refreshing} aria-label="Atualizar dados"><RefreshCw size={17} className={refreshing ? "spin" : ""} /></button></div></header>
 
     <Tabs value={tab} onValueChange={handleTab} className="dashboard-tabs"><nav className="nav-wrap" aria-label="Seções da estação"><TabsList className="nav-tabs"><TabsTrigger value="map"><MapPinned />Previsão</TabsTrigger><TabsTrigger value="satellite"><Satellite />Satélite</TabsTrigger><TabsTrigger value="current"><Activity />Dados Atuais</TabsTrigger><TabsTrigger value="wind"><Wind />Ventos</TabsTrigger><TabsTrigger value="evolution"><History />Histórico</TabsTrigger><TabsTrigger value="profile"><Radio />Perfil</TabsTrigger></TabsList></nav>
-      <div className={`dashboard-content${tab === "satellite" ? " satellite-content" : ""}`}>{sectionLoading && tab !== "satellite" && <div className="section-loading" role="status">{data ? "Atualizando esta seção… Os últimos dados válidos permanecem visíveis." : "Carregando esta seção…"}</div>}{needsHistory && data?.historyWindow && <div className="history-window">{pointTime(Date.parse(data.historyWindow.start))} a {pointTime(Date.parse(data.historyWindow.end))} · Brasília · resolução {data.historyWindow.resolution}. {data.historyWindow.aggregation}. Marcadores de mínimo e máximo: todos os registros disponíveis no período.</div>}{data?.insight && <ContextualNotice insight={data.insight} />}{error && <div className="error-banner">A última consulta falhou. Os dados exibidos podem não estar atualizados; tentaremos novamente automaticamente.</div>}{tab === "satellite" ? <SatellitePanel /> : !data ? <LoadingDashboard /> : <><TabsContent value="current"><CurrentPanel data={plotData!} onGraph={openHistory} selectedDate={selectedDate} onDateChange={setSelectedDate} range={range} onRangeChange={setRange} /></TabsContent><TabsContent value="evolution"><EvolutionPanel data={plotData!} range={range} setRange={setRange} group={historyGroup} setGroup={setHistoryGroup} /></TabsContent><TabsContent value="wind"><WindPanel data={plotData!} range={range} setRange={setRange} /></TabsContent><TabsContent value="map"><MapPanel data={data} forecastPending={forecastPending} /></TabsContent><TabsContent value="satellite"><SatellitePanel /></TabsContent><TabsContent value="profile"><ProfilePanel data={data} /></TabsContent></>}</div>
+      <div className={`dashboard-content${tab === "satellite" ? " satellite-content" : ""}`}>{sectionLoading && tab !== "satellite" && <div className="section-loading" role="status">{data ? "Atualizando esta seção… Os últimos dados válidos permanecem visíveis." : "Carregando esta seção…"}</div>}{needsHistory && data?.historyWindow && <div className="history-window">{pointTime(Date.parse(data.historyWindow.start))} a {pointTime(Date.parse(data.historyWindow.end))} · Brasília · resolução {data.historyWindow.resolution}. {data.historyWindow.aggregation}. Marcadores de mínimo e máximo: todos os registros disponíveis no período.</div>}{data?.insight && <ContextualNotice insight={data.insight} />}{error && <div className="error-banner">A última consulta falhou. Os dados exibidos podem não estar atualizados; tentaremos novamente automaticamente.</div>}{tab === "satellite" ? <SatellitePanel /> : !data ? <LoadingDashboard /> : <><TabsContent value="current"><CurrentPanel data={plotData!} onGraph={openHistory} selectedDate={selectedDate} onDateChange={setSelectedDate} range={range} onRangeChange={setRange} /></TabsContent><TabsContent value="evolution"><EvolutionPanel data={plotData!} range={range} setRange={setRange} group={historyGroup} setGroup={setHistoryGroup} /></TabsContent><TabsContent value="wind"><WindPanel data={plotData!} range={range} setRange={setRange} /></TabsContent><TabsContent value="map"><MapPanel data={data} conditionPending={conditionPending} camera={cameraReading} /></TabsContent><TabsContent value="satellite"><SatellitePanel /></TabsContent><TabsContent value="profile"><ProfilePanel data={data} /></TabsContent></>}</div>
     </Tabs>
     <footer className="site-footer"><span>Dados observacionais da estação Ecowitt GW3000</span><span>Atualização automática</span></footer>
   </main></TooltipProvider>;
