@@ -236,3 +236,29 @@ button,a { font:inherit; }
 .extrema-strip .extrema-max { color:#ff6842; }
 .extremum-pin { outline:none; }
 .extremum-pin:focus-visible { filter:drop-shadow(0 0 3px white); }
+
+/* Keep complete readings and units inside current-data cards. */
+@media (min-width:1351px) {
+  .sensor-grid { grid-template-columns:repeat(8,minmax(0,1fr)); }
+}
+.sensor-card .big-reading strong { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px; }
+.lightning-top { flex-wrap:wrap; }
+.risk-chip { flex:none; white-space:nowrap; }
+.wind-module.compact { grid-template-columns:72px minmax(110px,170px) 72px; gap:8px; }
+.wind-side { min-width:0; }
+.wind-side span,.wind-side strong,.wind-side small { white-space:nowrap; }
+.wind-card { container-type:inline-size; }
+@container (max-width:269px) {
+  .wind-module.compact { grid-template-columns:1fr 1fr; grid-template-areas:"compass compass" "speed gust"; gap:12px; }
+  .wind-module.compact .compass-dial { grid-area:compass; width:170px; justify-self:center; }
+  .wind-module.compact .wind-side:first-child { grid-area:speed; }
+  .wind-module.compact .wind-side:last-child { grid-area:gust; }
+}
+@media(max-width:720px) {
+  .wind-focus-card .wind-module { grid-template-columns:72px minmax(110px,240px) 72px; gap:8px; }
+  .wind-module.compact .wind-side strong { font-size:1.35rem; }
+  .wind-module.compact .wind-side small { font-size:.68rem; }
+}
+.dashboard-tabs,.dashboard-content,.nav-wrap { min-width:0; max-width:100%; }
+.dashboard-content { width:100%; }
+.observed-statistics summary { overflow-wrap:anywhere; }
