@@ -1,0 +1,275 @@
+[
+  {
+    "width": 320,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 29,
+          "y": 1590.484375,
+          "width": 125,
+          "height": 67.375,
+          "top": 1590.484375,
+          "right": 154,
+          "bottom": 1657.859375,
+          "left": 29
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 166,
+          "y": 1590.484375,
+          "width": 125,
+          "height": 67.375,
+          "top": 1590.484375,
+          "right": 291,
+          "bottom": 1657.859375,
+          "left": 166
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 30,
+          "y": 1373.1875,
+          "width": 72,
+          "height": 67.375,
+          "top": 1373.1875,
+          "right": 102,
+          "bottom": 1440.5625,
+          "left": 30
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 288,
+          "y": 1373.1875,
+          "width": 72,
+          "height": 67.375,
+          "top": 1373.1875,
+          "right": 360,
+          "bottom": 1440.5625,
+          "left": 288
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 408,
+          "y": 690.046875,
+          "width": 72,
+          "height": 67.375,
+          "top": 690.046875,
+          "right": 480,
+          "bottom": 757.421875,
+          "left": 408
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 659.34375,
+          "y": 690.046875,
+          "width": 72,
+          "height": 67.375,
+          "top": 690.046875,
+          "right": 731.34375,
+          "bottom": 757.421875,
+          "left": 659.34375
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1024,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 100.265625,
+          "y": 783.671875,
+          "width": 72,
+          "height": 67.375,
+          "top": 783.671875,
+          "right": 172.265625,
+          "bottom": 851.046875,
+          "left": 100.265625
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 358.265625,
+          "y": 783.671875,
+          "width": 72,
+          "height": 67.375,
+          "top": 783.671875,
+          "right": 430.265625,
+          "bottom": 851.046875,
+          "left": 358.265625
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1366,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 1035.296875,
+          "y": 360.453125,
+          "width": 72,
+          "height": 67.375,
+          "top": 360.453125,
+          "right": 1107.296875,
+          "bottom": 427.828125,
+          "left": 1035.296875
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 1243.59375,
+          "y": 360.453125,
+          "width": 72,
+          "height": 67.375,
+          "top": 360.453125,
+          "right": 1315.59375,
+          "bottom": 427.828125,
+          "left": 1243.59375
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 1089.9375,
+          "y": 369.28125,
+          "width": 72,
+          "height": 67.375,
+          "top": 369.28125,
+          "right": 1161.9375,
+          "bottom": 436.65625,
+          "left": 1089.9375
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 1315.890625,
+          "y": 369.28125,
+          "width": 72,
+          "height": 67.375,
+          "top": 369.28125,
+          "right": 1387.890625,
+          "bottom": 436.65625,
+          "left": 1315.890625
+        }
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1920,
+    "violations": [],
+    "chip": {
+      "text": "Sem atividade recente",
+      "height": 28,
+      "line": 15.6,
+      "nowrap": "nowrap"
+    },
+    "sides": [
+      {
+        "text": "Vento\n123,4\nkm/h",
+        "rect": {
+          "x": 1371.75,
+          "y": 385.3125,
+          "width": 72,
+          "height": 67.375,
+          "top": 385.3125,
+          "right": 1443.75,
+          "bottom": 452.6875,
+          "left": 1371.75
+        }
+      },
+      {
+        "text": "Rajada\n123,4\nkm/h",
+        "rect": {
+          "x": 1629.75,
+          "y": 385.3125,
+          "width": 72,
+          "height": 67.375,
+          "top": 385.3125,
+          "right": 1701.75,
+          "bottom": 452.6875,
+          "left": 1629.75
+        }
+      }
+    ],
+    "overflow": false
+  }
+]

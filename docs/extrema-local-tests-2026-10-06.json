@@ -1,0 +1,180 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scenario": "full",
+    "pins": [
+      {
+        "value": 10,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 10 ℃ · 01/10/2026, 12:05",
+        "transform": "translate(1247.8265897612487 218.0145214521452)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 37.5,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 37,5 ℃ · 01/10/2026, 12:30",
+        "transform": "translate(1247.8841253443527 72.80000000000001)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scenario": "constant",
+    "pins": [
+      {
+        "value": 20,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 20 ℃ · 01/10/2026, 12:00",
+        "transform": "translate(1233.8150826446279 147.82074688796683)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 20,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 20 ℃ · 01/10/2026, 12:00",
+        "transform": "translate(1261.8150826446279 147.82074688796683)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scenario": "empty",
+    "pins": [],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "scenario": "gaps",
+    "pins": [
+      {
+        "value": 10,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 10 ℃ · 01/10/2026, 12:05",
+        "transform": "translate(1232.8325116173637 218.0145214521452)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 37.5,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 37,5 ℃ · 01/10/2026, 12:30",
+        "transform": "translate(1232.8893233594015 72.80000000000001)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scenario": "full",
+    "pins": [
+      {
+        "value": 10,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 10 ℃ · 01/10/2026, 12:05",
+        "transform": "translate(277.9194980104071 171.35917020273456)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 37.5,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 37,5 ℃ · 01/10/2026, 12:30",
+        "transform": "translate(277.9302112029385 61.80000000000001)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scenario": "constant",
+    "pins": [
+      {
+        "value": 20,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 20 ℃ · 01/10/2026, 12:00",
+        "transform": "translate(263.9173553719008 118.40047421458212)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 20,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 20 ℃ · 01/10/2026, 12:00",
+        "transform": "translate(291.9173553719008 118.40047421458212)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scenario": "empty",
+    "pins": [],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scenario": "gaps",
+    "pins": [
+      {
+        "value": 10,
+        "kind": "minimum",
+        "label": "Temperatura: mínimo 10 ℃ · 01/10/2026, 12:05",
+        "transform": "translate(275.1275832105482 171.35917020273456)",
+        "color": "#22a9d6"
+      },
+      {
+        "value": 37.5,
+        "kind": "maximum",
+        "label": "Temperatura: máximo 37,5 ℃ · 01/10/2026, 12:30",
+        "transform": "translate(275.13816162303067 61.80000000000001)",
+        "color": "#ff6842"
+      }
+    ],
+    "clipping": [],
+    "errors": [],
+    "overflow": false
+  }
+]

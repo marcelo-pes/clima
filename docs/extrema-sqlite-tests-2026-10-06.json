@@ -1,0 +1,98 @@
+[
+  {
+    "range": "7d",
+    "firstMs": 428.71365299999997,
+    "cachedMs": 0.08741099999997459,
+    "variables": 18,
+    "allTimestampsAndValuesMatchSqlite": true,
+    "temperature": {
+      "minimum": {
+        "time": 1791125400000,
+        "value": 15.5
+      },
+      "maximum": {
+        "time": 1790614800000,
+        "value": 35.3,
+        "aggregate": true
+      },
+      "unit": "℃",
+      "samples": 2016
+    },
+    "windGust": {
+      "minimum": {
+        "time": 1790802000000,
+        "value": 2.9
+      },
+      "maximum": {
+        "time": 1791123600000,
+        "value": 89.3
+      },
+      "unit": "km/h",
+      "samples": 2016
+    }
+  },
+  {
+    "range": "30d",
+    "firstMs": 99.96917299999996,
+    "cachedMs": 10.306010000000015,
+    "variables": 18,
+    "allTimestampsAndValuesMatchSqlite": true,
+    "temperature": {
+      "minimum": {
+        "time": 1788771900000,
+        "value": 11
+      },
+      "maximum": {
+        "time": 1790530200000,
+        "value": 36.8,
+        "aggregate": true
+      },
+      "unit": "℃",
+      "samples": 8621
+    },
+    "windGust": {
+      "minimum": {
+        "time": 1789248000000,
+        "value": 2.5
+      },
+      "maximum": {
+        "time": 1791123600000,
+        "value": 89.3
+      },
+      "unit": "km/h",
+      "samples": 8621
+    }
+  },
+  {
+    "range": "1y",
+    "firstMs": 613.6701439999999,
+    "cachedMs": 0.04095800000004601,
+    "variables": 18,
+    "allTimestampsAndValuesMatchSqlite": true,
+    "temperature": {
+      "minimum": {
+        "time": 1784016000000,
+        "value": 7.7
+      },
+      "maximum": {
+        "time": 1766775600000,
+        "value": 37.5,
+        "aggregate": true
+      },
+      "unit": "℃",
+      "samples": 42032
+    },
+    "windGust": {
+      "minimum": {
+        "time": 1783716900000,
+        "value": 0
+      },
+      "maximum": {
+        "time": 1760860800000,
+        "value": 118.4
+      },
+      "unit": "km/h",
+      "samples": 42032
+    }
+  }
+]

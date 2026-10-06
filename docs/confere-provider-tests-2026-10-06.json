@@ -1,0 +1,30 @@
+[
+  {
+    "width": 1440,
+    "range": "30d",
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "range": "1y",
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "range": "30d",
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "range": "1y",
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  }
+]

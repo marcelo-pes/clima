@@ -1,0 +1,957 @@
+{
+  "range": "1y",
+  "checkedAt": "2026-10-06T13:26:47.026Z",
+  "errors": [],
+  "sources": {
+    "database": {
+      "status": 200,
+      "window": {
+        "start": "2025-10-06T03:00:00.000Z",
+        "end": "2026-10-06T02:59:59.000Z",
+        "timeZone": "America/Sao_Paulo",
+        "resolution": "1day",
+        "aggregation": "Agregação diária da origem"
+      },
+      "incomplete": true,
+      "storedAt": 1791215005000,
+      "historySource": "database"
+    },
+    "api": {
+      "status": 200,
+      "window": {
+        "start": "2025-10-06T03:00:00.000Z",
+        "end": "2026-10-06T02:59:59.000Z",
+        "timeZone": "America/Sao_Paulo",
+        "resolution": "1day",
+        "aggregation": "Agregação diária da origem"
+      },
+      "incomplete": true,
+      "storedAt": 1791293213583,
+      "historySource": "api"
+    }
+  },
+  "text": "← Estação Bauru Sul\nConfere\n\nComparação dos mesmos sensores e do mesmo período nas duas fontes.\n\nPeríodo\nDia civil\nSemanal\nMensal\nAnual\nData final\nSQLite\n\nConsulta: 05/10/2026, 12:43:25\n\n06/10/2025, 00:00:00 a 05/10/2026, 23:59:59 · America/Sao_Paulo · resolução diária. Extremos na resolução selecionada.\n\nA fonte contém apenas parte do período.\n\nAmbiente externo\nTemperatura (℃)\nSensação (℃)\nPonto de orvalho (℃)\nUmidade (%)\nTemperatura:\nmín. 7,7 ℃\n· média da série\n22,5 ℃\n·\nmáx. 37,5 ℃\nSensação:\nmín. 12,6 ℃\n· média da série\n22,8 ℃\n·\nmáx. 31,3 ℃\nPonto de orvalho:\nmín. 7,2 ℃\n· média da série\n17 ℃\n·\nmáx. 22,1 ℃\nUmidade:\nmín. 24 %\n· média da série\n73,9 %\n·\nmáx. 99 %\n7,7\n37,5\n12,6\n31,3\n7,2\n22,1\n24\n99\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n3,6\n18,6\n33,6\n46\n℃\n15\n45\n75\n105\n120\n%\nVPD\nVPD (kPa)\nVPD:\nmín. 0,034 kPa\n· média da série\n0,9 kPa\n·\nmáx. 2,469 kPa\n0\n2,5\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n0\n0,8\n1,6\n2,4\n3,2\nkPa\nAmbiente interno\nTemperatura (℃)\nSensação (℃)\nPonto de orvalho (℃)\nUmidade (%)\nTemperatura:\nmín. 16,6 ℃\n· média da série\n25,6 ℃\n·\nmáx. 33,7 ℃\nSensação:\nmín. 17,3 ℃\n· média da série\n26,2 ℃\n·\nmáx. 34 ℃\nPonto de orvalho:\nmín. 9 ℃\n· média da série\n17,5 ℃\n·\nmáx. 22,1 ℃\nUmidade:\nmín. 29 %\n· média da série\n61,3 %\n·\nmáx. 84 %\n16,6\n33,7\n17,3\n34\n9\n22,1\n29\n84\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n6\n15\n24\n33\n41\n℃\n22,4\n42,4\n62,4\n82,4\n99,4\n%\nSolar e UV\nRadiação solar (W/m²)\nÍndice UV\nRadiação solar:\nmín. 69,8 W/m²\n· média da série\n959,4 W/m²\n·\nmáx. 1.948,9 W/m²\nÍndice UV:\nmín. 0\n· média da série\n8,4\n·\nmáx. 15\n69,8\n1.948,9\n0\n15\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n650\n1.300\n1.950\n2.475\nW/m²\n0\n5\n10\n15\n19,2\nÍndice UV\nVentos\nVelocidade (km/h)\nRajada (km/h)\nDireção (º)\nVelocidade:\nmín. 3,8 km/h\n· média da série\n8,4 km/h\n·\nmáx. 19,6 km/h\nRajada:\nmín. 12,6 km/h\n· média da série\n32,6 km/h\n·\nmáx. 118,4 km/h\n3,8\n19,6\n12,6\n118,4\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n40\n80\n120\n150,5\nkm/h\n0\n150\n300\n458,3\n°\nPressão\nRelativa (hPa)\nAbsoluta (hPa)\nRelativa:\nmín. 933,2 hPa\n· média da série\n945,8 hPa\n·\nmáx. 956,5 hPa\nAbsoluta:\nmín. 936,9 hPa\n· média da série\n945,8 hPa\n·\nmáx. 954,4 hPa\n933,2\n956,5\n936,9\n954,4\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n921,7\n941,7\n961,7\n983,3\nhPa\nAnual · dados reais da estação\nRaios\n⚡\nDistância\nContagem\nDistância:\nmín. 1 km\n·\nmáx. 37 km\n⚡\n⚡\n⚡\n06/10/202521:00\n11/01/202621:00\n15/04/202621:00\n20/07/202621:00\n04/10/202621:00\n0\n10\n20\n30\n40\nChuvas\nIntensidade (mm/hr)\nEvento (mm)\nPor hora (mm)\n24 horas (mm)\nDiário (mm)\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n55\n110\n165\n205,1\nmm/hr\n0\n50\n100\n150\n182,3\nmm\nAcumulados de chuva\nSemanal (mm)\nMensal (mm)\nAnual (mm)\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n0\n450\n900\n1.350\n1.795,5\nmm\nBateria\nConjunto háptico (Bateria) (V)\nCapacitor (V)\nSensor de raios\nConjunto háptico (Bateria):\nmín. 2,41 V\n· média da série\n2,6 V\n·\nmáx. 2,74 V\nCapacitor:\nmín. 2,4 V\n· média da série\n4,1 V\n·\nmáx. 5,1 V\n2,4\n2,7\n2,4\n5,1\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n2,1\n3\n4\n4,9\n5,9\nV\nNível /5\nAPI Ecowitt\n\nConsulta: 06/10/2026, 10:26:53\n\n06/10/2025, 00:00:00 a 05/10/2026, 23:59:59 · America/Sao_Paulo · resolução diária. Extremos na resolução selecionada.\n\nA fonte contém apenas parte do período.\n\nAmbiente externo\nTemperatura (℃)\nSensação (℃)\nPonto de orvalho (℃)\nUmidade (%)\nTemperatura:\nmín. 7,7 ℃\n· média da série\n22,5 ℃\n·\nmáx. 37,5 ℃\nSensação:\nmín. 12,6 ℃\n· média da série\n22,8 ℃\n·\nmáx. 31,3 ℃\nPonto de orvalho:\nmín. 7,2 ℃\n· média da série\n17 ℃\n·\nmáx. 22,1 ℃\nUmidade:\nmín. 24 %\n· média da série\n73,9 %\n·\nmáx. 99 %\n7,7\n37,5\n12,6\n31,3\n7,2\n22,1\n24\n99\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n3,6\n18,6\n33,6\n46\n℃\n15\n45\n75\n105\n120\n%\nVPD\nVPD (kPa)\nVPD:\nmín. 0,034 kPa\n· média da série\n0,9 kPa\n·\nmáx. 2,469 kPa\n0\n2,5\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n0\n0,8\n1,6\n2,4\n3,2\nkPa\nAmbiente interno\nTemperatura (℃)\nSensação (℃)\nPonto de orvalho (℃)\nUmidade (%)\nTemperatura:\nmín. 16,6 ℃\n· média da série\n25,6 ℃\n·\nmáx. 33,7 ℃\nSensação:\nmín. 17,3 ℃\n· média da série\n26,2 ℃\n·\nmáx. 34 ℃\nPonto de orvalho:\nmín. 9 ℃\n· média da série\n17,5 ℃\n·\nmáx. 22,1 ℃\nUmidade:\nmín. 29 %\n· média da série\n61,3 %\n·\nmáx. 84 %\n16,6\n33,7\n17,3\n34\n9\n22,1\n29\n84\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n6\n15\n24\n33\n41\n℃\n22,4\n42,4\n62,4\n82,4\n99,4\n%\nSolar e UV\nRadiação solar (W/m²)\nÍndice UV\nRadiação solar:\nmín. 69,8 W/m²\n· média da série\n959,4 W/m²\n·\nmáx. 1.948,9 W/m²\nÍndice UV:\nmín. 0\n· média da série\n8,4\n·\nmáx. 15\n69,8\n1.948,9\n0\n15\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n650\n1.300\n1.950\n2.475\nW/m²\n0\n5\n10\n15\n19,2\nÍndice UV\nVentos\nVelocidade (km/h)\nRajada (km/h)\nDireção (º)\nVelocidade:\nmín. 3,8 km/h\n· média da série\n8,4 km/h\n·\nmáx. 19,6 km/h\nRajada:\nmín. 12,6 km/h\n· média da série\n32,6 km/h\n·\nmáx. 118,4 km/h\n3,8\n19,6\n12,6\n118,4\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n40\n80\n120\n150,5\nkm/h\n0\n150\n300\n458,3\n°\nPressão\nRelativa (hPa)\nAbsoluta (hPa)\nRelativa:\nmín. 933,2 hPa\n· média da série\n945,8 hPa\n·\nmáx. 956,5 hPa\nAbsoluta:\nmín. 936,9 hPa\n· média da série\n945,8 hPa\n·\nmáx. 954,4 hPa\n933,2\n956,5\n936,9\n954,4\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n921,7\n941,7\n961,7\n983,3\nhPa\nAnual · dados reais da estação\nRaios\n⚡\nDistância\nContagem\nDistância:\nmín. 1 km\n·\nmáx. 37 km\n⚡\n⚡\n⚡\n06/10/202521:00\n11/01/202621:00\n15/04/202621:00\n20/07/202621:00\n04/10/202621:00\n0\n10\n20\n30\n40\nChuvas\nIntensidade (mm/hr)\nEvento (mm)\nPor hora (mm)\n24 horas (mm)\nDiário (mm)\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n0\n55\n110\n165\n205,1\nmm/hr\n0\n50\n100\n150\n182,3\nmm\nAcumulados de chuva\nSemanal (mm)\nMensal (mm)\nAnual (mm)\n06/10/202521:00\n16/12/202521:00\n25/02/202621:00\n06/05/202621:00\n04/10/202621:00\n0\n450\n900\n1.350\n1.795,5\nmm\nBateria\nConjunto háptico (Bateria) (V)\nCapacitor (V)\nSensor de raios\nConjunto háptico (Bateria):\nmín. 2,41 V\n· média da série\n2,6 V\n·\nmáx. 2,74 V\nCapacitor:\nmín. 2,4 V\n· média da série\n4,1 V\n·\nmáx. 5,1 V\n2,4\n2,7\n2,4\n5,1\n06/10/202521:00\n23/12/202521:00\n11/03/202621:00\n28/05/202621:00\n04/10/202621:00\n2,1\n3\n4\n4,9\n5,9\nV\nNível /5",
+  "charts": 20,
+  "extremaComparison": {
+    "database": {
+      "temperature": {
+        "minimum": {
+          "time": 1778544000000,
+          "value": 7.7,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1766707200000,
+          "value": 37.5,
+          "aggregate": true
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "feelsLike": {
+        "minimum": {
+          "time": 1782345600000,
+          "value": 12.6
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 31.3
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "dewPoint": {
+        "minimum": {
+          "time": 1761004800000,
+          "value": 7.2
+        },
+        "maximum": {
+          "time": 1767139200000,
+          "value": 22.1
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "humidity": {
+        "minimum": {
+          "time": 1761004800000,
+          "value": 24,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1760313600000,
+          "value": 99,
+          "aggregate": true
+        },
+        "unit": "%",
+        "samples": 364
+      },
+      "vpd": {
+        "minimum": {
+          "time": 1784937600000,
+          "value": 0.0338639
+        },
+        "maximum": {
+          "time": 1764460800000,
+          "value": 2.46867831
+        },
+        "unit": "kPa",
+        "samples": 364
+      },
+      "indoorTemperature": {
+        "minimum": {
+          "time": 1782432000000,
+          "value": 16.6,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1766707200000,
+          "value": 33.7,
+          "aggregate": true
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorFeelsLike": {
+        "minimum": {
+          "time": 1782432000000,
+          "value": 17.3
+        },
+        "maximum": {
+          "time": 1766880000000,
+          "value": 34
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorDewPoint": {
+        "minimum": {
+          "time": 1778544000000,
+          "value": 9
+        },
+        "maximum": {
+          "time": 1770940800000,
+          "value": 22.1
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorHumidity": {
+        "minimum": {
+          "time": 1766448000000,
+          "value": 29,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1789084800000,
+          "value": 84,
+          "aggregate": true
+        },
+        "unit": "%",
+        "samples": 364
+      },
+      "windSpeed": {
+        "minimum": {
+          "time": 1773532800000,
+          "value": 3.8
+        },
+        "maximum": {
+          "time": 1760918400000,
+          "value": 19.6
+        },
+        "unit": "km/h",
+        "samples": 364
+      },
+      "windGust": {
+        "minimum": {
+          "time": 1778803200000,
+          "value": 12.6
+        },
+        "maximum": {
+          "time": 1760832000000,
+          "value": 118.4
+        },
+        "unit": "km/h",
+        "samples": 364
+      },
+      "pressureRelative": {
+        "minimum": {
+          "time": 1765238400000,
+          "value": 933.2,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1780531200000,
+          "value": 956.5,
+          "aggregate": true
+        },
+        "unit": "hPa",
+        "samples": 364
+      },
+      "pressureAbsolute": {
+        "minimum": {
+          "time": 1765324800000,
+          "value": 936.9
+        },
+        "maximum": {
+          "time": 1780531200000,
+          "value": 954.4
+        },
+        "unit": "hPa",
+        "samples": 364
+      },
+      "solar": {
+        "minimum": {
+          "time": 1784851200000,
+          "value": 69.8
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 1948.9
+        },
+        "unit": "W/m²",
+        "samples": 364
+      },
+      "uv": {
+        "minimum": {
+          "time": 1784851200000,
+          "value": 0
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 15
+        },
+        "unit": "",
+        "samples": 364
+      },
+      "lightning": {
+        "minimum": {
+          "time": 1784937600000,
+          "value": 1
+        },
+        "maximum": {
+          "time": 1769558400000,
+          "value": 37
+        },
+        "unit": "km",
+        "samples": 96
+      },
+      "hapticBattery": {
+        "minimum": {
+          "time": 1788739200000,
+          "value": 2.41
+        },
+        "maximum": {
+          "time": 1788998400000,
+          "value": 2.74
+        },
+        "unit": "V",
+        "samples": 364
+      },
+      "hapticCapacitor": {
+        "minimum": {
+          "time": 1782259200000,
+          "value": 2.4
+        },
+        "maximum": {
+          "time": 1762473600000,
+          "value": 5.1
+        },
+        "unit": "V",
+        "samples": 364
+      }
+    },
+    "api": {
+      "temperature": {
+        "minimum": {
+          "time": 1778544000000,
+          "value": 7.7,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1766707200000,
+          "value": 37.5,
+          "aggregate": true
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "feelsLike": {
+        "minimum": {
+          "time": 1782345600000,
+          "value": 12.6
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 31.3
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "dewPoint": {
+        "minimum": {
+          "time": 1761004800000,
+          "value": 7.2
+        },
+        "maximum": {
+          "time": 1767139200000,
+          "value": 22.1
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "humidity": {
+        "minimum": {
+          "time": 1761004800000,
+          "value": 24,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1760313600000,
+          "value": 99,
+          "aggregate": true
+        },
+        "unit": "%",
+        "samples": 364
+      },
+      "vpd": {
+        "minimum": {
+          "time": 1784937600000,
+          "value": 0.0338639
+        },
+        "maximum": {
+          "time": 1764460800000,
+          "value": 2.46867831
+        },
+        "unit": "kPa",
+        "samples": 364
+      },
+      "indoorTemperature": {
+        "minimum": {
+          "time": 1782432000000,
+          "value": 16.6,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1766707200000,
+          "value": 33.7,
+          "aggregate": true
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorFeelsLike": {
+        "minimum": {
+          "time": 1782432000000,
+          "value": 17.3
+        },
+        "maximum": {
+          "time": 1766880000000,
+          "value": 34
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorDewPoint": {
+        "minimum": {
+          "time": 1778544000000,
+          "value": 9
+        },
+        "maximum": {
+          "time": 1770940800000,
+          "value": 22.1
+        },
+        "unit": "℃",
+        "samples": 364
+      },
+      "indoorHumidity": {
+        "minimum": {
+          "time": 1766448000000,
+          "value": 29,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1789084800000,
+          "value": 84,
+          "aggregate": true
+        },
+        "unit": "%",
+        "samples": 364
+      },
+      "windSpeed": {
+        "minimum": {
+          "time": 1773532800000,
+          "value": 3.8
+        },
+        "maximum": {
+          "time": 1760918400000,
+          "value": 19.6
+        },
+        "unit": "km/h",
+        "samples": 364
+      },
+      "windGust": {
+        "minimum": {
+          "time": 1778803200000,
+          "value": 12.6
+        },
+        "maximum": {
+          "time": 1760832000000,
+          "value": 118.4
+        },
+        "unit": "km/h",
+        "samples": 364
+      },
+      "pressureRelative": {
+        "minimum": {
+          "time": 1765238400000,
+          "value": 933.2,
+          "aggregate": true
+        },
+        "maximum": {
+          "time": 1780531200000,
+          "value": 956.5,
+          "aggregate": true
+        },
+        "unit": "hPa",
+        "samples": 364
+      },
+      "pressureAbsolute": {
+        "minimum": {
+          "time": 1765324800000,
+          "value": 936.9
+        },
+        "maximum": {
+          "time": 1780531200000,
+          "value": 954.4
+        },
+        "unit": "hPa",
+        "samples": 364
+      },
+      "solar": {
+        "minimum": {
+          "time": 1784851200000,
+          "value": 69.8
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 1948.9
+        },
+        "unit": "W/m²",
+        "samples": 364
+      },
+      "uv": {
+        "minimum": {
+          "time": 1784851200000,
+          "value": 0
+        },
+        "maximum": {
+          "time": 1766620800000,
+          "value": 15
+        },
+        "unit": "",
+        "samples": 364
+      },
+      "lightning": {
+        "minimum": {
+          "time": 1784937600000,
+          "value": 1
+        },
+        "maximum": {
+          "time": 1769558400000,
+          "value": 37
+        },
+        "unit": "km",
+        "samples": 96
+      },
+      "hapticBattery": {
+        "minimum": {
+          "time": 1788739200000,
+          "value": 2.41
+        },
+        "maximum": {
+          "time": 1788998400000,
+          "value": 2.74
+        },
+        "unit": "V",
+        "samples": 364
+      },
+      "hapticCapacitor": {
+        "minimum": {
+          "time": 1782259200000,
+          "value": 2.4
+        },
+        "maximum": {
+          "time": 1762473600000,
+          "value": 5.1
+        },
+        "unit": "V",
+        "samples": 364
+      }
+    }
+  },
+  "sameWindow": true,
+  "variables": {
+    "temperature": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "temperatureHigh": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "temperatureLow": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "feelsLike": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "dewPoint": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "humidity": {
+      "unitDatabase": "%",
+      "unitApi": "%",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "vpd": {
+      "unitDatabase": "kPa",
+      "unitApi": "kPa",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "indoorTemperature": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "indoorHumidity": {
+      "unitDatabase": "%",
+      "unitApi": "%",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "indoorFeelsLike": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "indoorDewPoint": {
+      "unitDatabase": "℃",
+      "unitApi": "℃",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "pressureRelative": {
+      "unitDatabase": "hPa",
+      "unitApi": "hPa",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "pressureAbsolute": {
+      "unitDatabase": "hPa",
+      "unitApi": "hPa",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "windSpeed": {
+      "unitDatabase": "km/h",
+      "unitApi": "km/h",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "windGust": {
+      "unitDatabase": "km/h",
+      "unitApi": "km/h",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "windDirection": {
+      "unitDatabase": "º",
+      "unitApi": "º",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainRate": {
+      "unitDatabase": "mm/hr",
+      "unitApi": "mm/hr",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainEvent": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainHourly": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rain24h": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainDaily": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainWeekly": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainMonthly": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "rainYearly": {
+      "unitDatabase": "mm",
+      "unitApi": "mm",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "solar": {
+      "unitDatabase": "W/m²",
+      "unitApi": "W/m²",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "uv": {
+      "unitDatabase": "",
+      "unitApi": "",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "lightning": {
+      "unitDatabase": "km",
+      "unitApi": "km",
+      "databasePoints": 96,
+      "apiPoints": 96,
+      "common": 96,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1760659200000,
+      "lastDatabase": 1791072000000,
+      "firstApi": 1760659200000,
+      "lastApi": 1791072000000,
+      "examples": []
+    },
+    "lightningCount": {
+      "unitDatabase": "",
+      "unitApi": "",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "hapticBattery": {
+      "unitDatabase": "V",
+      "unitApi": "V",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "hapticCapacitor": {
+      "unitDatabase": "V",
+      "unitApi": "V",
+      "databasePoints": 364,
+      "apiPoints": 364,
+      "common": 364,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "firstDatabase": 1759795200000,
+      "lastDatabase": 1791158400000,
+      "firstApi": 1759795200000,
+      "lastApi": 1791158400000,
+      "examples": []
+    },
+    "lightningBattery": {
+      "unitDatabase": "",
+      "unitApi": "",
+      "databasePoints": 0,
+      "apiPoints": 0,
+      "common": 0,
+      "different": 0,
+      "databaseOnly": 0,
+      "apiOnly": 0,
+      "examples": []
+    }
+  }
+}

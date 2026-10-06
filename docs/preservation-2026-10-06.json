@@ -1,0 +1,220 @@
+{
+  "lost": 0,
+  "changed_valid": 0,
+  "variables": [
+    {
+      "variable": "battery/haptic_array_battery",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "battery/haptic_array_capacitor",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/app_tempin",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/dew_point",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/feels_like",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/humidity",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/humidity_high",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/humidity_low",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/temperature",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/temperature_high",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "indoor/temperature_low",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "lightning/count",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "lightning/distance",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/app_temp",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/dew_point",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/feels_like",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/humidity",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/humidity_high",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/humidity_low",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/temperature",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/temperature_high",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/temperature_low",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "outdoor/vpd",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "pressure/absolute",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "pressure/relative",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "pressure/relative_high",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "pressure/relative_low",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/1_hour",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/24_hours",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/daily",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/event",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/monthly",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/rain_rate",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/weekly",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "rainfall_piezo/yearly",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "solar_and_uvi/solar",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "solar_and_uvi/uvi",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "wind/10_minute_average_wind_direction",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "wind/wind_direction",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "wind/wind_gust",
+      "lost": 0,
+      "changed_valid": 0
+    },
+    {
+      "variable": "wind/wind_speed",
+      "lost": 0,
+      "changed_valid": 0
+    }
+  ],
+  "cache_rows_lost": 0,
+  "cache_payloads_changed": 0,
+  "checkpoint_payload_entries_lost": 0,
+  "checkpoint_valid_entries_changed": 0,
+  "duplicates": 0,
+  "integrity_check": "ok",
+  "points_before": 1530899,
+  "points_after": 1534840,
+  "added_keys": 3941
+}

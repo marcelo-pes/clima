@@ -1,0 +1,188 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "errors": [],
+    "cases": [
+      {
+        "name": "level3",
+        "value": "60%",
+        "fills": [
+          100,
+          100,
+          40,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n2,5 V\nTensão · carga percentual indisponível\nCapacitor\n5,4 V\nTensão · carga percentual indisponível\nSensor de raios\n60%\nGateway online"
+      },
+      {
+        "name": "zero",
+        "value": "0%",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n0%\nGateway online"
+      },
+      {
+        "name": "full",
+        "value": "100%",
+        "fills": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n100%\nGateway online"
+      },
+      {
+        "name": "explicit25",
+        "value": "25%",
+        "fills": [
+          100,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n25%\nCapacitor\n—\nSem leitura\nSensor de raios\n25%\nGateway online"
+      },
+      {
+        "name": "missing",
+        "value": "—",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n—\nGateway online"
+      },
+      {
+        "name": "invalid9",
+        "value": "—",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n—\nGateway online"
+      },
+      {
+        "name": "state",
+        "value": "Normal",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\nNormal\nGateway online"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "cases": [
+      {
+        "name": "level3",
+        "value": "60%",
+        "fills": [
+          100,
+          100,
+          40,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n2,5 V\nTensão · carga percentual indisponível\nCapacitor\n5,4 V\nTensão · carga percentual indisponível\nSensor de raios\n60%\nGateway online"
+      },
+      {
+        "name": "zero",
+        "value": "0%",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n0%\nGateway online"
+      },
+      {
+        "name": "full",
+        "value": "100%",
+        "fills": [
+          100,
+          100,
+          100,
+          100
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n100%\nGateway online"
+      },
+      {
+        "name": "explicit25",
+        "value": "25%",
+        "fills": [
+          100,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n25%\nCapacitor\n—\nSem leitura\nSensor de raios\n25%\nGateway online"
+      },
+      {
+        "name": "missing",
+        "value": "—",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n—\nGateway online"
+      },
+      {
+        "name": "invalid9",
+        "value": "—",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\n—\nGateway online"
+      },
+      {
+        "name": "state",
+        "value": "Normal",
+        "fills": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "overflow": false,
+        "text": "Bateria\nConjunto háptico (Bateria)\n—\nSem leitura\nCapacitor\n—\nSem leitura\nSensor de raios\nNormal\nGateway online"
+      }
+    ]
+  }
+]

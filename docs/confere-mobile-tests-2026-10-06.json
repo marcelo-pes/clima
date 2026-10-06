@@ -1,0 +1,22 @@
+[
+  {
+    "range": "30d",
+    "statuses": [
+      200,
+      200
+    ],
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "range": "1y",
+    "statuses": [
+      200,
+      200
+    ],
+    "charts": 20,
+    "errors": [],
+    "overflow": false
+  }
+]

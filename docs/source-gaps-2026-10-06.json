@@ -1,0 +1,5578 @@
+{
+  "completed_source_windows": 563,
+  "planned_source_windows": 563,
+  "failed_windows": {},
+  "variables": [
+    {
+      "cycle": "1day",
+      "variable": "battery/haptic_array_battery",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "battery/haptic_array_capacitor",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/app_tempin",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/dew_point",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/feels_like",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/humidity",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/humidity_high",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/humidity_low",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/temperature",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/temperature_high",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "indoor/temperature_low",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "lightning/count",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "lightning/distance",
+      "windows": 1,
+      "source_valid": 31,
+      "source_missing_markers": 115,
+      "nominal_unavailable": 0,
+      "windows_coarser": 0,
+      "windows_partial": 0,
+      "examples": []
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/app_temp",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/dew_point",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/feels_like",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/humidity",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/humidity_high",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/humidity_low",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/temperature",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/temperature_high",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/temperature_low",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "outdoor/vpd",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "pressure/absolute",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "pressure/relative",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "pressure/relative_high",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "pressure/relative_low",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/1_hour",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/24_hours",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/daily",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/event",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/monthly",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/rain_rate",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/weekly",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "rainfall_piezo/yearly",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "solar_and_uvi/solar",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "solar_and_uvi/uvi",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "wind/10_minute_average_wind_direction",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "wind/wind_direction",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "wind/wind_gust",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "1day",
+      "variable": "wind/wind_speed",
+      "windows": 1,
+      "source_valid": 146,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 1,
+      "windows_coarser": 0,
+      "windows_partial": 1,
+      "examples": [
+        {
+          "start": 1778554800,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "battery/haptic_array_battery",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "battery/haptic_array_capacitor",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/app_tempin",
+      "windows": 40,
+      "source_valid": 6133,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 882,
+      "windows_coarser": 3,
+      "windows_partial": 8,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/dew_point",
+      "windows": 40,
+      "source_valid": 6133,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 882,
+      "windows_coarser": 3,
+      "windows_partial": 8,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/feels_like",
+      "windows": 40,
+      "source_valid": 6133,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 882,
+      "windows_coarser": 3,
+      "windows_partial": 8,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/humidity",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/humidity_high",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/humidity_low",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/temperature",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/temperature_high",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "indoor/temperature_low",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "lightning/count",
+      "windows": 40,
+      "source_valid": 6597,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 4570,
+      "windows_coarser": 16,
+      "windows_partial": 24,
+      "examples": [
+        {
+          "start": 1788750000,
+          "end": 1789354799,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1771210800,
+          "end": 1771815599,
+          "missing": 20,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "lightning/distance",
+      "windows": 40,
+      "source_valid": 153,
+      "source_missing_markers": 6444,
+      "nominal_unavailable": 0,
+      "windows_coarser": 0,
+      "windows_partial": 0,
+      "examples": []
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/app_temp",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/dew_point",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/feels_like",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/humidity",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/humidity_high",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/humidity_low",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/temperature",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/temperature_high",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/temperature_low",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "outdoor/vpd",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "pressure/absolute",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "pressure/relative",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "pressure/relative_high",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "pressure/relative_low",
+      "windows": 40,
+      "source_valid": 6895,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6216,
+      "windows_coarser": 21,
+      "windows_partial": 26,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 10,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1765767599,
+          "missing": 16,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1760929200,
+          "end": 1761533999,
+          "missing": 14,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/1_hour",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/24_hours",
+      "windows": 40,
+      "source_valid": 6081,
+      "source_missing_markers": 282,
+      "nominal_unavailable": 934,
+      "windows_coarser": 3,
+      "windows_partial": 18,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/daily",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/event",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/monthly",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/rain_rate",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/weekly",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "rainfall_piezo/yearly",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "solar_and_uvi/solar",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "solar_and_uvi/uvi",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "wind/10_minute_average_wind_direction",
+      "windows": 40,
+      "source_valid": 6376,
+      "source_missing_markers": 173,
+      "nominal_unavailable": 2999,
+      "windows_coarser": 10,
+      "windows_partial": 25,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "wind/wind_direction",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "wind/wind_gust",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "30min",
+      "variable": "wind/wind_speed",
+      "windows": 40,
+      "source_valid": 6843,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6268,
+      "windows_coarser": 21,
+      "windows_partial": 36,
+      "examples": [
+        {
+          "start": 1780887600,
+          "end": 1781492399,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778468400,
+          "end": 1779073199,
+          "missing": 36,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1777258800,
+          "end": 1777863599,
+          "missing": 11,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1776654000,
+          "end": 1777258799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1774234800,
+          "end": 1774839599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "battery/haptic_array_battery",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "battery/haptic_array_capacitor",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/app_tempin",
+      "windows": 9,
+      "source_valid": 1219,
+      "source_missing_markers": 47,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/dew_point",
+      "windows": 9,
+      "source_valid": 1219,
+      "source_missing_markers": 47,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/feels_like",
+      "windows": 9,
+      "source_valid": 1219,
+      "source_missing_markers": 47,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/humidity",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/humidity_high",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/humidity_low",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/temperature",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/temperature_high",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "indoor/temperature_low",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "lightning/count",
+      "windows": 9,
+      "source_valid": 1438,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 14,
+      "windows_coarser": 0,
+      "windows_partial": 8,
+      "examples": [
+        {
+          "start": 1788490800,
+          "end": 1791082799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1780714800,
+          "end": 1783306799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1770346800,
+          "end": 1772938799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "lightning/distance",
+      "windows": 9,
+      "source_valid": 95,
+      "source_missing_markers": 1343,
+      "nominal_unavailable": 0,
+      "windows_coarser": 0,
+      "windows_partial": 0,
+      "examples": []
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/app_temp",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/dew_point",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/feels_like",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/humidity",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/humidity_high",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/humidity_low",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/temperature",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/temperature_high",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/temperature_low",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "outdoor/vpd",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "pressure/absolute",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "pressure/relative",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "pressure/relative_high",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "pressure/relative_low",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/1_hour",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/24_hours",
+      "windows": 9,
+      "source_valid": 1219,
+      "source_missing_markers": 102,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/daily",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/event",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/monthly",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/rain_rate",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/weekly",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "rainfall_piezo/yearly",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "solar_and_uvi/solar",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "solar_and_uvi/uvi",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "wind/10_minute_average_wind_direction",
+      "windows": 9,
+      "source_valid": 1334,
+      "source_missing_markers": 112,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "wind/wind_direction",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "wind/wind_gust",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "4hour",
+      "variable": "wind/wind_speed",
+      "windows": 9,
+      "source_valid": 1446,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 6,
+      "windows_coarser": 0,
+      "windows_partial": 4,
+      "examples": [
+        {
+          "start": 1778122800,
+          "end": 1780714799,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1765162800,
+          "end": 1767754799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1759978800,
+          "end": 1762570799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1757386800,
+          "end": 1759978799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "battery/haptic_array_battery",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "battery/haptic_array_capacitor",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/app_tempin",
+      "windows": 513,
+      "source_valid": 39340,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 71289,
+      "windows_coarser": 293,
+      "windows_partial": 322,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/dew_point",
+      "windows": 513,
+      "source_valid": 39340,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 71289,
+      "windows_coarser": 293,
+      "windows_partial": 322,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/feels_like",
+      "windows": 513,
+      "source_valid": 39340,
+      "source_missing_markers": 96,
+      "nominal_unavailable": 71289,
+      "windows_coarser": 293,
+      "windows_partial": 322,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/humidity",
+      "windows": 513,
+      "source_valid": 40102,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107103,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/humidity_high",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/humidity_low",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/temperature",
+      "windows": 513,
+      "source_valid": 40102,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107103,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/temperature_high",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "indoor/temperature_low",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "lightning/count",
+      "windows": 513,
+      "source_valid": 39662,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 95879,
+      "windows_coarser": 380,
+      "windows_partial": 419,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 8,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "lightning/distance",
+      "windows": 513,
+      "source_valid": 645,
+      "source_missing_markers": 39017,
+      "nominal_unavailable": 0,
+      "windows_coarser": 0,
+      "windows_partial": 0,
+      "examples": []
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/app_temp",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/dew_point",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/feels_like",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/humidity",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/humidity_high",
+      "windows": 513,
+      "source_valid": 13898,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 133307,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/humidity_low",
+      "windows": 513,
+      "source_valid": 13898,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 133307,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/temperature",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/temperature_high",
+      "windows": 513,
+      "source_valid": 13898,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 133307,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/temperature_low",
+      "windows": 513,
+      "source_valid": 13898,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 133307,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "outdoor/vpd",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 52,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "pressure/absolute",
+      "windows": 513,
+      "source_valid": 40102,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107103,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "pressure/relative",
+      "windows": 513,
+      "source_valid": 40102,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107103,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "pressure/relative_high",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "pressure/relative_low",
+      "windows": 513,
+      "source_valid": 13950,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 133255,
+      "windows_coarser": 420,
+      "windows_partial": 513,
+      "examples": [
+        {
+          "start": 1791255600,
+          "end": 1791255764,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791169200,
+          "end": 1791255599,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1791082800,
+          "end": 1791169199,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790996400,
+          "end": 1791082799,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1790910000,
+          "end": 1790996399,
+          "missing": 288,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/1_hour",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/24_hours",
+      "windows": 513,
+      "source_valid": 39288,
+      "source_missing_markers": 282,
+      "nominal_unavailable": 71341,
+      "windows_coarser": 293,
+      "windows_partial": 322,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/daily",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/event",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/monthly",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/rain_rate",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/weekly",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "rainfall_piezo/yearly",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "solar_and_uvi/solar",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "solar_and_uvi/uvi",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "wind/10_minute_average_wind_direction",
+      "windows": 513,
+      "source_valid": 39583,
+      "source_missing_markers": 173,
+      "nominal_unavailable": 85206,
+      "windows_coarser": 343,
+      "windows_partial": 371,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "wind/wind_direction",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "wind/wind_gust",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    },
+    {
+      "cycle": "5min",
+      "variable": "wind/wind_speed",
+      "windows": 513,
+      "source_valid": 40050,
+      "source_missing_markers": 0,
+      "nominal_unavailable": 107155,
+      "windows_coarser": 420,
+      "windows_partial": 449,
+      "examples": [
+        {
+          "start": 1789354800,
+          "end": 1789441199,
+          "missing": 2,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789268400,
+          "end": 1789354799,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789182000,
+          "end": 1789268399,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789095600,
+          "end": 1789181999,
+          "missing": 3,
+          "classification": "also absent in source at nominal resolution"
+        },
+        {
+          "start": 1789009200,
+          "end": 1789095599,
+          "missing": 1,
+          "classification": "also absent in source at nominal resolution"
+        }
+      ]
+    }
+  ],
+  "note": "Counts are nominal slots at the requested cadence in rechecked windows, not recoverable or distinct observations. Event-dependent lightning distance excluded. Starts earlier than known sensor availability excluded. All source responses preserved with provenance."
+}

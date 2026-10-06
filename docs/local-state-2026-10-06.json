@@ -1,0 +1,12 @@
+{
+  "trackedFiles": 154,
+  "localMissing": [],
+  "localDifferent": [],
+  "restoredLocally": [
+    "deploy/archive-resource-limits.conf",
+    "deploy/clima-antaisolar-archive.timer",
+    "deploy/clima2-antaisolar.service",
+    "deploy/nginx-clima2.conf",
+    "scripts/ecowitt-history-import.py"
+  ]
+}

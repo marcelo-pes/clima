@@ -1,0 +1,362 @@
+[
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": "api",
+    "view": "history",
+    "durationMs": 840.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 206.7,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 129.8,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 1112,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 3669.6,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 8
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 308.5,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 114.2,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "7d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 539.7,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "summary",
+    "durationMs": 432.9,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": null,
+    "source": null,
+    "view": "extras",
+    "durationMs": 696.1,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": null,
+    "view": "current",
+    "durationMs": 284,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "current",
+    "durationMs": 1407.9,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 2
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "history",
+    "durationMs": 505.3,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "1y",
+    "date": "2024-01-01",
+    "source": "database",
+    "view": "history",
+    "durationMs": 30.6,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 133.4,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 57.3,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "7d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 645.1,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "summary",
+    "durationMs": 589.9,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": null,
+    "source": null,
+    "view": "extras",
+    "durationMs": 681.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": null,
+    "view": "current",
+    "durationMs": 88.3,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "current",
+    "durationMs": 1504,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 2
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "history",
+    "durationMs": 499.8,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "1y",
+    "date": "2024-01-01",
+    "source": "database",
+    "view": "history",
+    "durationMs": 9.2,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": "api",
+    "view": "history",
+    "durationMs": 616.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 132.5,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 521.1,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 895.6,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 2964.7,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": null,
+    "view": "current",
+    "durationMs": 1443.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 2
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-06",
+    "source": "api",
+    "view": "history",
+    "durationMs": 782.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 172.6,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 128.2,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "24h",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 883.5,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  },
+  {
+    "range": "30d",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 2559.1,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 8
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "database",
+    "view": "history",
+    "durationMs": 314.7,
+    "status": 200,
+    "sqliteOnly": true,
+    "ecowittRequests": 0
+  },
+  {
+    "range": "1y",
+    "date": "2026-10-05",
+    "source": "api",
+    "view": "history",
+    "durationMs": 2504.3,
+    "status": 200,
+    "sqliteOnly": false,
+    "ecowittRequests": 1
+  }
+]

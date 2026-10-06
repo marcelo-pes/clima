@@ -1,0 +1,5676 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "errors": [],
+    "warnings": [],
+    "requests": [
+      "?range=1y&date=2026-10-05&view=history&source=database",
+      "?range=30d&date=2026-10-05&view=history&source=database",
+      "?range=7d&date=2026-10-05&view=history&source=database",
+      "?range=24h&date=2026-10-06&view=summary",
+      "?view=extras",
+      "?range=24h&date=2026-10-05&view=current",
+      "?range=24h&date=2026-10-06&view=current",
+      "?range=24h&date=2026-10-06&view=history",
+      "?range=1y&date=2024-01-01&view=history&source=database"
+    ],
+    "periods": [
+      {
+        "range": "1y",
+        "usableMs": 25
+      },
+      {
+        "range": "30d",
+        "usableMs": 750
+      },
+      {
+        "range": "7d",
+        "usableMs": 998
+      }
+    ],
+    "matrix": [
+      {
+        "range": "1y",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Solar e UV",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Vento",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Pressão",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Raios",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Chuvas",
+        "charts": 2,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Bateria",
+        "charts": 1,
+        "overflow": false
+      }
+    ],
+    "tabs": [
+      {
+        "tab": "Ventos",
+        "headings": [
+          "Ventos em Bauru",
+          "Rosa dos ventos",
+          "Velocidade, rajadas e direção"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Perfil",
+        "headings": [
+          "Sobre a estação",
+          "Bauru Sul",
+          "Monitoramento independente das condições meteorológicas em Bauru–SP"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Satélite",
+        "headings": [
+          "Satélite meteorológico"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Previsão",
+        "headings": [
+          "Estação Bauru Sul"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Dados Atuais",
+        "headings": [
+          "Ambiente externo",
+          "Ambiente interno",
+          "Solar e UV",
+          "Vento",
+          "Pressão",
+          "Raios · WH57",
+          "Chuvas",
+          "Bateria ",
+          "Gráficos da estação",
+          "Raios"
+        ],
+        "overflow": false
+      }
+    ],
+    "responses": [
+      {
+        "query": "?range=1y&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1784016000000,
+              "value": 7.7
+            },
+            "maximum": {
+              "time": 1766775600000,
+              "value": 37.5,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1784012700000,
+              "value": 4.7
+            },
+            "maximum": {
+              "time": 1766777400000,
+              "value": 40
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1761078600000,
+              "value": 4.1
+            },
+            "maximum": {
+              "time": 1766944800000,
+              "value": 24.9
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1759770000000,
+              "value": 20,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1760373000000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 42041
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1781607600000,
+              "value": 0.01354556
+            },
+            "maximum": {
+              "time": 1759775400000,
+              "value": 4.88656077
+            },
+            "unit": "kPa",
+            "samples": 42041
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1782462600000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1766782800000,
+              "value": 33.7,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1782462600000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1766786400000,
+              "value": 37.1
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1778603400000,
+              "value": 6.7
+            },
+            "maximum": {
+              "time": 1766946600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1766462400000,
+              "value": 29,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1789145100000,
+              "value": 84
+            },
+            "unit": "%",
+            "samples": 42087
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1774130400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1785359700000,
+              "value": 45.7
+            },
+            "unit": "km/h",
+            "samples": 42041
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1783716900000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1760860800000,
+              "value": 118.4
+            },
+            "unit": "km/h",
+            "samples": 42041
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1765317600000,
+              "value": 933.2,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1780574400000,
+              "value": 956.5,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 42087
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1765310400000,
+              "value": 933.7
+            },
+            "maximum": {
+              "time": 1780574400000,
+              "value": 956.3
+            },
+            "unit": "hPa",
+            "samples": 42087
+          },
+          "solar": {
+            "minimum": {
+              "time": 1759719600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1766676600000,
+              "value": 1948.9
+            },
+            "unit": "W/m²",
+            "samples": 42041
+          },
+          "uv": {
+            "minimum": {
+              "time": 1759719600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1766676600000,
+              "value": 15
+            },
+            "unit": "",
+            "samples": 42041
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1779516000000,
+              "value": 1
+            },
+            "maximum": {
+              "time": 1768242600000,
+              "value": 40
+            },
+            "unit": "km",
+            "samples": 766
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1788762900000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1788951300000,
+              "value": 2.8
+            },
+            "unit": "V",
+            "samples": 42041
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1789460700000,
+              "value": 2.2
+            },
+            "maximum": {
+              "time": 1759753800000,
+              "value": 5.4
+            },
+            "unit": "V",
+            "samples": 42041
+          }
+        },
+        "window": {
+          "start": "2025-10-06T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "1day",
+          "aggregation": "Agregação diária da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=30d&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1788771900000,
+              "value": 11
+            },
+            "maximum": {
+              "time": 1790530200000,
+              "value": 36.8,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1788771900000,
+              "value": 11
+            },
+            "maximum": {
+              "time": 1790530500000,
+              "value": 39.9
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1788770700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1789150200000,
+              "value": 22.7
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1790535600000,
+              "value": 35
+            },
+            "maximum": {
+              "time": 1789027500000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 8630
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1789427100000,
+              "value": 0.01693195
+            },
+            "maximum": {
+              "time": 1790535600000,
+              "value": 3.86387099
+            },
+            "unit": "kPa",
+            "samples": 8630
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1788859800000,
+              "value": 18
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 29.5
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1788859800000,
+              "value": 18
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 32.6
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1788784200000,
+              "value": 10.1
+            },
+            "maximum": {
+              "time": 1790812200000,
+              "value": 22.1
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1790537400000,
+              "value": 40
+            },
+            "maximum": {
+              "time": 1789145100000,
+              "value": 84
+            },
+            "unit": "%",
+            "samples": 8630
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1788666900000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 40.5
+            },
+            "unit": "km/h",
+            "samples": 8630
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1789248000000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 89.3
+            },
+            "unit": "km/h",
+            "samples": 8630
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1790051400000,
+              "value": 939.6,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1789644600000,
+              "value": 953.5,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 8630
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1790052900000,
+              "value": 939.7
+            },
+            "maximum": {
+              "time": 1789647600000,
+              "value": 953.3
+            },
+            "unit": "hPa",
+            "samples": 8630
+          },
+          "solar": {
+            "minimum": {
+              "time": 1788663600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 1325.2
+            },
+            "unit": "W/m²",
+            "samples": 8630
+          },
+          "uv": {
+            "minimum": {
+              "time": 1788663600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 12
+            },
+            "unit": "",
+            "samples": 8630
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1790067000000,
+              "value": 1
+            },
+            "maximum": {
+              "time": 1790060100000,
+              "value": 40
+            },
+            "unit": "km",
+            "samples": 209
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1788762900000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1788951300000,
+              "value": 2.8
+            },
+            "unit": "V",
+            "samples": 8630
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1789460700000,
+              "value": 2.2
+            },
+            "maximum": {
+              "time": 1788878700000,
+              "value": 5.3
+            },
+            "unit": "V",
+            "samples": 8630
+          }
+        },
+        "window": {
+          "start": "2026-09-06T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "4hour",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=7d&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791125400000,
+              "value": 15.5
+            },
+            "maximum": {
+              "time": 1790614800000,
+              "value": 35.3,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791125400000,
+              "value": 15.5
+            },
+            "maximum": {
+              "time": 1790616000000,
+              "value": 38.9
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791018000000,
+              "value": 14.1
+            },
+            "maximum": {
+              "time": 1790791800000,
+              "value": 22.6
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1790622000000,
+              "value": 41,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1790919900000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 2016
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1790919900000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1790623500000,
+              "value": 3.25432079
+            },
+            "unit": "kPa",
+            "samples": 2016
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791168600000,
+              "value": 23.6
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 29.5
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791168600000,
+              "value": 23.6
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 32.6
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1790637000000,
+              "value": 13.8
+            },
+            "maximum": {
+              "time": 1790812200000,
+              "value": 22.1
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1790636400000,
+              "value": 42,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791068700000,
+              "value": 71
+            },
+            "unit": "%",
+            "samples": 2016
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1790714700000,
+              "value": 0.4
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 40.5
+            },
+            "unit": "km/h",
+            "samples": 2016
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1790802000000,
+              "value": 2.9
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 89.3
+            },
+            "unit": "km/h",
+            "samples": 2016
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1790706600000,
+              "value": 940.4,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1790942400000,
+              "value": 948.4,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 2016
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1790707800000,
+              "value": 940.6
+            },
+            "maximum": {
+              "time": 1790942700000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 2016
+          },
+          "solar": {
+            "minimum": {
+              "time": 1790564400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 1325.2
+            },
+            "unit": "W/m²",
+            "samples": 2016
+          },
+          "uv": {
+            "minimum": {
+              "time": 1790564400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 12
+            },
+            "unit": "",
+            "samples": 2016
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1790650800000,
+              "value": 10
+            },
+            "maximum": {
+              "time": 1790726400000,
+              "value": 37
+            },
+            "unit": "km",
+            "samples": 28
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1790886300000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1790565300000,
+              "value": 2.54
+            },
+            "unit": "V",
+            "samples": 2016
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1790841900000,
+              "value": 2.3
+            },
+            "maximum": {
+              "time": 1790607900000,
+              "value": 4.5
+            },
+            "unit": "V",
+            "samples": 2016
+          }
+        },
+        "window": {
+          "start": "2026-09-28T03:00:00.000Z",
+          "end": "2026-10-05T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "30min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=summary",
+        "status": 200,
+        "source": "api",
+        "extrema": {},
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:18.079Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "feelsLike": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "dewPoint": {
+            "value": 20.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "humidity": {
+            "value": 82,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "vpd": {
+            "value": 0.51473128,
+            "unit": "kPa",
+            "time": 1791293683
+          },
+          "indoorTemperature": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "indoorFeelsLike": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorDewPoint": {
+            "value": 19.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "windSpeed": {
+            "value": 10.4,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windGust": {
+            "value": 14,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windDirection": {
+            "value": 53,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "windAverageDirection": {
+            "value": 57,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "pressureRelative": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "pressureAbsolute": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791293683
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "solar": {
+            "value": 163.2,
+            "unit": "W/m²",
+            "time": 1791293683
+          },
+          "uv": {
+            "value": 1,
+            "unit": "",
+            "time": 1791293683
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125681
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791293683
+          },
+          "hapticBattery": {
+            "value": 2.5,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "hapticCapacitor": {
+            "value": 2.4,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "lightningBattery": {
+            "value": 3,
+            "unit": "",
+            "time": 1791293683
+          }
+        },
+        "updatedAt": 1791293683000
+      },
+      {
+        "query": "?range=24h&date=2026-10-05&view=current",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 16.3
+            },
+            "maximum": {
+              "time": 1791210600000,
+              "value": 27.1,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791186000000,
+              "value": 16.3
+            },
+            "maximum": {
+              "time": 1791210900000,
+              "value": 28
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 15.8
+            },
+            "maximum": {
+              "time": 1791233700000,
+              "value": 19.3
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791210600000,
+              "value": 59,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791169200000,
+              "value": 97
+            },
+            "unit": "%",
+            "samples": 288
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 0.05418224
+            },
+            "maximum": {
+              "time": 1791210600000,
+              "value": 1.42905658
+            },
+            "unit": "kPa",
+            "samples": 288
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791201000000,
+              "value": 22.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 23.9
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791201900000,
+              "value": 22.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 23.9
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791203700000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 18.8
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 69
+            },
+            "maximum": {
+              "time": 1791251700000,
+              "value": 74
+            },
+            "unit": "%",
+            "samples": 288
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791213300000,
+              "value": 1.3
+            },
+            "maximum": {
+              "time": 1791187800000,
+              "value": 16.6
+            },
+            "unit": "km/h",
+            "samples": 288
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791214500000,
+              "value": 4.3
+            },
+            "maximum": {
+              "time": 1791197100000,
+              "value": 28.8
+            },
+            "unit": "km/h",
+            "samples": 288
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791176400000,
+              "value": 944.3,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791201600000,
+              "value": 948.9,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 288
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791176700000,
+              "value": 944.4
+            },
+            "maximum": {
+              "time": 1791201600000,
+              "value": 948.8
+            },
+            "unit": "hPa",
+            "samples": 288
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791218100000,
+              "value": 980.9
+            },
+            "unit": "W/m²",
+            "samples": 288
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791218100000,
+              "value": 9
+            },
+            "unit": "",
+            "samples": 288
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791200100000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 288
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791210300000,
+              "value": 3.9
+            },
+            "unit": "V",
+            "samples": 288
+          }
+        },
+        "window": {
+          "start": "2026-10-05T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=current",
+        "status": 200,
+        "source": "api",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791291900000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791264600000,
+              "value": 17.9
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 20.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791291300000,
+              "value": 83
+            },
+            "maximum": {
+              "time": 1791278700000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791279000000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1791291300000,
+              "value": 0.49779933
+            },
+            "unit": "kPa",
+            "samples": 126
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791279600000,
+              "value": 17.7
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 19.2
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791270900000,
+              "value": 72
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 78
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791273000000,
+              "value": 3.5
+            },
+            "maximum": {
+              "time": 1791262800000,
+              "value": 14.3
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791266700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1791284100000,
+              "value": 23.4
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 647
+            },
+            "unit": "W/m²",
+            "samples": 126
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 6
+            },
+            "unit": "",
+            "samples": 126
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791286500000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 126
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791289500000,
+              "value": 3.4
+            },
+            "unit": "V",
+            "samples": 126
+          }
+        },
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:21.829Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "feelsLike": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "dewPoint": {
+            "value": 20.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "humidity": {
+            "value": 82,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "vpd": {
+            "value": 0.51473128,
+            "unit": "kPa",
+            "time": 1791293683
+          },
+          "indoorTemperature": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "indoorFeelsLike": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorDewPoint": {
+            "value": 19.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "windSpeed": {
+            "value": 10.4,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windGust": {
+            "value": 14,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windDirection": {
+            "value": 53,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "windAverageDirection": {
+            "value": 57,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "pressureRelative": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "pressureAbsolute": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791293683
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "solar": {
+            "value": 163.2,
+            "unit": "W/m²",
+            "time": 1791293683
+          },
+          "uv": {
+            "value": 1,
+            "unit": "",
+            "time": 1791293683
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125681
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791293683
+          },
+          "hapticBattery": {
+            "value": 2.5,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "hapticCapacitor": {
+            "value": 2.4,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "lightningBattery": {
+            "value": 3,
+            "unit": "",
+            "time": 1791293683
+          }
+        },
+        "updatedAt": 1791293683000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=history",
+        "status": 200,
+        "source": "api",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791291900000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791264600000,
+              "value": 17.9
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 20.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791291300000,
+              "value": 83
+            },
+            "maximum": {
+              "time": 1791278700000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791279000000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1791291300000,
+              "value": 0.49779933
+            },
+            "unit": "kPa",
+            "samples": 126
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791279600000,
+              "value": 17.7
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 19.2
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791270900000,
+              "value": 72
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 78
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791273000000,
+              "value": 3.5
+            },
+            "maximum": {
+              "time": 1791262800000,
+              "value": 14.3
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791266700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1791284100000,
+              "value": 23.4
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 647
+            },
+            "unit": "W/m²",
+            "samples": 126
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 6
+            },
+            "unit": "",
+            "samples": 126
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791286500000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 126
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791289500000,
+              "value": 3.4
+            },
+            "unit": "V",
+            "samples": 126
+          }
+        },
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:24.643Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": null,
+          "feelsLike": null,
+          "dewPoint": null,
+          "humidity": null,
+          "vpd": null,
+          "indoorTemperature": null,
+          "indoorHumidity": null,
+          "indoorFeelsLike": null,
+          "indoorDewPoint": null,
+          "windSpeed": null,
+          "windGust": null,
+          "windDirection": null,
+          "windAverageDirection": null,
+          "pressureRelative": null,
+          "pressureAbsolute": null,
+          "rainRate": null,
+          "rainEvent": null,
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293100
+          },
+          "rain24h": null,
+          "rainDaily": null,
+          "rainWeekly": null,
+          "rainMonthly": null,
+          "rainYearly": null,
+          "solar": null,
+          "uv": null,
+          "lightningDistance": null,
+          "lightningCount": null,
+          "hapticBattery": null,
+          "hapticCapacitor": null,
+          "lightningBattery": null
+        },
+        "updatedAt": 1791293725060
+      },
+      {
+        "query": "?range=1y&date=2024-01-01&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {},
+        "window": {
+          "start": "2023-01-02T03:00:00.000Z",
+          "end": "2024-01-02T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "1day",
+          "aggregation": "Agregação diária da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      }
+    ],
+    "coldMs": 2880,
+    "coldRequests": [
+      "?range=1y&date=2026-10-05&view=history&source=database"
+    ],
+    "cacheMs": 420,
+    "cacheNoRequest": true,
+    "annualTemperatureMaximum": 37.5,
+    "annualGustMaximum": 118.4,
+    "liveSource": "api",
+    "batteryText": "Bateria\nConjunto háptico (Bateria)\n2,5 V\nTensão · carga percentual indisponível\nCapacitor\n2,4 V\nTensão · carga percentual indisponível\nSensor de raios\n60%\nGateway online",
+    "batteryFills": [
+      100,
+      100,
+      40,
+      0
+    ],
+    "batteryRaw": {
+      "value": 3,
+      "unit": "",
+      "time": 1791293683
+    },
+    "batteryVoltage": {
+      "value": 2.5,
+      "unit": "V",
+      "time": 1791293683
+    },
+    "currentCardBounds": [],
+    "riskChip": {
+      "text": "Sem atividade recente",
+      "whiteSpace": "nowrap"
+    },
+    "csv": "ecowitt-battery-24h.csv",
+    "tableRows": 126,
+    "emptyPins": 0
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "warnings": [],
+    "requests": [
+      "?range=1y&date=2026-10-05&view=history&source=database",
+      "?range=30d&date=2026-10-05&view=history&source=database",
+      "?range=7d&date=2026-10-05&view=history&source=database",
+      "?range=24h&date=2026-10-06&view=summary",
+      "?view=extras",
+      "?range=24h&date=2026-10-05&view=current",
+      "?range=24h&date=2026-10-06&view=current",
+      "?range=24h&date=2026-10-06&view=history",
+      "?range=1y&date=2024-01-01&view=history&source=database"
+    ],
+    "periods": [
+      {
+        "range": "1y",
+        "usableMs": 24
+      },
+      {
+        "range": "30d",
+        "usableMs": 685
+      },
+      {
+        "range": "7d",
+        "usableMs": 884
+      }
+    ],
+    "matrix": [
+      {
+        "range": "1y",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "1y",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "30d",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "pins": 10,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "pins": 8,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Solar e UV",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Vento",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Pressão",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Raios",
+        "charts": 1,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Chuvas",
+        "charts": 2,
+        "pins": 0,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "7d",
+        "group": "Bateria",
+        "charts": 1,
+        "pins": 4,
+        "clipping": [],
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Ambiente externo",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Ambiente interno",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Solar e UV",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Vento",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Pressão",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Raios",
+        "charts": 1,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Chuvas",
+        "charts": 2,
+        "overflow": false
+      },
+      {
+        "range": "24h",
+        "group": "Bateria",
+        "charts": 1,
+        "overflow": false
+      }
+    ],
+    "tabs": [
+      {
+        "tab": "Ventos",
+        "headings": [
+          "Ventos em Bauru",
+          "Rosa dos ventos",
+          "Velocidade, rajadas e direção"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Perfil",
+        "headings": [
+          "Sobre a estação",
+          "Bauru Sul",
+          "Monitoramento independente das condições meteorológicas em Bauru–SP"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Satélite",
+        "headings": [
+          "Satélite meteorológico"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Previsão",
+        "headings": [
+          "Estação Bauru Sul"
+        ],
+        "overflow": false
+      },
+      {
+        "tab": "Dados Atuais",
+        "headings": [
+          "Ambiente externo",
+          "Ambiente interno",
+          "Solar e UV",
+          "Vento",
+          "Pressão",
+          "Raios · WH57",
+          "Chuvas",
+          "Bateria ",
+          "Gráficos da estação",
+          "Raios"
+        ],
+        "overflow": false
+      }
+    ],
+    "responses": [
+      {
+        "query": "?range=1y&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1784016000000,
+              "value": 7.7
+            },
+            "maximum": {
+              "time": 1766775600000,
+              "value": 37.5,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1784012700000,
+              "value": 4.7
+            },
+            "maximum": {
+              "time": 1766777400000,
+              "value": 40
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1761078600000,
+              "value": 4.1
+            },
+            "maximum": {
+              "time": 1766944800000,
+              "value": 24.9
+            },
+            "unit": "℃",
+            "samples": 42041
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1759770000000,
+              "value": 20,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1760373000000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 42041
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1781607600000,
+              "value": 0.01354556
+            },
+            "maximum": {
+              "time": 1759775400000,
+              "value": 4.88656077
+            },
+            "unit": "kPa",
+            "samples": 42041
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1782462600000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1766782800000,
+              "value": 33.7,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1782462600000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1766786400000,
+              "value": 37.1
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1778603400000,
+              "value": 6.7
+            },
+            "maximum": {
+              "time": 1766946600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 42087
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1766462400000,
+              "value": 29,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1789145100000,
+              "value": 84
+            },
+            "unit": "%",
+            "samples": 42087
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1774130400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1785359700000,
+              "value": 45.7
+            },
+            "unit": "km/h",
+            "samples": 42041
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1783716900000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1760860800000,
+              "value": 118.4
+            },
+            "unit": "km/h",
+            "samples": 42041
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1765317600000,
+              "value": 933.2,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1780574400000,
+              "value": 956.5,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 42087
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1765310400000,
+              "value": 933.7
+            },
+            "maximum": {
+              "time": 1780574400000,
+              "value": 956.3
+            },
+            "unit": "hPa",
+            "samples": 42087
+          },
+          "solar": {
+            "minimum": {
+              "time": 1759719600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1766676600000,
+              "value": 1948.9
+            },
+            "unit": "W/m²",
+            "samples": 42041
+          },
+          "uv": {
+            "minimum": {
+              "time": 1759719600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1766676600000,
+              "value": 15
+            },
+            "unit": "",
+            "samples": 42041
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1779516000000,
+              "value": 1
+            },
+            "maximum": {
+              "time": 1768242600000,
+              "value": 40
+            },
+            "unit": "km",
+            "samples": 766
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1788762900000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1788951300000,
+              "value": 2.8
+            },
+            "unit": "V",
+            "samples": 42041
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1789460700000,
+              "value": 2.2
+            },
+            "maximum": {
+              "time": 1759753800000,
+              "value": 5.4
+            },
+            "unit": "V",
+            "samples": 42041
+          }
+        },
+        "window": {
+          "start": "2025-10-06T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "1day",
+          "aggregation": "Agregação diária da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=30d&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1788771900000,
+              "value": 11
+            },
+            "maximum": {
+              "time": 1790530200000,
+              "value": 36.8,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1788771900000,
+              "value": 11
+            },
+            "maximum": {
+              "time": 1790530500000,
+              "value": 39.9
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1788770700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1789150200000,
+              "value": 22.7
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1790535600000,
+              "value": 35
+            },
+            "maximum": {
+              "time": 1789027500000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 8630
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1789427100000,
+              "value": 0.01693195
+            },
+            "maximum": {
+              "time": 1790535600000,
+              "value": 3.86387099
+            },
+            "unit": "kPa",
+            "samples": 8630
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1788859800000,
+              "value": 18
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 29.5
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1788859800000,
+              "value": 18
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 32.6
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1788784200000,
+              "value": 10.1
+            },
+            "maximum": {
+              "time": 1790812200000,
+              "value": 22.1
+            },
+            "unit": "℃",
+            "samples": 8630
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1790537400000,
+              "value": 40
+            },
+            "maximum": {
+              "time": 1789145100000,
+              "value": 84
+            },
+            "unit": "%",
+            "samples": 8630
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1788666900000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 40.5
+            },
+            "unit": "km/h",
+            "samples": 8630
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1789248000000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 89.3
+            },
+            "unit": "km/h",
+            "samples": 8630
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1790051400000,
+              "value": 939.6,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1789644600000,
+              "value": 953.5,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 8630
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1790052900000,
+              "value": 939.7
+            },
+            "maximum": {
+              "time": 1789647600000,
+              "value": 953.3
+            },
+            "unit": "hPa",
+            "samples": 8630
+          },
+          "solar": {
+            "minimum": {
+              "time": 1788663600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 1325.2
+            },
+            "unit": "W/m²",
+            "samples": 8630
+          },
+          "uv": {
+            "minimum": {
+              "time": 1788663600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 12
+            },
+            "unit": "",
+            "samples": 8630
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1790067000000,
+              "value": 1
+            },
+            "maximum": {
+              "time": 1790060100000,
+              "value": 40
+            },
+            "unit": "km",
+            "samples": 209
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1788762900000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1788951300000,
+              "value": 2.8
+            },
+            "unit": "V",
+            "samples": 8630
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1789460700000,
+              "value": 2.2
+            },
+            "maximum": {
+              "time": 1788878700000,
+              "value": 5.3
+            },
+            "unit": "V",
+            "samples": 8630
+          }
+        },
+        "window": {
+          "start": "2026-09-06T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "4hour",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=7d&date=2026-10-05&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791125400000,
+              "value": 15.5
+            },
+            "maximum": {
+              "time": 1790614800000,
+              "value": 35.3,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791125400000,
+              "value": 15.5
+            },
+            "maximum": {
+              "time": 1790616000000,
+              "value": 38.9
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791018000000,
+              "value": 14.1
+            },
+            "maximum": {
+              "time": 1790791800000,
+              "value": 22.6
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1790622000000,
+              "value": 41,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1790919900000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 2016
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1790919900000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1790623500000,
+              "value": 3.25432079
+            },
+            "unit": "kPa",
+            "samples": 2016
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791168600000,
+              "value": 23.6
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 29.5
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791168600000,
+              "value": 23.6
+            },
+            "maximum": {
+              "time": 1790634900000,
+              "value": 32.6
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1790637000000,
+              "value": 13.8
+            },
+            "maximum": {
+              "time": 1790812200000,
+              "value": 22.1
+            },
+            "unit": "℃",
+            "samples": 2016
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1790636400000,
+              "value": 42,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791068700000,
+              "value": 71
+            },
+            "unit": "%",
+            "samples": 2016
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1790714700000,
+              "value": 0.4
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 40.5
+            },
+            "unit": "km/h",
+            "samples": 2016
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1790802000000,
+              "value": 2.9
+            },
+            "maximum": {
+              "time": 1791123600000,
+              "value": 89.3
+            },
+            "unit": "km/h",
+            "samples": 2016
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1790706600000,
+              "value": 940.4,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1790942400000,
+              "value": 948.4,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 2016
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1790707800000,
+              "value": 940.6
+            },
+            "maximum": {
+              "time": 1790942700000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 2016
+          },
+          "solar": {
+            "minimum": {
+              "time": 1790564400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 1325.2
+            },
+            "unit": "W/m²",
+            "samples": 2016
+          },
+          "uv": {
+            "minimum": {
+              "time": 1790564400000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1790694000000,
+              "value": 12
+            },
+            "unit": "",
+            "samples": 2016
+          },
+          "lightning": {
+            "minimum": {
+              "time": 1790650800000,
+              "value": 10
+            },
+            "maximum": {
+              "time": 1790726400000,
+              "value": 37
+            },
+            "unit": "km",
+            "samples": 28
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1790886300000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1790565300000,
+              "value": 2.54
+            },
+            "unit": "V",
+            "samples": 2016
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1790841900000,
+              "value": 2.3
+            },
+            "maximum": {
+              "time": 1790607900000,
+              "value": 4.5
+            },
+            "unit": "V",
+            "samples": 2016
+          }
+        },
+        "window": {
+          "start": "2026-09-28T03:00:00.000Z",
+          "end": "2026-10-05T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "30min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=summary",
+        "status": 200,
+        "source": "api",
+        "extrema": {},
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:40.424Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "feelsLike": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "dewPoint": {
+            "value": 20.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "humidity": {
+            "value": 82,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "vpd": {
+            "value": 0.51473128,
+            "unit": "kPa",
+            "time": 1791293683
+          },
+          "indoorTemperature": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791293683
+          },
+          "indoorFeelsLike": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "indoorDewPoint": {
+            "value": 19.1,
+            "unit": "℃",
+            "time": 1791293683
+          },
+          "windSpeed": {
+            "value": 10.4,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windGust": {
+            "value": 14,
+            "unit": "km/h",
+            "time": 1791293683
+          },
+          "windDirection": {
+            "value": 53,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "windAverageDirection": {
+            "value": 57,
+            "unit": "º",
+            "time": 1791293683
+          },
+          "pressureRelative": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "pressureAbsolute": {
+            "value": 948.2,
+            "unit": "hPa",
+            "time": 1791293683
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791293683
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791293683
+          },
+          "solar": {
+            "value": 163.2,
+            "unit": "W/m²",
+            "time": 1791293683
+          },
+          "uv": {
+            "value": 1,
+            "unit": "",
+            "time": 1791293683
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125681
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791293683
+          },
+          "hapticBattery": {
+            "value": 2.5,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "hapticCapacitor": {
+            "value": 2.4,
+            "unit": "V",
+            "time": 1791293683
+          },
+          "lightningBattery": {
+            "value": 3,
+            "unit": "",
+            "time": 1791293683
+          }
+        },
+        "updatedAt": 1791293683000
+      },
+      {
+        "query": "?range=24h&date=2026-10-05&view=current",
+        "status": 200,
+        "source": "database",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 16.3
+            },
+            "maximum": {
+              "time": 1791210600000,
+              "value": 27.1,
+              "aggregate": true
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791186000000,
+              "value": 16.3
+            },
+            "maximum": {
+              "time": 1791210900000,
+              "value": 28
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 15.8
+            },
+            "maximum": {
+              "time": 1791233700000,
+              "value": 19.3
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791210600000,
+              "value": 59,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791169200000,
+              "value": 97
+            },
+            "unit": "%",
+            "samples": 288
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791186300000,
+              "value": 0.05418224
+            },
+            "maximum": {
+              "time": 1791210600000,
+              "value": 1.42905658
+            },
+            "unit": "kPa",
+            "samples": 288
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791201000000,
+              "value": 22.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 23.9
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791201900000,
+              "value": 22.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 23.9
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791203700000,
+              "value": 16.6
+            },
+            "maximum": {
+              "time": 1791243900000,
+              "value": 18.8
+            },
+            "unit": "℃",
+            "samples": 288
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 69
+            },
+            "maximum": {
+              "time": 1791251700000,
+              "value": 74
+            },
+            "unit": "%",
+            "samples": 288
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791213300000,
+              "value": 1.3
+            },
+            "maximum": {
+              "time": 1791187800000,
+              "value": 16.6
+            },
+            "unit": "km/h",
+            "samples": 288
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791214500000,
+              "value": 4.3
+            },
+            "maximum": {
+              "time": 1791197100000,
+              "value": 28.8
+            },
+            "unit": "km/h",
+            "samples": 288
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791176400000,
+              "value": 944.3,
+              "aggregate": true
+            },
+            "maximum": {
+              "time": 1791201600000,
+              "value": 948.9,
+              "aggregate": true
+            },
+            "unit": "hPa",
+            "samples": 288
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791176700000,
+              "value": 944.4
+            },
+            "maximum": {
+              "time": 1791201600000,
+              "value": 948.8
+            },
+            "unit": "hPa",
+            "samples": 288
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791218100000,
+              "value": 980.9
+            },
+            "unit": "W/m²",
+            "samples": 288
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791218100000,
+              "value": 9
+            },
+            "unit": "",
+            "samples": 288
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791200100000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 288
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791169200000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791210300000,
+              "value": 3.9
+            },
+            "unit": "V",
+            "samples": 288
+          }
+        },
+        "window": {
+          "start": "2026-10-05T03:00:00.000Z",
+          "end": "2026-10-06T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=current",
+        "status": 200,
+        "source": "api",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791291900000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791264600000,
+              "value": 17.9
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 20.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791291300000,
+              "value": 83
+            },
+            "maximum": {
+              "time": 1791278700000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791279000000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1791291300000,
+              "value": 0.49779933
+            },
+            "unit": "kPa",
+            "samples": 126
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791279600000,
+              "value": 17.7
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 19.2
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791270900000,
+              "value": 72
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 78
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791273000000,
+              "value": 3.5
+            },
+            "maximum": {
+              "time": 1791262800000,
+              "value": 14.3
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791266700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1791284100000,
+              "value": 23.4
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 647
+            },
+            "unit": "W/m²",
+            "samples": 126
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 6
+            },
+            "unit": "",
+            "samples": 126
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791286500000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 126
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791289500000,
+              "value": 3.4
+            },
+            "unit": "V",
+            "samples": 126
+          }
+        },
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:43.993Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "feelsLike": {
+            "value": 23.3,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "dewPoint": {
+            "value": 20.1,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "humidity": {
+            "value": 82,
+            "unit": "%",
+            "time": 1791293743
+          },
+          "vpd": {
+            "value": 0.51473128,
+            "unit": "kPa",
+            "time": 1791293743
+          },
+          "indoorTemperature": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "indoorHumidity": {
+            "value": 77,
+            "unit": "%",
+            "time": 1791293743
+          },
+          "indoorFeelsLike": {
+            "value": 23.5,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "indoorDewPoint": {
+            "value": 19.2,
+            "unit": "℃",
+            "time": 1791293743
+          },
+          "windSpeed": {
+            "value": 14.4,
+            "unit": "km/h",
+            "time": 1791293743
+          },
+          "windGust": {
+            "value": 14.4,
+            "unit": "km/h",
+            "time": 1791293743
+          },
+          "windDirection": {
+            "value": 59,
+            "unit": "º",
+            "time": 1791293743
+          },
+          "windAverageDirection": {
+            "value": 57,
+            "unit": "º",
+            "time": 1791293743
+          },
+          "pressureRelative": {
+            "value": 948.5,
+            "unit": "hPa",
+            "time": 1791293743
+          },
+          "pressureAbsolute": {
+            "value": 948.5,
+            "unit": "hPa",
+            "time": 1791293743
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791293743
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791293743
+          },
+          "solar": {
+            "value": 167.7,
+            "unit": "W/m²",
+            "time": 1791293743
+          },
+          "uv": {
+            "value": 1,
+            "unit": "",
+            "time": 1791293743
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125681
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791293743
+          },
+          "hapticBattery": {
+            "value": 2.5,
+            "unit": "V",
+            "time": 1791293743
+          },
+          "hapticCapacitor": {
+            "value": 2.4,
+            "unit": "V",
+            "time": 1791293743
+          },
+          "lightningBattery": {
+            "value": 3,
+            "unit": "",
+            "time": 1791293743
+          }
+        },
+        "updatedAt": 1791293743000
+      },
+      {
+        "query": "?range=24h&date=2026-10-06&view=history",
+        "status": 200,
+        "source": "api",
+        "extrema": {
+          "temperature": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "feelsLike": {
+            "minimum": {
+              "time": 1791264000000,
+              "value": 18.4
+            },
+            "maximum": {
+              "time": 1791291900000,
+              "value": 23.4
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "dewPoint": {
+            "minimum": {
+              "time": 1791264600000,
+              "value": 17.9
+            },
+            "maximum": {
+              "time": 1791290100000,
+              "value": 20.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "humidity": {
+            "minimum": {
+              "time": 1791291300000,
+              "value": 83
+            },
+            "maximum": {
+              "time": 1791278700000,
+              "value": 99
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "vpd": {
+            "minimum": {
+              "time": 1791279000000,
+              "value": 0.02031834
+            },
+            "maximum": {
+              "time": 1791291300000,
+              "value": 0.49779933
+            },
+            "unit": "kPa",
+            "samples": 126
+          },
+          "indoorTemperature": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorFeelsLike": {
+            "minimum": {
+              "time": 1791280200000,
+              "value": 23
+            },
+            "maximum": {
+              "time": 1791255600000,
+              "value": 23.6
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorDewPoint": {
+            "minimum": {
+              "time": 1791279600000,
+              "value": 17.7
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 19.2
+            },
+            "unit": "℃",
+            "samples": 126
+          },
+          "indoorHumidity": {
+            "minimum": {
+              "time": 1791270900000,
+              "value": 72
+            },
+            "maximum": {
+              "time": 1791289800000,
+              "value": 78
+            },
+            "unit": "%",
+            "samples": 126
+          },
+          "windSpeed": {
+            "minimum": {
+              "time": 1791273000000,
+              "value": 3.5
+            },
+            "maximum": {
+              "time": 1791262800000,
+              "value": 14.3
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "windGust": {
+            "minimum": {
+              "time": 1791266700000,
+              "value": 8.6
+            },
+            "maximum": {
+              "time": 1791284100000,
+              "value": 23.4
+            },
+            "unit": "km/h",
+            "samples": 126
+          },
+          "pressureRelative": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "pressureAbsolute": {
+            "minimum": {
+              "time": 1791267900000,
+              "value": 945.5
+            },
+            "maximum": {
+              "time": 1791292800000,
+              "value": 948.2
+            },
+            "unit": "hPa",
+            "samples": 126
+          },
+          "solar": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 647
+            },
+            "unit": "W/m²",
+            "samples": 126
+          },
+          "uv": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 0
+            },
+            "maximum": {
+              "time": 1791289200000,
+              "value": 6
+            },
+            "unit": "",
+            "samples": 126
+          },
+          "hapticBattery": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.5
+            },
+            "maximum": {
+              "time": 1791286500000,
+              "value": 2.52
+            },
+            "unit": "V",
+            "samples": 126
+          },
+          "hapticCapacitor": {
+            "minimum": {
+              "time": 1791255600000,
+              "value": 2.4
+            },
+            "maximum": {
+              "time": 1791289500000,
+              "value": 3.4
+            },
+            "unit": "V",
+            "samples": 126
+          }
+        },
+        "window": {
+          "start": "2026-10-06T03:00:00.000Z",
+          "end": "2026-10-06T13:35:46.868Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "5min",
+          "aggregation": "Valores na resolução da origem"
+        },
+        "metrics": {
+          "temperature": null,
+          "feelsLike": null,
+          "dewPoint": null,
+          "humidity": null,
+          "vpd": null,
+          "indoorTemperature": null,
+          "indoorHumidity": null,
+          "indoorFeelsLike": null,
+          "indoorDewPoint": null,
+          "windSpeed": null,
+          "windGust": null,
+          "windDirection": null,
+          "windAverageDirection": null,
+          "pressureRelative": null,
+          "pressureAbsolute": null,
+          "rainRate": null,
+          "rainEvent": null,
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791293100
+          },
+          "rain24h": null,
+          "rainDaily": null,
+          "rainWeekly": null,
+          "rainMonthly": null,
+          "rainYearly": null,
+          "solar": null,
+          "uv": null,
+          "lightningDistance": null,
+          "lightningCount": null,
+          "hapticBattery": null,
+          "hapticCapacitor": null,
+          "lightningBattery": null
+        },
+        "updatedAt": 1791293747380
+      },
+      {
+        "query": "?range=1y&date=2024-01-01&view=history&source=database",
+        "status": 200,
+        "source": "database",
+        "extrema": {},
+        "window": {
+          "start": "2023-01-02T03:00:00.000Z",
+          "end": "2024-01-02T02:59:59.000Z",
+          "timeZone": "America/Sao_Paulo",
+          "resolution": "1day",
+          "aggregation": "Agregação diária da origem"
+        },
+        "metrics": {
+          "temperature": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "feelsLike": {
+            "value": 22.1,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "dewPoint": {
+            "value": 20.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "humidity": {
+            "value": 89,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "vpd": {
+            "value": 0.29122953999999995,
+            "unit": "kPa",
+            "time": 1791288900
+          },
+          "indoorTemperature": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorHumidity": {
+            "value": 76,
+            "unit": "%",
+            "time": 1791288900
+          },
+          "indoorFeelsLike": {
+            "value": 23.2,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "indoorDewPoint": {
+            "value": 18.7,
+            "unit": "℃",
+            "time": 1791288900
+          },
+          "windSpeed": {
+            "value": 6.3,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windGust": {
+            "value": 13.7,
+            "unit": "km/h",
+            "time": 1791288900
+          },
+          "windDirection": {
+            "value": 90,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "windAverageDirection": {
+            "value": 67,
+            "unit": "º",
+            "time": 1791288900
+          },
+          "pressureRelative": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "pressureAbsolute": {
+            "value": 948,
+            "unit": "hPa",
+            "time": 1791288900
+          },
+          "rainRate": {
+            "value": 0,
+            "unit": "mm/hr",
+            "time": 1791288900
+          },
+          "rainEvent": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainHourly": {
+            "value": 0,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rain24h": {
+            "value": 16.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainDaily": {
+            "value": 2.2,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainWeekly": {
+            "value": 35.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainMonthly": {
+            "value": 40.7,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "rainYearly": {
+            "value": 1392,
+            "unit": "mm",
+            "time": 1791288900
+          },
+          "solar": {
+            "value": 457.5,
+            "unit": "W/m²",
+            "time": 1791288900
+          },
+          "uv": {
+            "value": 4,
+            "unit": "",
+            "time": 1791288900
+          },
+          "lightningDistance": {
+            "value": 20,
+            "unit": "km",
+            "time": 1791125400
+          },
+          "lightningCount": {
+            "value": 0,
+            "unit": "",
+            "time": 1791288900
+          },
+          "hapticBattery": {
+            "value": 2.52,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "hapticCapacitor": {
+            "value": 3.1,
+            "unit": "V",
+            "time": 1791288900
+          },
+          "lightningBattery": null
+        },
+        "updatedAt": 1791288900000
+      }
+    ],
+    "coldMs": 2244,
+    "coldRequests": [
+      "?range=1y&date=2026-10-05&view=history&source=database"
+    ],
+    "cacheMs": 394,
+    "cacheNoRequest": true,
+    "annualTemperatureMaximum": 37.5,
+    "annualGustMaximum": 118.4,
+    "liveSource": "api",
+    "batteryText": "Bateria\nConjunto háptico (Bateria)\n2,5 V\nTensão · carga percentual indisponível\nCapacitor\n2,4 V\nTensão · carga percentual indisponível\nSensor de raios\n60%\nGateway online",
+    "batteryFills": [
+      100,
+      100,
+      40,
+      0
+    ],
+    "batteryRaw": {
+      "value": 3,
+      "unit": "",
+      "time": 1791293743
+    },
+    "batteryVoltage": {
+      "value": 2.5,
+      "unit": "V",
+      "time": 1791293743
+    },
+    "currentCardBounds": [],
+    "riskChip": {
+      "text": "Sem atividade recente",
+      "whiteSpace": "nowrap"
+    },
+    "csv": "ecowitt-battery-24h.csv",
+    "tableRows": 126,
+    "emptyPins": 0
+  }
+]

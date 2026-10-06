@@ -1,76 +1,65 @@
-# Checkpoint de retomada — 05/10/2026
+# Checkpoint final — 06/10/2026
 
-Interrompido a pedido do usuário após concluir a etapa de correções, recuperação e testes. **Não fazer novas implantações nem alterar DNS ou visibilidade nesta pausa.** Alterações locais preservadas. Não reexecutar a recuperação já aplicada.
+Este é o estado final após a continuidade e publicação explicitamente autorizadas pelo usuário. A pausa de 05/10 e a verificação inicial de 06/10 estão preservadas como registros históricos; não representam pendências atuais. **Não repetir a recuperação já concluída. Preservar o original, DNS, domínio, visibilidade e dados; qualquer futura implantação precisa estar autorizada no contexto da nova tarefa.**
 
-## Código e implantação atual
+## Efetivamente publicado
 
-- Repositório: marcelo-pes/clima. Checkout VPS `/opt/clima2-antaisolar/repository`, branch `fix/clima2-review-20261005`, base `1f62c87caf9854e46d3ffbc0f13618cf32ad27d4`.
-- Commit de implementação: `c2d53f9d8cdc00027bbeac4161038f6e5538c0a2`. O commit seguinte contém este checkpoint; consultar `git log -2 --oneline` para seu hash.
-- Código local completo: `/Users/pes/clima2-20261005`; snapshot original `/Users/pes/clima-current-20261005`. Diretórios locais sem Git; histórico Git no checkout separado da VPS.
-- Clima2 publicado antes da pausa: https://clima2.antaisolar.com.br, `/opt/clima2-antaisolar/app`, Node 22.23.3, `clima2-antaisolar.service`, loopback 8788, Nginx/Let's Encrypt. Última implantação **05/10/2026 19:45:39 UTC (16:45:39 Brasília)**.
-- Artefato SHA256 `3d5e85e19a69f1f45f0fe938f25578b17c25cb1d4b998e126b0b1be0f7c416fe`; registro `/opt/clima2-antaisolar/review-deployment.json`; backup do código `/opt/clima2-antaisolar/backups/review-20261005T194539Z/code-before.tar.gz`.
-- Original preservado: `/opt/clima-antaisolar/app`, `clima-antaisolar.service`, loopback 8787. Domínio original continua Sites/CNAME custom-domains.chatgpt.site. Nenhuma migração, recriação, mudança DNS ou visibilidade.
-- Configurações sem credenciais em `deploy/`; explicação em `docs/clima2-vps.md`; auditoria completa em `docs/audit-2026-10-05.md`.
+- URL: https://clima2.antaisolar.com.br.
+- Commit de código: **442fc504254b2fef194d39f85a271c2a92a98088** (`442fc50`). Publicado em **06/10/2026 13:33:22 UTC / 10:33:22 America/Sao_Paulo**.
+- Artefato SHA256: `32437b1d533b8ab375d0525009fb547be620a9e1c7971c4caffb40bf39422096`.
+- Registro verificável: `/opt/clima2-antaisolar/review-deployment.json`. Aplicação `/opt/clima2-antaisolar/app`, `clima2-antaisolar.service`, Node 22.23.3, loopback 8788. Active, NRestarts=0, healthz e HTTPS públicos verificados.
+- Inclui bateria correta, pinos de mínimo/máximo, tooltips do /confere, atualização ao vivo e todos os ajustes de largura/cards. Não há ajuste de largura pendente. Limite original de 1600 px mantido; telas de 320 a 1920 px testadas.
+- Publicação final conferida em Chrome 1440×1000 e 390×844: 64 combinações de grupo/período, seis abas, CSV/tabela, período vazio, bateria e cards. Zero erros/warnings, cortes de pinos ou overflow nos elementos examinados.
+- Original `/opt/clima-antaisolar/app`, serviço loopback 8787, não publicado/reiniciado nesta execução; ativo desde 05/10 17:17:36 UTC. Clima original público/DNS/Sites/visibilidade preservados. Banco compartilhado recebeu apenas a recuperação/importação autorizada, preservando os registros anteriores.
 
-## SQLite único e importador
+## Correções e regras
 
-Caminho absoluto confirmado por configuração, seleção do importador e descritor aberto do clima2:
+Bateria WH57: `battery/lightning_sensor` informa nível documentado 0–5; percentual normalizado `nível × 20`, leitura 3 = **60%**, barras [100,100,40,0] entre quatro segmentos. Percentual explícito respeitado; ausência/estado não vira zero. `battery/haptic_array_battery` e `battery/haptic_array_capacitor` informam **V**, exibidos 2,5 V e 2,4 V na verificação pública; nenhuma conversão tensão→percentual. Histórico WH57 não está disponível nas respostas/banco auditados. Fundamentação em [bateria-e-extremos-2026-10-06.md](bateria-e-extremos-2026-10-06.md).
+
+Extremos do período inteiro antes da redução do desenho: SQLite agrega estatísticas diárias com timestamps e lê dados brutos apenas nas bordas parciais. High/low da origem considerados; zero válido preservado, leituras ausentes ignoradas, vazio sem extremos, constante com pinos lado a lado. Fuso America/Sao_Paulo. Gráficos corrigidos: externo/VPD, interno, solar/UV, velocidade/rajada, pressão e tensões de bateria; raios/distância conserva faixa de extremos. Chuva/acumuladores e direção circular seguem as exclusões do original, sem extremos lineares indevidos. 18 variáveis × três períodos validadas contra registros SQLite; máximas anuais públicas **37,5 °C / 118,4 km/h**.
+
+Raios: “Sem atividade recente” inteiro em uma linha, sem sobreposição. Vento: rótulos, velocidade/rajada e km/h completos; espaço da bússola adaptável. Demais cards e unidades revisados, sem esconder conteúdo nem reduzir excessivamente as fontes.
+
+## Histórico e /confere
+
+SQLite único de produção:
 
 `/opt/clima-antaisolar/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite`
 
-Mesmo banco de produção do backend anterior/importador. Clima2 abre readOnly/query_only, `CLIMA_SQLITE_PATH` explícito, sem banco do Mac, backup ou exemplo. Runtime bloqueia Ecowitt em histórico arquivado e registra `ecowittRequests`. Consultas não importam nem aguardam sincronização.
+Clima2 readOnly/query_only; rota de escrita/archive bloqueada. Histórico semanal/mensal/anual normal: runtime sqliteOnly=true, **ecowittRequests=0**, confirmado por código, requisições e logs. Abrir/trocar período não importa dados. Atualização atual preservada; cache vivo 45 s e HTTP no-store, timer 60 s/manual testados.
 
-Único sincronizador `/opt/clima-antaisolar/scripts/ecowitt_history_sync.py`, serviço `clima-antaisolar-archive.service`, timer `clima-antaisolar-archive.timer`, **23:59 America/Sao_Paulo**, Persistent, lock fcntl. O próximo disparo observado era 06/10 às 02:59 UTC. Sem segundo importador para clima2. A opção temporária `--apply-tested-recovery` já foi retirada e preservada no backup; ExecStart voltou ao incremental normal.
+/confere usa comparisonExtrema na mesma resolução em ambas as fontes, com limites/fuso explícitos. Referência 05/10: mensal 06/09–05/10, ciclo 4hour, **5.239 pares**; anual 06/10/2025–05/10/2026, ciclo 1day, **10.652 pares**. Zero diferenças, zero exclusivos, unidades e extremos correspondentes; vinte gráficos testados no computador/celular. Semanal já concluído anteriormente: 9.752 pares, zero diferenças; não repetido externamente. Chamadas source=api do /confere são deliberadas e separadas do histórico normal.
 
-## Backup, recuperação e cobertura
+Última rodada pública final: abertura anual direta 2,244–2,880 s; troca mensal 0,685–0,750 s, semanal 0,884–0,998 s; retorno ao anual em cache 0,394–0,420 s sem requisição adicional. Backend na rodada publicada anterior ao ajuste exclusivamente visual de limite: semanal 539,7–645,1 ms; mensal 57,3–129,8 ms; anual 9,2–521,1 ms (inclui cache de extremos). Condições e evidências em [audit-2026-10-06.md](audit-2026-10-06.md).
 
-- Backup online consistente e cópia de teste com integrity_check=ok: `/opt/clima-antaisolar/backups/coverage-repair-20261005T180900Z/production-before.sqlite` e `recovery-test.sqlite`. Sincronizador anterior/configurações preservados no mesmo diretório.
-- Teste isolado: 107.087 pontos distintos adicionais, 103.843 válidos; zero perdas, alterações de valores válidos anteriores ou duplicatas. Relatórios `test-report.json` e `statistics-test.json` no diretório acima.
-- Produção: backup adicional `/opt/clima-antaisolar/backups/daily-history-20261005T191540Z.sqlite.gz`, integrity_check e gzip validados antes de escrever. Recuperação aplicada pelo único serviço às 19:21 UTC; incremental/estatísticas terminaram 19:25 UTC, sucesso e quick_check=ok.
-- Auditoria final somente leitura encerrada 19:37 UTC: **1.527.897 chaves distintas, 1.484.432 observações numéricas válidas, 43.465 marcadores ausentes, 41 variáveis**, 39.099 linhas derivadas de estatísticas. Aumento válido total 104.596, incluindo 753 observações recentes após o teste.
-- `weather_history`: **48 snapshots de respostas sobrepostas**, não 48 leituras. Observações normalizadas em `ecowitt_history_points`, chave estação/variável/timestamp. Não apagar proveniência/cache para “deduplicar”.
-- Datas variam por sensor; cobertura principal 12/05/2025 às 21h até 05/10/2026 às 16h15 BRT. CSVs completos por variável e ciclo em `docs/coverage-2026-10-05.csv` e `docs/coverage-gaps-2026-10-05.csv`.
-- Relatórios VPS `/opt/clima2-antaisolar/final-coverage-20261005.json` e `.csv`; JSON guarda os 100 últimos exemplos de lacunas por variável/ciclo, totais abrangem todas as lacunas internas.
-- Temperatura nominal: 5min 103.812 slots ausentes/13.889 intervalos; 30min 5.973/868; 4hour 6/4; 1day zero internos, 510 pontos até 03/10 às 21h, borda recente diária indisponível na origem. **Slots nominais não equivalem a dados recuperáveis.** API antiga solicitada 5min retorna 4h ou 30min; em 08/07 há uma falta de 5min na própria origem. Não inventar leituras nem declarar cobertura completa pelo checkpoint/backend anterior.
-- Distância de raios: 671 valores e 42.262 marcadores ausentes; ausência de evento não é zero nem prova de falha do sensor. Sensores derivados têm primeiras datas diferentes.
+## Recuperação e preservação
 
-## Alterações concluídas
+563/563 janelas de origem concluídas pelo único sincronizador, zero falhas, com backup validado antes de escrita e retomada após interrupção. Final 12:49:55 UTC, failed=false/quick_check=ok. Estatísticas 39.216 linhas, com timestamps.
 
-Histórico SQLite exclusivo, dados ao vivo independentes, cabeçalho/horário/alerta preservados, carregamento por seção, cache, cancelamento e descarte de respostas antigas. Alerta de raios exige evento de até 30 minutos e distância até 20 km (até 10 km alerta), sem alerta baseado em evento antigo. Vento atual independente do período, média circular últimos 10 minutos e bússola consistente (117° ESE/Leste-sudeste).
+Auditoria final exaustiva: **1.534.840 chaves / 1.491.260 valores válidos / 41 variáveis**. Aumento 3.941 chaves / 3.918 válidos inclui recuperação e incremental recente. **Zero perdas, zero mudanças de valores válidos existentes, zero duplicatas; cache e proveniência preservados; integrity_check=ok.** Relatórios coverage-after, preservation e source-gaps de 06/10 em docs/.
 
-Estatísticas separadas da série agregada; temperatura máxima anual disponível 37,5 °C, semanal 35,3 °C após recuperação; 30,1 °C era máxima da série diária agregada. Rajada 118,4 km/h de 19/10/2025 às 05h confirmada na origem e preservada. Pressões corretamente mapeadas; igualdade também existe na origem. VPD/unidades conferidos; chuva não soma/empilha acumuladores; resets tratados.
+Origem antiga frequentemente devolve resolução mais baixa ou agregado diário; ausências foram registradas, não preenchidas. Payloads/progresso em `/opt/clima-antaisolar/backups/gap-repair-6cf9f3a60babe245/`. Não reexecutar production-repair-plan.json automaticamente.
 
-Datas naive API em Brasília, epochs preservados (diário 00 UTC = 21h BRT). Dia civil, semanal de dias encerrados, mensal 30 dias e anual 365 com limites explícitos. Gráficos montam apenas com dimensões positivas, sem cortes/continuidade artificial em lacunas, unidades/eixos adequados. Bateria sem [object Object], títulos corrigidos, CSV/table/tooltip formatados. Mapa com coordenadas/link externo sem WebGL obrigatório; satélite independente, camadas/link preservados, fuso do provedor identificado. Astro compartilhado e “Céu limpo” identificado como previsão.
+## Agendamento, backups e reversão
 
-## Testes e resultados
+Único `/opt/clima-antaisolar/scripts/ecowitt_history_sync.py`; clima-antaisolar-archive.service/timer, **23:59 America/Sao_Paulo**, enabled/active/Persistent/lock exclusivo. Disparo de 05/10 23:59 confirmado e backup íntegro. Próximo 06/10 23:59 BRT = 07/10 02:59 UTC. Novo mecanismo durável salva pendência antes da rede, retenta após falha mesmo fora da retenção e não duplica; testes passaram. Drop-in temporário de reparo removido, incremental normal restaurado.
 
-- TypeScript/build e testes `weather-rules.test.mjs`, `history-coverage.test.mjs`, `weather-database-only.test.mjs`, `history-point-merge.test.py`: aprovados.
-- Chrome isolado desktop 1440×1000 e celular 390×844: 8 grupos × 4 períodos × 2 tamanhos aprovados. Zero erros React/dimensões inválidas/overflow; zero curvas/eixos cortados.
-- Troca rápida: última resposta vence; navegação Ventos/Histórico mantém período sem consultas duplicadas; vento atual permanece após Anual. Cache, data anterior/próxima, tabela, CSV por grupo e todos, tooltip, perfil, #map, satélite, erro de rede e período vazio testados.
-- Último teste da implantação 19:45 confirmou extremos exibidos 37,5 °C/118,4 km/h, CSV completo correto, tooltip em Brasília, #map, satélite e texto atualizado de /confere. Sem erros.
-- Histórico semanal/mensal/anual e abertura direta: logs **zero chamadas Ecowitt**, incluindo cabeçalho. Hoje/atualização ao vivo e comparação explícita `source=api` permanecem separados.
-- Backend histórico 33–240 ms; trocas até utilizável 1,59–2,30 s; abertura direta fria desktop 4,17 s/celular 3,31 s; retorno em cache ~0,37 s sem consulta. Hoje ao vivo 6,25–9,23 s, depende API. Estatísticas primeira 47–267 ms/cache 14–29 ms.
-- Serviços ativos, NRestarts=0, Nginx -t aprovado, timer ativo, HTTPS válido até 03/01/2027, certbot.timer ativo; dry-run de renovação aprovado na preparação. Pico sincronizador 180 MB; auditoria 160 MB limitada, ambos encerrados. Sem importador concorrente.
-- Evidências locais `/Users/pes/clima2-qa-20261005/`: comparison-before.json, review-results-fast.json, final-matrix.json, rapid-results.json, final-details.json, results.json, results-mobile.json. VPS final-statistics-tests.json e final-http-tests.json.
+Backup/reversão `/opt/clima2-antaisolar/backups/audit-20261006T113100Z/`: production-before.sqlite/.gz, código anterior e backups imediatamente antes das publicações, scripts/unidades e relatórios. rollback-code.sh restaura frontend/sincronizador, **preserva o SQLite recuperado** e o script de estatísticas compatível com as colunas novas. Nunca restaurar o banco antigo para reverter uma alteração de frontend.
 
-## Erros e pendências reais
+## Git e locais
 
-1. Primeiro teste isolado excedeu RAM (352 MB) e foi morto pelo OOM; nenhum dado de produção escrito então. Substituído por streaming, limites de memória/CPU; novo teste e produção encerraram com sucesso. Todas as unidades temporárias encerradas, sem timer.
-2. Dois testes de UI falharam por seletores do próprio teste (nome do período e Exportar versus Exportar CSV); corrigidos e reexecutados com aprovação. Erro net::ERR_FAILED nos testes de rede é deliberado; não é falha espontânea.
-3. Lacunas/baixa resolução e borda diária recente na origem permanecem identificadas como parcial. Não é autorizado preencher dados inventados ou criar importador concorrente.
-4. Original público apresentou HTTP503 em source=database anteriormente. Probes da VPS recebem 403 de borda e não provam falha interna; navegador permitiu comparar os seis recursos. Backend original na VPS responde 200. Não assumir exclusão por “project not found”; implantação pública Sites/DNS preservada.
-5. /confere monta corretamente e o fluxo de consulta está implementado, mas falta registrar a comparação completa após ambas as respostas chegarem, em período encerrado, com os mesmos limites/variável/ciclo. O teste final somente conferiu montagem/textos, não concluiu essa comparação visual.
-6. Ainda não foi observado o próximo disparo noturno de 23:59 com o sincronizador corrigido; conferir journal após esse horário. Timer/configuração e execução manual normal dentro da aplicação testada foram verificados.
+Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado 442fc50; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
 
-7. Commit de implementação e checkpoint salvos na branch da VPS. **Push tentou autenticar, mas o GitHub rejeitou a chave por estar marcada como read only. Nenhum commit perdido.** Enviar a branch depois com credencial de escrita autorizada: `git -C /opt/clima2-antaisolar/repository push -u origin fix/clima2-review-20261005`. Não trocar a chave de implantação nem expor credenciais.
+- Fonte principal `/Users/pes/clima2-20261005` (snapshot sem Git).
+- Git local `/Users/pes/clima2-git-20261006`; VPS `/opt/clima2-antaisolar/repository`.
+- Evidências QA `/Users/pes/clima2-qa-20261005/audit-20261006/`; relatórios selecionados em docs/.
+- Histórico preservado em RETOMADA-2026-10-05.md e retomada-2026-10-06.md, marcado como verificação inicial superada.
 
-## Próximo passo exato ao retomar
+## Pendências reais
 
-**Primeiro ler este checkpoint e a auditoria; não repetir a recuperação nem implantar automaticamente.**
+1. Lacunas/resolução fina não disponíveis na origem; cobertura continua parcial onde indicado. Não interpolar nem afirmar cobertura integral.
+2. Percentual dos campos hápticos em V não disponível sem curva documentada aplicável; leitura em V é a exibição correta. Não existe série histórica WH57 auditável nas respostas consultadas.
+3. Próximo disparo noturno com a rotina nova ainda não ocorreu no horário do fechamento; conferir journal após 23:59, sem repetir o reparo. Agendamento, backups e retomada já verificados.
+4. Provedores externos de mapa/satélite podem limitar disponibilidade; não se declara equivalência integral entre os sites.
 
-1. Na VPS conferir `git -C /opt/clima2-antaisolar/repository log -2 --oneline`, `review-deployment.json`, `systemctl status clima2-antaisolar clima-antaisolar clima-antaisolar-archive.timer` e `journalctl -u clima-antaisolar-archive.service --since '2026-10-05 19:25:00'`. Confirmar sucesso do próximo disparo 23:59 BRT e backup novo, sem sobreposição.
-2. Abrir /confere, selecionar Semanal com referência 05/10/2026 (28/09–04/10), aguardar ambas as fontes, registrar status, limites, timestamps e diferenças por variável. Comparação `source=api` é deliberada; os gráficos normais devem continuar zero Ecowitt. Não mudar DNS/visibilidade.
-3. Analisar somente lacunas que ainda sejam recuperáveis na origem, com consultas delimitadas e relatório de resolução. Qualquer nova escrita exige backup consistente validado e passa pelo único sincronizador. Manter as lacunas indisponíveis como parcial.
-4. Entregar ao usuário o relatório final com links da auditoria, cobertura, commit e medições. Qualquer nova implantação depende de retomada explícita após esta pausa.
-
-Credenciais, banco e backups não estão no Git. O arquivo herdado `RESUME-2026-10-05.md` permanece local/não rastreado por conter notas históricas superadas; este checkpoint prevalece.
+Nenhuma pendência de publicação, largura, autenticação ou envio dos commits.
