@@ -12,6 +12,7 @@ let sensorTime = capturedAt;
 let imageRequests = 0;
 let failUpstream = false;
 let apiRequests = [];
+let rainRequests = [];
 const logs = [];
 const cacheDirectory = mkdtempSync(join(process.cwd(), ".sites-runtime", "camera-service-test-"));
 const service = createCameraService({
@@ -30,6 +31,7 @@ const service = createCameraService({
         { id: 251816, name: "BAURU SUL", type: 1, mac: "station-mac" },
       ] } });
       if (url.searchParams.get("call_back") === "camera") return Response.json({ code: 0, data: { camera: { photo: { time: String(capturedAt), url: "https://osswww.ecowitt.net/images/test.jpg" } } } });
+      rainRequests.push({ callback: url.searchParams.get("call_back"), unit: url.searchParams.get("rainfall_unitid"), mac: url.searchParams.get("mac") });
       return Response.json({ code: 0, time: String(sensorTime), data: { rainfall_piezo: { rain_rate: { value: rainRate, unit: "mm/hr", time: String(sensorTime) } } } });
     }
     imageRequests++;
@@ -45,6 +47,7 @@ assert.equal(service.current().analysisStatus, "classifier_not_configured");
 assert.equal(service.current().visualCondition, null, "must not invent image classification");
 assert.equal(service.current().rainConfirmed, false);
 assert.equal(imageRequests, 1);
+assert.deepEqual(rainRequests[0], { callback: "rainfall_piezo,rainfall", unit: "12", mac: "station-mac" }, "HP10 service reads the same station rain-rate metric and mm/hr unit as dashboard indicators");
 const upstreamCount = apiRequests.length;
 const meta = await (await service.handle("/api/camera", new Request("https://clima2.antaisolar.com.br/api/camera"))).json();
 assert.equal(meta.imageUrl, "/api/camera/image");
@@ -72,6 +75,13 @@ sensorTime = capturedAt;
 await service.refresh();
 assert.equal(service.current().rainConfirmed, true, "rain can only be confirmed from a recent sensor rate");
 assert.equal(imageRequests, 1);
+rainRate = "-";
+await service.refresh();
+assert.equal(service.current().rainRate, null, "a missing rain rate must remain unavailable, never become zero");
+assert.equal(service.current().sensorFresh, true, "the sensor timestamp remains distinct from a missing rate");
+rainRate = "0.0";
+await service.refresh();
+assert.equal(service.current().rainRate, 0, "a real zero rain-rate reading remains zero");
 
 capturedAt += 300;
 now += 300_000;
