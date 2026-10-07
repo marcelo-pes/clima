@@ -17,6 +17,8 @@ try {
     'chart-extrema.mjs':'lib/chart-extrema.ts',
     'weather-chart-extrema.mjs':'lib/weather-chart-extrema.ts',
     'climatempo-current.mjs':'lib/climatempo-current.ts',
+    'aviation-current.mjs':'lib/aviation-current.ts',
+    'current-weather.mjs':'lib/current-weather.ts',
   };
   for (const [name, path] of Object.entries(files)) {
     let source = await readFile(new URL(path, root), 'utf8');
@@ -28,6 +30,10 @@ try {
       .replaceAll('"@/lib/lightning-totals"', '"./lightning.mjs"')
       .replaceAll('"@/lib/weather-chart-extrema"', '"./weather-chart-extrema.mjs"')
       .replaceAll('"@/lib/climatempo-current"', '"./climatempo-current.mjs"')
+      .replaceAll('"@/lib/current-weather"', '"./current-weather.mjs"')
+      .replaceAll('"./climatempo-current"', '"./climatempo-current.mjs"')
+      .replaceAll('"./aviation-current"', '"./aviation-current.mjs"')
+      .replaceAll('"./weather-condition"', '"./weather-condition.mjs"')
       .replaceAll('"@/lib/chart-extrema"', '"./chart-extrema.mjs"')
       .replaceAll("'./chart-extrema'", "'./chart-extrema.mjs'")
       .replaceAll("'cloudflare:workers'", "'./env.mjs'");
@@ -85,6 +91,9 @@ try {
   const currentTime = observedAt.toLocaleTimeString('en-GB', { timeZone: 'UTC', hour12: false });
   globalThis.fetch = async (input, options) => {
     requests++;
+    if (String(input).includes('aviationweather.gov')) {
+      return Response.json([{icaoId:'SBBU',reportTime:new Date(Date.now()-30_000).toISOString(),rawOb:'METAR SBBU 070100Z 10002KT 9999 SCT020 22/18 Q1017',cover:'SCT',clouds:[{cover:'SCT'}],temp:22}]);
+    }
     assert.equal(String(input), 'https://www.climatempo.com.br/json/myclimatempo/user/weatherNow?idlocale=6655');
     assert.equal(options.method, 'POST');
     return Response.json({ status_code: 200, data: { getWeatherNow: [{ data: [{ locale: { idlocale: 6655, idcity: 406, city: 'Bauru' }, weather: { id: 6655, name: 'Bauru', date: currentDate, dateUpdate: currentTime, condition: 'Nublado', icon: '3', temperature: 23, sensation: 24 } }] }] } });
@@ -94,6 +103,6 @@ try {
   assert.equal(extras.status, 200);
   assert.equal(extrasData.currentWeather.code, '3');
   assert.equal(extrasData.currentWeather.sourceCondition, 'Nublado');
-  assert.equal(requests, 1, 'Current-condition refresh calls only the Climatempo now endpoint, without Ecowitt');
-  console.log('PASS: current-condition endpoint selects Climatempo Bauru Now and does not request Ecowitt');
+  assert.equal(requests, 2, 'Current-condition refresh queries only Climatempo Now and the NOAA METAR fallback; it does not request Ecowitt');
+  console.log('PASS: current-condition endpoint selects fresh Climatempo over the independent METAR fallback and does not request Ecowitt');
 } finally { await rm(dir, { recursive: true, force: true }); }

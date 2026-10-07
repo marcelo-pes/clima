@@ -1,4 +1,4 @@
-import { fetchClimatempoCurrent } from "@/lib/climatempo-current";
+import { fetchCurrentWeather } from "@/lib/current-weather";
 import { sqliteChartExtrema } from "@/lib/weather-chart-extrema";
 import { payloadChartExtrema } from "@/lib/chart-extrema";
 import { sqliteStatistics } from "@/lib/weather-statistics";
@@ -323,7 +323,7 @@ export async function GET(request: Request) {
     const archivedPeriod = rangeKey !== "24h" || Boolean(requestedDate && requestedDate < today);
     const databaseOnly = requestedSource === "database" || (archivedPeriod && requestedSource !== "api");
     if (extrasOnly && !databaseOnly) {
-      const currentWeather = await fetchClimatempoCurrent();
+      const currentWeather = await fetchCurrentWeather();
       return Response.json({currentWeather,insight:null},{headers:{"Cache-Control":"private, no-store"}});
     }
     const historySource = databaseOnly ? "database" : requestedSource === "api" ? "api" : "auto";
