@@ -141,6 +141,17 @@ assert.deepEqual(restoredSequence.images.map(frame => frame.capturedAt), retaine
 assert.equal(restoredSequence.count, 24, "the sequence survives a server restart");
 assert.equal(restoredSequence.oldestCapturedAt, capturedAt - 23 * 300);
 
+// Simulate interruption between image publication and current-metadata update.
+const savedMetadata = readFileSync(join(cacheDirectory, "hp10-current.json"));
+rmSync(join(cacheDirectory, "hp10-current.json"));
+writeFileSync(join(cacheDirectory, `hp10-${capturedAt - 24 * 300}.jpg`), jpeg);
+const recovered = createCameraService({ env: {}, now: () => now, setIntervalImpl: () => ({unref(){}}), cacheDirectory });
+await recovered.start();
+assert.equal(recovered.current().capturedAt, capturedAt, "boot recovers newest JPEG even without current metadata");
+assert.deepEqual((await (await recovered.handle("/api/camera/sequence", new Request("https://test/"))).json()).images.map(frame => frame.capturedAt), retainedBeforeWriteFailure);
+assert.equal(readdirSync(cacheDirectory).filter(name => /^hp10-\d+\.jpg$/.test(name)).length, 24, "boot rotates an excess frame left by interruption");
+writeFileSync(join(cacheDirectory, "hp10-current.json"), savedMetadata);
+
 failUpstream = true;
 now += 300_000;
 await service.refresh();
