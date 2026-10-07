@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, readdirSync, rmSync } from "node:fs";
+import { mkdtempSync, readdirSync, rmSync, writeFileSync, readFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { createCameraService, cameraTiming } from "../runtime/camera-service.mjs";
 
@@ -102,31 +102,50 @@ const notModified = await service.handle(`/api/camera/sequence/${capturedAt - 30
 assert.equal(notModified.status, 304, "timestamped frames support browser cache validation");
 assert.equal(apiRequests.length, beforeSequenceRequests, "sequence and image delivery never call Ecowitt");
 
-for (let index = 0; index < 13; index++) {
+const removedTimestamp = sequence.images[0].capturedAt;
+writeFileSync(join(cacheDirectory, "unrelated.sqlite"), "preserve SQLite sentinel");
+mkdirSync(join(cacheDirectory, "other"));
+writeFileSync(join(cacheDirectory, "other", "hp10-1.jpg"), jpeg);
+for (let index = 0; index < 25; index++) {
   capturedAt += 300;
   now += 300_000;
   await service.refresh();
 }
 sequence = await (await service.handle("/api/camera/sequence", new Request("https://clima2.antaisolar.com.br/api/camera/sequence"))).json();
-assert.equal(sequence.count, 12, "only the latest twelve images remain available");
+assert.equal(sequence.count, 24, "only the latest 24 images remain available");
 assert.deepEqual(sequence.images.map((frame) => frame.capturedAt), [...sequence.images.map((frame) => frame.capturedAt)].sort((left, right) => left - right));
-assert.equal(new Set(sequence.images.map((frame) => frame.capturedAt)).size, 12, "duplicate captures are removed");
-assert.equal(sequence.intervalMs, 11 * 300_000, "coverage reports the real interval between the oldest and newest image");
+assert.equal(new Set(sequence.images.map((frame) => frame.capturedAt)).size, 24, "duplicate captures are removed");
+assert.equal(sequence.intervalMs, 23 * 300_000, "coverage reports the real interval between the oldest and newest image");
 assert.equal(sequence.images.at(-1).capturedAt, capturedAt);
-assert.equal(readdirSync(cacheDirectory).filter((name) => /^hp10-\d+\.jpg$/.test(name)).length, 12, "persistent cache retains exactly twelve timestamped frames");
+assert.equal(readdirSync(cacheDirectory).filter((name) => /^hp10-\d+\.jpg$/.test(name)).length, 24, "persistent cache retains exactly 24 timestamped frames");
+
+assert.ok(!readdirSync(cacheDirectory).includes(`hp10-${removedTimestamp}.jpg`), "oldest JPEG is deleted after successful collection");
+assert.equal((await service.handle(`/api/camera/sequence/${removedTimestamp}`, new Request("https://test/"))).status, 404, "deleted frame has no remaining API reference");
+assert.equal(readFileSync(join(cacheDirectory, "unrelated.sqlite"), "utf8"), "preserve SQLite sentinel");
+assert.deepEqual(new Uint8Array(readFileSync(join(cacheDirectory, "other", "hp10-1.jpg"))), jpeg, "cleanup never traverses subdirectories");
+const retainedBeforeWriteFailure = sequence.images.map(frame => frame.capturedAt);
+const blockedTemporary = join(cacheDirectory, `hp10-${capturedAt + 300}.jpg.tmp`);
+mkdirSync(blockedTemporary);
+capturedAt += 300; now += 300_000;
+await service.refresh();
+assert.deepEqual((await (await service.handle("/api/camera/sequence", new Request("https://test/"))).json()).images.map(frame => frame.capturedAt), retainedBeforeWriteFailure, "disk write failure never rotates existing images");
+rmSync(blockedTemporary, {recursive:true});
+capturedAt -= 300; now -= 300_000;
 
 const restored = createCameraService({ env: {}, fetchImpl: async () => { throw new Error("unexpected fetch"); }, now: () => now, setIntervalImpl: () => ({ unref() {} }), cacheDirectory });
 await restored.start();
 assert.equal(restored.current().status, "fresh", "a restart restores a fresh cached photo before the next refresh");
 assert.equal(restored.current().capturedAt, capturedAt);
 const restoredSequence = await (await restored.handle("/api/camera/sequence", new Request("https://clima2.antaisolar.com.br/api/camera/sequence"))).json();
-assert.equal(restoredSequence.count, 12, "the sequence survives a server restart");
-assert.equal(restoredSequence.oldestCapturedAt, capturedAt - 11 * 300);
+assert.deepEqual(restoredSequence.images.map(frame => frame.capturedAt), retainedBeforeWriteFailure, "all 24 chronological references survive restart");
+assert.equal(restoredSequence.count, 24, "the sequence survives a server restart");
+assert.equal(restoredSequence.oldestCapturedAt, capturedAt - 23 * 300);
 
 failUpstream = true;
 now += 300_000;
 await service.refresh();
 let statusAfterFailure = await (await service.handle("/api/camera/sequence", new Request("https://clima2.antaisolar.com.br/api/camera/sequence"))).json();
+assert.deepEqual(statusAfterFailure.images.map(frame => frame.capturedAt), retainedBeforeWriteFailure, "failed collection preserves all photographs");
 assert.equal(statusAfterFailure.refreshFailed, true, "failed collection is reported while the last sequence remains available");
 assert.equal(statusAfterFailure.checkedAt, Math.floor(now / 1000));
 failUpstream = false;
@@ -134,7 +153,7 @@ now += 300_000;
 await service.refresh();
 statusAfterFailure = await (await service.handle("/api/camera/sequence", new Request("https://clima2.antaisolar.com.br/api/camera/sequence"))).json();
 assert.equal(statusAfterFailure.refreshFailed, false, "a later successful cycle clears the failure state");
-assert.equal(statusAfterFailure.count, 12);
+assert.equal(statusAfterFailure.count, 24);
 
 now = capturedAt * 1000 + cameraTiming.maxPhotoAgeMs + 1;
 assert.equal(service.current().status, "stale");
@@ -142,4 +161,4 @@ assert.equal(service.current().imageUrl, null);
 assert.equal((await (await service.handle("/api/camera/sequence", new Request("https://clima2.antaisolar.com.br/api/camera/sequence"))).json()).status, "stale", "old sequences are labeled stale without changing their capture timestamps");
 assert.equal((await service.handle("/api/camera/image", new Request("https://clima2.antaisolar.com.br/api/camera/image"))).status, 503);
 rmSync(cacheDirectory, { recursive: true, force: true });
-console.log("camera service cache, 12-frame order/retention, actual capture times, upstream privacy, rain confirmation and stale fallback: ok");
+console.log("camera service cache, 24-frame order/retention, actual capture times, upstream privacy, rain confirmation and stale fallback: ok");

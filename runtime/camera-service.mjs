@@ -1,11 +1,11 @@
-import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
+import { mkdir, open, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const API = "https://api.ecowitt.net/api/v3";
 const POLL_MS = 5 * 60_000; // Match the HP10 cloud capture cadence.
 const PHOTO_MAX_AGE_MS = 20 * 60_000; // Four server polling intervals.
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
-const MAX_HISTORY_IMAGES = 12;
+const MAX_HISTORY_IMAGES = 24;
 const ALLOWED_IMAGE_HOSTS = new Set(["osswww.ecowitt.net", "oss.ecowitt.net"]);
 
 function findObjects(value, predicate, found = []) {
@@ -50,26 +50,39 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     return [...history].sort((left, right) => left.capturedAt - right.capturedAt);
   }
 
+  async function restoreHistory() {
+    const files = await readdir(cacheDirectory, { withFileTypes: true });
+    const cached = [];
+    for (const file of files) {
+      const match = /^hp10-(\d+)\.jpg$/.exec(file.name);
+      // Never follow directories/symlinks or remove unrelated cache files.
+      if (!file.isFile() || !match || !Number.isSafeInteger(Number(match[1]))) continue;
+      const bytes = new Uint8Array(await readFile(join(cacheDirectory, file.name)));
+      if (isJpeg(bytes)) cached.push({ capturedAt: Number(match[1]), imageName: file.name });
+    }
+    cached.sort((left, right) => left.capturedAt - right.capturedAt);
+    // Publish only retained references, even if deletion fails and needs a later retry.
+    history = cached.slice(-MAX_HISTORY_IMAGES);
+    for (const entry of cached.slice(0, -MAX_HISTORY_IMAGES)) {
+      await rm(join(cacheDirectory, entry.imageName), { force: true });
+    }
+  }
+
   async function rememberImage(capturedAt, bytes) {
     if (history.some((entry) => entry.capturedAt === capturedAt)) return;
     const imageName = `hp10-${capturedAt}.jpg`;
     if (cacheDirectory) {
       await mkdir(cacheDirectory, { recursive: true, mode: 0o700 });
-      let existing = false;
-      try { existing = isJpeg(new Uint8Array(await readFile(join(cacheDirectory, imageName)))); } catch { /* First write. */ }
-      if (!existing) {
-        const imageTemporary = join(cacheDirectory, `${imageName}.tmp`);
-        await writeFile(imageTemporary, bytes, { mode: 0o600 });
-        await rename(imageTemporary, join(cacheDirectory, imageName));
+      const imageTemporary = join(cacheDirectory, `${imageName}.tmp`);
+      const file = await open(imageTemporary, "w", 0o600);
+      try { await file.writeFile(bytes); await file.sync(); } finally { await file.close(); }
+      const saved = new Uint8Array(await readFile(imageTemporary));
+      if (!isJpeg(saved) || saved.length !== bytes.length || !saved.every((byte, index) => byte === bytes[index])) {
+        throw new Error("camera_saved_image_invalid");
       }
-      const files = await readdir(cacheDirectory);
-      const cached = files.map((name) => {
-        const match = /^hp10-(\d+)\.jpg$/.exec(name);
-        return match ? { capturedAt: Number(match[1]), imageName: name } : null;
-      }).filter(Boolean).sort((left, right) => right.capturedAt - left.capturedAt);
-      const keep = new Set(cached.slice(0, MAX_HISTORY_IMAGES).map((entry) => entry.capturedAt));
-      await Promise.all(cached.filter((entry) => !keep.has(entry.capturedAt)).map((entry) => rm(join(cacheDirectory, entry.imageName), { force: true })));
-      history = cached.filter((entry) => keep.has(entry.capturedAt)).sort((left, right) => left.capturedAt - right.capturedAt);
+      await rename(imageTemporary, join(cacheDirectory, imageName));
+      // Only a confirmed, atomically published JPEG permits rotation.
+      await restoreHistory();
       return;
     }
     history.push({ capturedAt, bytes });
@@ -103,16 +116,13 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
       // Empty/partial metadata is normal on first run; the scheduled poll will fill it.
     }
     try {
-      const files = await readdir(cacheDirectory);
-      const cached = files.map((name) => {
-        const match = /^hp10-(\d+)\.jpg$/.exec(name);
-        return match ? { capturedAt: Number(match[1]), imageName: name } : null;
-      }).filter(Boolean).sort((left, right) => right.capturedAt - left.capturedAt).slice(0, MAX_HISTORY_IMAGES);
-      for (const entry of cached) {
-        const bytes = new Uint8Array(await readFile(join(cacheDirectory, entry.imageName)));
-        if (isJpeg(bytes)) history.push(entry);
+      await restoreHistory();
+      const latest = history.at(-1);
+      // Recover a completed image if a crash interrupted the metadata update.
+      if (latest && (!image || latest.capturedAt > image.capturedAt)) {
+        image = { capturedAt: latest.capturedAt, bytes: new Uint8Array(await readFile(join(cacheDirectory, latest.imageName))) };
+        snapshot = { capturedAt: latest.capturedAt, checkedAt: null, sensorTime: null, sensorFresh: false, rainRate: null, rainUnit: "mm/hr", rainConfirmed: false, visualCondition: null, analysisStatus: "classifier_not_configured", restoredFromCache: true };
       }
-      history.sort((left, right) => left.capturedAt - right.capturedAt);
     } catch {
       // Missing history files are normal before the first successful camera poll.
     }
@@ -169,7 +179,7 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
         const photo = cameraData?.data?.camera?.photo;
         const capturedAt = numberOrNull(photo?.time);
         const sourceUrl = currentImageUrl(photo);
-        if (!capturedAt || !sourceUrl) throw new Error("camera_photo_metadata_invalid");
+        if (!Number.isSafeInteger(capturedAt) || capturedAt <= 0 || !sourceUrl) throw new Error("camera_photo_metadata_invalid");
         const sensor = stationData?.data?.rainfall_piezo ?? stationData?.data?.rainfall ?? {};
         const rate = numberOrNull(sensor?.rain_rate?.value);
         const rateUnit = sensor?.rain_rate?.unit ?? "mm/hr";
