@@ -6,6 +6,7 @@ declare namespace Cloudflare {
     ECOWITT_API_KEY?: string;
     ECOWITT_MAC?: string;
     ECOWITT_DEVICE_ID?: string;
+    WEATHER_HISTORY_READ_ONLY?: string;
     APSYSTEMS_APP_ID?: string;
     APSYSTEMS_APP_SECRET?: string;
   }

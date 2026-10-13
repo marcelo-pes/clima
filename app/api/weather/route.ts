@@ -1,6 +1,6 @@
 import { env } from "cloudflare:workers";
 import { lightningTotals } from "@/lib/lightning-totals";
-import { readWeatherHistory, saveWeatherHistory } from "@/lib/weather-history-store";
+import { hasHistoryCoverageGaps, readWeatherHistory, saveWeatherHistory, trimWeatherHistory } from "@/lib/weather-history-store";
 
 export const dynamic = "force-dynamic";
 
@@ -147,9 +147,9 @@ function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
 async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>, source: "auto" | "database" | "api" | "refresh" = "auto") {
   // A day/range/callback combination has a stable key across visitors. Recent
   // ranges refresh after five minutes; closed historical ranges remain cached.
-  const key = [mac, range.cycle, callbacks, utcDate(start).slice(0, 10), utcDate(end).slice(0, 10)].join("|");
+  const key = [mac, range.cycle, callbacks, Math.floor(start.getTime() / 1000), Math.floor(end.getTime() / 1000)].join("|");
   const recent = end.getTime() >= Date.now() - 2 * 86400000;
-  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, source === "database" || !recent ? Infinity : 300000);
+  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, start, end, source === "database" || !recent ? Infinity : 300000);
   if (stored) return stored;
   if (source === "database") throw new Error("Histórico ainda não importado para o banco");
   // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
@@ -180,7 +180,8 @@ async function fetchHistory(auth: Record<string, string>, mac: string, start: Da
     }
   }
   const data = results.reduce<JsonObject>((merged, result) => result.status === "fulfilled" ? mergeHistory(merged, asObject(result.value.data)) : merged, {});
-  const incomplete = results.some((result) => result.status === "rejected");
+  trimWeatherHistory(data, start, end);
+  const incomplete = results.some((result) => result.status === "rejected") || hasHistoryCoverageGaps(data, range.cycle, Math.floor(start.getTime() / 1000), Math.floor(end.getTime() / 1000));
   if (source !== "api" && !incomplete && results.length && Object.keys(data).length) {
     const closed = end.getTime() < Date.now() - 2 * 86400000;
     await saveWeatherHistory(key, data, Date.now() + (closed || source === "refresh" ? 10 * 365 : 5 / 1440) * 86400000);
