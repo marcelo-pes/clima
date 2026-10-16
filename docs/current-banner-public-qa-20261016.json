@@ -1,0 +1,126 @@
+[
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 1440,
+    "visits": [
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima.antaisolar.com.br/sw.js"
+      },
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima.antaisolar.com.br/sw.js"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 390,
+    "visits": [
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima.antaisolar.com.br/sw.js"
+      },
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima.antaisolar.com.br/sw.js"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 1440,
+    "visits": [
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima2.antaisolar.com.br/sw.js"
+      },
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima2.antaisolar.com.br/sw.js"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 390,
+    "visits": [
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima2.antaisolar.com.br/sw.js"
+      },
+      {
+        "selectedTab": "Dados Atuais",
+        "banner": 0,
+        "oldText": false,
+        "charts": 10,
+        "markers": 34,
+        "filters": 1,
+        "cacheKeys": [
+          "bauru-sul-no-history-window-v2"
+        ],
+        "worker": "https://clima2.antaisolar.com.br/sw.js"
+      }
+    ],
+    "errors": []
+  }
+]
