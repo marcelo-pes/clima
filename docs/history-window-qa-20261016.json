@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-16",
+  "viewports": [
+    1440,
+    390
+  ],
+  "checks": 24,
+  "results": [
+    {
+      "host": "clima.antaisolar.com.br",
+      "width": 1440,
+      "browser_messages": [],
+      "tabs": [
+        {
+          "tab": "Dados Atuais",
+          "banner": 0,
+          "charts": 10,
+          "markers": 34,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Previsão",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Satélite",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Ventos",
+          "banner": 0,
+          "charts": 1,
+          "markers": 4,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Histórico",
+          "banner": 0,
+          "charts": 1,
+          "markers": 10,
+          "filters": [
+            "Selecionar grupo",
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Perfil",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        }
+      ]
+    },
+    {
+      "host": "clima.antaisolar.com.br",
+      "width": 390,
+      "browser_messages": [
+        "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+      ],
+      "tabs": [
+        {
+          "tab": "Dados Atuais",
+          "banner": 0,
+          "charts": 10,
+          "markers": 34,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Previsão",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Satélite",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Ventos",
+          "banner": 0,
+          "charts": 1,
+          "markers": 4,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Histórico",
+          "banner": 0,
+          "charts": 1,
+          "markers": 10,
+          "filters": [
+            "Selecionar grupo",
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Perfil",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        }
+      ]
+    },
+    {
+      "host": "clima2.antaisolar.com.br",
+      "width": 390,
+      "browser_messages": [],
+      "tabs": [
+        {
+          "tab": "Dados Atuais",
+          "banner": 0,
+          "charts": 10,
+          "markers": 34,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Previsão",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Satélite",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Ventos",
+          "banner": 0,
+          "charts": 1,
+          "markers": 4,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Histórico",
+          "banner": 0,
+          "charts": 1,
+          "markers": 10,
+          "filters": [
+            "Selecionar grupo",
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Perfil",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        }
+      ]
+    },
+    {
+      "host": "clima2.antaisolar.com.br",
+      "width": 1440,
+      "browser_messages": [],
+      "tabs": [
+        {
+          "tab": "Dados Atuais",
+          "banner": 0,
+          "charts": 10,
+          "markers": 34,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Previsão",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Satélite",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        },
+        {
+          "tab": "Ventos",
+          "banner": 0,
+          "charts": 1,
+          "markers": 4,
+          "filters": [
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Histórico",
+          "banner": 0,
+          "charts": 1,
+          "markers": 10,
+          "filters": [
+            "Selecionar grupo",
+            "Selecionar período"
+          ]
+        },
+        {
+          "tab": "Perfil",
+          "banner": 0,
+          "charts": 0,
+          "markers": 0,
+          "filters": []
+        }
+      ]
+    }
+  ]
+}
