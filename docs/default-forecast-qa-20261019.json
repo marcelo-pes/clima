@@ -1,0 +1,114 @@
+[
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 1440,
+    "visits": [
+      {
+        "url": "/",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#current",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#profile",
+        "selected": "Previsão"
+      }
+    ],
+    "tabs": [
+      "Dados Atuais",
+      "Satélite",
+      "Ventos",
+      "Histórico",
+      "Perfil",
+      "Previsão"
+    ],
+    "errors": [],
+    "reloadFromCurrent": "Previsão"
+  },
+  {
+    "host": "clima.antaisolar.com.br",
+    "width": 390,
+    "visits": [
+      {
+        "url": "/",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#current",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#profile",
+        "selected": "Previsão"
+      }
+    ],
+    "tabs": [
+      "Dados Atuais",
+      "Satélite",
+      "Ventos",
+      "Histórico",
+      "Perfil",
+      "Previsão"
+    ],
+    "errors": [],
+    "reloadFromCurrent": "Previsão"
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 1440,
+    "visits": [
+      {
+        "url": "/",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#current",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#profile",
+        "selected": "Previsão"
+      }
+    ],
+    "tabs": [
+      "Dados Atuais",
+      "Satélite",
+      "Ventos",
+      "Histórico",
+      "Perfil",
+      "Previsão"
+    ],
+    "errors": [],
+    "reloadFromCurrent": "Previsão"
+  },
+  {
+    "host": "clima2.antaisolar.com.br",
+    "width": 390,
+    "visits": [
+      {
+        "url": "/",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#current",
+        "selected": "Previsão"
+      },
+      {
+        "url": "/#profile",
+        "selected": "Previsão"
+      }
+    ],
+    "tabs": [
+      "Dados Atuais",
+      "Satélite",
+      "Ventos",
+      "Histórico",
+      "Perfil",
+      "Previsão"
+    ],
+    "errors": [],
+    "reloadFromCurrent": "Previsão"
+  }
+]

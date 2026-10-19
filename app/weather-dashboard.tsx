@@ -540,8 +540,7 @@ export default function WeatherDashboard() {
   }, [needsHistory, tab]);
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1) as TabKey;
-    if (["current", "evolution", "wind", "map", "satellite", "profile"].includes(hash)) setTab(hash);
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#map`);
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(() => undefined);
   }, []);
   useEffect(() => {
