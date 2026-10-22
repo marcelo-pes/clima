@@ -49,6 +49,12 @@ jobs:
         run: |
           npm ci --prefix tests/browser --ignore-scripts --no-audit --no-fund
           tests/browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Installation preserves persistent data
+        env:
+          CLIMA_TEST_ARCHIVE: ${{ runner.temp }}/mac.tar.gz
+        run: |
+          python3 -m unittest discover -s tests/release -p 'test_*.py' -v
+          node --test tests/release/camera.test.mjs
       - name: Exact Mac artifact, Linux runtime, no node_modules
         run: |
           python3 tests/release/compare.py --release "$MAC_RELEASE" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/mac-linux-results" --browser

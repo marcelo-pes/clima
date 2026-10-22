@@ -90,3 +90,5 @@ O workflow manual `Validate Mac artifact on isolated Linux` recebe o ID de um as
 Para uma futura validação, guardar o tar sem dados/segredos como asset de release do GitHub e acionar o workflow informando ID e checksum locais. A referência compilada antiga é usada apenas para comparação diferencial; sua existência não é necessária para compilar, instalar ou executar uma release nova.
 
 Plataforma de produção consultada sem alterações em 22/10/2026: Ubuntu 24.04.4 LTS, x86_64, glibc 2.39, Python 3.12.3. A execução isolada usa a mesma família Ubuntu 24.04 e o Node Linux oficial fixado.
+
+O teste de instalação com um pacote real verifica que o staging pode ser repetido sem sobrescrever a release, que banco/configuração não mudam, que `current` não é alterado por padrão e que um candidato com SHA incorreto não pode ser promovido. O validador e o instalador funcionam também como ferramentas administrativas independentes: somente o comando de build importa o instalador de dependências.

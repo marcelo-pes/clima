@@ -5,7 +5,6 @@ from pathlib import Path, PurePosixPath
 NODE_VERSION = '22.23.3'
 NODE_SHA256 = '1084aa36196bba4c3a5e69a1ee388a6e4ff729dad09445fbcd434b28fe3c24af'
 SCHEMA = 1
-from install_deps import install
 
 def sha(p):
     h = hashlib.sha256()
@@ -58,6 +57,7 @@ def validate(archive):
         return manifest
 
 def build(source, output, ref='HEAD'):
+    from install_deps import install
     source = source.resolve(); output = output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     commit = subprocess.check_output(['git', '-C', str(source), 'rev-parse', ref + '^{commit}'], text=True).strip()

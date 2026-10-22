@@ -2,6 +2,7 @@ name: Clima isolated release validation
 on:
   push:
     branches: [main, build/clima-reprodutivel-20261022]
+    paths-ignore: ["**/*.md", "docs/**"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,6 +23,8 @@ jobs:
       - name: Build from Git with fresh dependency stores
         run: python3 deploy/tools/release.py build --output "$RUNNER_TEMP/clima-build"
       - name: Archive and collector safety tests
+        env:
+          CLIMA_TEST_ARCHIVE: ${{ runner.temp }}/clima-build/clima-linux-x64.tar.gz
         run: |
           python3 -m unittest discover -s tests/release -p 'test_*.py' -v
           node --test tests/release/camera.test.mjs
