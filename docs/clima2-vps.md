@@ -5,7 +5,7 @@ clima2.antaisolar.com.br hospeda frontend e backend na VPS 143.244.163.249, sepa
 ## Fonte única
 
 SQLite de produção:
-`/opt/clima-antaisolar/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite`
+`/root/CLIMA/Clima/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite`
 
 `clima2-antaisolar.service` configura `CLIMA_SQLITE_PATH` explicitamente, escuta 127.0.0.1:8788, usuário clima2, Node 22.23.3, Restart=on-failure. O runtime abre o banco readOnly/query_only; run é bloqueado. O diretório do banco é ReadOnlyPaths. Segredos apenas em `.runtime.vars` com permissão 600, fora do Git. Nginx serve `_next/static` e encaminha páginas/API para 8788; HTTPS com Certbot com timer de renovação. O endpoint de importação é bloqueado no clima2.
 
@@ -33,10 +33,10 @@ Vento atual permanece independente do período histórico. Média direcional usa
 
 ## Manutenção única
 
-Somente `clima-antaisolar-archive.timer`, às 23:59 America/Sao_Paulo, com Persistent, executa `/opt/clima-antaisolar/scripts/ecowitt_history_sync.py`. Não criar timer/importador para clima2. A rotina usa lock fcntl, backup SQLite online, integrity_check, gzip verificado e preserva backups anteriores. Recuperação preserva valores válidos e payloads de proveniência; tabelas derivadas de estatísticas são geradas pela mesma rotina em segundo plano.
+Somente `clima-antaisolar-archive.timer`, às 23:59 America/Sao_Paulo, com Persistent, executa `/root/CLIMA/Clima/scripts/ecowitt_history_sync.py`. Não criar timer/importador para clima2. A rotina usa lock fcntl, backup SQLite online, integrity_check, gzip verificado e preserva backups anteriores. Recuperação preserva valores válidos e payloads de proveniência; tabelas derivadas de estatísticas são geradas pela mesma rotina em segundo plano.
 
 ## Implantação e retomada
 
-Compilar no Mac; não fazer build pesado na VPS de 1 GB. Antes de mudanças preservar código/configurações e fazer backup consistente do SQLite se houver escrita. Enviar artefato sem node_modules, credenciais e banco. Manter implantação original na porta 8787; reiniciar só clima2 após instalar artefato. Registrar hash do artefato, commit Git, data, backup e testes em `/opt/clima2-antaisolar/REVIEW-RESUME-2026-10-05.md` e`review-deployment.json`.
+Compilar no Mac; não fazer build pesado na VPS de 1 GB. Antes de mudanças preservar código/configurações e fazer backup consistente do SQLite se houver escrita. Enviar artefato sem node_modules, credenciais e banco. Manter implantação original na porta 8787; reiniciar só clima2 após instalar artefato. Registrar hash do artefato, commit Git, data, backup e testes em `/root/CLIMA/Clima2/REVIEW-RESUME-2026-10-05.md` e`review-deployment.json`.
 
 Conferir unidades/journal, descritores do DB, nginx -t, HTTPS, timers, reinícios, RAM e CPU. Testar 8 grupos nos 4 períodos, desktop/mobile, CSV, tabela, datas, erro de rede e troca rápida. Logs dos períodos arquivados devem mostrar ecowittRequests=0. Erros de iframe/ extensão não são erros da aplicação; mapa oferece coordenadas/link externo e não bloqueia os sensores.

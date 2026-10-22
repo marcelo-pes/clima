@@ -16,7 +16,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from checkpoint_coverage import coverage
 
-ROOT = Path('/opt/clima-antaisolar')
+ROOT = Path('/root/CLIMA/Clima')
 helper = Path(__file__).with_name('ecowitt-history-import.py')
 if not helper.is_file():
     helper = ROOT / 'scripts/ecowitt_history_import.py'

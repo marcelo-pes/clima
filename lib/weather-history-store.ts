@@ -75,13 +75,15 @@ async function readImportedHistory(key: string, requestedStart: Date, requestedE
     try {
       mergeHistory(data, JSON.parse(row.payload) as JsonObject);
       hasPayload = true;
-      if (row.start_ts > coveredUntil + 1) incomplete = true;
       coveredUntil = Math.max(coveredUntil, row.end_ts);
     } catch { incomplete = true; }
   }
   if (!hasPayload) return null;
   trimWeatherHistory(data, requestedStart, requestedEnd);
-  return { data, incomplete: incomplete || coveredUntil < end || hasHistoryCoverageGaps(data, cycle, start, end), updatedAt: coveredUntil * 1000, origin: "database" };
+  // Checkpoint intervals need not be continuous to cover the provider's sample
+  // grid. Empty intervals between two samples do not represent lost readings.
+  // Invalid payloads and any missing required sample still report incomplete.
+  return { data, incomplete: incomplete || hasHistoryCoverageGaps(data, cycle, start, end), updatedAt: coveredUntil * 1000, origin: "database" };
 }
 
 export async function readWeatherHistory(key: string, start: Date, end: Date, maxAgeMs = Infinity, strict = false): Promise<StoredHistory | null> {

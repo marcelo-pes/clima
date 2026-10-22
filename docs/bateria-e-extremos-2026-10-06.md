@@ -33,6 +33,6 @@ Testes de regras de bateria, extremos em SQLite controlado, limites de dias parc
 
 Teste Node 22 na cópia SQLite da VPS: 18 variáveis de extremos; todos os valores e timestamps conferidos em registros do banco, nos períodos semanal, mensal e anual. Primeiras consultas do componente de extremos: aproximadamente 429, 100 e 614 ms, respectivamente, sob limite de CPU 35%; consultas em cache 0,04–10,31 ms. Esses números medem a rotina isolada; os tempos HTTP da implantação devem ser registrados no relatório final.
 
-Recuperação isolada com cinco janelas reais: zero perdas, zero mudanças de valores válidos e integrity_check=ok. Geração das estatísticas em cópia: 39.169 linhas com todos os timestamps preenchidos; pico de memória 149,9 MB. Backup e reversão em `/opt/clima2-antaisolar/backups/audit-20261006T113100Z`.
+Recuperação isolada com cinco janelas reais: zero perdas, zero mudanças de valores válidos e integrity_check=ok. Geração das estatísticas em cópia: 39.169 linhas com todos os timestamps preenchidos; pico de memória 149,9 MB. Backup e reversão em `/root/CLIMA/Clima2/backups/audit-20261006T113100Z`.
 
 A atualização dos dados atuais usa cache de no máximo 45 segundos no cliente e consulta sem cache HTTP; assim o timer de 60 segundos efetivamente consulta leituras atuais. O botão Atualizar também ignora cache HTTP. Os períodos arquivados mantêm cache independente e SQLite exclusivo.

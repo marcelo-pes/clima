@@ -1,0 +1,1 @@
+var e=`NEXT_REDIRECT;`;function t(t){if(!t.startsWith(e))return null;let n=t.indexOf(`;`,14);if(n===-1)return null;let r=t.slice(n+1),i=r.match(/;(303|307|308);?$/),a=r!==``&&t.endsWith(`;`);if(a&&!i)return null;let o=i?r.slice(0,-i[0].length):r,s=o;if(!a)try{s=decodeURIComponent(o)}catch{return null}return{status:i?Number(i[1]):307,type:t.slice(14,n)||null,url:s}}export{t};

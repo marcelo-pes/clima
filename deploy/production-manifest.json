@@ -1,0 +1,2325 @@
+{
+  "project": "Clima2",
+  "server": "143.244.163.249",
+  "snapshot_date": "2026-10-22",
+  "upstream_branch": "fix/clima2-review-20261005",
+  "upstream_commit": "5df8efe4cebece534d1133dfdcee29f62beeb436",
+  "deployment_modified": false,
+  "files": [
+    {
+      "path": "dist/.openai/drizzle/0000_pink_franklin_storm.sql",
+      "bytes": 159,
+      "sha256": "c07a331c57e622456c56669b4c8c62c990a2781f30079c07b835eb6142255f70"
+    },
+    {
+      "path": "dist/.openai/drizzle/meta/0000_snapshot.json",
+      "bytes": 1256,
+      "sha256": "fd72b7efe30f3738856bd9f9425c1ff732a69d458a3c2f3b5556478a048c816b"
+    },
+    {
+      "path": "dist/.openai/drizzle/meta/_journal.json",
+      "bytes": 209,
+      "sha256": "a209e4775e968e9a4cb25d491b5552cd7bc551a625e23f69191f0b44430e0c86"
+    },
+    {
+      "path": "dist/.openai/hosting.json",
+      "bytes": 91,
+      "sha256": "0f7bc34f92329cdd844c722f21118061a46348e7344ff9d3f1f17188485905bc"
+    },
+    {
+      "path": "dist/client/.assetsignore",
+      "bytes": 30,
+      "sha256": "14ce8d5101f6d8f172242053466d44f5e2cd622dee81db53c14bd445c25d1942"
+    },
+    {
+      "path": "dist/client/.vite/manifest.json",
+      "bytes": 4953,
+      "sha256": "b6b153380f976a79b4ea351efd657db089b5e3e1ebe96d01a201ef25059c863a"
+    },
+    {
+      "path": "dist/client/_headers",
+      "bytes": 131,
+      "sha256": "2148fb62669525f5091532d36d4a48a8da95b08a5a797bacde75d2fe981351bb"
+    },
+    {
+      "path": "dist/client/_next/static/3fb03c3b-4320-4493-820e-b9d6d97f1929/_buildManifest.js",
+      "bytes": 159,
+      "sha256": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb"
+    },
+    {
+      "path": "dist/client/_next/static/3fb03c3b-4320-4493-820e-b9d6d97f1929/_ssgManifest.js",
+      "bytes": 76,
+      "sha256": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479"
+    },
+    {
+      "path": "dist/client/_next/static/85a39568-2c8b-4a5d-b2c6-82a5c65ac4f6/_buildManifest.js",
+      "bytes": 159,
+      "sha256": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb"
+    },
+    {
+      "path": "dist/client/_next/static/85a39568-2c8b-4a5d-b2c6-82a5c65ac4f6/_ssgManifest.js",
+      "bytes": 76,
+      "sha256": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479"
+    },
+    {
+      "path": "dist/client/_next/static/97b971b6-a04f-4031-85ac-1ea5192ec450/_buildManifest.js",
+      "bytes": 159,
+      "sha256": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb"
+    },
+    {
+      "path": "dist/client/_next/static/97b971b6-a04f-4031-85ac-1ea5192ec450/_ssgManifest.js",
+      "bytes": 76,
+      "sha256": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/ComposedChart-aB1zFXwA.js",
+      "bytes": 351006,
+      "sha256": "91119738bef64a3b6d362ac60e6b420c56dbfb48aa269fa8190aeb0aa62c7920"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/app-route-prefetch-policy-Bc4-voe4.js",
+      "bytes": 937,
+      "sha256": "b3a9a918d104d66d46ec03c7c2b558b6f09e1364475381f3761459ad259cab5c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/app-route-prefetch-policy-DL4KAjMl.js",
+      "bytes": 937,
+      "sha256": "c51bf71ebd68d66f4bd6b587a62ad81b2f14ed5a3fd2158b6639a1d2c8632c30"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/app-route-prefetch-policy-LTJqvByN-footer20261015.js",
+      "bytes": 952,
+      "sha256": "510c0102e3d2eac0b3cca733a507e2b603b72e28009793a60d7dba9890d1b5a0"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/app-route-prefetch-policy-LTJqvByN.js",
+      "bytes": 937,
+      "sha256": "348c1525b363e9d32ee5a984bafbc0839a01cf26c7fd1e14165f50982cdd7053"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/app-route-prefetch-policy-lnSS_7us.js",
+      "bytes": 937,
+      "sha256": "c3e6fa399baff805d794c273ec24b2d52a2b8d6a73bc7e16367f7da57b55ba05"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/confere-dashboard-BGKZHRpJ.js",
+      "bytes": 5378,
+      "sha256": "3df2d78d409a661d677392872ef3a3e07da0a5367e8706acbcc5d7e947df5a09"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/confere-dashboard-D1LbSGks-footer20261015.js",
+      "bytes": 5393,
+      "sha256": "b9f09cdc7172b2b553a0787ca4a0c08dfbfbb4d5257468c7315d4994c5ac4fd8"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/confere-dashboard-D1LbSGks.js",
+      "bytes": 5378,
+      "sha256": "d13fa444d70e88967ae5586020906bdafcf5638d68a7ca37d236d58e50ed144c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/confere-dashboard-DHbV2mBK.js",
+      "bytes": 5378,
+      "sha256": "ba732122b8010a099fe124dd05ac760cf49ffcf9f6881db2ce270c9f66e47db4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/confere-dashboard-DwpkW80P.js",
+      "bytes": 5378,
+      "sha256": "70ae8a470de68d0e6e79edf6e7f5bc7570940710b3b60e94f1b3eb9a1e2c5ade"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/framework-D_rUT4EX.js",
+      "bytes": 190152,
+      "sha256": "939d0fabebb3b2f01753bb866b067d8d3384fb06da19f0e6557609d3b1a9f4f7"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/generation-dashboard-C-BG9yIe.js",
+      "bytes": 17428,
+      "sha256": "328f26a05bcae8a32d2b4a84ee041aac1db6f91931de0bcc395113a2f2a9a55a"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/index-BCKaN7C9.js",
+      "bytes": 195351,
+      "sha256": "1617bc32e1882ab98cae4f0ea5c1e615d5e4b8cf98c7251e6bea0dac019038fd"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/index-BqeylUY4.js",
+      "bytes": 195351,
+      "sha256": "ea0c002756766e73faa9c112df9d404846f1987d9ffe1284aa4394a78a9dff63"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/index-BzM0Hxmf.js",
+      "bytes": 195351,
+      "sha256": "028cdec99af2a632f8370852b18ad03b318fbb8082790aa2d74bc9431e803359"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/index-Y8uiw649-footer20261015.js",
+      "bytes": 195456,
+      "sha256": "1e53deaf6c74d0901606559b18c9f08af0f681c6a848ffa14294451fef16d5b3"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/index-Y8uiw649.js",
+      "bytes": 195351,
+      "sha256": "1ed3d856245fdc1616974070ed263ec5564ba5f58fa07f92f356752faf26144c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/layout-segment-context-B2w1F_jk.js",
+      "bytes": 494,
+      "sha256": "c21fcb6df7c85514b285fd8b21790edba86615fdab39ae65a9810164920f6ee3"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/layout-segment-context-BZYz3Afj-footer20261015.js",
+      "bytes": 509,
+      "sha256": "411730f1947b6636479bf2a1ea2ff9c5a080e6b6fd6a9501c4b3f6fc770a7b2d"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/layout-segment-context-BZYz3Afj.js",
+      "bytes": 494,
+      "sha256": "8a863756b150ae4f5e08eaebd48cc780ae37237d278adf61801f5000a4951222"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/layout-segment-context-CCGpd7Sm.js",
+      "bytes": 494,
+      "sha256": "feb4cb27b8159f0aa06c4d7f84601c7f37b478bd05a71a4c515b49279ca0f2f8"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/layout-segment-context-ClXJEcZ1.js",
+      "bytes": 494,
+      "sha256": "d9e7ea8fd97541c296e7b7aa6e0ad7ac8dcba11d47573e0199f341d3e4b62a73"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+      "bytes": 694,
+      "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/streamed-icons-DNogeH_Z.js",
+      "bytes": 772,
+      "sha256": "7eb2a6b44b9c0faa7300c8dd36b0fae7a35d9f65e139dd9046b3df193aa83bc8"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-IBAURU19-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-IBAURU19-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-IBAURU19.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-IBAURU19.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-ecowitt.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-IBAURU19.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-ecowitt.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861-no-history-window20261016.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB-wc4584593861.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-Ct1dsEiB.js",
+      "bytes": 249253,
+      "sha256": "8a22de028f5552313cc557da92b242fbb9f9afb3401ac3aa05335be6dd302eb4"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-IBAURU19-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-IBAURU19-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-IBAURU19.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-IBAURU19.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-ecowitt.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-IBAURU19.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-ecowitt.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861-no-history-window20261016.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8-wc4584593861.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-D-8f_ej8.js",
+      "bytes": 248048,
+      "sha256": "8ef02b582aa5bb791e9be2bdcd55559b9a8fb6a13b2d1201d7ea50bbbb2e593f"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-IBAURU19-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-IBAURU19-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-IBAURU19.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-IBAURU19.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-ecowitt.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-IBAURU19.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-ecowitt.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861-no-history-window20261016.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW-wc4584593861.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DRWe_0bW.js",
+      "bytes": 245756,
+      "sha256": "9d5ae2403fd19c6b390985289e34eea9cbd2361bb90e2c539b4f709236c0efad"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-IBAURU19-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-IBAURU19-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-IBAURU19.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-IBAURU19.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-ecowitt.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-IBAURU19.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-footer20261015-forecast-start20261019.js",
+      "bytes": 248311,
+      "sha256": "91ce8b290803ad61f3aba8d1e1c5c78bd24e56aae2f3d358b1f049753deebabb"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-footer20261015-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248311,
+      "sha256": "91ce8b290803ad61f3aba8d1e1c5c78bd24e56aae2f3d358b1f049753deebabb"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-footer20261015-no-history-window20261016.js",
+      "bytes": 248311,
+      "sha256": "91ce8b290803ad61f3aba8d1e1c5c78bd24e56aae2f3d358b1f049753deebabb"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-footer20261015.js",
+      "bytes": 248311,
+      "sha256": "91ce8b290803ad61f3aba8d1e1c5c78bd24e56aae2f3d358b1f049753deebabb"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-ecowitt.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861-no-history-window20261016.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7-wc4584593861.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/chunks/weather-dashboard-DocoZMA7.js",
+      "bytes": 248299,
+      "sha256": "c66fdcbd9dda72a395530f05c0cf30d7759c6f413e72c712b685355dedb60a7c"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.Bl0wA3Vo-no-history-window20261016.css",
+      "bytes": 190836,
+      "sha256": "b6631ef7472df73345c9c403799bb9083f62ef8fada3ddb245fca2fbb4ae6df0"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.Bl0wA3Vo.css",
+      "bytes": 190836,
+      "sha256": "b6631ef7472df73345c9c403799bb9083f62ef8fada3ddb245fca2fbb4ae6df0"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.OUztdGiO-no-history-window20261016.css",
+      "bytes": 190318,
+      "sha256": "8f168cbab609c630efd62c2240d273c5feef441d9f00affeac5a10e5e45999dd"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.OUztdGiO.css",
+      "bytes": 190318,
+      "sha256": "8f168cbab609c630efd62c2240d273c5feef441d9f00affeac5a10e5e45999dd"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.Rveyej-S-no-history-window20261016.css",
+      "bytes": 189099,
+      "sha256": "49adc3de5631910db4dae5930a2400d5b5c180ee558380cd5e6ca446abcabde7"
+    },
+    {
+      "path": "dist/client/_next/static/css/index.Rveyej-S.css",
+      "bytes": 189099,
+      "sha256": "49adc3de5631910db4dae5930a2400d5b5c180ee558380cd5e6ca446abcabde7"
+    },
+    {
+      "path": "dist/client/_next/static/e784357d-a2c5-477d-ba3d-36d14481394f/_buildManifest.js",
+      "bytes": 159,
+      "sha256": "47f02b34be6dc481257b6efce4c19e19111f37ef5c437f8ffed44f0da97fa9bb"
+    },
+    {
+      "path": "dist/client/_next/static/e784357d-a2c5-477d-ba3d-36d14481394f/_ssgManifest.js",
+      "bytes": 76,
+      "sha256": "653f3e53e89b4f8548ff86c19e92bb3c6b84b6be7485a320b1e00893ed877479"
+    },
+    {
+      "path": "dist/client/app-icon-192.png",
+      "bytes": 21953,
+      "sha256": "261afb17740e09d3d7b8a785d577d64638809e01a902432ee3fb37b6fca896ec"
+    },
+    {
+      "path": "dist/client/app-icon-512.png",
+      "bytes": 179242,
+      "sha256": "f278c1eab29b1f9468f2530b33c32e30abc9a240fa248ae3d3de8e87d849699b"
+    },
+    {
+      "path": "dist/client/app-icon.svg",
+      "bytes": 887,
+      "sha256": "5532e4691eb26624cd29555115cc930d774a7b0c4e2f54f19738417e8e3eb3f1"
+    },
+    {
+      "path": "dist/client/favicon.svg",
+      "bytes": 336,
+      "sha256": "5588239fdbdeb7ec2367d6473e07bd0d2d3b6a7647cc428e849fec28d22c826a"
+    },
+    {
+      "path": "dist/client/file.svg",
+      "bytes": 392,
+      "sha256": "1e0ae4d1a1ddfa36752988647b731e4abf150c414d069ec83c96fb0aaeff0307"
+    },
+    {
+      "path": "dist/client/globe.svg",
+      "bytes": 1036,
+      "sha256": "d051a8c47936990a9085693d307bb7cea1bc1b6d7ed956bcbaacf674f4ec96b9"
+    },
+    {
+      "path": "dist/client/manifest.webmanifest",
+      "bytes": 458,
+      "sha256": "efd0e35287638973beebebe1a0880046c2f0cdc9c1da1cedf285239091846621"
+    },
+    {
+      "path": "dist/client/station-logo.png",
+      "bytes": 21953,
+      "sha256": "261afb17740e09d3d7b8a785d577d64638809e01a902432ee3fb37b6fca896ec"
+    },
+    {
+      "path": "dist/client/sw.js",
+      "bytes": 1018,
+      "sha256": "605090f15abdd0cc963c984dfd9a4307de6ffc7ce8874d5db9b3bd3838ae2862"
+    },
+    {
+      "path": "dist/client/vinext-client-entry-manifest.json",
+      "bytes": 65,
+      "sha256": "34b20d8d885d95ac7f18c67d138398e0418798f161472c64c05e20c5d3dd96d3"
+    },
+    {
+      "path": "dist/client/weather-clear-day.webp",
+      "bytes": 22836,
+      "sha256": "2db8c2a4625ed523bdb10a6efd0280304cf0d5c14f9c55c7d5073b4f2af18cd6"
+    },
+    {
+      "path": "dist/client/weather-clear-night.webp",
+      "bytes": 8292,
+      "sha256": "d5adca861819231d78bc11feea2bc068fce4587df9e5649d64f8f93ca4601a89"
+    },
+    {
+      "path": "dist/client/weather-cloudy-day.webp",
+      "bytes": 17188,
+      "sha256": "408804dc5c42433063bb91536f500ed5837319b99d42b75dc30af034df2e753a"
+    },
+    {
+      "path": "dist/client/weather-cloudy-night.webp",
+      "bytes": 11632,
+      "sha256": "748e5b345ca44a42796ea30d6bcfe8415dbe9cf175324969d072046d0c9e5daf"
+    },
+    {
+      "path": "dist/client/weather-cloudy.png",
+      "bytes": 399467,
+      "sha256": "171ca0d01f09a64ca5587302193052ab08804d9551118ec2ce7719831aa5e8a9"
+    },
+    {
+      "path": "dist/client/weather-fog-day.webp",
+      "bytes": 16960,
+      "sha256": "cb0d47cd96ed2204deac6ccc38dc098d1df8d76eac16706d32bcdb89329ee2d6"
+    },
+    {
+      "path": "dist/client/weather-fog-night.webp",
+      "bytes": 8500,
+      "sha256": "f97815f92767281c2409016b44b616ef75d2f6c8a3abd85ba86926cd3b1781a2"
+    },
+    {
+      "path": "dist/client/weather-night.png",
+      "bytes": 287293,
+      "sha256": "0b9e7f61d929af8f9b0a7f4e1152c86a57e7dbbe37933a6d32cc92a4335998e0"
+    },
+    {
+      "path": "dist/client/weather-partial-day.webp",
+      "bytes": 68628,
+      "sha256": "65e0859e91b0674b2875f158eb2fbe4b6385988f5a6d19e19ddea5dc6b468875"
+    },
+    {
+      "path": "dist/client/weather-partial-night.webp",
+      "bytes": 42310,
+      "sha256": "9010950e633a4c5c1d6801955abca644eb55154e17b7b010f60e2a8f5caa8c2f"
+    },
+    {
+      "path": "dist/client/weather-rain-day.webp",
+      "bytes": 30584,
+      "sha256": "f17f9964f3b13154325b68a9167afc7232450143a7488bd6f8a0414591ca1d7e"
+    },
+    {
+      "path": "dist/client/weather-rain-night.webp",
+      "bytes": 38716,
+      "sha256": "33c46c9ce910623aa1667e8642968ae6034c877dbe9e4e53b4d3c178633031fd"
+    },
+    {
+      "path": "dist/client/weather-rainy.png",
+      "bytes": 439115,
+      "sha256": "78e147153beb7047daafcc25352e5983356a1a128552e987957091bbb095ef00"
+    },
+    {
+      "path": "dist/client/weather-storm-day.webp",
+      "bytes": 53714,
+      "sha256": "44cfa284f0cb77d9a6489fff0550791df3d1225db317328673302f11ef358cf7"
+    },
+    {
+      "path": "dist/client/weather-storm-night.webp",
+      "bytes": 29014,
+      "sha256": "ceeee851fc4d8beb2fa5ca1624e455144f9496bc374a0c877013e6c791ba0751"
+    },
+    {
+      "path": "dist/client/weather-sunny.png",
+      "bytes": 362640,
+      "sha256": "1decfad251c88023b3b625537475baad65119560c20e769838cb1ea0ebd5e0fd"
+    },
+    {
+      "path": "dist/client/window.svg",
+      "bytes": 386,
+      "sha256": "decf1cf7bb22b5c99c4857cfcd5718ce5465c4454166317589c83fc73df74b66"
+    },
+    {
+      "path": "dist/server/.vite/manifest.json",
+      "bytes": 14775,
+      "sha256": "f200650d1f493d85c2afdd2be885a3ff1d3b3502b1fd08165e3773e3b659dc10"
+    },
+    {
+      "path": "dist/server/BUILD_ID",
+      "bytes": 36,
+      "sha256": "7deedca4d680739d02d78866a8b06ade3fd2adcdd36460153aa8b9791788a949"
+    },
+    {
+      "path": "dist/server/__vite_rsc_assets_manifest.js",
+      "bytes": 3560,
+      "sha256": "118913a82b137f0145f3a0e5f1a52edc8465ff8377fa52e29a9c1d48eab59eb9"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-72shX2rv.js",
+      "bytes": 5194,
+      "sha256": "35d00afd00a0e26b8e3eea8434ae513f8fc5c67a5e18ff071570d494cd98a4ff"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-CSuBKtbM.js",
+      "bytes": 5194,
+      "sha256": "b0c0f2c76f4c7b6f8f30c873cce2f7d101e62e8163950997a12ce47a253e56fa"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-DH603jhc.js",
+      "bytes": 5194,
+      "sha256": "91ddb01a4fb31026b3b09286220a8a51839d663997e6ac247cff8f61f438459f"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-finalizer-CHFWlPOQ.js",
+      "bytes": 3480,
+      "sha256": "8d6e80099954bb0e97f9e924a157dfe12f4c4d732385f97678f81806f7a99487"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-finalizer-CfpulWBK.js",
+      "bytes": 3480,
+      "sha256": "8d98d7ce9ed9b1e790ec88a3429abffcc9668e90ac9b5500da2f8e65d347f034"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-finalizer-DjDiFC_g.js",
+      "bytes": 3480,
+      "sha256": "54b58023dc0d713c01f8686f3886415675927998e83f622f1787b9b02f382e05"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-finalizer-a5B1Mr2v.js",
+      "bytes": 3480,
+      "sha256": "6eb586c4691e9394483cf346cd302a806a3570dcba6e9b36a0b36af87602ad61"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-lwsWaNkm.js",
+      "bytes": 5194,
+      "sha256": "6ce93899a648bc1f3574b963ea7ae954a1ab64ee47cc03f29fcdbb902e19c012"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-render-BTPnd1oa.js",
+      "bytes": 1949,
+      "sha256": "7cdacb9aacb32c77fcaf7429e06c4156d03431357780809d955884686931449d"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-render-BY7xHm3D.js",
+      "bytes": 1949,
+      "sha256": "d13a4ae679f45f83ba67973c4e765edbb66579f4172d91ae6466d82cc57efce8"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-render-DzxaUjpO.js",
+      "bytes": 1949,
+      "sha256": "f496befb7f48f80ef2e9a76fc58e551b397ebe736ebfc8d26710e65159729fdd"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-cache-render-YQhEZX70.js",
+      "bytes": 1949,
+      "sha256": "3ea5f6ff77dff74a9abe86b9bf924dd60b87c83560ce85c3bb6899344bb94b49"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-stream-BQJgbI-n.js",
+      "bytes": 9968,
+      "sha256": "45b09a2318d89fec0d6db1120bbd51f4c857daaef7900edd70e926a524f8da24"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-stream-BeKJPcXu.js",
+      "bytes": 9968,
+      "sha256": "c89e50dbb5ae1f97c14f8c2826ddb2e29dda438793dac2435cd12463a8e44e1f"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-stream-CPXDJGh1.js",
+      "bytes": 9968,
+      "sha256": "023fbe0d1646ac6bbf4e5c5615c65ccf2d61ada06c967471381f381473fceaab"
+    },
+    {
+      "path": "dist/server/_next/static/app-page-stream-CaIzM9Lq.js",
+      "bytes": 9968,
+      "sha256": "c194cd3b66d019b26a364455fa6ed3b35f53543860733bd34d3da252e1df6d21"
+    },
+    {
+      "path": "dist/server/_next/static/app-prerender-endpoints-BGx221z_.js",
+      "bytes": 2012,
+      "sha256": "759c1441a75cefe6860b9d503c1d2170dd51673a39cb77256a503a3c9dfb3e99"
+    },
+    {
+      "path": "dist/server/_next/static/app-prerender-static-params-DvXNdgtR.js",
+      "bytes": 170,
+      "sha256": "6e964aa8668f6471bbd61cbe0c35f634520f654c499cac14950709481f96c1d2"
+    },
+    {
+      "path": "dist/server/_next/static/app-route-handler-dispatch-B1SyNePa.js",
+      "bytes": 26185,
+      "sha256": "869b3b8e438815fa6a591f29fae0de16292675e3443b7ca6a87481f1040e5449"
+    },
+    {
+      "path": "dist/server/_next/static/app-route-handler-dispatch-Cc9iEndk.js",
+      "bytes": 26185,
+      "sha256": "03113fcabf674a243f7de8480d3a57195244458c65b0955bc477960dc4e9e314"
+    },
+    {
+      "path": "dist/server/_next/static/app-route-handler-dispatch-DLpq7z47.js",
+      "bytes": 26185,
+      "sha256": "022f208f24676bb0730dda22d2b96b4cdfc88c67a2ed1b6f8199085a346d5ad7"
+    },
+    {
+      "path": "dist/server/_next/static/app-route-handler-dispatch-DR967LMj.js",
+      "bytes": 26185,
+      "sha256": "7bc45695cb7c47ad947bfca59f202e8212243fd412184b13ec009a145036dd78"
+    },
+    {
+      "path": "dist/server/_next/static/app-segment-config-BT3JDwfx.js",
+      "bytes": 13636,
+      "sha256": "47323cfebc6f1c2069684a08aa549a87f8ab38397ec8d4acf25d1fa5718748b7"
+    },
+    {
+      "path": "dist/server/_next/static/app-segment-config-BsoKEjj5.js",
+      "bytes": 13636,
+      "sha256": "a83e2f30d1d7acadd1cbed4d546e904d9ac4eb5fa6aca7b739fa660de78db4f2"
+    },
+    {
+      "path": "dist/server/_next/static/app-segment-config-BxWiHwjS.js",
+      "bytes": 13636,
+      "sha256": "3b3af274ccaa3380367123082c6c47018ef6c8db4e49528a04b1c530dadb16f9"
+    },
+    {
+      "path": "dist/server/_next/static/app-segment-config-C5_fgYGR.js",
+      "bytes": 13636,
+      "sha256": "209fe4e45308db1df61985b0dcc987810e5e9dda8f9d61d21fcf1a5dd091eb60"
+    },
+    {
+      "path": "dist/server/_next/static/app-static-generation-DhOT5QrC.js",
+      "bytes": 916,
+      "sha256": "71451721ae4a42108e9ed32567cd9d9861beb4952215b0fd57ffc373cd3edc01"
+    },
+    {
+      "path": "dist/server/_next/static/cache-headers-B8MRyYnU.js",
+      "bytes": 39306,
+      "sha256": "4510c95a530fc3744e727918156c04e3825bddccf9694f51bcc7d1070f4a8952"
+    },
+    {
+      "path": "dist/server/_next/static/cache-headers-BINksSdM.js",
+      "bytes": 39306,
+      "sha256": "2476c8a02e585060576bbdf3053bf0720e8e975cd01450d8effcbd3cb92acaed"
+    },
+    {
+      "path": "dist/server/_next/static/cache-headers-CfsZ8xWR.js",
+      "bytes": 39306,
+      "sha256": "513a49e5d4d0218b2b971828dd62706fb6465f1741685e20083b1382b0cb84fe"
+    },
+    {
+      "path": "dist/server/_next/static/cache-headers-DqfXMq-W.js",
+      "bytes": 39306,
+      "sha256": "2a2e41a33e3313752801ef1dd4a93055fe1afb2fdec2d77f55997bfa5f6c5849"
+    },
+    {
+      "path": "dist/server/_next/static/chatgpt-auth-CMhO003M.js",
+      "bytes": 1034,
+      "sha256": "af13862748813a962d1313409bbd217c74faeca446982f808c1ae0cdd8e0703e"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.Bl0wA3Vo-no-history-window20261016.css",
+      "bytes": 190836,
+      "sha256": "b6631ef7472df73345c9c403799bb9083f62ef8fada3ddb245fca2fbb4ae6df0"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.Bl0wA3Vo.css",
+      "bytes": 190836,
+      "sha256": "b6631ef7472df73345c9c403799bb9083f62ef8fada3ddb245fca2fbb4ae6df0"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.OUztdGiO-no-history-window20261016.css",
+      "bytes": 190318,
+      "sha256": "8f168cbab609c630efd62c2240d273c5feef441d9f00affeac5a10e5e45999dd"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.OUztdGiO.css",
+      "bytes": 190318,
+      "sha256": "8f168cbab609c630efd62c2240d273c5feef441d9f00affeac5a10e5e45999dd"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.Rveyej-S-no-history-window20261016.css",
+      "bytes": 189099,
+      "sha256": "49adc3de5631910db4dae5930a2400d5b5c180ee558380cd5e6ca446abcabde7"
+    },
+    {
+      "path": "dist/server/_next/static/css/index.Rveyej-S.css",
+      "bytes": 189099,
+      "sha256": "49adc3de5631910db4dae5930a2400d5b5c180ee558380cd5e6ca446abcabde7"
+    },
+    {
+      "path": "dist/server/_next/static/framework~index-BZI1-3gs.js",
+      "bytes": 200,
+      "sha256": "11a2dd9123784fb2c9cd572f03b93fc90fd4f76867f8efca913a26f3336cd9a3"
+    },
+    {
+      "path": "dist/server/_next/static/framework~index~app-page-cache-render~app-page-cache~page~page~layout~page~app-route-handle~h02z81kq-CvX_iNB5.js",
+      "bytes": 824,
+      "sha256": "a7dc69fcda336605fea28ac483d4e43bf47f8c32736eb125164a7e4433c71338"
+    },
+    {
+      "path": "dist/server/_next/static/framework~index~app-page-cache-render~app-page-cache~route~page~page~layout~page~app-route-~gt37ke1q-YIQIHwzm.js",
+      "bytes": 5499,
+      "sha256": "4f686187dcd97b5d9eef7f152f93eaf0b53172f59e748a8ecf410a20b326e9f8"
+    },
+    {
+      "path": "dist/server/_next/static/framework~index~page~page~page~app-route-handler-dispatch-CVK9f7gO.js",
+      "bytes": 56617,
+      "sha256": "621cbf053b0966a026d35f4b40a05c1dba8378d1360a553835068d9e64637271"
+    },
+    {
+      "path": "dist/server/_next/static/headers-BBgHuOI_.js",
+      "bytes": 4969,
+      "sha256": "dea2c425b42d7d36acb126e0f8925d1d3685c307257cb8c0924ae88718883baf"
+    },
+    {
+      "path": "dist/server/_next/static/headers-j0QAsRga.js",
+      "bytes": 10975,
+      "sha256": "d6db60f6759b11234d865969c3b08332223067a40da1fa0d77f6b567d12f81f0"
+    },
+    {
+      "path": "dist/server/_next/static/implicit-tags-1d1PxPHA.js",
+      "bytes": 1345,
+      "sha256": "f67adec43a89935cae6578fbb2b311f952c6cd0c94737ab4dd49db6cdac159d6"
+    },
+    {
+      "path": "dist/server/_next/static/implicit-tags-Cg9bgL-h.js",
+      "bytes": 1345,
+      "sha256": "7532149a4be62d969b6adf59e227378f764c24c01fe2851d5052d936b649cb47"
+    },
+    {
+      "path": "dist/server/_next/static/implicit-tags-YnG2geiR.js",
+      "bytes": 1345,
+      "sha256": "2f90fa35c63a32a04aadc07c6ed4d13ebd85b8a8c023359714d9cf3a1ef20e7a"
+    },
+    {
+      "path": "dist/server/_next/static/implicit-tags-nWOpMAUD.js",
+      "bytes": 1345,
+      "sha256": "49a344d44b18cc25f8ab68f94f0b4e77ed35a2163c945bdd0c237897b6fd8e9a"
+    },
+    {
+      "path": "dist/server/_next/static/isr-cache-B1fe9tJj.js",
+      "bytes": 4925,
+      "sha256": "92c8c6532cd3d5027a2899cf58868e712f176837e973a5c87c4c9bf5862fde74"
+    },
+    {
+      "path": "dist/server/_next/static/isr-cache-BFB-2jqG.js",
+      "bytes": 4925,
+      "sha256": "9db8c1c196b1f18b4f308fd638640bc7171f01c794300f67125e195dec83999c"
+    },
+    {
+      "path": "dist/server/_next/static/isr-cache-DAD-wCwS.js",
+      "bytes": 4925,
+      "sha256": "9288069f757b407a54f3aeb0730cad7e78b963451723730d00df85f68be53f0b"
+    },
+    {
+      "path": "dist/server/_next/static/isr-cache-JSyrhGdG.js",
+      "bytes": 4925,
+      "sha256": "c1f4f627f85439c64fe277bb6d8c360bd7aa9128dac27b5d1e14347512064cc8"
+    },
+    {
+      "path": "dist/server/_next/static/navigation-errors-Co6SVaeS.js",
+      "bytes": 1435,
+      "sha256": "dade71348a3f02a481b0b35e7e912d61d7a8c1eeca0ad45b61aef7f8a12f2cde"
+    },
+    {
+      "path": "dist/server/_next/static/navigation-runtime-CKR5qJep.js",
+      "bytes": 803,
+      "sha256": "c9179fe074a1e1dc5df72ca96136767ca47343a0b95897b79dd73734ca07b507"
+    },
+    {
+      "path": "dist/server/_next/static/navigation-runtime-CWDS27fP.js",
+      "bytes": 803,
+      "sha256": "f26326053d8c939a5ef82b7b40eecaa7840a1eff6d3f96734648abc3ae3cb786"
+    },
+    {
+      "path": "dist/server/_next/static/navigation-runtime-DHQtqsru.js",
+      "bytes": 803,
+      "sha256": "047bef868bae3d254a8cb4d2827e2e98c5c212a8b734ab52ac698174af84bab3"
+    },
+    {
+      "path": "dist/server/_next/static/navigation-runtime-kgJy8Omd.js",
+      "bytes": 803,
+      "sha256": "b926232798811dcbd99580ee8c89779695a7891fe76abb59bc0692ad62f5f66b"
+    },
+    {
+      "path": "dist/server/_next/static/navigation.react-server-DNq8809J.js",
+      "bytes": 262,
+      "sha256": "e17407d431da8c467a43370bb3eda6b78495303303409b6acfcee003fcaaf436"
+    },
+    {
+      "path": "dist/server/_next/static/page-CSFgwCBI.js",
+      "bytes": 382,
+      "sha256": "47bea25767b2683bca5ef99e217fd734bcf400fd02d68b7ea4c0f1aadc63ba17"
+    },
+    {
+      "path": "dist/server/_next/static/page-jPDgIpwu.js",
+      "bytes": 383,
+      "sha256": "8c2c07f62963cbe15a91d2595c8ba626e68d11b218ff6f3d56e74ce1bd8e7843"
+    },
+    {
+      "path": "dist/server/_next/static/page-toeXWchJ.js",
+      "bytes": 473,
+      "sha256": "0d9b3236bb6eeca98e5723e4f38e3ed728c94c61af725d97f08a967c0ff966e0"
+    },
+    {
+      "path": "dist/server/_next/static/record-Cz3MrZeO.js",
+      "bytes": 79,
+      "sha256": "b9bdb7b7d0e4844d241dba61104d18111d61ef92af3f137d15749531d276f9cf"
+    },
+    {
+      "path": "dist/server/_next/static/redirect-digest-C-06pD9r.js",
+      "bytes": 377,
+      "sha256": "b92ec9aa7c6dcd33cfbe31e79016b8e95e069db3104601e782c0eab8aa9d331b"
+    },
+    {
+      "path": "dist/server/_next/static/rolldown-runtime-DUnMT5BP.js",
+      "bytes": 694,
+      "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75"
+    },
+    {
+      "path": "dist/server/_next/static/root-params-CarSBhWB.js",
+      "bytes": 1244,
+      "sha256": "b1dbb34ba341adf166a683d8a2382ddd30e511bbdc7099280f75771becf39a7e"
+    },
+    {
+      "path": "dist/server/_next/static/route-BIEY6Myn.js",
+      "bytes": 34852,
+      "sha256": "2e976e16cd915b99f98d4443dc6521e5b2aae6a770e9a11cff5c8092d99828d4"
+    },
+    {
+      "path": "dist/server/_next/static/route-Co6yC0LU.js",
+      "bytes": 5104,
+      "sha256": "28b173ba81d30a318d8d13d8a6c2daaeb2fb48d67685c72dfa6469e9cc9dd6b6"
+    },
+    {
+      "path": "dist/server/_next/static/route-DD-3Sz5K.js",
+      "bytes": 2588,
+      "sha256": "655fefc2e8bce922af5e35b9b3438691ed32922ba481f4cf0a5ed71e0a12986f"
+    },
+    {
+      "path": "dist/server/_next/static/route-DZvDbXOA.js",
+      "bytes": 2588,
+      "sha256": "64221cb207f3516d0e21cc1926315d861ea8e069c34583a0349690d9a9357d9e"
+    },
+    {
+      "path": "dist/server/_next/static/route-DdgxE8W8.js",
+      "bytes": 32352,
+      "sha256": "acadb13c88347966a094be1f2fe556f16a9364dd9b25d2e00ebf488d9a1a63a3"
+    },
+    {
+      "path": "dist/server/_next/static/rsc-B3A_XInW.js",
+      "bytes": 735,
+      "sha256": "8f1321cc71358e719936e90fa7c03091b700dd92f114720f7db8ff07e174b94d"
+    },
+    {
+      "path": "dist/server/_next/static/text-stream-Bf_wzzCt.js",
+      "bytes": 19441,
+      "sha256": "4eab8a8fb6a60eba34a905a98b6f749777600303fd01ab7f12e76cc089e36c12"
+    },
+    {
+      "path": "dist/server/_next/static/text-stream-CWOCmsg7.js",
+      "bytes": 19441,
+      "sha256": "1acb02dead1ccda5f4dc98dd599839f0faca449051f6a38e01d0a2df5004bbc7"
+    },
+    {
+      "path": "dist/server/_next/static/text-stream-Dez09mg1.js",
+      "bytes": 19441,
+      "sha256": "b7474e8376c9b82509e09209b6d3d8e7b5b7df3e4a608be7dab1085146d164b4"
+    },
+    {
+      "path": "dist/server/_next/static/text-stream-Dz-yGYsS.js",
+      "bytes": 19441,
+      "sha256": "8808b6724f8eb4db8674c5b55aba1d279baca9fffaa7e40199a0903523c81651"
+    },
+    {
+      "path": "dist/server/index.js",
+      "bytes": 203715,
+      "sha256": "ea702eba86847e8cd797ba0544c9cd13a45fa64013b7032a7e0c962e566c8dd2"
+    },
+    {
+      "path": "dist/server/ssr/__vite_rsc_assets_manifest.js",
+      "bytes": 3560,
+      "sha256": "118913a82b137f0145f3a0e5f1a52edc8465ff8377fa52e29a9c1d48eab59eb9"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/YAxis-BHOn9Xlv.js",
+      "bytes": 349720,
+      "sha256": "c7560cd4aebcd9ebf7eba379fb9c3e665e8b59a35c88c94490b93ba5ab0bbb1e"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/app-prefetch-fetch-queue-BTKEsFpn.js",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/app-router-scroll-CcyZQ9p7.js",
+      "bytes": 2548,
+      "sha256": "b4c38c88d38cf00f1ebe95a416565037890ebf4840be07b6f8ad626676bd5f8e"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/confere-dashboard-B2Gq66vF.js",
+      "bytes": 5325,
+      "sha256": "577c98e9a4d94804f545980c6e60c9d6b05b562466286b90be0ab4ade01dd8e6"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/confere-dashboard-BpMfuTPe.js",
+      "bytes": 5325,
+      "sha256": "0cce4c37190b733d24b26889f473940f0d8e8360c06fa1dd59b3c70aeec68861"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/confere-dashboard-DWsteUmf.js",
+      "bytes": 5325,
+      "sha256": "6739cf9b6a5701b0611f0416e5e1c4d518f78cda151213079fb6c1f0a1ffb4c3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/confere-dashboard-DzQXxznf.js",
+      "bytes": 5325,
+      "sha256": "f4f3c1f966a010eee8ee9bdf1b862edd7e8af0823b77f322e891b4b99c61ce94"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/error-boundary-Ll73g66U.js",
+      "bytes": 5404,
+      "sha256": "765d8dc26f1a1b982b46dd4526077eaae1de0710879441fec425feec60d4b295"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/generation-dashboard-4Iih-DCi.js",
+      "bytes": 17373,
+      "sha256": "f05b803604b2724f250e1719c455d24dfbc5ae85857da01d5175bec0c4a206ee"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/layout-segment-context-BtIK9lQA.js",
+      "bytes": 381,
+      "sha256": "5a0b4659c33c3b067cc26d804eddb6829ef02f67949a2097efa4a8ba2327e34c"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/static.edge-IqRtACPa.js",
+      "bytes": 168,
+      "sha256": "9aa4706e79212b5ce4072eb3d7600afd525dc33bf2f7a66f64a94ffbc9fd7149"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/streamed-icons-DX8oh3qk.js",
+      "bytes": 691,
+      "sha256": "66718795c8b508966592a01dd32c2f35c985b4735ea87ad7d0e4cd722e1770ac"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-IBAURU19-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-IBAURU19-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-IBAURU19.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-IBAURU19.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-ecowitt.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-IBAURU19.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-ecowitt.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861-no-history-window20261016.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l-wc4584593861.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-BB2l3k4l.js",
+      "bytes": 248273,
+      "sha256": "53e7c99c81aad79d048031a3610d56e6ea45d4c01ecff29ee58785c9f6840e05"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-IBAURU19-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-IBAURU19-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-IBAURU19.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-IBAURU19.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-ecowitt.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-IBAURU19.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-ecowitt.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861-no-history-window20261016.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu-wc4584593861.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-CPSwGofu.js",
+      "bytes": 244900,
+      "sha256": "257c5e93b26bc3f44e98a3a8ecd5b1734d39168ebacc57ff0d798052348c4839"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-IBAURU19-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-IBAURU19-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-IBAURU19.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-IBAURU19.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-ecowitt.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-IBAURU19.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-ecowitt.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861-no-history-window20261016.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH-wc4584593861.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DEVZWusH.js",
+      "bytes": 247068,
+      "sha256": "cd53a0e663671acdc5118326a7945ca77a8c33ca84b200e6633b0534e26183f8"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-IBAURU19-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-IBAURU19-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-IBAURU19.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-IBAURU19.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-ecowitt.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-IBAURU19-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-IBAURU19-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-IBAURU19.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-IBAURU19-forecast-start20261019.js",
+      "bytes": 247331,
+      "sha256": "26d4fd4ee0a560fa59c122cb376c83426aa7cb566d5d745a6bcf40b38faed3d1"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247331,
+      "sha256": "26d4fd4ee0a560fa59c122cb376c83426aa7cb566d5d745a6bcf40b38faed3d1"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-IBAURU19-no-history-window20261016.js",
+      "bytes": 247331,
+      "sha256": "26d4fd4ee0a560fa59c122cb376c83426aa7cb566d5d745a6bcf40b38faed3d1"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-IBAURU19.js",
+      "bytes": 247331,
+      "sha256": "26d4fd4ee0a560fa59c122cb376c83426aa7cb566d5d745a6bcf40b38faed3d1"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-ecowitt.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-history-window20261016-forecast-start20261019.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861-no-history-window20261016.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb-wc4584593861.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/_next/static/weather-dashboard-DHT9wGGb.js",
+      "bytes": 247319,
+      "sha256": "22a7a1a938d4ff401d23b433ce4cdc6ae3ce685283eb44e39cc1c9d662876bf3"
+    },
+    {
+      "path": "dist/server/ssr/index.js",
+      "bytes": 278667,
+      "sha256": "4a4afe71d77f3580b990e118910c92aef2da221b88956976ff951c6d796389da"
+    },
+    {
+      "path": "dist/server/ssr/vinext-client-assets.js",
+      "bytes": 3117,
+      "sha256": "13d000b05bab9c876afa86e3107acc4dc07e9a45f1893d2329e404d91d210548"
+    },
+    {
+      "path": "dist/server/ssr/vinext-server.json",
+      "bytes": 86,
+      "sha256": "f0f89c84c3084f2b29950f176ec68801809b03db57485d767ed4e70113f29dff"
+    },
+    {
+      "path": "dist/server/vinext-client-assets.js",
+      "bytes": 3117,
+      "sha256": "13d000b05bab9c876afa86e3107acc4dc07e9a45f1893d2329e404d91d210548"
+    },
+    {
+      "path": "dist/server/vinext-externals.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "dist/server/vinext-server.json",
+      "bytes": 86,
+      "sha256": "f0f89c84c3084f2b29950f176ec68801809b03db57485d767ed4e70113f29dff"
+    },
+    {
+      "path": "dist/server/wrangler.json",
+      "bytes": 1293,
+      "sha256": "40037e9c9498735a53ecbe4fcaecbf765e98afbbd00b35a63c311843592b8397"
+    },
+    {
+      "path": "runtime/camera-service.mjs",
+      "bytes": 15362,
+      "sha256": "665444c8c64882c9a7252ba43b9460b0fcc96cedcf193a8a5c5767e55a537f9f"
+    },
+    {
+      "path": "runtime/cloudflare-env.mjs",
+      "bytes": 1122,
+      "sha256": "c8507a466a5e66c7f633bd533a91d8b954bd6467f917e03222e31a9d38b5ac5c"
+    },
+    {
+      "path": "runtime/cloudflare-loader.mjs",
+      "bytes": 242,
+      "sha256": "4b8d26613c03b739dec371c816a1c1ea7d92691563ecdfff9b7566d2a0de0a3d"
+    },
+    {
+      "path": "runtime/register-loader.mjs",
+      "bytes": 94,
+      "sha256": "edabc24ada53739dcce0f5b8436733dd6ad86a3dfc4093ca3a9010673e6c323b"
+    },
+    {
+      "path": "runtime/server.mjs",
+      "bytes": 5504,
+      "sha256": "beb1eaa552740c26118930593c46dbed409fb5e30d2f20f8ad75401a81e601d3"
+    },
+    {
+      "path": "deploy/shared-collector/archive_local.py",
+      "bytes": 1894,
+      "sha256": "1b6a4bbcd725153cdc8516a3cae4f4e9b291000d4771e4356c8366d800fb7a18"
+    },
+    {
+      "path": "deploy/shared-collector/audit_20261005.py",
+      "bytes": 2418,
+      "sha256": "fe69f6021a361a67015d82681f69ed006871a731f9b369d0d33e148c51a7eb99"
+    },
+    {
+      "path": "deploy/shared-collector/checkpoint_coverage.py",
+      "bytes": 1135,
+      "sha256": "3767b60db5f36ab3a0898b553b7469d962f3ea57e75eaab0e3515931e227eff1"
+    },
+    {
+      "path": "deploy/shared-collector/configure_ecowitt.py",
+      "bytes": 2897,
+      "sha256": "71bc28ebb524b17b0de1c8f5adfdb9843ba487bbd7328e73cdc5519a396c8f98"
+    },
+    {
+      "path": "deploy/shared-collector/confirm_production_db.py",
+      "bytes": 1507,
+      "sha256": "4a49dd02d5ddc58a48c57b7fda2eff5c2c9450372fa129a4f582d9b60be3a87a"
+    },
+    {
+      "path": "deploy/shared-collector/coverage_audit_20261005.py",
+      "bytes": 2126,
+      "sha256": "4e2b84a4c9d2fb1eabd4709c2a378e3aaef21ed0cf22416befeeebeca291f46b"
+    },
+    {
+      "path": "deploy/shared-collector/coverage_recovery.py",
+      "bytes": 13640,
+      "sha256": "8316a604b2dfcd511cac92152fc835f9ca8d23973d21d1bde5b1966d2a7825aa"
+    },
+    {
+      "path": "deploy/shared-collector/deploy_20261005.py",
+      "bytes": 2362,
+      "sha256": "f1435b816dcfdcbb01ef597c5996c0685ac34e06df0d1d08c005f356ad29ff8d"
+    },
+    {
+      "path": "deploy/shared-collector/deploy_performance_20261005.py",
+      "bytes": 2412,
+      "sha256": "02f19d4100d587670af39fa0da81afa891f9cecee0b63db78b419d321e3c126c"
+    },
+    {
+      "path": "deploy/shared-collector/ecowitt_history_import.py",
+      "bytes": 14796,
+      "sha256": "e2395d770064d8ca9c77aa18c721c2932d72a70de34e128cfd0d2bf4fe5a96fe"
+    },
+    {
+      "path": "deploy/shared-collector/ecowitt_history_sync.py",
+      "bytes": 10655,
+      "sha256": "1b0addaa779e1916b268b20bddd7f0c23cc519b2e4490a7d99309f8bbf44ae75"
+    },
+    {
+      "path": "deploy/shared-collector/finalize_recovery_test_20261005.py",
+      "bytes": 2097,
+      "sha256": "339ba2973f3a6a5e4da5f90e9272243401f224df969ab966490c4c022c1a2061"
+    },
+    {
+      "path": "deploy/shared-collector/history_gap_repair.py",
+      "bytes": 6431,
+      "sha256": "93f67dd9656dbd0209987454fd2ab114bcc7851717f20769835177ddfa91994f"
+    },
+    {
+      "path": "deploy/shared-collector/history_statistics.py",
+      "bytes": 2297,
+      "sha256": "e06a1088ba39065b17ca75a01e50b4184c4ccfc5db3c37832268f0d5e5efad00"
+    },
+    {
+      "path": "deploy/shared-collector/live_check_20261005.py",
+      "bytes": 1741,
+      "sha256": "a2dfbc65f3089933969d3b4c2ae109d66edb292c4ef803673d9fd63e6f1ebea6"
+    },
+    {
+      "path": "deploy/shared-collector/maintenance_20261005.py",
+      "bytes": 1235,
+      "sha256": "163a6f934405140657ea1a7308f6a98058ab8ab932cca446f569bc68832d2bfa"
+    },
+    {
+      "path": "deploy/shared-collector/probe_resolution_20261005.py",
+      "bytes": 1503,
+      "sha256": "0a5e8bab8d393c34b1d7562715afbdb36b5641dc0b1d7f0b8fb62088278b3926"
+    },
+    {
+      "path": "deploy/shared-collector/recover-history.py",
+      "bytes": 4931,
+      "sha256": "1b91d5e84f754803eeadcf14888fd8c01e0a4cc66012c086343ce99413084a87"
+    },
+    {
+      "path": "deploy/shared-collector/recover_real_history.py",
+      "bytes": 2045,
+      "sha256": "bfe598adebc2a941ea955fc3fafb036d3de706f70fadba151860e380a2bc0255"
+    },
+    {
+      "path": "deploy/shared-collector/repair_empty_20261005.py",
+      "bytes": 2871,
+      "sha256": "efb9fada4bbfc3bf17ec1457a1d6292739c3a7b658e82330b2e17dd6628b3681"
+    },
+    {
+      "path": "deploy/shared-collector/resume_import_20261002.py",
+      "bytes": 3408,
+      "sha256": "c7ae6f8acb6c4be667961aea46ac17b1e6d7d548a2a86609b9e4806f7d0d7d54"
+    },
+    {
+      "path": "deploy/shared-collector/source_check_20261005.py",
+      "bytes": 1333,
+      "sha256": "4d0aa43880bdf40fea171bd77b673347c6e1cd30ab55a8b1504e4e1cbdbf9818"
+    },
+    {
+      "path": "deploy/shared-collector/test_daily_statistics_20261005.py",
+      "bytes": 1326,
+      "sha256": "fe6842430657d9120f85475e0c6c574e5e475efaa97da026ff80cde6565bd8b2"
+    },
+    {
+      "path": "deploy/shared-collector/timezone_probe_20261005.py",
+      "bytes": 1373,
+      "sha256": "529dfeee798887febff3805b224316c91e9704f4f23e074a3bf2328fff9fc324"
+    },
+    {
+      "path": "deploy/shared-collector/verify_history_preservation.py",
+      "bytes": 3579,
+      "sha256": "b6fcaacd603cad67a760298b3538d271fe3920b07973a9b3e7ca3d5f93c7e53c"
+    },
+    {
+      "path": "deploy/shared-collector/verify_preservation_20261005.py",
+      "bytes": 1710,
+      "sha256": "4b30bfc2e159bfde3d8b57aad217140db124815a4cda2aacdde482468dd8a9fa"
+    }
+  ]
+}

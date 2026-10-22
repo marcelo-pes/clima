@@ -59,3 +59,20 @@ next-env.d.ts
 .runtime.vars*
 
 *.tsbuildinfo
+
+# Private production state: never commit
+.runtime.vars*
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+/backups/
+/database/
+/cache/
+/logs/
+/administration/
+*.pyc
+__pycache__/
+*.bundle
+*.tar
+*.tar.gz

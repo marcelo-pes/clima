@@ -7,18 +7,18 @@ Este é o estado final após a continuidade e publicação explicitamente autori
 - URL: https://clima2.antaisolar.com.br.
 - Commit de código: **a2892eb1af408fe28c280ea7c50e95a0ffc08059** (`a2892eb`). Publicado em **06/10/2026 14:24:52 UTC / 11:24:52 America/Sao_Paulo**.
 - Artefato SHA256: `c15ed98e7733685b85599b4d93e8aeb46b7299fdbaa5a029f7e0413f2b87cda6`.
-- Registro verificável: `/opt/clima2-antaisolar/review-deployment.json`. Aplicação `/opt/clima2-antaisolar/app`, `clima2-antaisolar.service`, Node 22.23.3, loopback 8788. Active, NRestarts=0, healthz e HTTPS públicos verificados.
+- Registro verificável: `/root/CLIMA/Clima2/review-deployment.json`. Aplicação `/root/CLIMA/Clima2/app`, `clima2-antaisolar.service`, Node 22.23.3, loopback 8788. Active, NRestarts=0, healthz e HTTPS públicos verificados.
 - Inclui bateria correta, pinos de mínimo/máximo, tooltips do /confere, atualização ao vivo e todos os ajustes de largura/cards. Não há ajuste de largura pendente. Limite original de 1600 px mantido; telas de 320 a 1920 px testadas.
 - Publicação final conferida em Chrome 1440×1000 e 390×844: 64 combinações de grupo/período, seis abas, CSV/tabela, período vazio, bateria e cards. Zero erros/warnings, cortes de pinos ou overflow nos elementos examinados.
-- Original `/opt/clima-antaisolar/app`, serviço loopback 8787, não publicado/reiniciado nesta execução; ativo desde 05/10 17:17:36 UTC. Clima original público/DNS/Sites/visibilidade preservados. Banco compartilhado recebeu apenas a recuperação/importação autorizada, preservando os registros anteriores.
+- Original `/root/CLIMA/Clima/app`, serviço loopback 8787, não publicado/reiniciado nesta execução; ativo desde 05/10 17:17:36 UTC. Clima original público/DNS/Sites/visibilidade preservados. Banco compartilhado recebeu apenas a recuperação/importação autorizada, preservando os registros anteriores.
 
 ## Ajuste da aba Satélite às 11:24:52
 
-Coluna centralizada de 522 px seguindo o original, painel de condições alinhado e iframe compacto sem painéis laterais indevidos. Reprodução/data/horário, cinco camadas, proporção nativa, animação e link externo preservados; crédito fora da imagem. Em celular muito estreito, redução uniforme do iframe evita o layout quebrado do provedor. Testes locais e públicos em 1440/900/600/390/320 px; animação real verificada em 1440 e 320. Outras abas mantêm a largura anterior. Backup/reversão `/opt/clima2-antaisolar/backups/satellite-layout-20261006T142449Z/`. Captura pública do computador em `/Users/pes/clima2-qa-20261005/audit-20261006/satellite-public-1440.png`. Ver [satelite-2026-10-06.md](satelite-2026-10-06.md).
+Coluna centralizada de 522 px seguindo o original, painel de condições alinhado e iframe compacto sem painéis laterais indevidos. Reprodução/data/horário, cinco camadas, proporção nativa, animação e link externo preservados; crédito fora da imagem. Em celular muito estreito, redução uniforme do iframe evita o layout quebrado do provedor. Testes locais e públicos em 1440/900/600/390/320 px; animação real verificada em 1440 e 320. Outras abas mantêm a largura anterior. Backup/reversão `/root/CLIMA/Clima2/backups/satellite-layout-20261006T142449Z/`. Captura pública do computador em `/Users/pes/clima2-qa-20261005/audit-20261006/satellite-public-1440.png`. Ver [satelite-2026-10-06.md](satelite-2026-10-06.md).
 
 ## Ajuste visual posterior às 10:50:40
 
-Os dois blocos técnicos e o aviso equivalente da sequência de gráficos foram removidos do painel público, sem espaços residuais. Estatísticas e diagnóstico de cobertura continuam no /confere. Apenas dois componentes de renderização alterados; cálculos, indicadores, consultas e sincronização preservados. Backup imediato da versão 442fc50 e reversão em `/opt/clima2-antaisolar/backups/visual-diagnostics-20261006T135037Z/`. Ver [visual-diagnostics-2026-10-06.md](visual-diagnostics-2026-10-06.md). As medições/auditoria histórica abaixo são da correção anterior e continuam válidas; não se repetiu a recuperação.
+Os dois blocos técnicos e o aviso equivalente da sequência de gráficos foram removidos do painel público, sem espaços residuais. Estatísticas e diagnóstico de cobertura continuam no /confere. Apenas dois componentes de renderização alterados; cálculos, indicadores, consultas e sincronização preservados. Backup imediato da versão 442fc50 e reversão em `/root/CLIMA/Clima2/backups/visual-diagnostics-20261006T135037Z/`. Ver [visual-diagnostics-2026-10-06.md](visual-diagnostics-2026-10-06.md). As medições/auditoria histórica abaixo são da correção anterior e continuam válidas; não se repetiu a recuperação.
 
 ## Correções e regras
 
@@ -32,7 +32,7 @@ Raios: “Sem atividade recente” inteiro em uma linha, sem sobreposição. Ven
 
 SQLite único de produção:
 
-`/opt/clima-antaisolar/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite`
+`/root/CLIMA/Clima/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite`
 
 Clima2 readOnly/query_only; rota de escrita/archive bloqueada. Histórico semanal/mensal/anual normal: runtime sqliteOnly=true, **ecowittRequests=0**, confirmado por código, requisições e logs. Abrir/trocar período não importa dados. Atualização atual preservada; cache vivo 45 s e HTTP no-store, timer 60 s/manual testados.
 
@@ -46,20 +46,20 @@ Clima2 readOnly/query_only; rota de escrita/archive bloqueada. Histórico semana
 
 Auditoria final exaustiva: **1.534.840 chaves / 1.491.260 valores válidos / 41 variáveis**. Aumento 3.941 chaves / 3.918 válidos inclui recuperação e incremental recente. **Zero perdas, zero mudanças de valores válidos existentes, zero duplicatas; cache e proveniência preservados; integrity_check=ok.** Relatórios coverage-after, preservation e source-gaps de 06/10 em docs/.
 
-Origem antiga frequentemente devolve resolução mais baixa ou agregado diário; ausências foram registradas, não preenchidas. Payloads/progresso em `/opt/clima-antaisolar/backups/gap-repair-6cf9f3a60babe245/`. Não reexecutar production-repair-plan.json automaticamente.
+Origem antiga frequentemente devolve resolução mais baixa ou agregado diário; ausências foram registradas, não preenchidas. Payloads/progresso em `/root/CLIMA/Clima/backups/gap-repair-6cf9f3a60babe245/`. Não reexecutar production-repair-plan.json automaticamente.
 
 ## Agendamento, backups e reversão
 
-Único `/opt/clima-antaisolar/scripts/ecowitt_history_sync.py`; clima-antaisolar-archive.service/timer, **23:59 America/Sao_Paulo**, enabled/active/Persistent/lock exclusivo. Disparo de 05/10 23:59 confirmado e backup íntegro. Próximo 06/10 23:59 BRT = 07/10 02:59 UTC. Novo mecanismo durável salva pendência antes da rede, retenta após falha mesmo fora da retenção e não duplica; testes passaram. Drop-in temporário de reparo removido, incremental normal restaurado.
+Único `/root/CLIMA/Clima/scripts/ecowitt_history_sync.py`; clima-antaisolar-archive.service/timer, **23:59 America/Sao_Paulo**, enabled/active/Persistent/lock exclusivo. Disparo de 05/10 23:59 confirmado e backup íntegro. Próximo 06/10 23:59 BRT = 07/10 02:59 UTC. Novo mecanismo durável salva pendência antes da rede, retenta após falha mesmo fora da retenção e não duplica; testes passaram. Drop-in temporário de reparo removido, incremental normal restaurado.
 
-Backup/reversão `/opt/clima2-antaisolar/backups/audit-20261006T113100Z/`: production-before.sqlite/.gz, código anterior e backups imediatamente antes das publicações, scripts/unidades e relatórios. rollback-code.sh restaura frontend/sincronizador, **preserva o SQLite recuperado** e o script de estatísticas compatível com as colunas novas. Nunca restaurar o banco antigo para reverter uma alteração de frontend.
+Backup/reversão `/root/CLIMA/Clima2/backups/audit-20261006T113100Z/`: production-before.sqlite/.gz, código anterior e backups imediatamente antes das publicações, scripts/unidades e relatórios. rollback-code.sh restaura frontend/sincronizador, **preserva o SQLite recuperado** e o script de estatísticas compatível com as colunas novas. Nunca restaurar o banco antigo para reverter uma alteração de frontend.
 
 ## Git e locais
 
 Repositório marcelo-pes/clima, branch **fix/clima2-review-20261005**. Autenticação HTTPS de escrita do Mac funcionou; commits enviados. Chave SSH da VPS continua somente leitura, sem alteração/credencial exposta. GitHub/main não foi mesclado nem forçado. Código publicado a2892eb; commit posterior apenas de documentação inclui este checkpoint. Consultar git log para o hash do checkpoint.
 
 - Fonte principal `/Users/pes/clima2-20261005` (snapshot sem Git).
-- Git local `/Users/pes/clima2-git-20261006`; VPS `/opt/clima2-antaisolar/repository`.
+- Git local `/Users/pes/clima2-git-20261006`; VPS `/root/CLIMA/Clima2/repository`.
 - Evidências QA `/Users/pes/clima2-qa-20261005/audit-20261006/`; relatórios selecionados em docs/.
 - Histórico preservado em RETOMADA-2026-10-05.md e retomada-2026-10-06.md, marcado como verificação inicial superada.
 
