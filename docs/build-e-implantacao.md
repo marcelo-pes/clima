@@ -92,3 +92,16 @@ Para uma futura validação, guardar o tar sem dados/segredos como asset de rele
 Plataforma de produção consultada sem alterações em 22/10/2026: Ubuntu 24.04.4 LTS, x86_64, glibc 2.39, Python 3.12.3. A execução isolada usa a mesma família Ubuntu 24.04 e o Node Linux oficial fixado.
 
 O teste de instalação com um pacote real verifica que o staging pode ser repetido sem sobrescrever a release, que banco/configuração não mudam, que `current` não é alterado por padrão e que um candidato com SHA incorreto não pode ser promovido. O validador e o instalador funcionam também como ferramentas administrativas independentes: somente o comando de build importa o instalador de dependências.
+
+## Resultado registrado em 22/10/2026
+
+- Instalação limpa no Mac com pnpm 11.25.0 e lockfile sem alterações: 629 pacotes baixados, zero reutilizados; cache/store próprios.
+- Pacote gerado no Mac: commit de fonte `8507fa827ab6a58ba8bb7dd769e894bb8f96d652`, 46.752.961 bytes, SHA-256 `ee96c6cf23efefb1f0265bae776de1072d372b8dd87441fd7e210f48f8b83034`. Alterações posteriores no Git acrescentam testes/documentação, sem mudar o payload desse pacote validado.
+- Build limpo e validação integral em Linux: [execução](https://github.com/marcelo-pes/clima/actions/runs/39854666752).
+- O **mesmo tar do Mac**, iniciado no Ubuntu pelo `start.sh` com Node Linux incluído e sem node_modules: [execução aprovada](https://github.com/marcelo-pes/clima/actions/runs/39855409132).
+- 42 comparações de API: 14 endpoints/consultas em cada cenário de provedor saudável, fallback e indisponibilidade. Status/JSON e JPEG equivalentes, histórico com zero chamadas externas, SQLite sem alterações.
+- 12 comparações visuais: seis abas em 1440px e 390px. Texto e dimensões iguais; diferença de pixels **zero** em todas, com dados e horário controlados.
+- Segurança do arquivo, exclusão mútua e retomada da coleta, backup e preservação de observações válidas, recuperação da câmera, staging idempotente e recusa de promoção com hash incorreto testados.
+- Produção permaneceu no PID 809062, sem reinícios, em `/root/CLIMA/Clima/app`; hash do runtime anterior confirmado inalterado. Nenhuma release foi enviada ou ativada no servidor.
+
+O resumo estruturado está em [validacao-build-2026-10-22.json](validacao-build-2026-10-22.json). As evidências completas com dados sintéticos ficam em `/Users/pes/CLIMA/Validacao-build-20261022/linux-mac-evidence/` e nos artifacts das execuções. Disponibilidade real futura dos provedores e credenciais privadas não são comprovadas por fixtures; devem ser conferidas na validação do candidato quando uma implantação for autorizada. Não restam dependências de código, Node ou node_modules existentes apenas no servidor para executar este pacote.

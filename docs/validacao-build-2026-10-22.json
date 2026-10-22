@@ -1,0 +1,353 @@
+{
+  "date": "2026-10-22",
+  "package": {
+    "asset_id": 667098168,
+    "bytes": 46752961,
+    "sha256": "ee96c6cf23efefb1f0265bae776de1072d372b8dd87441fd7e210f48f8b83034"
+  },
+  "build": {
+    "package_manager": "pnpm@11.25.0",
+    "lock_sha256": "89dcf13994f9f97e62a63ac011591005afe4096309f4488ec0b99f7593a9294c",
+    "node_modules_initially_absent": true,
+    "fresh_store": true
+  },
+  "artifact_source_commit": "8507fa827ab6a58ba8bb7dd769e894bb8f96d652",
+  "linux_source_run": "https://github.com/marcelo-pes/clima/actions/runs/39854666752",
+  "mac_artifact_linux_run": "https://github.com/marcelo-pes/clima/actions/runs/39855409132",
+  "api_scenarios": [
+    {
+      "platform": "linux",
+      "node": "v22.23.3",
+      "node_modules": false,
+      "provider_mode": "fallback",
+      "api_results": [
+        {
+          "path": "/healthz",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=summary",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=current",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=30d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=1y",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&date=2026-10-01",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d&view=statistics",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?view=extras",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/sequence",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/image",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather/archive",
+          "status": 403,
+          "equivalent": true
+        },
+        {
+          "path": "/api/generation",
+          "status": 401,
+          "equivalent": true
+        }
+      ],
+      "archived_external_requests": 0
+    },
+    {
+      "platform": "linux",
+      "node": "v22.23.3",
+      "node_modules": false,
+      "provider_mode": "healthy",
+      "api_results": [
+        {
+          "path": "/healthz",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=summary",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=current",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=30d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=1y",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&date=2026-10-01",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d&view=statistics",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?view=extras",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/sequence",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/image",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather/archive",
+          "status": 403,
+          "equivalent": true
+        },
+        {
+          "path": "/api/generation",
+          "status": 401,
+          "equivalent": true
+        }
+      ],
+      "archived_external_requests": 0
+    },
+    {
+      "platform": "linux",
+      "node": "v22.23.3",
+      "node_modules": false,
+      "provider_mode": "unavailable",
+      "api_results": [
+        {
+          "path": "/healthz",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=summary",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&view=current",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=30d",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=1y",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=24h&date=2026-10-01",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?range=7d&view=statistics",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather?view=extras",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/sequence",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/camera/image",
+          "status": 200,
+          "equivalent": true
+        },
+        {
+          "path": "/api/weather/archive",
+          "status": 403,
+          "equivalent": true
+        },
+        {
+          "path": "/api/generation",
+          "status": 401,
+          "equivalent": true
+        }
+      ],
+      "archived_external_requests": 0
+    }
+  ],
+  "browser": [
+    {
+      "viewport": 1440,
+      "tab": "map",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "current",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "evolution",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "wind",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "satellite",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "profile",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "map",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "current",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "evolution",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "wind",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "satellite",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    },
+    {
+      "viewport": 390,
+      "tab": "profile",
+      "pixelDifference": 0,
+      "visibleTextEqual": true
+    }
+  ],
+  "installation": {
+    "stage_idempotent": true,
+    "current_unchanged": true,
+    "persistent_data_preserved": true,
+    "all_condition_images_present": true,
+    "node_modules": false,
+    "source_commit": "8507fa827ab6a58ba8bb7dd769e894bb8f96d652",
+    "package_sha256": "ee96c6cf23efefb1f0265bae776de1072d372b8dd87441fd7e210f48f8b83034",
+    "package_bytes": 46752961
+  },
+  "safety_tests": {
+    "archive_traversal_links_duplicates_and_legacy_rejected": true,
+    "collector_lock_resume_backup_valid_value_preservation": true,
+    "camera_restore_refresh_failure_stale_expiry": true,
+    "wrong_candidate_hash_cannot_promote": true
+  },
+  "production_changed": false,
+  "production_runtime_sha256": "beb1eaa552740c26118930593c46dbed409fb5e30d2f20f8ad75401a81e601d3",
+  "limits": [
+    "Inputs and upstream providers are synthetic; no production credentials or writes used.",
+    "OS libraries, Python, timezone/CA certificates, configuration and persistent data remain external by design.",
+    "The historical comparison reference is a test-only GitHub draft asset, not a build/runtime dependency."
+  ]
+}
