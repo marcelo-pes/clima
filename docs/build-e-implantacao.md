@@ -54,7 +54,7 @@ python3 install_release.py clima-linux-x64.tar.gz --root /root/CLIMA/Clima
 
 Por padrão, isso cria somente `releases/clima-COMMIT-HASH`. Não altera `current`, serviços, Nginx, configuração, banco ou câmera. Destinos existentes só são reutilizados se os hashes conferirem. Não sobrescreve pastas antigas.
 
-Para a primeira adoção do layout, preservar integralmente a pasta `app` e sua configuração antes de qualquer substituição. A produção de 22/10 continua em `app`; ela **não foi convertida** para `current` nesta etapa. As unidades em `deploy/` são modelos futuros, não foram instaladas no servidor.
+Na adoção inicial, preservar integralmente a pasta `app` e sua configuração antes de qualquer substituição. A implantação de 22/10 está registrada em [deploy-2026-10-22.md](deploy-2026-10-22.md): `current` aponta para a release Linux, `previous` preserva a instalação anterior e as unidades de `deploy/` descrevem o serviço ativo.
 
 Procedimento de troca:
 
@@ -102,6 +102,6 @@ O teste de instalação com um pacote real verifica que o staging pode ser repet
 - 42 comparações de API: 14 endpoints/consultas em cada cenário de provedor saudável, fallback e indisponibilidade. Status/JSON e JPEG equivalentes, histórico com zero chamadas externas, SQLite sem alterações.
 - 12 comparações visuais: seis abas em 1440px e 390px. Texto e dimensões iguais; diferença de pixels **zero** em todas, com dados e horário controlados.
 - Segurança do arquivo, exclusão mútua e retomada da coleta, backup e preservação de observações válidas, recuperação da câmera, staging idempotente e recusa de promoção com hash incorreto testados.
-- Produção permaneceu no PID 809062, sem reinícios, em `/root/CLIMA/Clima/app`; hash do runtime anterior confirmado inalterado. Nenhuma release foi enviada ou ativada no servidor.
+- No momento desta validação, antes da autorização de implantação subsequente, a produção permanecia no PID 809062 em `/root/CLIMA/Clima/app`; o hash do runtime anterior estava inalterado. A implantação autorizada e a Release pública estão registradas em [deploy-2026-10-22.md](deploy-2026-10-22.md).
 
-O resumo estruturado está em [validacao-build-2026-10-22.json](validacao-build-2026-10-22.json). As evidências completas com dados sintéticos ficam em `/Users/pes/CLIMA/Validacao-build-20261022/linux-mac-evidence/` e nos artifacts das execuções. Disponibilidade real futura dos provedores e credenciais privadas não são comprovadas por fixtures; devem ser conferidas na validação do candidato quando uma implantação for autorizada. Não restam dependências de código, Node ou node_modules existentes apenas no servidor para executar este pacote.
+O resumo estruturado está em [validacao-build-2026-10-22.json](validacao-build-2026-10-22.json). As evidências completas com dados sintéticos ficam em `/Users/pes/CLIMA/Validacao-build-20261022/linux-mac-evidence/` e nos artifacts das execuções. A validação com configuração real do candidato e o resultado da publicação estão em [deploy-2026-10-22.md](deploy-2026-10-22.md). Não restam dependências de código, Node ou node_modules existentes apenas no servidor para executar este pacote.

@@ -19,7 +19,7 @@ PrivateTmp=true
 ProtectHome=read-only
 ProtectSystem=strict
 ReadOnlyPaths=/root/CLIMA/Clima/database
-CacheDirectory=clima-antaisolar
+CacheDirectory=clima-antaisolar-release-8507fa8
 
 [Install]
 WantedBy=multi-user.target
