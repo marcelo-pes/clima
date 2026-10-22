@@ -16,10 +16,8 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from checkpoint_coverage import coverage, valid
 
-ROOT = Path('/root/CLIMA/Clima')
-helper = Path(__file__).with_name('ecowitt-history-import.py')
-if not helper.is_file():
-    helper = ROOT / 'scripts/ecowitt_history_import.py'
+ROOT = Path(os.environ.get('CLIMA_ROOT', '/root/CLIMA/Clima'))
+helper = Path(__file__).with_name('ecowitt_history_import.py')
 spec = importlib.util.spec_from_file_location('importer', helper)
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
@@ -84,10 +82,12 @@ def windows_to_revisit(c, device, cycle, end_ts):
 
 
 def main():
+    (ROOT / 'backups').mkdir(parents=True, exist_ok=True)
     lock = open(ROOT / 'backups/history-import.lock', 'a')
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
+        lock.close()
         raise RuntimeError('IMPORT_ALREADY_RUNNING')
     try:
         return sync_locked()

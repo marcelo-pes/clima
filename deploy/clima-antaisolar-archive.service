@@ -1,0 +1,16 @@
+[Unit]
+Description=Clima single scheduled Ecowitt collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=clima
+Group=clima
+WorkingDirectory=/root/CLIMA/Clima
+EnvironmentFile=/root/CLIMA/Clima/config/service.env
+ExecStart=/usr/bin/python3 /root/CLIMA/Clima/current/collector/ecowitt_history_sync.py
+TimeoutStartSec=40min
+MemoryMax=180M
+CPUQuota=50%
+NoNewPrivileges=true

@@ -41,7 +41,7 @@ const server = http.createServer(async (incoming, outgoing) => {
     if (!/^(clima2\.antaisolar\.com\.br|clima\.antaisolar\.com\.br|127\.0\.0\.1|localhost)(:\d+)?$/.test(host)) { outgoing.writeHead(400);outgoing.end('Invalid host');return; }
     const scheme = incoming.headers['x-forwarded-proto'] === 'https' ? 'https' : 'http';
     const url = new URL(incoming.url, `${scheme}://${host}`);
-    if (url.pathname === '/healthz') { outgoing.writeHead(200,{'Content-Type':'application/json'});outgoing.end('{"status":"ok"}');return; }
+    if (url.pathname === '/healthz') { outgoing.writeHead(200,{'Content-Type':'application/json'});outgoing.end(JSON.stringify({status:'ok', ...(process.env.CLIMA_RELEASE_SHA256 ? {releaseSha256:process.env.CLIMA_RELEASE_SHA256} : {})}));return; }
     if (url.pathname === '/api/weather/archive') { outgoing.writeHead(403);outgoing.end('Archive disabled on clima2');return; }
     const cameraResponse = await cameraService.handle(url.pathname, new Request(url, { method:incoming.method, headers }));
     if (cameraResponse) {

@@ -1,5 +1,5 @@
 [Unit]
-Description=Clima AntaiSolar application and read-only SQLite backend
+Description=Clima AntaiSolar
 After=network-online.target
 Wants=network-online.target
 
@@ -7,13 +7,10 @@ Wants=network-online.target
 Type=simple
 User=clima
 Group=clima
-WorkingDirectory=/root/CLIMA/Clima/app
+WorkingDirectory=/root/CLIMA/Clima/current
 Environment=NODE_ENV=production
-Environment=PORT=8789
-Environment=CLIMA_SQLITE_PATH=/root/CLIMA/Clima/database/wrangler/v3/d1/miniflare-D1DatabaseObject/faaf2b0445ab934c3aac48ddf0cdfade8f9bac050be98993748742cdd2cb05fb.sqlite
-Environment=CLIMA_SECRETS_FILE=/root/CLIMA/Clima/app/.runtime.vars
-Environment=CLIMA_CAMERA_CACHE_DIR=/var/cache/clima-antaisolar
-ExecStart=/root/CLIMA/Clima/runtime/node-v22/bin/node --max-old-space-size=160 --import ./runtime/register-loader.mjs ./runtime/server.mjs
+EnvironmentFile=/root/CLIMA/Clima/config/service.env
+ExecStart=/root/CLIMA/Clima/current/start.sh
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=90

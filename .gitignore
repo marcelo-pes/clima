@@ -59,3 +59,9 @@ next-env.d.ts
 .runtime.vars*
 
 *.tsbuildinfo
+
+# Local release/test state
+/release-work/
+/test-results/
+__pycache__/
+*.pyc

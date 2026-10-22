@@ -1,0 +1,46 @@
+name: Clima isolated release validation
+on:
+  push:
+    branches: [main, build/clima-reprodutivel-20261022]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.3
+      - name: Build from Git with fresh dependency stores
+        run: python3 deploy/tools/release.py build --output "$RUNNER_TEMP/clima-build"
+      - name: Archive and collector safety tests
+        run: python3 -m unittest discover -s tests/release -p 'test_*.py' -v
+      - name: Browser test dependencies (separate pinned lockfile)
+        run: |
+          npm ci --prefix tests/browser --ignore-scripts --no-audit --no-fund
+          tests/browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Download published reference (no secrets or data)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir "$RUNNER_TEMP/baseline"
+          curl --fail --silent --show-error --location -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/octet-stream' https://api.github.com/repos/marcelo-pes/clima/releases/assets/667035699 -o "$RUNNER_TEMP/baseline.tar.gz"
+          echo 'fafbbb7b3597c3f1a91e193ad887f6c0c0a282712f10f2274aebbcaac80c723b  baseline.tar.gz' | sed "s@baseline.tar.gz@$RUNNER_TEMP/baseline.tar.gz@" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/baseline.tar.gz" -C "$RUNNER_TEMP/baseline"
+      - name: Differential Linux API and browser tests, synthetic data only
+        run: python3 tests/release/compare.py --release "$RUNNER_TEMP/clima-build/release" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/linux-results" --browser
+      - name: Upload package and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clima-linux-validation
+          path: |
+            ${{ runner.temp }}/clima-build/clima-linux-x64.tar.gz
+            ${{ runner.temp }}/clima-build/SHA256SUMS
+            ${{ runner.temp }}/linux-results
+          retention-days: 14
