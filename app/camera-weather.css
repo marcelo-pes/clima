@@ -31,3 +31,6 @@
   .camera-timelapse-controls button { min-height: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { .camera-timelapse-screen img { animation: none; } }
+
+.map-forecast { background-color: #142b39; }
+.map-forecast::before { background: linear-gradient(90deg, #030f16b8, #030f1694, #030f16b8); }

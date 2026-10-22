@@ -71,6 +71,12 @@ def build(source, output, ref='HEAD'):
     env.update(NODE_ENV='production', CLOUDFLARE_CF_FETCH_ENABLED='false', WRANGLER_SEND_METRICS='false', WRANGLER_WRITE_LOGS='false')
     run(['node', 'scripts/run-framework.mjs', 'build'], cwd=workspace, env=env)
     package(workspace, output, commit)
+    for name in ('install.log', 'install-report.json'):
+        shutil.copy2(output/'install'/name, output/name)
+    # Only remove scratch dependencies created by this build. Keep source export,
+    # package, manifests and proof, without accumulating gigabytes on the Mac.
+    shutil.rmtree(workspace/'node_modules')
+    shutil.rmtree(output/'install')
     print('Clean source/lockfile build:', commit, flush=True)
 
 def package(workspace, output, commit):

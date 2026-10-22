@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./camera-weather.css";
 
 export const metadata: Metadata = {
   title: "Estação Meteorológica Bauru Sul",

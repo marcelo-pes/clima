@@ -15,7 +15,7 @@ python3 deploy/tools/release.py build --output /Users/pes/CLIMA/Builds/Clima-NOV
 
 A pasta de saída deve ser nova. O fluxo instala o pnpm fixado no package.json com cache npm novo, executa `pnpm install --frozen-lockfile` com store/cache próprios inicialmente vazios e compila com autenticação real (`mockAuth=false`), independentemente do perfil local. Não muda o lockfile, não aproveita node_modules, não instala dependências no servidor e não executa scripts Linux de preparação no Mac.
 
-Saídas: `clima-linux-x64.tar.gz`, `SHA256SUMS`, árvore `release/`, fonte exportado, ferramentas/store de build. Somente o tar de release deve ser transferido. Stores e fonte são material local, não parte da implantação.
+Saídas: `clima-linux-x64.tar.gz`, `SHA256SUMS`, árvore `release/`, fonte exportado e provas `install.log`/`install-report.json`. Somente o tar de release deve ser transferido. As dependências/cache/store temporários criados pelo build são removidos após o sucesso, para não acumular gigabytes no Mac. Em falha, a pasta fica preservada para diagnóstico.
 
 ## Conteúdo da release e dependências Linux
 

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
-@import "./camera-weather.css";
 
 :root {
   --background:#07131d; --foreground:#eef8fc; --card:#0b1b27; --card-foreground:#eef8fc;

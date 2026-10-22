@@ -51,6 +51,8 @@ jobs:
           path: |
             ${{ runner.temp }}/clima-build/clima-linux-x64.tar.gz
             ${{ runner.temp }}/clima-build/SHA256SUMS
+            ${{ runner.temp }}/clima-build/install.log
+            ${{ runner.temp }}/clima-build/install-report.json
             ${{ runner.temp }}/linux-results
             ${{ runner.temp }}/fallback-results
             ${{ runner.temp }}/unavailable-results
