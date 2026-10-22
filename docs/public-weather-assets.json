@@ -1,0 +1,77 @@
+{
+  "origin": "Current public site read-only; not backup recovery",
+  "files": [
+    {
+      "path": "public/weather-clear-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-clear-day.webp",
+      "sha256": "2db8c2a4625ed523bdb10a6efd0280304cf0d5c14f9c55c7d5073b4f2af18cd6",
+      "bytes": 22836
+    },
+    {
+      "path": "public/weather-clear-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-clear-night.webp",
+      "sha256": "d5adca861819231d78bc11feea2bc068fce4587df9e5649d64f8f93ca4601a89",
+      "bytes": 8292
+    },
+    {
+      "path": "public/weather-partial-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-partial-day.webp",
+      "sha256": "65e0859e91b0674b2875f158eb2fbe4b6385988f5a6d19e19ddea5dc6b468875",
+      "bytes": 68628
+    },
+    {
+      "path": "public/weather-partial-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-partial-night.webp",
+      "sha256": "9010950e633a4c5c1d6801955abca644eb55154e17b7b010f60e2a8f5caa8c2f",
+      "bytes": 42310
+    },
+    {
+      "path": "public/weather-cloudy-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-cloudy-day.webp",
+      "sha256": "408804dc5c42433063bb91536f500ed5837319b99d42b75dc30af034df2e753a",
+      "bytes": 17188
+    },
+    {
+      "path": "public/weather-cloudy-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-cloudy-night.webp",
+      "sha256": "748e5b345ca44a42796ea30d6bcfe8415dbe9cf175324969d072046d0c9e5daf",
+      "bytes": 11632
+    },
+    {
+      "path": "public/weather-rain-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-rain-day.webp",
+      "sha256": "f17f9964f3b13154325b68a9167afc7232450143a7488bd6f8a0414591ca1d7e",
+      "bytes": 30584
+    },
+    {
+      "path": "public/weather-rain-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-rain-night.webp",
+      "sha256": "33c46c9ce910623aa1667e8642968ae6034c877dbe9e4e53b4d3c178633031fd",
+      "bytes": 38716
+    },
+    {
+      "path": "public/weather-storm-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-storm-day.webp",
+      "sha256": "44cfa284f0cb77d9a6489fff0550791df3d1225db317328673302f11ef358cf7",
+      "bytes": 53714
+    },
+    {
+      "path": "public/weather-storm-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-storm-night.webp",
+      "sha256": "ceeee851fc4d8beb2fa5ca1624e455144f9496bc374a0c877013e6c791ba0751",
+      "bytes": 29014
+    },
+    {
+      "path": "public/weather-fog-day.webp",
+      "url": "https://clima.antaisolar.com.br/weather-fog-day.webp",
+      "sha256": "cb0d47cd96ed2204deac6ccc38dc098d1df8d76eac16706d32bcdb89329ee2d6",
+      "bytes": 16960
+    },
+    {
+      "path": "public/weather-fog-night.webp",
+      "url": "https://clima.antaisolar.com.br/weather-fog-night.webp",
+      "sha256": "f97815f92767281c2409016b44b616ef75d2f6c8a3abd85ba86926cd3b1781a2",
+      "bytes": 8500
+    }
+  ]
+}

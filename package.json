@@ -6,7 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "install:ci": "bash scripts/install-pnpm.sh",
+    "install:ci": "python3 deploy/tools/install_deps.py --work .clima-install",
     "dev": "node scripts/run-framework.mjs dev",
     "build": "node scripts/run-framework.mjs build",
     "start": "node --max-old-space-size=160 --import ./runtime/register-loader.mjs ./runtime/server.mjs",

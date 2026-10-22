@@ -20,6 +20,10 @@ globalThis.fetch=async(input,options)=>{
   }else data={};
   return Response.json({code:0,time:String(fixed/1000),data});
  }
- // Weather providers unavailable: exercise existing unavailable/fallback behavior, no live network.
+ const mode=process.env.CLIMA_TEST_PROVIDER_MODE??'healthy';
+ if(u.hostname==='www.climatempo.com.br'&&mode==='healthy')return Response.json({status_code:200,data:{getWeatherNow:[{data:[{locale:{idcity:406,idlocale:6655},weather:{id:6655,name:'Bauru',icon:'1',condition:'Sol',date:'22/10/2026',dateUpdate:'11:55:00',temperature:24,sensation:24}}]}]}});
+ if(u.hostname==='aviationweather.gov'&&mode!=='unavailable')return Response.json([{icaoId:'SBBU',reportTime:'2026-10-22T11:55:00Z',rawOb:'SBBU 221155Z 09005KT CAVOK 24/16 Q1013',cover:'CLR',temp:24}]);
+ // No real network: unavailable provider exercises the established fallback.
+
  return new Response('Fixture: provider unavailable',{status:503});
 };

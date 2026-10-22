@@ -42,6 +42,19 @@ const server = http.createServer(async (incoming, outgoing) => {
     const scheme = incoming.headers['x-forwarded-proto'] === 'https' ? 'https' : 'http';
     const url = new URL(incoming.url, `${scheme}://${host}`);
     if (url.pathname === '/healthz') { outgoing.writeHead(200,{'Content-Type':'application/json'});outgoing.end(JSON.stringify({status:'ok', ...(process.env.CLIMA_RELEASE_SHA256 ? {releaseSha256:process.env.CLIMA_RELEASE_SHA256} : {})}));return; }
+    // The previous installation delegated all static assets to Nginx. A release
+    // must also work on its own (candidate validation and a fresh Linux host).
+    if (['GET','HEAD'].includes(incoming.method) && !url.pathname.startsWith('/api/')) {
+      const asset = await ASSETS.fetch(new Request(url, {method:incoming.method}));
+      if (asset.status === 200 || url.pathname.startsWith('/_next/static/')) {
+        outgoing.statusCode=asset.status;
+        for (const [name,value] of asset.headers) outgoing.setHeader(name,value);
+        outgoing.setHeader('Cache-Control', url.pathname.startsWith('/_next/static/') ? 'public, max-age=31536000, immutable' : 'no-cache');
+        if (asset.body && incoming.method!=='HEAD') Readable.fromWeb(asset.body).pipe(outgoing);
+        else outgoing.end();
+        return;
+      }
+    }
     if (url.pathname === '/api/weather/archive') { outgoing.writeHead(403);outgoing.end('Archive disabled on clima2');return; }
     const cameraResponse = await cameraService.handle(url.pathname, new Request(url, { method:incoming.method, headers }));
     if (cameraResponse) {

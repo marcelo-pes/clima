@@ -5,6 +5,7 @@ from pathlib import Path, PurePosixPath
 NODE_VERSION = '22.23.3'
 NODE_SHA256 = '1084aa36196bba4c3a5e69a1ee388a6e4ff729dad09445fbcd434b28fe3c24af'
 SCHEMA = 1
+from install_deps import install
 
 def sha(p):
     h = hashlib.sha256()
@@ -65,13 +66,7 @@ def build(source, output, ref='HEAD'):
     with tarfile.open(fileobj=io.BytesIO(raw)) as t:
         list(safe_members(t)); t.extractall(workspace)
     if (workspace / 'node_modules').exists(): raise ValueError('Git contains node_modules')
-    spec = json.loads((workspace / 'package.json').read_text())['packageManager']
-    if not re.fullmatch(r'pnpm@\d+\.\d+\.\d+', spec): raise ValueError('Pin pnpm explicitly')
-    tools = output / 'tools'
-    # Private, initially empty npm cache and pnpm store. No existing modules or store.
-    run(['npm', '--prefix', tools, '--cache', output/'npm-cache', 'install', '--ignore-scripts', '--no-audit', '--no-fund', spec])
-    pnpm = tools/'node_modules/pnpm/bin/pnpm.cjs'
-    run(['node', pnpm, 'install', '--frozen-lockfile', '--store-dir', output/'pnpm-store', '--cache-dir', output/'pnpm-cache'], cwd=workspace)
+    install(workspace, output/'install')
     env = {k:v for k,v in os.environ.items() if not any(word in k.upper() for word in ('TOKEN', 'SECRET', 'PASSWORD', 'API_KEY'))}
     env.update(NODE_ENV='production', CLOUDFLARE_CF_FETCH_ENABLED='false', WRANGLER_SEND_METRICS='false', WRANGLER_WRITE_LOGS='false')
     run(['node', 'scripts/run-framework.mjs', 'build'], cwd=workspace, env=env)

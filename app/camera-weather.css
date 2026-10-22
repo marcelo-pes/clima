@@ -1,0 +1,33 @@
+/* Match the current public camera/condition presentation, verified 2026-10-22.
+   These rules were absent from the versioned source and are release inputs. */
+.current-condition-time {
+  color: #edf3f7;
+  text-align: center;
+  margin-top: 12px;
+  font-size: .68rem;
+  line-height: 1.5;
+}
+.forecast-condition small { line-height: 1.35; }
+.map-forecast[data-status="stale"] .current-condition-time { color: #ffe29a; font-weight: 700; }
+.camera-observation { border-top: 1px solid var(--line); background: #0c151a; margin: 0; padding: 12px; }
+.camera-observation img { object-fit: contain; background: #05090b; width: 100%; height: auto; max-height: 300px; display: block; }
+.camera-timelapse { min-width: 0; }
+.camera-timelapse-screen { background: #05090b; place-items: center; min-height: 170px; display: grid; overflow: hidden; }
+.camera-timelapse-screen img { object-fit: contain; width: 100%; height: auto; max-height: 340px; animation: .18s ease-out both hp10-frame-in; display: block; }
+.camera-timelapse-empty { color: #c4d0d6; text-align: center; place-items: center; min-height: 170px; padding: 20px; font-size: .82rem; display: grid; }
+.camera-timelapse-details { gap: 7px; padding-top: 10px; display: grid; }
+.camera-rain-reading { color: #b9c9d0; text-align: center; white-space: nowrap; font-size: clamp(.58rem, 2.7vw, .72rem); line-height: 1.4; }
+.camera-timelapse-controls { flex-wrap: wrap; gap: 8px; display: flex; }
+.camera-timelapse-controls button { color: #e8f2f5; min-height: 36px; font: inherit; cursor: pointer; background: #15242b; border: 1px solid #bed7e233; border-radius: 5px; justify-content: center; align-items: center; gap: 7px; padding: 7px 11px; font-size: .7rem; display: inline-flex; }
+.camera-timelapse-controls button:hover:not(:disabled) { background: #1a303a; border-color: #55c7dd; }
+.camera-timelapse-controls button:focus-visible { outline-offset: 2px; outline: 2px solid #55c7dd; }
+.camera-timelapse-controls button:disabled { opacity: .5; cursor: not-allowed; }
+@keyframes hp10-frame-in { from { opacity: .72; } to { opacity: 1; } }
+@media (max-width: 1020px) { .camera-timelapse-screen img { max-height: 430px; } }
+@media (max-width: 470px) {
+  .camera-observation { padding: 9px; }
+  .camera-observation img, .camera-timelapse-screen img { max-height: none; }
+  .camera-timelapse-screen { min-height: 130px; }
+  .camera-timelapse-controls button { min-height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .camera-timelapse-screen img { animation: none; } }

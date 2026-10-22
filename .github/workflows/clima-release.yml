@@ -22,7 +22,9 @@ jobs:
       - name: Build from Git with fresh dependency stores
         run: python3 deploy/tools/release.py build --output "$RUNNER_TEMP/clima-build"
       - name: Archive and collector safety tests
-        run: python3 -m unittest discover -s tests/release -p 'test_*.py' -v
+        run: |
+          python3 -m unittest discover -s tests/release -p 'test_*.py' -v
+          node --test tests/release/camera.test.mjs
       - name: Browser test dependencies (separate pinned lockfile)
         run: |
           npm ci --prefix tests/browser --ignore-scripts --no-audit --no-fund
@@ -37,6 +39,10 @@ jobs:
           tar -xzf "$RUNNER_TEMP/baseline.tar.gz" -C "$RUNNER_TEMP/baseline"
       - name: Differential Linux API and browser tests, synthetic data only
         run: python3 tests/release/compare.py --release "$RUNNER_TEMP/clima-build/release" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/linux-results" --browser
+      - name: Weather provider fallback and unavailable cases
+        run: |
+          python3 tests/release/compare.py --release "$RUNNER_TEMP/clima-build/release" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/fallback-results" --provider-mode fallback
+          python3 tests/release/compare.py --release "$RUNNER_TEMP/clima-build/release" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/unavailable-results" --provider-mode unavailable
       - name: Upload package and evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,4 +52,6 @@ jobs:
             ${{ runner.temp }}/clima-build/clima-linux-x64.tar.gz
             ${{ runner.temp }}/clima-build/SHA256SUMS
             ${{ runner.temp }}/linux-results
+            ${{ runner.temp }}/fallback-results
+            ${{ runner.temp }}/unavailable-results
           retention-days: 14
