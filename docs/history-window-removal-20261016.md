@@ -8,7 +8,7 @@ permanecem no mesmo código.
 ## Fonte publicada e versionamento
 
 Em 16/10/2026, os dois domínios públicos serviam o frontend de
-`/opt/clima2-antaisolar/app`. O componente publicado tem funcionalidades que
+`/root/CLIMA/Clima2/app`. O componente publicado tem funcionalidades que
 a fonte atual de `main` ainda não contém. Essa fonte de `main` já não contém
 `history-window`; substituir a produção por ela removeria funcionalidades
 fora do pedido.
@@ -28,7 +28,7 @@ novas alterações.
 
 ## Publicação e verificações
 
-- Backup: `/opt/clima2-antaisolar/backups/remove-history-window-20261016T174452Z`.
+- Backup: `/root/CLIMA/Clima2/backups/remove-history-window-20261016T174452Z`.
 - Serviço original: nenhuma alteração necessária; não continha a barra.
 - Clima2: 95 arquivos existentes conferidos contra o backup; diferenças
   restritas à remoção da barra, seletor CSS e referências de cache.

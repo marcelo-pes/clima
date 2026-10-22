@@ -27,8 +27,8 @@ gráficos, filtros, dados, cálculo de extremos, banco ou coleta.
 
 Backups anteriores à publicação:
 
-- `/opt/clima-antaisolar/backups/current-banner-cache-20261016T175747Z`
-- `/opt/clima2-antaisolar/backups/current-banner-cache-20261016T175747Z`
+- `/root/CLIMA/Clima/backups/current-banner-cache-20261016T175747Z`
+- `/root/CLIMA/Clima2/backups/current-banner-cache-20261016T175747Z`
 
 Cada serviço foi reiniciado e sua rota `/sw.js` foi comparada com o arquivo
 novo. O JavaScript passou por `node --check`; `git diff --check` aprovado.

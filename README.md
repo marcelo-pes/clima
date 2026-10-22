@@ -124,3 +124,8 @@ The portable build runs Vinext directly without a host `timeout` command. The ma
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+
+## Preservação da implantação em /root/CLIMA
+
+Consulte [a captura exata e suas limitações](docs/preservacao-exata-2026-10-22.md) e [a organização do servidor](docs/organizacao-servidor-2026-10-22.md). Este branch preserva o código compilado em execução e não combina correções funcionais nem realiza implantação.

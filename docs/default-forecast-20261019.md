@@ -7,7 +7,7 @@ Alteração pontual em `app/weather-dashboard.tsx`. Como a fonte GitHub difere d
 ## Publicação
 
 - Serviços `clima-antaisolar` e `clima2-antaisolar`, ambos ativos após publicação.
-- Backups finais em `/opt/clima-antaisolar/backups/forecast-start-20261019T163414Z` e `/opt/clima2-antaisolar/backups/forecast-start-20261019T163414Z`.
+- Backups finais em `/root/CLIMA/Clima/backups/forecast-start-20261019T163414Z` e `/root/CLIMA/Clima2/backups/forecast-start-20261019T163414Z`.
 - A tentativa inicial foi interrompida por falta de memória na VPS. O aplicador foi ajustado para processar um arquivo por vez e limitar a memória do verificador JavaScript. A retomada concluiu os dois serviços e validou também os arquivos já processados.
 - Assets com sufixo `-forecast-start20261019`; mantidos os assets anteriores, também com a correção. O service worker existente revalida código na rede.
 - Conferência final em modo de simulação: zero arquivos pendentes em ambos os serviços.

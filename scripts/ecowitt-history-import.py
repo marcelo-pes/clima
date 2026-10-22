@@ -15,9 +15,9 @@ from pathlib import Path
 
 UTC = dt.timezone.utc
 BAURU = dt.timezone(dt.timedelta(hours=-3))
-APP = Path("/opt/clima-antaisolar/app")
+APP = Path("/root/CLIMA/Clima/app")
 VARS = APP / ".dev.vars"
-BACKUP = Path("/opt/clima-antaisolar/backups/ecowitt-before-full-load-20260924T231338Z.sqlite")
+BACKUP = Path("/root/CLIMA/Clima/backups/ecowitt-before-full-load-20260924T231338Z.sqlite")
 API = "https://api.ecowitt.net/api/v3"
 CALLBACKS = "outdoor,indoor,pressure,wind,solar_and_uvi,rainfall,rainfall_piezo,lightning,battery"
 UNITS = {"temp_unitid": "1", "pressure_unitid": "3", "wind_speed_unitid": "7", "rainfall_unitid": "12", "solar_irradiance_unitid": "16"}
@@ -92,7 +92,7 @@ def iter_series(node, path=()):
 
 
 def selected_db():
-    for path in glob.glob("/opt/clima-antaisolar/database/**/*.sqlite", recursive=True):
+    for path in glob.glob("/root/CLIMA/Clima/database/**/*.sqlite", recursive=True):
         try:
             connection = sqlite3.connect("file:" + path + "?mode=ro", uri=True, timeout=2)
             found = connection.execute("SELECT 1 FROM sqlite_master WHERE type=? AND name=?", ("table", "weather_history")).fetchone()

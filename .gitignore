@@ -44,3 +44,30 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+
+# Local-only Wrangler secrets
+.dev.vars*
+
+# Runtime archives and database files
+/dist.*/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+/source.tar.gz
+
+# Private production state: never commit
+.runtime.vars*
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+/backups/
+/database/
+/cache/
+/logs/
+/administration/
+*.pyc
+__pycache__/
+*.bundle
+*.tar
+*.tar.gz

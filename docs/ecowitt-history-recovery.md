@@ -19,7 +19,7 @@ The source implementation is now versioned with the corrected reader.
 ## Daily archive
 
 `scripts/ecowitt-history-sync.py` is deployed on the VPS as
-`/opt/clima-antaisolar/scripts/ecowitt_history_sync.py`. It keeps the existing
+`/root/CLIMA/Clima/scripts/ecowitt_history_sync.py`. It keeps the existing
 exclusive lock, verified backup, pending-window tracking and daily timer. It
 revisits three recent days and partial checkpoints from the last seven days.
 This prevents small execution-time variations from permanently skipping a
