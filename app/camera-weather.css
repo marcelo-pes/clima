@@ -12,12 +12,12 @@
 .camera-observation { border-top: 1px solid var(--line); background: #0c151a; margin: 0; padding: 12px; }
 .camera-observation img { object-fit: contain; background: #05090b; width: 100%; height: auto; max-height: 300px; display: block; }
 .camera-timelapse { min-width: 0; }
-.camera-timelapse-screen { background: #05090b; place-items: center; min-height: 170px; display: grid; overflow: hidden; }
+.camera-timelapse-screen { background: #05090b; place-items: center; min-height: 170px; display: grid; overflow: hidden; position: relative; }
 .camera-timelapse-screen img { object-fit: contain; width: 100%; height: auto; max-height: 340px; animation: .18s ease-out both hp10-frame-in; display: block; }
 .camera-timelapse-empty { color: #c4d0d6; text-align: center; place-items: center; min-height: 170px; padding: 20px; font-size: .82rem; display: grid; }
 .camera-timelapse-details { gap: 7px; padding-top: 10px; display: grid; }
 .camera-rain-reading { color: #b9c9d0; text-align: center; white-space: nowrap; font-size: clamp(.58rem, 2.7vw, .72rem); line-height: 1.4; }
-.camera-capture-time { color: #d2dee3; text-align: center; font-size: clamp(.62rem, 2.8vw, .76rem); line-height: 1.4; }
+.camera-capture-time { color: #f2f6f8; text-align: center; font-size: clamp(.62rem, 2.8vw, .76rem); line-height: 1.4; position: absolute; z-index: 1; bottom: 6px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 16px); padding: 3px 8px; background: #081116dc; border-radius: 4px; white-space: nowrap; }
 .camera-timelapse-controls { flex-wrap: wrap; gap: 8px; display: flex; }
 .camera-timelapse-controls button { color: #e8f2f5; min-height: 36px; font: inherit; cursor: pointer; background: #15242b; border: 1px solid #bed7e233; border-radius: 5px; justify-content: center; align-items: center; gap: 7px; padding: 7px 11px; font-size: .7rem; display: inline-flex; }
 .camera-timelapse-controls button:hover:not(:disabled) { background: #1a303a; border-color: #55c7dd; }

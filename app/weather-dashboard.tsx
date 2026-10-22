@@ -598,6 +598,7 @@ function CameraTimelapse({ camera, active }: { camera: CameraStatus | null; acti
   return <div className="camera-timelapse">
     <div className="camera-timelapse-screen">
       {imageUrl ? <img key={capturedAt ?? imageUrl} src={imageUrl} alt="Captura da câmera Ecowitt HP10." decoding="async" fetchPriority="high" /> : <div className="camera-timelapse-empty" role="status">{camera?.status === "stale" ? "Capturas antigas; aguardando nova imagem da HP10." : "Aguardando imagens da câmera HP10…"}</div>}
+      {capturedAt && <div className="camera-capture-time" role="status" data-captured-at={capturedAt}>Última imagem: {new Date(capturedAt * 1000).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" })}{camera?.status === "night" ? " · aguardando captura diurna" : ""}</div>}
     </div>
     <div className="camera-timelapse-details">
       <div className="camera-timelapse-controls">
@@ -608,7 +609,6 @@ function CameraTimelapse({ camera, active }: { camera: CameraStatus | null; acti
           Imagem mais recente
         </button>
       </div>
-      {capturedAt && <div className="camera-capture-time" role="status">Última imagem: {new Date(capturedAt * 1000).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" })}{camera?.status === "night" ? " · aguardando captura diurna" : ""}</div>}
       <div className="camera-rain-reading" role="status" aria-live="polite">{formatCameraRainReading(camera)}</div>
     </div>
   </div>;

@@ -40,9 +40,17 @@ try {
      assert(clicked,'Navigation missing: '+tab);
     }
     await page.waitForTimeout(900);
-    texts.push((await page.locator('body').innerText()).replace(/\s+/g,' ').trim());
+    let visibleText=await page.locator('body').innerText();
+    if(tab==='map'&&i===1){
+     const capture=page.locator('.camera-capture-time');
+     assert.equal(await capture.getAttribute('data-captured-at'),String(Date.parse('2026-10-22T12:00:00Z')/1000));
+     assert.match(await capture.innerText(),/Última imagem:/);
+    }
+    visibleText=visibleText.replace(/Última imagem:[^\n]*/g,'').replace(/\s+/g,' ').trim();
+    texts.push(visibleText);
     assert(!await page.locator('.history-window').count());
     layouts.push(await page.locator('body').evaluate(el=>({width:el.scrollWidth,height:el.scrollHeight})));
+    await page.locator('.camera-capture-time').evaluateAll(elements=>elements.forEach(element=>element.style.visibility='hidden'));
     const image=await page.screenshot({fullPage:true,animations:'disabled'});shots.push(PNG.sync.read(image));
     await writeFile(`${out}/${viewport.width}-${tab}-${i}.png`,image);
    }
