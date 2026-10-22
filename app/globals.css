@@ -223,7 +223,7 @@ button,a { font:inherit; }
 /* Keep long date labels and extrema inside the chart at every period. */
 .ecowitt-series, .confere-column, .chart-card { min-width:0; }
 .ecowitt-series-plot, .lightning-plot, .chart-wrap { min-width:0; }
-.section-loading,.history-window { margin:10px 0; padding:9px 12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
+.section-loading { margin:10px 0; padding:9px 12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
 .observed-statistics { margin:12px 0; padding:12px; border:1px solid var(--line); color:#b3c6cf; font-size:.75rem; }
 .observed-statistics summary { cursor:pointer; color:#dce8ed; }.observed-statistics table { width:100%; border-collapse:collapse; }.observed-statistics th,.observed-statistics td { padding:8px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }.map-badge a { color:#7ed9ed; font-size:.75rem; }.wind-facts { grid-template-columns:1fr 1fr!important; }
 @media(max-width:600px) { .wind-rose { margin-inline:auto; max-width:340px; }.wind-facts { gap:10px; }.wind-facts strong { font-size:.8rem; }.observed-statistics .history-table { overflow-x:auto; } }

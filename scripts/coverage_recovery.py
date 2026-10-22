@@ -1,6 +1,6 @@
 from checkpoint_coverage import coverage
 import pathlib,sqlite3,importlib.util,fcntl,datetime,json,shutil,hashlib,math,collections,os,time
-ROOT=pathlib.Path('/opt/clima-antaisolar'); spec=importlib.util.spec_from_file_location('sync',ROOT/'scripts/ecowitt_history_sync.py'); sync=importlib.util.module_from_spec(spec);spec.loader.exec_module(sync);m=sync.m
+ROOT=pathlib.Path('/root/CLIMA/Clima'); spec=importlib.util.spec_from_file_location('sync',ROOT/'scripts/ecowitt_history_sync.py'); sync=importlib.util.module_from_spec(spec);spec.loader.exec_module(sync);m=sync.m
 
 def valid(v):
  try:return math.isfinite(float(v))
