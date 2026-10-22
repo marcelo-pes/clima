@@ -7,6 +7,9 @@ permissions:
   contents: read
 jobs:
   linux:
+    # Draft release reference requires repository push access; no deployment step.
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:

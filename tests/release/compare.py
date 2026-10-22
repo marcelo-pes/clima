@@ -14,7 +14,7 @@ def main():
  node=Path(a.node).resolve() if a.node else (a.release/'node/bin/node').resolve()
  try:
   for name,root,port in [('baseline',a.baseline.resolve(),18988),('release',a.release.resolve(),18989)]:
-   data=out/name;db=create(data,SOURCE);env=os.environ.copy();env.update(PORT=str(port),NODE_ENV='production',CLIMA_SQLITE_PATH=str(db),CLIMA_SECRETS_FILE=str(data/'runtime.vars'),CLIMA_CAMERA_CACHE_DIR=str(data/'cache'),CLIMA_TEST_FETCH_LOG=str(data/'upstream.jsonl'))
+   data=out/name;db=create(data,SOURCE);(data/'before.sha256').write_text(hashlib.sha256(db.read_bytes()).hexdigest());env=os.environ.copy();env.update(PORT=str(port),NODE_ENV='production',CLIMA_SQLITE_PATH=str(db),CLIMA_SECRETS_FILE=str(data/'runtime.vars'),CLIMA_CAMERA_CACHE_DIR=str(data/'cache'),CLIMA_TEST_FETCH_LOG=str(data/'upstream.jsonl'))
    assert not (root/'node_modules').exists(), 'Standalone test must not have node_modules'
    env.pop('NODE_PATH',None)
    log=(data/'server.log').open('w');files.append(log)
@@ -35,13 +35,14 @@ def main():
     if path=='/healthz':
      for obj in bodies:obj.pop('releaseSha256',None)
     assert bodies[0]==bodies[1],(path,'JSON differs',bodies)
-   except json.JSONDecodeError:assert pair[0][1]==pair[1][1],path
+   except (json.JSONDecodeError, UnicodeDecodeError):assert pair[0][1]==pair[1][1],path
    results.append(dict(path=path,status=expected,equivalent=True));print('PASS',path,flush=True)
   for name in ['baseline','release']:
    logs=[json.loads(line) for line in (out/name/'server.log').read_text().splitlines() if line.startswith('{')]
    archived=[line for line in logs if line.get('sqliteOnly')]
    assert archived and all(line['ecowittRequests']==0 for line in archived)
    # Requests must never mutate the persistent SQLite file.
+   assert hashlib.sha256((out/name/'weather.sqlite').read_bytes()).hexdigest()==(out/name/'before.sha256').read_text()
    import sqlite3
    db=sqlite3.connect(out/name/'weather.sqlite');assert db.execute('pragma quick_check').fetchone()==('ok',);db.close()
   if a.browser:

@@ -114,6 +114,14 @@ def stage(archive, releases):
     manifest = validate(archive)
     releases.mkdir(parents=True, exist_ok=True)
     target = releases/('clima-'+manifest['source_commit'][:12]+'-'+sha(archive)[:12])
+    if target.exists():
+        if target.is_symlink() or not target.is_dir(): raise ValueError('Release destination is not a regular directory')
+        for row in manifest['files']:
+            p = target / row['path']
+            if p.is_symlink() or not p.is_file() or sha(p) != row['sha256']:
+                raise ValueError('Existing release differs: ' + row['path'])
+        print(target)
+        return target
     target.mkdir()  # Never overwrite an existing release, secrets or data.
     try:
         with tarfile.open(archive) as t: t.extractall(target)
