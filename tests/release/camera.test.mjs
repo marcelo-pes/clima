@@ -25,6 +25,14 @@ test('camera retains validated image on upstream failure and restores after rest
   assert.equal(service.current().refreshFailed,true);assert.equal(service.current().status,'fresh');
   const restored=createCameraService(options);await restored.start();await restored.refresh();
   assert.equal(restored.current().restoredFromCache,true);assert.equal(restored.current().capturedAt,(clock-60_000)/1000);
-  clock+=21*60_000;assert.equal(restored.current().status,'stale');assert.equal(restored.current().imageUrl,null);
+  clock+=21*60_000;assert.equal(restored.current().status,'stale');assert.equal(restored.current().imageUrl,'/api/camera/image');
+  let imageResponse=await restored.handle('/api/camera/image',new Request('http://localhost/api/camera/image'));
+  assert.equal(imageResponse.status,200);assert.equal(imageResponse.headers.get('x-capture-time'),String(Date.parse('2026-10-22T12:00:00Z')/1000));
+  clock=Date.parse('2026-10-23T02:00:00Z');
+  assert.equal(restored.current().status,'night');assert.equal(restored.current().imageUrl,'/api/camera/image');
+  const nightSequence=await restored.handle('/api/camera/sequence',new Request('http://localhost/api/camera/sequence'));
+  assert.equal((await nightSequence.json()).status,'night');
+  imageResponse=await restored.handle('/api/camera/image',new Request('http://localhost/api/camera/image'));
+  assert.equal(imageResponse.status,200);assert.equal(imageResponse.headers.get('x-capture-time'),String(Date.parse('2026-10-22T12:00:00Z')/1000));
  }finally{await rm(cache,{recursive:true,force:true});}
 });

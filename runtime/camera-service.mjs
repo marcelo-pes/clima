@@ -7,6 +7,40 @@ const PHOTO_MAX_AGE_MS = 20 * 60_000; // Four server polling intervals.
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const MAX_HISTORY_IMAGES = 24;
 const ALLOWED_IMAGE_HOSTS = new Set(["osswww.ecowitt.net", "oss.ecowitt.net"]);
+const STATION_LATITUDE = -22.315;
+const STATION_LONGITUDE = -49.061;
+const DAYLIGHT_BUFFER_MS = 30 * 60_000;
+
+function solarEvent(date, latitude, longitude, sunrise) {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(date);
+  const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+  const utcDate = new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day), 12));
+  const day = Math.floor((utcDate.getTime() - Date.UTC(utcDate.getUTCFullYear(), 0, 0)) / 86_400_000);
+  const longitudeHour = longitude / 15;
+  const t = day + ((sunrise ? 6 : 18) - longitudeHour) / 24;
+  const meanAnomaly = .9856 * t - 3.289;
+  let sunLongitude = meanAnomaly + 1.916 * Math.sin(meanAnomaly * Math.PI / 180) + .02 * Math.sin(2 * meanAnomaly * Math.PI / 180) + 282.634;
+  sunLongitude = (sunLongitude + 360) % 360;
+  let ascension = Math.atan(.91764 * Math.tan(sunLongitude * Math.PI / 180)) * 180 / Math.PI;
+  ascension = (ascension + 360) % 360;
+  ascension += Math.floor(sunLongitude / 90) * 90 - Math.floor(ascension / 90) * 90;
+  ascension /= 15;
+  const sinDeclination = .39782 * Math.sin(sunLongitude * Math.PI / 180);
+  const cosDeclination = Math.cos(Math.asin(sinDeclination));
+  const cosHour = (Math.cos(90.833 * Math.PI / 180) - sinDeclination * Math.sin(latitude * Math.PI / 180)) / (cosDeclination * Math.cos(latitude * Math.PI / 180));
+  if (cosHour > 1 || cosHour < -1) return null;
+  let hourAngle = sunrise ? 360 - Math.acos(cosHour) * 180 / Math.PI : Math.acos(cosHour) * 180 / Math.PI;
+  hourAngle /= 15;
+  const utcHour = (hourAngle + ascension - .06571 * t - 6.622 - longitudeHour + 24) % 24;
+  return Date.UTC(utcDate.getUTCFullYear(), utcDate.getUTCMonth(), utcDate.getUTCDate(), 0, Math.round(utcHour * 60));
+}
+
+function isDaylight(timestamp) {
+  const date = new Date(timestamp);
+  const sunrise = solarEvent(date, STATION_LATITUDE, STATION_LONGITUDE, true);
+  const sunset = solarEvent(date, STATION_LATITUDE, STATION_LONGITUDE, false);
+  return sunrise !== null && sunset !== null && timestamp >= sunrise - DAYLIGHT_BUFFER_MS && timestamp <= sunset + DAYLIGHT_BUFFER_MS;
+}
 
 function findObjects(value, predicate, found = []) {
   if (Array.isArray(value)) value.forEach((item) => findObjects(item, predicate, found));
@@ -218,7 +252,8 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     if (!snapshot || !image) return { status: "unavailable", capturedAt: null, sensorTime: snapshot?.sensorTime ?? null, sensorFresh: false, rainRate: snapshot?.rainRate ?? null, rainUnit: snapshot?.rainUnit ?? "mm/hr", rainConfirmed: false, visualCondition: null, analysisStatus: "classifier_not_configured", imageUrl: null };
     const ageMs = now() - snapshot.capturedAt * 1000;
     const fresh = ageMs >= -60_000 && ageMs <= PHOTO_MAX_AGE_MS;
-    return { ...snapshot, status: fresh ? "fresh" : "stale", ageMs: Math.max(0, ageMs), imageUrl: fresh ? "/api/camera/image" : null };
+    const night = !isDaylight(now());
+    return { ...snapshot, status: fresh ? "fresh" : night ? "night" : "stale", ageMs: Math.max(0, ageMs), imageUrl: "/api/camera/image" };
   }
 
   function sequence() {
@@ -227,7 +262,7 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     const last = frames.at(-1) ?? null;
     const ageMs = last ? now() - last.capturedAt * 1000 : null;
     return {
-      status: !last ? "unavailable" : ageMs >= -60_000 && ageMs <= PHOTO_MAX_AGE_MS ? "fresh" : "stale",
+      status: !last ? "unavailable" : ageMs >= -60_000 && ageMs <= PHOTO_MAX_AGE_MS ? "fresh" : isDaylight(now()) ? "stale" : "night",
       count: frames.length,
       limit: MAX_HISTORY_IMAGES,
       capturedAt: last?.capturedAt ?? null,
@@ -261,7 +296,7 @@ export function createCameraService({ env, fetchImpl = fetch, now = () => Date.n
     }
     if (path === "/api/camera/image") {
       const metadata = current();
-      if (metadata.status !== "fresh" || !image) return new Response("Camera image unavailable or stale", { status: 503, headers: { "Cache-Control": "no-store" } });
+      if (metadata.status === "unavailable" || !image) return new Response("Camera image unavailable", { status: 503, headers: { "Cache-Control": "no-store" } });
       const etag = `"hp10-${image.capturedAt}"`;
       if (request.headers.get("if-none-match") === etag) return new Response(null, { status: 304, headers: { ETag: etag, "Cache-Control": "public, max-age=60" } });
       return new Response(image.bytes, { headers: { "Content-Type": "image/jpeg", "Content-Length": String(image.bytes.length), "Cache-Control": "public, max-age=60", ETag: etag, "X-Capture-Time": String(image.capturedAt) } });

@@ -48,9 +48,9 @@ type Reading = { value: number | string; unit: string; time: number | null } | n
 type Point = { time: number; value: number };
 type Series = { unit: string; points: Point[] };
 type LightningTotal = { value: number | null; start: string; end: string; recordedDays: number; expectedDays: number };
-type CameraStatus = { status: "fresh" | "stale" | "unavailable"; capturedAt: number | null; sensorTime: number | null; sensorFresh: boolean; rainRate: number | null; rainUnit: string; rainConfirmed: boolean; visualCondition: string | null; analysisStatus: string; imageUrl: string | null };
+type CameraStatus = { status: "fresh" | "stale" | "night" | "unavailable"; capturedAt: number | null; sensorTime: number | null; sensorFresh: boolean; rainRate: number | null; rainUnit: string; rainConfirmed: boolean; visualCondition: string | null; analysisStatus: string; imageUrl: string | null };
 type CameraFrame = { capturedAt: number; imageUrl: string; ageMs: number };
-type CameraSequence = { status: "fresh" | "stale" | "unavailable"; count: number; limit: number; capturedAt: number | null; oldestCapturedAt: number | null; intervalMs: number; checkedAt: number | null; refreshFailed: boolean; images: CameraFrame[] };
+type CameraSequence = { status: "fresh" | "stale" | "night" | "unavailable"; count: number; limit: number; capturedAt: number | null; oldestCapturedAt: number | null; intervalMs: number; checkedAt: number | null; refreshFailed: boolean; images: CameraFrame[] };
 export type WeatherData = {
   station: { name: string; location: string; deviceId: string; gateway: string; latitude: number; longitude: number };
   currentWeather?: CurrentWeather | null;
@@ -608,6 +608,7 @@ function CameraTimelapse({ camera, active }: { camera: CameraStatus | null; acti
           Imagem mais recente
         </button>
       </div>
+      {capturedAt && <div className="camera-capture-time" role="status">Última imagem: {new Date(capturedAt * 1000).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" })}{camera?.status === "night" ? " · aguardando captura diurna" : ""}</div>}
       <div className="camera-rain-reading" role="status" aria-live="polite">{formatCameraRainReading(camera)}</div>
     </div>
   </div>;

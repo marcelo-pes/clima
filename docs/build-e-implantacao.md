@@ -93,6 +93,12 @@ Plataforma de produção consultada sem alterações em 22/10/2026: Ubuntu 24.04
 
 O teste de instalação com um pacote real verifica que o staging pode ser repetido sem sobrescrever a release, que banco/configuração não mudam, que `current` não é alterado por padrão e que um candidato com SHA incorreto não pode ser promovido. O validador e o instalador funcionam também como ferramentas administrativas independentes: somente o comando de build importa o instalador de dependências.
 
+## Validação da câmera HP10
+
+A HP10 publica capturas durante o período diurno. Fora do intervalo solar local de Bauru (calculado para `America/Sao_Paulo`, coordenadas da estação e margem de 30 minutos no nascer/pôr do sol), a ausência de uma captura nova é estado `night`, não falha nem imagem vencida. A API mantém a última captura e seu timestamp, e `/api/camera/image` continua servindo o JPEG validado. A sequência mantém suas imagens e horários. Durante o dia, uma captura que ultrapasse 20 minutos continua `stale`; isso só indica que ainda não chegou captura diurna recente e não remove a última imagem.
+
+Uma verificação funcional da captura exige comparar o timestamp antes e depois de uma consulta realizada durante o dia. Testes noturnos devem verificar preservação e exibição da última imagem, sem concluir falha de captura. Falha de acesso à API Ecowitt continua registrada separadamente como `refreshFailed`.
+
 ## Resultado registrado em 22/10/2026
 
 - Instalação limpa no Mac com pnpm 11.25.0 e lockfile sem alterações: 629 pacotes baixados, zero reutilizados; cache/store próprios.
