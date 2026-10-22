@@ -1,0 +1,66 @@
+name: Validate Mac artifact on isolated Linux
+on:
+  workflow_dispatch:
+    inputs:
+      asset_id:
+        description: GitHub release asset ID of the Mac-built tar (no secrets/data)
+        required: true
+        type: string
+      sha256:
+        description: Expected SHA-256 from the Mac
+        required: true
+        type: string
+permissions:
+  contents: write # Allows reading the private draft test reference; no deployment.
+jobs:
+  mac-package-on-linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.3
+      - name: Fetch and validate the exact Mac package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ASSET_ID: ${{ inputs.asset_id }}
+          PACKAGE_SHA256: ${{ inputs.sha256 }}
+        run: |
+          [[ "$ASSET_ID" =~ ^[0-9]+$ ]]
+          [[ "$PACKAGE_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          curl --fail --silent --show-error --location -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/octet-stream' "https://api.github.com/repos/marcelo-pes/clima/releases/assets/$ASSET_ID" -o "$RUNNER_TEMP/mac.tar.gz"
+          echo "$PACKAGE_SHA256  $RUNNER_TEMP/mac.tar.gz" | sha256sum -c -
+          python3 deploy/tools/release.py validate "$RUNNER_TEMP/mac.tar.gz"
+          python3 deploy/tools/release.py stage "$RUNNER_TEMP/mac.tar.gz" --releases "$RUNNER_TEMP/releases" > "$RUNNER_TEMP/release-path"
+          release=$(cat "$RUNNER_TEMP/release-path")
+          echo "MAC_RELEASE=$release" >> "$GITHUB_ENV"
+          ldd "$release/node/bin/node"
+          test ! -e "$release/node_modules"
+      - name: Published reference, without production data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --silent --show-error --location -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/octet-stream' https://api.github.com/repos/marcelo-pes/clima/releases/assets/667035699 -o "$RUNNER_TEMP/baseline.tar.gz"
+          echo 'fafbbb7b3597c3f1a91e193ad887f6c0c0a282712f10f2274aebbcaac80c723b  REFERENCE_FILE' | sed "s@REFERENCE_FILE@$RUNNER_TEMP/baseline.tar.gz@" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/baseline"
+          tar -xzf "$RUNNER_TEMP/baseline.tar.gz" -C "$RUNNER_TEMP/baseline"
+      - name: Pinned browser test tools
+        run: |
+          npm ci --prefix tests/browser --ignore-scripts --no-audit --no-fund
+          tests/browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Exact Mac artifact, Linux runtime, no node_modules
+        run: |
+          python3 tests/release/compare.py --release "$MAC_RELEASE" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/mac-linux-results" --browser
+          python3 tests/release/compare.py --release "$MAC_RELEASE" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/mac-fallback-results" --provider-mode fallback
+          python3 tests/release/compare.py --release "$MAC_RELEASE" --baseline "$RUNNER_TEMP/baseline" --output "$RUNNER_TEMP/mac-unavailable-results" --provider-mode unavailable
+      - name: Save synthetic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-package-linux-evidence
+          path: |
+            ${{ runner.temp }}/mac-linux-results
+            ${{ runner.temp }}/mac-fallback-results
+            ${{ runner.temp }}/mac-unavailable-results
+          retention-days: 14

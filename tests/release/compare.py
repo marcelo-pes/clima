@@ -19,7 +19,11 @@ def main():
    assert not (root/'node_modules').exists(), 'Standalone test must not have node_modules'
    env.pop('NODE_PATH',None)
    log=(data/'server.log').open('w');files.append(log)
-   process=subprocess.Popen([str(node),'--import',str(SOURCE/'tests/release/preload.mjs'),'--import','./runtime/register-loader.mjs','./runtime/server.mjs'],cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT);processes.append(process)
+   command=[str(node),'--import',str(SOURCE/'tests/release/preload.mjs'),'--import','./runtime/register-loader.mjs','./runtime/server.mjs']
+   if name=='release' and not a.node:
+    env['NODE_OPTIONS']='--import '+(SOURCE/'tests/release/preload.mjs').as_uri()
+    command=[str(root/'start.sh')]
+   process=subprocess.Popen(command,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT);processes.append(process)
    for _ in range(100):
     if process.poll() is not None:raise RuntimeError((data/'server.log').read_text())
     try:

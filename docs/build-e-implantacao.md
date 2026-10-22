@@ -29,7 +29,7 @@ O pacote inclui:
 
 Não inclui node_modules Darwin/Linux, compilador, npm, pnpm, fontes TypeScript, banco, backups, imagens da câmera ou segredos. O teste isolado deve demonstrar que o JS compilado executa sem node_modules: não assumir isso apenas por inspeção.
 
-Sistema de destino: Linux x86_64 com glibc >=2.28; para a coleta, Python 3.9+ com sqlite3, fcntl e biblioteca padrão, além de CA certificates e timezone America/Sao_Paulo. Systemd/Nginx são componentes do sistema para agendamento/proxy, não bibliotecas do pacote. Não há instalação npm em produção. O Node vem no pacote e não depende de `/root/CLIMA/Clima/runtime` da instalação antiga.
+Sistema de destino: Linux x86_64 com glibc >=2.28; para a coleta, Python 3.9+ com sqlite3, fcntl e biblioteca padrão, além de CA certificates e timezone America/Sao_Paulo. Systemd/Nginx são componentes do sistema para agendamento/proxy, não bibliotecas do pacote. No Ubuntu, os requisitos de sistema podem ser preparados com `apt-get install python3 ca-certificates tzdata libstdc++6 libgcc-s1` (ação administrativa futura, não executada em produção nesta validação). O glibc é fornecido pelo sistema. Não há instalação npm em produção. O Node vem no pacote e não depende de `/root/CLIMA/Clima/runtime` da instalação antiga.
 
 ## Configuração e dados separados
 
@@ -82,3 +82,11 @@ A referência rascunho é uma dependência dos testes diferenciais históricos, 
 O runtime antigo não servia os arquivos `/_next/static` sozinho; dependia de alias do Nginx. O runtime novo serve os ativos do próprio pacote, incluindo imagens e HEAD, sem aquele alias. A referência do teste usa um proxy estático que reproduz o Nginx anterior; somente o pacote novo é exigido a executar diretamente.
 
 A comparação visual identificou regras de câmera/timelapse e horário da condição presentes na folha pública, mas ausentes do fonte. Elas foram incorporadas em `app/camera-weather.css`. Também faltavam no Git 12 imagens WebP referenciadas por `lib/weather-condition.ts`; foram obtidas por GET dos URLs públicos do site, verificadas como WebP e versionadas em `public/`. O arquivo `public-weather-assets.json` registra origem e hashes. Nenhum fonte foi recuperado de backups.
+
+## Validar no Linux o pacote gerado no Mac
+
+O workflow manual `Validate Mac artifact on isolated Linux` recebe o ID de um asset do repositório e seu SHA-256. Ele baixa e verifica **o mesmo tar do Mac**, valida o manifesto, instala-o em pasta nova de um runner Ubuntu 24.04 e inicia a release pelo `start.sh` com seu Node Linux. Não recompila a aplicação nem instala node_modules nela. Os testes de navegador têm dependências próprias, separadas do pacote. O workflow não recebe credenciais de produção nem executa comandos SSH.
+
+Para uma futura validação, guardar o tar sem dados/segredos como asset de release do GitHub e acionar o workflow informando ID e checksum locais. A referência compilada antiga é usada apenas para comparação diferencial; sua existência não é necessária para compilar, instalar ou executar uma release nova.
+
+Plataforma de produção consultada sem alterações em 22/10/2026: Ubuntu 24.04.4 LTS, x86_64, glibc 2.39, Python 3.12.3. A execução isolada usa a mesma família Ubuntu 24.04 e o Node Linux oficial fixado.
