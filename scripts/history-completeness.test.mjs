@@ -52,6 +52,17 @@ const key = station + '|30min|outdoor|0|5400';
 assert.equal((await reader.readWeatherHistory(key,new Date(0),new Date(5400000))).incomplete,false,'A gap between checkpoints with no sample slot is not missing data');
 memory.exec("UPDATE ecowitt_history_import_chunks SET payload='{bad json' WHERE start_ts=3595");
 assert.equal((await reader.readWeatherHistory(key,new Date(0),new Date(5400000))).incomplete,true,'Malformed checkpoint must stay incomplete');
+memory.prepare('UPDATE ecowitt_history_import_chunks SET payload=? WHERE start_ts=3595').run(JSON.stringify(dataset([3600,5400])));
+memory.exec("UPDATE ecowitt_history_import_chunks SET status='partial'");
+memory.prepare('INSERT INTO weather_history VALUES(?,?,?,?)').run(key,JSON.stringify(dataset([0])),Date.now(),Date.now()+3600000);
+const reconciled = await reader.readWeatherHistory(key,new Date(0),new Date(5400000),Infinity,true);
+assert.equal(reconciled.incomplete,false,'Partial checkpoint labels must not discard valid complete sensor grids');
+assert.deepEqual(Object.keys(reconciled.data.outdoor.temperature.list),['0','1800','3600','5400'],'Recovered checkpoints take precedence over a legacy cache missing real observations');
+const missingValue = dataset([1800]);
+missingValue.outdoor.temperature.list[1800] = '-';
+insert.run(digest,'30min',1,1800,'partial',JSON.stringify(missingValue));
+const preserved = await reader.readWeatherHistory(key,new Date(0),new Date(5400000),Infinity,true);
+assert.equal(preserved.data.outdoor.temperature.list[1800],'0','A missing value in another checkpoint must not overwrite a valid zero');
 memory.close();
 
 if (process.argv[2]) {

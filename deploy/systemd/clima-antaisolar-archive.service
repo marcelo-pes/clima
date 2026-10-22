@@ -1,0 +1,14 @@
+[Unit]
+Description=Archive Ecowitt readings to the local SQLite database
+After=clima-antaisolar.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=clima
+Group=clima
+WorkingDirectory=/root/CLIMA/Clima/app
+EnvironmentFile=/root/CLIMA/Clima/app/.dev.vars
+ExecStart=/usr/bin/python3 /root/CLIMA/Clima/scripts/archive_local.py
+TimeoutStartSec=15min
+NoNewPrivileges=true

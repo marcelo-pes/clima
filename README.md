@@ -124,3 +124,8 @@ The portable build runs Vinext directly without a host `timeout` command. The ma
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+
+## Reconciliação isolada de 22/10/2026
+
+Este branch combina correções remotas com os intervalos e a consulta histórica restrita ao banco do servidor. Veja [as diferenças e a validação](docs/reconciliacao-historico-2026-10-22.md). Os snapshots exatos de Clima e Clima2 ficam em branches próprios. Nenhuma aplicação foi reimplantada.

@@ -21,9 +21,9 @@ BUNDLE = re.compile(
     r'\(0,[A-Za-z_$][\w$]*\.jsxs\)\(`div`,\{className:`history-window`,children:\['
     r'[^\n]*?Marcadores de mínimo e máximo: todos os registros disponíveis no período\.`\]\}\),'
 )
-ROOTS = [(Path('/opt/clima-antaisolar'), 'clima-antaisolar', 8787),
-         (Path('/opt/clima2-antaisolar'), 'clima2-antaisolar', 8788)]
-NODE = '/opt/clima-antaisolar/runtime/node-v22/bin/node'
+ROOTS = [(Path('/root/CLIMA/Clima'), 'clima-antaisolar', 8787),
+         (Path('/root/CLIMA/Clima2'), 'clima2-antaisolar', 8788)]
+NODE = '/root/CLIMA/Clima/runtime/node-v22/bin/node'
 SUFFIX = '-no-history-window20261016'
 
 

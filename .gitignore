@@ -44,3 +44,24 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+
+# Local-only Wrangler secrets
+.dev.vars*
+
+# Runtime archives and database files
+/dist.*/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+/source.tar.gz
+
+.runtime.vars*
+/backups/
+/database/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+*.db
+*.sqlite3
+*.bundle
+*.tar.gz

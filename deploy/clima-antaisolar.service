@@ -1,0 +1,22 @@
+[Unit]
+Description=Clima AntaiSolar local application with SQLite D1
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=clima
+Group=clima
+WorkingDirectory=/root/CLIMA/Clima/app
+Environment=PATH=/root/CLIMA/Clima/runtime/node-v22/bin:/usr/local/bin:/usr/bin:/bin
+Environment=NODE_ENV=production
+Environment=WRANGLER_SEND_METRICS=false
+Environment=WRANGLER_WRITE_LOGS=false
+ExecStart=/root/CLIMA/Clima/runtime/node-v22/bin/node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to /root/CLIMA/Clima/database/wrangler --ip 127.0.0.1 --port 8787 --inspector-port 0 --env-file /root/CLIMA/Clima/app/.dev.vars
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

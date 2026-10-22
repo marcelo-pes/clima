@@ -1,0 +1,85 @@
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import ts from 'typescript';
+const root = new URL('../', import.meta.url);
+const dir = await mkdtemp(join(tmpdir(), 'clima-db-test-'));
+try {
+  await writeFile(join(dir, 'env.mjs'), 'export const env = {};');
+  const files = {
+    'route.mjs': 'app/api/weather/route.ts',
+    'store.mjs': 'lib/weather-history-store.ts',
+    'window.mjs': 'lib/weather-history-window.ts',
+    'lightning.mjs': 'lib/lightning-totals.ts',
+  };
+  for (const [name, path] of Object.entries(files)) {
+    let source = await readFile(new URL(path, root), 'utf8');
+    source = source.replaceAll('"cloudflare:workers"', '"./env.mjs"')
+      .replaceAll('"@/lib/weather-history-store"', '"./store.mjs"')
+      .replaceAll('"@/lib/weather-history-window"', '"./window.mjs"')
+      .replaceAll('"@/lib/lightning-totals"', '"./lightning.mjs"');
+    await writeFile(join(dir, name), ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText);
+  }
+  const { env } = await import(join(dir, 'env.mjs'));
+  const { GET } = await import(join(dir, 'route.mjs'));
+  let requests = 0;
+  globalThis.fetch = async () => { requests++; throw new Error('External request forbidden by test'); };
+  let gap = false;
+  env.DB = { prepare(sql) {
+    let bindings;
+    return { bind(...args) { bindings = args; return this; },
+      async first() { return null; },
+      async all() {
+        if (sql === 'SELECT key FROM weather_history') return { results: [{ key: 'saved-station|5min|sensors|0|1' }] };
+        const [, cycle, , start, end] = bindings;
+        const step = ({"5min":300,"30min":1800,"4hour":14400,"1day":86400})[cycle];
+        const paths = ['outdoor/temperature','outdoor/humidity','indoor/temperature','indoor/humidity','pressure/relative','wind/wind_speed','wind/wind_gust','wind/wind_direction','solar_and_uvi/solar','solar_and_uvi/uvi','rainfall_piezo/daily'];
+        const payload = {};
+        for (const path of paths) {
+          const [group, metric] = path.split('/');
+          payload[group] ??= {};
+          const list = {};
+          for (let time = Math.ceil(start / step) * step; time <= end; time += step) list[time] = '0';
+          if (gap && path === 'outdoor/temperature') delete list[Object.keys(list)[1]];
+          payload[group][metric] = {unit:'test',list};
+        }
+        return { results: [{ start_ts:start, end_ts:end, payload: JSON.stringify(payload) }] };
+      } };
+  } };
+  for (const range of ['7d', '30d', '1y']) {
+    for (const view of ['history', 'current', 'solar']) {
+      const response = await GET(new Request(`http://localhost/api/weather?range=${range}&date=2026-09-24&view=${view}`));
+      assert.equal(response.status, 200, `${range}/${view}`);
+      const data = await response.json();
+      assert.equal(data.historyIncomplete, false);
+      if (view !== 'solar') assert.equal(data.historySource, 'database');
+      assert.equal(requests, 0, 'Archived views must not call Ecowitt, even without credentials or configured MAC');
+    }
+  }
+  gap = true;
+  const partial = await GET(new Request('http://localhost/api/weather?range=7d&date=2026-09-24&view=history'));
+  assert.equal((await partial.json()).historyIncomplete, true, 'A coverage gap must be reported');
+  gap = false;
+  const closed = await GET(new Request('http://localhost/api/weather?range=24h&date=2026-09-24&view=current'));
+  assert.equal(closed.status, 200);
+  assert.equal(requests, 0);
+  env.ECOWITT_MAC = 'saved-station'; env.ECOWITT_APPLICATION_KEY = 'test'; env.ECOWITT_API_KEY = 'test';
+  globalThis.fetch = async () => { requests++; return Response.json({ code: 0, data: {} }); };
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
+  await GET(new Request(`http://localhost/api/weather?range=24h&date=${today}&view=history`));
+  assert.ok(requests > 0, 'Today must continue to request current API data');
+  requests = 0;
+  await GET(new Request(`http://localhost/api/weather?range=24h&date=${today}&view=current`));
+  assert.ok(requests <= 2, 'Current dashboard must request only live readings and current daily history; aggregates come from SQLite');
+  requests = 0;
+  await GET(new Request('http://localhost/api/weather?range=7d&date=2026-09-24&view=history&source=api'));
+  assert.ok(requests > 0, 'Explicit /confere API comparison must remain available');
+  requests = 0;
+  globalThis.fetch = async () => { requests++; throw new Error('Forbidden fallback'); };
+  env.DB = undefined;
+  const unavailable = await GET(new Request('http://localhost/api/weather?range=7d&date=2026-09-24&view=history'));
+  assert.equal(unavailable.status, 503, 'An unavailable database must fail closed');
+  assert.equal(requests, 0, 'Database failure must never trigger an external fallback');
+  console.log('PASS: complete sensor grids, genuine gaps, archived SQLite-only views, live and explicit API modes, and fail-closed database errors');
+} finally { await rm(dir, { recursive: true, force: true }); }

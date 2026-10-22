@@ -15,9 +15,9 @@ import tarfile
 import time
 import urllib.request
 
-ROOTS = [(Path('/opt/clima-antaisolar'), 'clima-antaisolar', 8787),
-         (Path('/opt/clima2-antaisolar'), 'clima2-antaisolar', 8788)]
-NODE = '/opt/clima-antaisolar/runtime/node-v22/bin/node'
+ROOTS = [(Path('/root/CLIMA/Clima'), 'clima-antaisolar', 8787),
+         (Path('/root/CLIMA/Clima2'), 'clima2-antaisolar', 8788)]
+NODE = '/root/CLIMA/Clima/runtime/node-v22/bin/node'
 SUFFIX = '-forecast-start20261019'
 SOURCE_OLD = '    const hash = window.location.hash.slice(1) as TabKey;\n    if (["current", "evolution", "wind", "map", "satellite", "profile"].includes(hash)) setTab(hash);'
 SOURCE_NEW = '    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#map`);'

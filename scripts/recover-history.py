@@ -45,7 +45,7 @@ def main():
     assert tested['integrity_check'] == 'ok'
     for key in ['lost_observations','changed_valid_observations','lost_cycle_indexes','duplicates','lost_checkpoints','missing_original_payload_members','changed_original_valid_payload_members']:
         assert tested[key] == 0, 'PRESERVATION_TEST_FAILED'
-    root = Path('/opt/clima-antaisolar')
+    root = Path('/root/CLIMA/Clima')
     spec = importlib.util.spec_from_file_location('importer', Path(__file__).with_name('ecowitt-history-import.py'))
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)

@@ -1,6 +1,7 @@
 import { env } from "cloudflare:workers";
 import { lightningTotals } from "@/lib/lightning-totals";
 import { hasHistoryCoverageGaps, readWeatherHistory, saveWeatherHistory, trimWeatherHistory } from "@/lib/weather-history-store";
+import { completedSevenDayWindow, historyCacheKey, saoPauloMidnight, shiftCalendarDate } from "@/lib/weather-history-window";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,13 @@ const RANGES: Record<RangeKey, { days: number; cycle: string; maxPoints: number 
   "30d": { days: 30, cycle: "4hour", maxPoints: 180 },
   "1y": { days: 365, cycle: "1day", maxPoints: 370 },
 };
+
+class HistoryNotImportedError extends Error {
+  constructor() {
+    super("Histórico ainda não importado para o banco");
+    this.name = "HistoryNotImportedError";
+  }
+}
 
 function asObject(value: unknown): JsonObject {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as JsonObject) : {};
@@ -147,11 +155,11 @@ function mergeHistory(target: JsonObject, source: JsonObject): JsonObject {
 async function fetchHistory(auth: Record<string, string>, mac: string, start: Date, end: Date, range: typeof RANGES[RangeKey], callbacks: string, units: Record<string, string>, source: "auto" | "database" | "api" | "refresh" = "auto") {
   // A day/range/callback combination has a stable key across visitors. Recent
   // ranges refresh after five minutes; closed historical ranges remain cached.
-  const key = [mac, range.cycle, callbacks, Math.floor(start.getTime() / 1000), Math.floor(end.getTime() / 1000)].join("|");
+  const key = historyCacheKey(mac, range.cycle, callbacks, start, end);
   const recent = end.getTime() >= Date.now() - 2 * 86400000;
-  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, start, end, source === "database" || !recent ? Infinity : 300000);
+  const stored = source === "api" || source === "refresh" ? null : await readWeatherHistory(key, start, end, source === "database" || !recent ? Infinity : 300000, source === "database");
   if (stored) return stored;
-  if (source === "database") throw new Error("Histórico ainda não importado para o banco");
+  if (source === "database") throw new HistoryNotImportedError();
   // Ecowitt limits each 5-minute query to one day, 30-minute queries to a
   // week, 4-hour queries to a month, and daily queries to a year.
   const chunkMs = range.days === 365 ? 365 * 86400000 : range.days === 30 ? 7 * 86400000 : range.days === 7 ? 2 * 86400000 : 86400000;
@@ -266,35 +274,19 @@ function localWeatherInsight(data: unknown, rain: (name: string) => string[][]):
 
 type LightningPoint = { time: number; value: number };
 let lightningCache: { mac: string; day: string; expires: number; points: LightningPoint[] } | null = null;
-let lightningPending: { key: string; promise: Promise<LightningPoint[]> } | null = null;
-async function annualLightningHistory(auth: Record<string, string>, mac: string, now: Date): Promise<LightningPoint[]> {
+async function annualLightningHistory(mac: string, now: Date): Promise<LightningPoint[]> {
   const day = now.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
   if (lightningCache?.mac === mac && lightningCache.day === day && lightningCache.expires > Date.now()) return lightningCache.points;
-  const midnight = new Date(`${day}T00:00:00-03:00`);
-  const periodStart = new Date(midnight.getTime() - 364 * 86400000);
-  const key = `${mac}:${day}`;
-  if (lightningPending?.key === key) return lightningPending.promise;
-  const promise = (async () => {
-    for (let attempt = 0; attempt < 3; attempt++) {
-      // Ecowitt limits request frequency. Query after the other history calls,
-      // with a pause and retries instead of converting an API rejection to {}.
-      await new Promise((resolve) => setTimeout(resolve, (attempt + 1) * 1200));
-      try {
-        const result = await ecowitt("/device/history", { ...auth, mac, start_date: `${new Date(periodStart.getTime() - 86400000).toISOString().slice(0, 10)} 00:00:00`, end_date: `${day} 00:00:00`, cycle_type: "1day", call_back: "lightning" });
-        // Ecowitt's daily buckets use UTC midnight as a date label, not
-        // the time of a strike. Preserve that calendar date in Bauru.
-        const points = series(result.data, [["lightning", "count"]], Infinity).points.map((point) => ({
-          ...point, time: Date.parse(`${new Date(point.time).toISOString().slice(0, 10)}T00:00:00-03:00`),
-        }));
-        if (!points.length) throw new Error("Histórico anual de raios indisponível");
-        lightningCache = { mac, day, expires: Date.now() + 300000, points };
-        return points;
-      } catch { /* Retry the same complete history, never substitute a shorter period. */ }
-    }
-    throw new Error("Histórico anual de raios indisponível");
-  })();
-  lightningPending = { key, promise };
-  try { return await promise; } finally { if (lightningPending?.promise === promise) lightningPending = null; }
+  const start = new Date(saoPauloMidnight(day).getTime() - 365 * 86400000);
+  const key = historyCacheKey(mac, "1day", "lightning", start, now);
+  const stored = await readWeatherHistory(key, start, now);
+  if (!stored) throw new HistoryNotImportedError();
+  const points = series(stored.data, [["lightning", "count"]], Infinity).points.map((point) => ({
+    ...point, time: Date.parse(`${new Date(point.time).toISOString().slice(0, 10)}T00:00:00-03:00`),
+  }));
+  if (!points.length) throw new HistoryNotImportedError();
+  lightningCache = { mac, day, expires: Date.now() + 300000, points };
+  return points;
 }
 
 export async function GET(request: Request) {
@@ -305,20 +297,31 @@ export async function GET(request: Request) {
     const view = requestUrl.searchParams.get("view");
     const extrasOnly = view === "extras";
     const summaryOnly = view === "summary" || extrasOnly;
-    const historyOnly = view === "history";
-    const fullDashboard = !summaryOnly && !historyOnly;
+
     const solarOnly = requestUrl.searchParams.get("view") === "solar";
     const rangeKey: RangeKey = requestedRange && requestedRange in RANGES ? requestedRange : "24h";
     const range = RANGES[rangeKey];
     const requestedSource = requestUrl.searchParams.get("source");
-    const historySource = requestedSource === "database" || requestedSource === "api" ? requestedSource : "auto";
+    const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+    // Only an explicit comparison request may query the API for archived periods.
+    const archivedPeriod = rangeKey !== "24h" || Boolean(requestedDate && requestedDate < today);
+    const databaseOnly = requestedSource === "database" || (archivedPeriod && !summaryOnly && requestedSource !== "api");
+    const historySource = databaseOnly ? "database" : requestedSource === "api" ? "api" : "auto";
+    const historyOnly = view === "history" || databaseOnly;
+    const fullDashboard = !summaryOnly && !historyOnly;
     const applicationKey = env.ECOWITT_APPLICATION_KEY;
     const apiKey = env.ECOWITT_API_KEY;
-    if (!applicationKey || !apiKey) throw new Error("Credenciais ausentes");
+    if (!databaseOnly && (!applicationKey || !apiKey)) throw new Error("Credenciais ausentes");
 
-    const auth = { application_key: applicationKey, api_key: apiKey };
+    const auth = { application_key: applicationKey ?? "", api_key: apiKey ?? "" };
     let mac = env.ECOWITT_MAC;
-    if (!mac) {
+    if (!mac && databaseOnly) {
+      // Resolve the saved station locally; no device/list request is needed.
+      const rows = await env.DB?.prepare("SELECT key FROM weather_history").all<{ key: string }>();
+      const stations = [...new Set((rows?.results ?? []).map((row) => row.key.split("|")[0]))];
+      if (stations.length === 1) mac = stations[0];
+    }
+    if (!mac && !databaseOnly) {
       const deviceList = await ecowitt("/device/list", auth);
       const devices = findDevices(deviceList.data);
       const selected = devices.find((device) => String(device.id) === String(env.ECOWITT_DEVICE_ID ?? "251816")) ?? devices[0];
@@ -334,12 +337,15 @@ export async function GET(request: Request) {
       solar_irradiance_unitid: "16",
     };
     const actualNow = new Date();
-    const selectedStart = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? new Date(`${requestedDate}T00:00:00-03:00`) : null;
+    const validRequestedDate = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? requestedDate : null;
+    const referenceDate = validRequestedDate ?? actualNow.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+    const selectedStart = validRequestedDate ? saoPauloMidnight(validRequestedDate) : null;
     const isCurrentObservation = !requestedDate || requestedDate === actualNow.toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
-    const now = selectedStart ? new Date(Math.min(selectedStart.getTime() + 24 * 60 * 60 * 1000 - 1000, actualNow.getTime())) : actualNow;
-    const start = selectedStart
+    const weeklyWindow = rangeKey === "7d" ? completedSevenDayWindow(referenceDate) : null;
+    const now = weeklyWindow?.end ?? (selectedStart ? new Date(Math.min(saoPauloMidnight(shiftCalendarDate(validRequestedDate!, 1)).getTime() - 1000, actualNow.getTime())) : actualNow);
+    const start = weeklyWindow?.start ?? (selectedStart
       ? new Date(selectedStart.getTime() - (range.days - 1) * 24 * 60 * 60 * 1000)
-      : new Date(now.getTime() - range.days * 24 * 60 * 60 * 1000);
+      : new Date(now.getTime() - range.days * 24 * 60 * 60 * 1000));
     // The generation dashboard needs only raw irradiance. Keep this lean path
     // independent from the station's live readings, forecasts and lightning.
     if (solarOnly) {
@@ -350,7 +356,9 @@ export async function GET(request: Request) {
     const [live, history] = await Promise.all([
       extrasOnly
         ? ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }).catch(() => ({ data: {}, time: undefined }))
-        : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
+        : historyOnly
+          ? Promise.resolve({ data: {}, time: undefined })
+          : ecowitt("/device/real_time", { ...auth, mac, call_back: "all", ...units }),
       summaryOnly ? Promise.resolve({ data: {}, incomplete: false, updatedAt: 0, origin: "api" as const }) : fetchHistory(auth, mac, start, now, range, callbacks, units, historySource),
     ]);
 
@@ -380,13 +388,19 @@ export async function GET(request: Request) {
         const payload = await response.json() as { current?: Record<string, number>; daily?: Record<string, string[]> };
         return { temperature: Number(payload.current?.temperature_2m), apparentTemperature: Number(payload.current?.apparent_temperature), weatherCode: Number(payload.current?.weather_code), sunrise: payload.daily?.sunrise?.[0] ?? "", sunset: payload.daily?.sunset?.[0] ?? "", source: "Open-Meteo" };
       }).catch(() => null) : Promise.resolve(null);
-    const uvWindowsPromise = fullDashboard ? Promise.all([{ days: 1, cycle: "5min" }, { days: 30, cycle: "30min" }, { days: 365, cycle: "4hour" }].map((window) =>
-      ecowitt("/device/history", { ...auth, mac, start_date: utcDate(new Date(now.getTime() - window.days * 86400000)), end_date: utcDate(now), cycle_type: window.cycle, call_back: "solar_and_uvi", ...units }).catch(() => ({ data: {} })),
-    )) : Promise.resolve([{ data: {} }, { data: {} }, { data: {} }]);
+    // The current cards use archived aggregates without opening extra API windows.
+    const uvWindowsPromise = fullDashboard ? Promise.all([
+      Promise.resolve({ data: history.data }),
+      ...[{ days: 30, cycle: "30min" }, { days: 365, cycle: "4hour" }].map(async (window) => {
+        const start = new Date(now.getTime() - window.days * 86400000);
+        const stored = await readWeatherHistory(historyCacheKey(mac!, window.cycle, "solar_and_uvi", start, now), start, now);
+        return { data: stored?.data ?? {} };
+      }),
+    ]) : Promise.resolve([{ data: {} }, { data: {} }, { data: {} }]);
     const [climatempoForecast, openMeteoForecast, uvWindows] = await Promise.all([climatempoForecastPromise, openMeteoForecastPromise, uvWindowsPromise]);
     // A failed annual query must never silently fall back to a single day/month.
     // Keep the full annual series separate from the optional UV/chart requests.
-    const lightningHistory = fullDashboard ? await annualLightningHistory(auth, mac, actualNow).catch(() => null) : null;
+    const lightningHistory = fullDashboard ? await annualLightningHistory(mac, actualNow).catch(() => null) : null;
     const lightningCounts = lightningHistory
       ? lightningTotals(lightningHistory, cleanMetric(metric(data, [["lightning", "count"]])), actualNow)
       : null;
@@ -496,7 +510,17 @@ export async function GET(request: Request) {
       },
     });
     return response;
-  } catch {
+  } catch (error) {
+    if (error instanceof HistoryNotImportedError) {
+      return Response.json({ code: "HISTORY_NOT_IMPORTED", error: error.message }, { status: 404, headers: { "Cache-Control": "no-store" } });
+    }
+    const requestUrl = new URL(request.url);
+    console.error("Falha em /api/weather", {
+      range: requestUrl.searchParams.get("range"),
+      source: requestUrl.searchParams.get("source"),
+      errorName: error instanceof Error ? error.name : "UnknownError",
+      message: error instanceof Error ? error.message : String(error),
+    });
     return Response.json({ error: "Os dados da estação estão temporariamente indisponíveis." }, { status: 503, headers: { "Cache-Control": "no-store" } });
   }
 }
