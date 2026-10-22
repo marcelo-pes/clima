@@ -47,3 +47,5 @@ Executada em cópia local, com fixtures sintéticas e banco SQLite em memória, 
 - `npm run build`: build Vinext/Vite aprovado para todas as rotas.
 
 Todos os testes acima passaram. A futura implantação desta combinação exige decisão própria; esta operação apenas preservou, preparou e validou branches.
+
+Os testes funcionais de completude, consulta exclusiva ao banco e intervalos foram também repetidos com sucesso no Node **v22.23.3** do servidor, em `/root/CLIMA/_organizacao/validacao-historico-20261022`, usando apenas fixtures sintéticas. A checagem TypeScript adicional nessa pasta foi encerrada por pressão de memória; não é contabilizada como aprovada no servidor. A tipagem e o build aprovados acima foram executados localmente com Node v24.21.0. Os serviços conservaram os mesmos PIDs, sem reinícios; não houve instalação ou ativação da combinação.
